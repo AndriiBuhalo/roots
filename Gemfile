@@ -32,7 +32,7 @@ gem 'awesome_print'
 
 gem 'bootstrap-sass', '~> 3.4.1'
 
-gem 'slim'
+gem 'slim-rails'
 
 gem 'devise'
 
