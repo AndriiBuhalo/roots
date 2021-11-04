@@ -17,45 +17,28 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-
-    # respond_to do |format|
        if @post.save
-         flash[:notice] = "Post was successfully created"
+         flash[:notice] = t('.controller.create')
          redirect_to @post
-    #     format.html { redirect_to @post, notice: "Post was successfully created." }
-    #     format.json { render :show, status: :created, location: @post }
        else
          render 'new'
-    #     format.html { render :new, status: :unprocessable_entity }
-    #     format.json { render json: @post.errors, status: :unprocessable_entity }
        end
-    # end
   end
 
   def update
-    # respond_to do |format|
        if @post.update(post_params)
-         flash[:notice] = "Post was successfully updated"
+         flash[:notice] = t('.controller.update')
          redirect_to @post
-    #     format.html { redirect_to @post, notice: "Post was successfully updated." }
-    #     format.json { render :show, status: :ok, location: @post }
        else
          render 'edit'
-    #     format.html { render :edit, status: :unprocessable_entity }
-    #     format.json { render json: @post.errors, status: :unprocessable_entity }
        end
-    # end
   end
 
 
   def destroy
     @post.destroy
-    flash[:notice] = "Post was successfully deleted"
+    flash[:notice] = t('.controller.destroy')
     redirect_to posts_url
-    # respond_to do |format|
-      # format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
-      # format.json { head :no_content }
-    # end
   end
 
   private

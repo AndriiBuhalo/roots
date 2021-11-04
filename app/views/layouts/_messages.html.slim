@@ -1,12 +1,12 @@
--if notice
+- if notice
   .alert.alert-success
     button.close aria-label="Close" data-dismiss="alert"  type="button"
       span aria-hidden="true" &times;
-    =notice
+    = notice
 
--if alert
+- if alert
   .alert.alert-danger
     button.close aria-label="Close" data-dismiss="alert" type="button"
       span aria-hidden="true" &times;
-    =alert
+    = alert
 
