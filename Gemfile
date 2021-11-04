@@ -34,6 +34,8 @@ gem 'bootstrap-sass', '~> 3.4.1'
 
 gem 'slim-rails'
 
+gem 'simple_form'
+
 gem 'rails-i18n', '~> 6.0.0'
 
 gem 'devise'

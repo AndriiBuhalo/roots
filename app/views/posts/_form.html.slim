@@ -1,4 +1,4 @@
-= form_for @post do |f|
+= simple_form_for(@post) do |f|
   - if @post.errors.any?
     #error_explanation
       h2 = t('global.forms.messages.errors', count: @post.errors.count)
@@ -7,9 +7,8 @@
           li = message
 
   .field.form-group
-    = f.label :title
-    = f.text_field :title, class:"form-control", placeholder: t('posts.form.title_placeholder'), type:"text"
+    = f.input :title, input_html: { class: 'form-control' }, error: false, placeholder: t('posts.form.title_placeholder')
   .field
-    = f.label :content
-    = f.text_area :content, class:"form-control", placeholder: t('posts.form.content_placeholder'), type:"text"
+    = f.input :content, input_html: { class:"form-control" }, error: false, placeholder: t('posts.form.content_placeholder')
   .actions = f.submit t('global.forms.submit'), class:"btn btn-primary"
+
