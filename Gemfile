@@ -25,24 +25,11 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-<<<<<<< HEAD
-
-=======
-gem 'bootsnap', '>= 1.4.4', require: false
->>>>>>> 54aa5a3e857412cbbffb3658f3132a4e03dcca87
 gem 'awesome_print'
 gem 'bootstrap-sass', '~> 3.4.1'
-<<<<<<< HEAD
-
 gem 'slim-rails'
-
 gem 'simple_form'
-
 gem 'rails-i18n', '~> 6.0.0'
-
-=======
-gem 'slim'
->>>>>>> 54aa5a3e857412cbbffb3658f3132a4e03dcca87
 gem 'devise'
 
 group :development, :test do
