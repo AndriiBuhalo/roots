@@ -1,0 +1,19 @@
+h1 = t('.main_title')
+table
+  thead
+    tr
+      th = t('.title')
+      th = t('.content')
+      th
+      th
+      th
+  tbody
+    - @posts.each do |post|
+      tr
+        td = post.title
+        td = post.content
+        td = link_to t('.show'), post
+        td = link_to t('.edit'), edit_post_path(post)
+        td = link_to t('.destroy'), post, data: { confirm: t('.confirmation') }, method: :delete
+br
+= link_to t('.new_post'), new_post_path
