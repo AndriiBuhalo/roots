@@ -17,23 +17,22 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-       if @post.save
-         flash[:notice] = t('.controller.create')
-         redirect_to @post
-       else
-         render 'new'
-       end
+     if @post.save
+       flash[:notice] = t('.controller.create')
+       redirect_to @post
+     else
+       render 'new'
+     end
   end
 
   def update
-       if @post.update(post_params)
-         flash[:notice] = t('.controller.update')
-         redirect_to @post
-       else
-         render 'edit'
-       end
+     if @post.update(post_params)
+       flash[:notice] = t('.controller.update')
+       redirect_to @post
+     else
+       render 'edit'
+     end
   end
-
 
   def destroy
     @post.destroy
