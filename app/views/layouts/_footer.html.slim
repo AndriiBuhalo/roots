@@ -1,9 +1,7 @@
   footer.footer
-    small
-      | IF-133 Ruby Developers Team
+    small = t('global.footer.string') 
     nav
       ul
-        li= link_to "About",   welcome_pages_about_path
-        li= link_to "Contacts", welcome_pages_contacts_path
-        li
-          a href="https://www.softserveinc.com/uk-ua" target="_blank" SoftServe
+        li= link_to t('.about'),   welcome_pages_about_path
+        li= link_to t('.contacts'), welcome_pages_contacts_path
+        li= link_to t('.softserve'), "https://www.softserveinc.com/uk-ua", target: '_blank'

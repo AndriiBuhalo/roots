@@ -1,7 +1,7 @@
 header.navbar.navbar-fixed-top.navbar-inverse
     .container
-      = link_to "The Roots", welcome_pages_home_path, id: "logo"
+      = link_to t('global.header.logo'), welcome_pages_home_path, id: "logo"
       ul.navbar-nav.nav.navbar-right
-        li= link_to "Home",   welcome_pages_home_path
-        li= link_to "Sign Up",   '#'
-        li= link_to "Log In", '#'
+        li= link_to t('.home'),   welcome_pages_home_path
+        li= link_to t('.sign_up'),   '#'
+        li= link_to t('.log_in'), '#'

@@ -10,9 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap
  *= require_tree .
  *= require_self
- *= require bootstrap
  */
 
 
@@ -20,7 +20,7 @@
 @import "bootstrap";
 
 body {
-  padding-top: 0px;
+  padding-top: 100px;
 }
 
 section {
@@ -72,11 +72,6 @@ p {
     display: block;
 }
 
-.navbar{
-  margin-bottom: 20px;
-  display: block;
-}
-
 .navbar-nav{
   flex-direction: row; 
 }
@@ -90,14 +85,6 @@ p {
   letter-spacing: -0.5px;
   padding-top: 9px;
   font-weight: 700;
-  transition-duration: 0.5s;
-}
-
-#logo:hover {
-  color: #fff;
-  text-decoration: none;
-  
-  transition-duration: 0.5s;
 }
 
 .navbar-nav li{
@@ -108,12 +95,11 @@ p {
 /* welcome page*/
 
 .btn-lg{
-  background-color: #3e403e;
+  background-color: #4d4d4d;
   border: 2px solid #000;
   color: #fff;
   font-weight: 700;
   transition-duration: 0.5s;
-
 }
 
 .btn-lg:hover {
