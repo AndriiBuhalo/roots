@@ -20,7 +20,7 @@
 @import "bootstrap";
 
 body {
-  padding-top: 100px;
+  padding-top: 0px;
 }
 
 section {
@@ -77,9 +77,8 @@ p {
   display: block;
 }
 
-.navbar-right{
-    display: flex;
-    flex-direction: row;
+.navbar-nav{
+  flex-direction: row; 
 }
 
 #logo {
@@ -126,6 +125,20 @@ p {
 
 }
 
+.welcome-root{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  img{
+    width: 500px;
+    align-self: flex-start;
+  }
+}
+
+.center.jumbotron {
+  margin-bottom: 0;
+}
+
 /* footer */
 
 footer {
@@ -165,16 +178,3 @@ footer ul li {
   font-weight: 700;
 }
 
-.welcome-root{
-  display: flex;
-  justify-content: center;
-  position: relative;
-  img{
-    width: 500px;
-    align-self: flex-start;
-  }
-}
-
-.center.jumbotron {
-  margin-bottom: 0;
-}
