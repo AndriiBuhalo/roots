@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  # get 'home/index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'welcome_pages/home'
+  get 'welcome_pages/about'
+  get 'welcome_pages/contacts'
+
+  root :to => "welcome_pages#home"
+  
   devise_for :users
-  root to: "home#index"
 
 end
