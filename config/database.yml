@@ -25,13 +25,13 @@ default: &default
 development:
   <<: *default
   database: roots_development
-  url: <%= ENV["DATABASE_URL_DEV"]%>
+  url: <%= ENV["DATABASE_URL"]%>
 
   
 test:
   <<: *default
   database: roots_test
-  url: <%= ENV["DATABASE_URL_TEST"]%>
+  url: <%= ENV["DATABASE_URL"]%>
 
 
 production:
@@ -39,4 +39,4 @@ production:
   database: roots_production
   username: roots
   password: <%= ENV['ROOTS_DATABASE_PASSWORD'] %>
-  url: <%= ENV["DATABASE_URL_PRODUCTION"]%>
+  url: <%= ENV["DATABASE_URL"]%>
