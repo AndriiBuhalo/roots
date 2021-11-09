@@ -1,21 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe "posts/edit", type: :view do
+
+  let(:valid_post) { create(:post) }
+
   before(:each) do
-    @post = assign(:post, Post.create!(
-      title: "MyString",
-      content: "MyText"
-    ))
+    assign(:post, valid_post)
   end
 
   it "renders the edit post form" do
     render
-
-    assert_select "form[action=?][method=?]", post_path(@post), "post" do
-
-      assert_select "input[name=?]", "post[title]"
-
-      assert_select "textarea[name=?]", "post[content]"
+    expect(rendered).to include t('posts.edit.title')
+    expect(rendered).to render_template(partial: 'posts/_form')
+    expect(rendered).to have_link t('posts.edit.show'), href: "/posts/#{valid_post.id}"
+    expect(rendered).to have_link t('posts.edit.back'), href: posts_path
     end
-  end
 end
+
