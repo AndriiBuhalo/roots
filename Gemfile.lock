@@ -290,7 +290,7 @@ DEPENDENCIES
   rspec-rails (~> 5.0.0)
   sass-rails (>= 6)
   selenium-webdriver
-  shoulda-matchers
+  shoulda-matchers (~> 5.0)
   slim-rails
   spring
   turbolinks (~> 5)
