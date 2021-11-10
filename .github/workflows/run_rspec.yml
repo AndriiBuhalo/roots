@@ -1,33 +1,28 @@
-name: Rails tests
+name: RSpec
 on:
   pull_request:
     types: [ assigned, opened, synchronize, reopened ]
 jobs:
   test:
-    name: RSpec
-    runs-on: ubuntu-latest
     services:
-      postgres:
+      db:
         image: postgres:latest
-        ports:
-        - 5432:5432
+        ports: ['5432:5432']
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1.1.3
+        with:
+          ruby-version: 2.7.4
+      - name: Build and run tests
         env:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-ruby@v1.1.3
-        with:
-          ruby-version: 2.7.4
-      - name: Install postgres client
-        run: sudo apt-get install libpq-dev
-      - name: Install dependencies
         run: |
+          sudo apt-get -yqq install libpq-dev
           gem install bundler
-          bundler install
-      - name: Create database
-        run: |
+          bundle install
           bundler exec rails db:create
           bundler exec rails db:migrate
-      - name: Run tests
-        run: bundler exec rspec
+          bundle exec rspec
