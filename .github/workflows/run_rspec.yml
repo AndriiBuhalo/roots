@@ -23,6 +23,5 @@ jobs:
           sudo apt-get -yqq install libpq-dev
           gem install bundler
           bundle install
-          bundler exec rails db:create
-          bundler exec rails db:migrate
+          bundler exec rails db:prepare
           bundle exec rspec
