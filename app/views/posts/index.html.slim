@@ -12,9 +12,9 @@ table
       tr
         td = post.title
         td = post.content
-        td = link_to t('.show'), post
-        td = link_to t('.edit'), edit_post_path(post)
-        td = link_to t('.destroy'), post, data: { confirm: t('.confirmation') }, method: :delete
+        td =< link_to t('.show'), post
+        td =< link_to t('.edit'), edit_post_path(post)
+        td =< link_to t('.destroy'), post, data: { confirm: t('.confirmation') }, method: :delete
 br
 = link_to t('.new_post'), new_post_path
 
