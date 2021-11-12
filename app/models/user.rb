@@ -8,8 +8,7 @@ class User < ApplicationRecord
   validates :username, presence: false
 
   def gravatar
-    email_address = params[:email].downcase
-    hash = Digest::MD5.hexdigest(email_address)
-    image_src = "https://www.gravatar.com/avatar/#{hash}"
+    hash = Digest::MD5.hexdigest(email.downcase)
+    image_src = "https://www.gravatar.com/avatar/#{hash}?s=48"
   end
 end
