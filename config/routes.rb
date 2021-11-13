@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :album
   resources :attachment
   resources :image_info
-  get 'findByTag' => 'image#findByTag'
+  get 'findByTag' => 'attachment#findByTag'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

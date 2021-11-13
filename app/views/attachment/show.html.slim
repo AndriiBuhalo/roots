@@ -3,12 +3,12 @@ main
     = render(partial: 'left_col')
     .group_images.show_image
       .btn_album
-        = link_to t('common.delete'), deleteImage_path(:id => @image.id, :index => params[:index]), class: 'btn_delete', method: :PATCH, data: { confirm: t('common.confirmation') }
-        = link_to t('common.edit'), edit_image_info_path(@image.id, :filename => @attachment.identifier), class: "btn_edit"
+        = link_to t('common.delete'), attachment_path(@attachment.id), class: 'btn_delete', method: :delete, data: { confirm: t('common.confirmation') }
+        = link_to t('common.edit'), edit_image_info_path(@attachment.id), class: "btn_edit"
         = link_to t('common.back'), :back, class: 'back'
-      h3 = @attachment.identifier
+      h3 = @attachment.file.identifier
       .image_block
-        = image_tag @attachment.url, class: 'large', alt: "#{@attachment.identifier}"
+        = image_tag @attachment.file.url, class: 'large', alt: "#{@attachment.file.identifier}" if @attachment.file?
     aside.right_col
       .filters_block
         hr/
@@ -34,10 +34,11 @@ main
             = t('.date')
             span
               = @imageInfo.date_accuracy
+              '
               = @imageInfo.image_date.strftime("%Y-%m-%d") if !@imageInfo.image_date.blank?
           p.info
             = t('.albums')
-            - @image.albums.each do |album|
+            /- @attachment.attachable.each do |album|
               .albumsBlock
                 = link_to album_path(album.id) do
                   span = album.name
@@ -45,28 +46,31 @@ main
           p.info
             = t('.photo link')
             span.showLink = t('show link')
-            input type="text" value="#{image_path(@image.id, :index => params[:index])}" style="display: none;" readonly="readonly" /
+            input type="text" value="#{attachment_path(@attachment.id)}" style="display: none;" readonly="readonly" /
         hr/
         .filt-capt
           h4.title
             = t('.information')
           p.info
             = t('.type')
-            span = @attachment.content_type
+            span = @attachment.file.content_type
           p.info
             = t('.width')
             span
-              = @attachment.width
+              = @attachment.file.width
+              '
               = t('.px')
           p.info
             = t('.height')
             span
-              = @attachment.height
+              = @attachment.file.height
+              '
               = t('.px')
           p.info
             = t('.size')
             span
-              = (@attachment.size.to_f / 1024).ceil(1)
+              = (@attachment.file.size.to_f / 1024).ceil(1)
+              '
               = t('.kb')
           p.info
             = t('.downloaded')

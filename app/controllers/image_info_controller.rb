@@ -1,13 +1,13 @@
 class ImageInfoController < ApplicationController
 
   def edit
-    @imageInfo = ImageInfo.find_by_filename(params[:filename])
+    @imageInfo = ImageInfo.find_by_attachment_id(params[:id])
   end
 
   def update
     @imageInfo = ImageInfo.find(params[:id])
     if @imageInfo.update(image_params)
-      @image = Image.find(@imageInfo.image_id)
+      @image = Attachment.find(@imageInfo.attachment_id)
       redirect_to @image, success: t('image_info.controller.update')
     else
       redirect_to edit_image_info_path, danger: t('image_info.controller.update error')
