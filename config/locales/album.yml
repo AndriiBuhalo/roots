@@ -5,7 +5,7 @@ en:
     edit: 'Edit'
     delete: 'Delete'
     confirmation: 'Are you sure'
-  image:
+  attachment:
     add pictures: 'Add pictures'
     all albums: 'All albums'
     create album: 'Create Album'

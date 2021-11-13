@@ -1,11 +1,11 @@
 #main
   .frmAdd
-    = form_for @image, url: { action: "create" }, html: { multipart: true } do |f|
+    = form_for @attachment, url: { action: "create" }, html: { multipart: true } do |f|
       h3= t('image.add pictures')
       = f.hidden_field :id, value: params[:albumId]
       .form-attachments
         .form-attachments__wrapper
-          = f.file_field :attachments, multiple: true, class:'attachments', :required => true
+          = f.file_field :file, class:'attachments', :required => true
           .form-attachments__items
             .form-attachments__description
               span.title= t('.click to add')
