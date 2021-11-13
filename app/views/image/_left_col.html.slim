@@ -1,0 +1,24 @@
+aside.left_col
+  .filters_block
+    hr/
+    .filt-capt
+      = link_to t('image.all media'), image_index_path
+      span.filter-block__cross
+        i.fas.fa-plus aria-hidden="true" = link_to '+', new_image_path
+    hr/
+    .filt-capt
+      = t('image.persons')
+      span.filter-block__cross
+        i.fas.fa-plus aria-hidden="true"
+    hr/
+    .filt-capt.albums
+      = t('image.all albums')
+      span.filter-block__cross
+        i.fas.fa-plus aria-hidden="true" = link_to '+', new_album_path
+      - @albums.each do |album|
+        .showAlbums
+          hr/
+          = link_to album_path(album.id) do
+            label = album.name
+          hr/
+    hr/

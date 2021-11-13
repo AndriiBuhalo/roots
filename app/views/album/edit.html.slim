@@ -1,0 +1,8 @@
+#main
+  .frmAdd
+    = form_for @album, html: { multipart: true } do |f|
+      h3= t('.edit album')
+      = f.text_field :name, class: 'form-control', placeholder: t('album.name'), :required => true
+      = f.text_field :description, class: 'form-control', placeholder: t('album.description')
+      = f.submit t('common.edit'), class: 'btnAddAction'
+      = link_to t('common.back'), :back, class: 'back'

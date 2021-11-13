@@ -1,0 +1,14 @@
+main
+  .row
+    = render(partial: 'left_col')
+    .group_images
+      - @image.each do |image|
+        - if @findIdByTag.include? image.id
+          .delimeter
+            span = image.created_at.strftime("%Y-%m-%d - %H:%M")
+            = link_to t('common.delete'), image_path(image.id), class: "btn_delete", method: :delete, data: { confirm: t('common.confirmation') }
+          - image.attachments.each_with_index do |attachment, index|
+            - if @findFilenameByTag.include? attachment.identifier
+              .image_block
+                = link_to image_path(image.id, :index => index) do
+                  = image_tag attachment.url, class: 'thumb', alt: "#{attachment.identifier}"
