@@ -1,0 +1,78 @@
+en:
+  common:
+    back: 'Back'
+    add: 'Add'
+    edit: 'Edit'
+    delete: 'Delete'
+    confirmation: 'Are you sure'
+  image:
+    add pictures: 'Add pictures'
+    all albums: 'All albums'
+    create album: 'Create Album'
+    all media: 'All media elements:'
+    persons: 'Persons'
+    index:
+      image: 'Image'
+      attachments: 'Attachments'
+      search: 'Search'
+    new:
+      click to add: 'Click to add more pictures'
+      add picture: 'Add picture'
+    show:
+      in this photo: 'In this photo'
+      no people: 'There are no tagged people in the photo'
+      information: 'Information'
+      keywords: 'Keywords:'
+      notes: 'Notes:'
+      place: 'Place:'
+      date: 'Date:'
+      albums: 'Albums:'
+      photo link: 'Link to this photo:'
+      type: 'Type:'
+      width: 'Width:'
+      height: 'Height:'
+      size: 'Size:'
+      downloaded: 'Downloaded:'
+      copied: 'Copied'
+      px: 'px'
+      kb: 'kb'
+    edit:
+      edit image: 'Edit image'
+    controller:
+      create: 'Pictures successfully added!'
+      create error: 'No pictures added'
+      update: 'Pictures successfully changed!'
+      update error: 'The pictures have not changed!'
+      destroy: 'Pictures successfully deleted!'
+  album:
+    add picture: 'Add picture'
+    all albums: 'All albums'
+    create album: 'Create Album'
+    name: 'Album name'
+    description: 'Album description'
+    show:
+      add picture: 'Add picture'
+      image: 'Image'
+      attachments: 'Attachments'
+      delete pictures: 'Delete pictures'
+      nothing found: 'Nothing found!'
+    new:
+      add album: 'Add album'
+    edit:
+      edit album: 'Edit album'
+    controller:
+      create: 'Album successfully added!'
+      create error: 'Please try again!'
+      update: 'Album successfully modified!'
+      update error: 'The album has not changed'
+      destroy: 'Album deleted successfully!'
+  image_info:
+    edit:
+      edit image: 'Edit image'
+      keywords: 'Keywords'
+      notes: 'Notes'
+      place: 'Place'
+      date: 'Date'
+    controller:
+      update: 'Information changed successfully!'
+      update error: 'An error occurred while changing the information'
