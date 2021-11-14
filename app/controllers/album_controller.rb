@@ -4,7 +4,6 @@ class AlbumController < ApplicationController
   def show
     @albums = Album.all
     @images = @album.attachments.all.reverse
-    @imagesCount = @images.length
   end
 
   def new
@@ -30,7 +29,7 @@ class AlbumController < ApplicationController
 
   def destroy
     @album.destroy
-    redirect_to image_index_path, success: t('album.controller.destroy')
+    redirect_to attachment_index_path, success: t('album.controller.destroy')
   end
 
   private def set_post

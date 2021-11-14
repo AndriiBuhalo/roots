@@ -2,7 +2,8 @@
   .frmAdd
     = form_for @attachment, url: { action: "create" }, html: { multipart: true } do |f|
       h3= t('image.add pictures')
-      = f.hidden_field :id, value: params[:albumId]
+      = f.hidden_field :albumId, value: params[:albumId]
+      = f.text_field :title, class: 'form-control', placeholder: t('.title')
       .form-attachments
         .form-attachments__wrapper
           = f.file_field :file, class:'attachments', :required => true

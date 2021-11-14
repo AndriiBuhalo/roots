@@ -16,6 +16,7 @@ en:
       attachments: 'Attachments'
       search: 'Search'
     new:
+      title: 'Title'
       click to add: 'Click to add more pictures'
       add picture: 'Add picture'
     show:

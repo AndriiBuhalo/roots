@@ -17,7 +17,7 @@ class AttachmentController < ApplicationController
 
   def show
     @albums = Album.all
-    @imageInfo = ImageInfo.find_by_attachment_id(@attachment.id)
+    @imageInfo = ImageInfo.find_by_attachment_id(@attachment)
   end
 
   def new
@@ -26,31 +26,31 @@ class AttachmentController < ApplicationController
 
   def create
     if @attachment = Attachment.create(file_params)
-      if params[:attachment][:id].present?
-        @album = Album.find(params[:attachment][:id])
+      if params[:attachment][:albumId].present?
+        @album = Album.find(params[:attachment][:albumId])
         @album.attachments << @attachment
       end
       unless ImageInfo.exists?(attachment_id: @attachment.id)
          ImageInfo.create(attachment_id: @attachment.id)
       end
-      redirect_to attachment_index_path, success: t('image.controller.create')
+      redirect_to attachment_index_path, success: t('attachment.controller.create')
     else
-      redirect_to new_attachment_path, danger: t('image.controller.create error')
+      redirect_to new_attachment_path, danger: t('attachment.controller.create error')
     end
   end
 
   def update
     if @attachment.update(file_params)
-      redirect_to attachment_index_path, success: t('image.controller.update')
+      redirect_to attachment_index_path, success: t('attachment.controller.update')
     else
-      flash.now[:danger] = t('image.controller.update error')
+      flash.now[:danger] = t('attachment.controller.update error')
       render :edit
     end
   end
 
   def destroy
     @attachment.destroy
-    redirect_to attachment_index_path, success: t('image.controller.destroy')
+    redirect_to attachment_index_path, success: t('attachment.controller.destroy')
   end
 
   private def set_post
@@ -58,6 +58,6 @@ class AttachmentController < ApplicationController
   end
 
   def file_params
-    params.require(:attachment).permit(:file)
+    params.require(:attachment).permit(:file, :title)
   end
 end
