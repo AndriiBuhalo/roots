@@ -4,23 +4,23 @@ main
       .filters_block
         hr/
         .filt-capt
-          = link_to t('image.all media'), image_index_path
+          = link_to t('attachment.all media'), attachment_index_path
           span.filter-block__cross
-            i.fas.fa-plus aria-hidden="true" = link_to '+', new_image_path
+            i.fas.fa-plus aria-hidden="true" = link_to '+', new_attachment_path
         hr/
         .filt-capt
-          = t('image.persons')
+          = t('attachment.persons')
           span.filter-block__cross
             i.fas.fa-plus aria-hidden="true"
         hr/
         .filt-capt.albums
-          = t('image.all albums')
+          = t('attachment.all albums')
           span.filter-block__cross
             i.fas.fa-plus aria-hidden="true" = link_to '+', new_album_path
           - @albums.each do |album|
             .showAlbums
               hr/
-              = link_to album_path(album.id) do
+              = link_to album_path(album) do
                 label = album.name
               hr/
         hr/
@@ -30,21 +30,16 @@ main
         span
           |  (#{@imagesCount})
       .btn_album
-        = link_to t('common.delete'), album_path(@album.id), class: 'btn_delete', method: :delete, data: { confirm: t('common.confirmation') }
-        = link_to t('common.edit'), edit_album_path(@album.id), class: "btn_edit"
+        = link_to t('common.delete'), album_path(@album), class: 'btn_delete', method: :delete, data: { confirm: t('common.confirmation') }
+        = link_to t('common.edit'), edit_album_path(@album), class: "btn_edit"
         = link_to t('common.back'), :back, class: 'back'
-        = link_to t('album.add picture'), new_image_path(:albumId => @album.id), class: "btn_edit"
+        = link_to t('album.add picture'), new_attachment_path(:albumId => @album), class: "btn_edit"
       - if @images.empty?
         .search-no-find
           img src="/assets/search-no-find.png" /
         h1.search-no-find = t('.nothing found')
       - else
         - @images.each do |image|
-          .delimeter
-            span = image.created_at.strftime("%Y-%m-%d - %H:%M")
-            = link_to t('.delete pictures'), image_path(image.id), class: "btn_delete", method: :delete, data: { confirm: t('common.confirmation') }
-          - image.attachments.each_with_index do |attachment, index|
-            .image_block
-              = link_to image_path(image.id, :index => index) do
-                = image_tag attachment.url, class: 'thumb', alt: "#{attachment.identifier}"
-              input type="checkbox" name="chooseImage" value="#{index}"
+          .image_block
+            = link_to attachment_path(image) do
+              = image_tag image.file.url, class: 'thumb', alt: "#{image.file.identifier}" if image.file?

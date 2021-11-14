@@ -8,5 +8,5 @@ main
     .group_images
       - @attachments.each do |image|
         .image_block
-          = link_to attachment_path(image.id) do
+          = link_to attachment_path(image) do
             = image_tag image.file.url, class: 'thumb', alt: "#{image.file.identifier}" if image.file?

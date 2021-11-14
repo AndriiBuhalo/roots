@@ -3,11 +3,8 @@ class AlbumController < ApplicationController
 
   def show
     @albums = Album.all
-    @images = @album.images.all.reverse
-    @imagesCount = 0
-    @images.each do |image|
-      @imagesCount += image.attachments.count
-    end
+    @images = @album.attachments.all.reverse
+    @imagesCount = @images.length
   end
 
   def new
