@@ -11,7 +11,7 @@ RSpec.feature "Users", type: :feature do
     fill_in "Password confirmation", with: "test-password"
     click_button "Sign up"
     expect(current_path).to eq "/"
-    find_all('current_user.email')
+    expect(page).to have_content("tester@example.tld")
   end
 
   it 'User sign in' do
@@ -25,7 +25,7 @@ RSpec.feature "Users", type: :feature do
     click_button "Log in"
 
     expect(current_path).to eq "/"
-    find_all('current_user.email')
+    expect(page).to have_content("someone@example.tld")
     expect(page).to have_link('Log Out')
 
     click_on "Log Out"
