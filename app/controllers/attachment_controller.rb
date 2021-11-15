@@ -30,9 +30,7 @@ class AttachmentController < ApplicationController
         @album = Album.find(params[:attachment][:albumId])
         @album.attachments << @attachment
       end
-      unless ImageInfo.exists?(attachment_id: @attachment.id)
-         ImageInfo.create(attachment_id: @attachment.id)
-      end
+      ImageInfo.create(attachment_id: @attachment.id)
       redirect_to attachment_index_path, success: t('attachment.controller.create')
     else
       redirect_to new_attachment_path, danger: t('attachment.controller.create error')
