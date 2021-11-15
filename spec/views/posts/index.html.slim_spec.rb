@@ -4,12 +4,7 @@ RSpec.describe "posts/index", type: :view do
   let(:valid_post) { create(:post) }
 
   before(:each) do
-    assign(:posts, [
-      Post.create!(
-        title: "12wkndwkdw",
-        content: "knklqxkwqnxklqnwxkwnxkwnxkwlxnksxsxnkwsxknxnswknlwnklxsklknnkl",
-        id: 1
-      )])
+    assign(:post, [valid_post])
   end
 
 
@@ -18,11 +13,11 @@ RSpec.describe "posts/index", type: :view do
     expect(rendered).to include t('posts.index.main_title')
     expect(rendered).to include t('posts.index.title')
     expect(rendered).to include t('posts.index.content')
-    expect(rendered).to match(/12wkndwkdw/)
-    expect(rendered).to match(/knklqxkwqnxklqnwxkwnxkwnxkwlxnksxsxnkwsxknxnswknlwnklxsklknnkl/)
-    expect(rendered).to have_link t('posts.index.show'), href: post_path(1)
-    expect(rendered).to have_link t('posts.index.edit'), href: edit_post_path(1)
-    expect(rendered).to have_link t('posts.index.destroy'), href: "/posts/1"
-    expect(rendered).to have_link t('posts.index.new_post'), href: "/posts/new"
+    expect(rendered).to include valid_post.title
+    expect(rendered).to include valid_post.content
+    expect(rendered).to have_link t('posts.index.show'), href: valid_post
+    expect(rendered).to have_link t('posts.index.edit'), href: edit_post_path(valid_post)
+    expect(rendered).to have_link t('posts.index.destroy'), href: post_path(valid_post)
+    expect(rendered).to have_link t('posts.index.new_post'), href: new_post_path
   end
 end

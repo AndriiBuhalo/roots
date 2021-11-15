@@ -18,6 +18,7 @@ en:
       main_title: "Listing posts"
       title: "Title"
       content: "Content"
+      actions: "Actions"
       show: "Show"
       edit: "Edit"
       destroy: "Destroy"
@@ -40,12 +41,3 @@ en:
           one: "One error prohibited this post from being saved:"
           other: "%{count} errors prohibited this post from being saved:"
       submit: "Submit"
-
-
-
-
-
-
-
-
-

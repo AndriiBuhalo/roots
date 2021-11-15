@@ -10,44 +10,48 @@ RSpec.describe "/posts", type: :request do
   end
 
   describe "GET /show" do
+    let(:valid_post) { create(:post) }
     it "renders a successful response" do
-      post = create(:post)
-      get post_url(post)
-      expect(response).to be_successful
+      get post_url(valid_post)
+      expect(response).to render_template(:show)
     end
   end
 
   describe "GET /new" do
     it "renders a successful response" do
       get new_post_url
-      expect(response).to be_successful
+      expect(response).to render_template(:new)
     end
   end
 
   describe "GET /edit" do
+    let(:valid_post) { create(:post) }
     it "render a successful response" do
-      post = create(:post)
-      get edit_post_url(post)
-      expect(response).to be_successful
+      get edit_post_url(valid_post)
+      expect(response).to render_template(:edit)
     end
   end
 
   describe "POST /create" do
     context "with valid parameters" do
-      let(:valid_post) { create(:post) }
+      let(:valid_post) do
+     {
+       title: Faker::Lorem.characters(number: 40),
+       content: Faker::Lorem.characters(number: 65),
+     }
+      end
 
       it "creates a new Post" do
-        get "/posts/new"
-        expect(response).to render_template(:new)
-        post "/posts", :params => { :post => {:title => valid_post.title, :content => valid_post.content} }
+        post posts_url, params: { post: valid_post }
         expect(response).to redirect_to(assigns(:post))
         follow_redirect!
         expect(response).to render_template(:show)
         expect(response.body).to include("Post was successfully created")
       end
 
+
       it "redirects to the created post" do
-        post "/posts", :params => { :post => {:title => valid_post.title, :content => valid_post.content} }
+        post posts_url, params: { post: valid_post }
         expect(response).to redirect_to(post_url(Post.last))
       end
     end
@@ -59,7 +63,7 @@ RSpec.describe "/posts", type: :request do
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
-        get "/posts/new"
+        get new_post_url
         expect(response).to render_template(:new)
         expect(post).not_to be_valid
         expect(response).to render_template(:new)
@@ -68,13 +72,19 @@ RSpec.describe "/posts", type: :request do
   end
 
   describe "PATCH /update" do
+
     context "with valid parameters" do
       let(:valid_post) { create(:post) }
-
+      let(:edited_post) do
+     {
+       title: Faker::Lorem.characters(number: 40),
+       content: Faker::Lorem.characters(number: 65),
+     }
+     end
       it "updates the requested post" do
-        get "/posts/#{valid_post.id}/edit"
+        get edit_post_url(valid_post)
         expect(response).to render_template(:edit)
-        patch "/posts/#{valid_post.id}", :params => { :post => {:title => valid_post.title, :content => valid_post.content} }
+        patch post_url(valid_post), params: { post: edited_post }
         expect(response).to redirect_to(assigns(:valid_post))
         follow_redirect!
         expect(response).to render_template(:show)
@@ -82,7 +92,7 @@ RSpec.describe "/posts", type: :request do
       end
 
       it "redirects to the post" do
-        patch "/posts/#{valid_post.id}", :params => { :post => {:title => valid_post.title, :content => valid_post.content} }
+        patch post_url(valid_post), params: { post: edited_post }
         valid_post.reload
         expect(response).to redirect_to(post_url(valid_post))
       end
@@ -90,31 +100,34 @@ RSpec.describe "/posts", type: :request do
 
     context "with invalid parameters" do
       let(:valid_post) { create(:post) }
+      let(:edited_invalid_post) do
+     {
+       title: Faker::Lorem.characters(number: 40),
+       content: " ",
+     }
+      end
 
       it "renders a successful response (i.e. to display the 'edit' template)" do
-        # expect(post).not_to be_valid
-        get "/posts/#{valid_post.id}/edit"
+        get edit_post_url(valid_post)
         expect(response).to render_template(:edit)
-        patch "/posts/#{valid_post.id}", :params => { :post => {:title => valid_post.title, :content => valid_post.content} }
-        expect(response).to redirect_to(assigns(:valid_post))
-        follow_redirect!
-        expect(response).to render_template(:show)
-        expect(response.body).to include("Post was successfully updated")
+        patch post_url(valid_post), params: { post: edited_invalid_post }
+        valid_post.reload
+        expect(response).to render_template(:edit)
       end
     end
   end
 
   describe "DELETE /destroy" do
+    let!(:valid_post) { create(:post) }
+
     it "destroys the requested post" do
-      post = create(:post)
       expect {
-        delete post_url(post)
+        delete post_url(valid_post)
       }.to change(Post, :count).by(-1)
     end
 
     it "redirects to the posts list" do
-      post = create(:post)
-      delete post_url(post)
+      delete post_url(valid_post)
       expect(response).to redirect_to(posts_url)
     end
   end
