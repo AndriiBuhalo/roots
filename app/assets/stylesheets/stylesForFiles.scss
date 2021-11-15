@@ -1,4 +1,3 @@
-/* styles for album form*/
 #main{
   margin:0 auto;
   width:500px;
@@ -33,12 +32,12 @@
 .frmAdd .date_accuracy{
   width: 95%;
 }
-.btn_album{
+.btn_album, .group_images h3, .group_images .description{
   margin: 10px 10px;
 }
-/*styles for image content*/
 .container {
   width: 90%!important;
+  max-width: 90%!important;
 }
 .row{
   display: flex;
@@ -54,7 +53,6 @@
   flex: 0 0 63.33%;
   max-width: 63.33%;
 }
-.group_images h3, .group_images .description{margin-left: 10px;}
 .search-no-find{
   display: flex;
   justify-content: center;
@@ -91,19 +89,14 @@
   top: 20px;
   background-color: #222222;
   padding: 20px;
-}
-.filt-capt {
-  padding: 15px 0px 10px 0px;
-  cursor: pointer;
-  font-size: 18px;
   color: #fff;
 }
-.filt-capt .info{
+.filters_block .info{
   font-weight: bold;
   text-transform: uppercase;
   font-size: 15px;
 }
-.filt-capt .info span{
+.filters_block .info span{
   word-break: break-all;
   font-size: 14px;
   padding-left: 6px;
@@ -111,7 +104,7 @@
   text-transform: none;
   color: #ccc;
 }
-.filt-capt .info input {
+.filters_block .info input {
   width: 100%;
   background: #1e1f23;
 }
@@ -120,13 +113,9 @@
   text-align: center;
   font-size: 12px;
 }
+.list-group-item{color:black;}
 .albumA{font-size: 18px;}
-.albumsBlock img {
-  height: 60px;
-}
-.showAlbums{
-  display: none;
-  cursor: pointer;
-}
-.list-group-item a, .list-group-item label,.albums{cursor: pointer;}
-.alert{text-align: center;font-size: 18px;}
+.albumsBlock img {height: 60px;}
+.showAlbums{display: none;}
+.list-group-item a, .list-group-item label, .albums, .showAlbums{cursor: pointer;}
+.input-group{display: flex!important;}

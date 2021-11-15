@@ -1,11 +1,11 @@
 #main
   .frmAdd
-    = form_for @imageInfo, html: { multipart: true } do |f|
+    = simple_form_for @imageInfo, html: { multipart: true } do |f|
       h3.center = t('.edit image')
-      = f.text_field :keywords, class: 'form-control', placeholder: t('.keywords')
-      = f.text_field :notes, class: 'form-control', placeholder: t('.notes')
-      = f.text_field :place, class: 'form-control', placeholder: t('.place')
-      = f.select :date_accuracy, ["Точно","До", "Після", "Приблизно", "Не точна дата"],{}, {class: "date_accuracy"}
+      = f.input :keywords, class: 'form-control', placeholder: t('.keywords')
+      = f.input :notes, class: 'form-control', placeholder: t('.notes')
+      = f.input :place, class: 'form-control', placeholder: t('.place')
+      = f.input :date_accuracy, collection:["Точно","До", "Після", "Приблизно", "Не точна дата"], input_html: { class: 'date_accuracy' }
       = f.date_select :image_date, class: 'form-control', start_year: 1800, end_year: Time.now.year
       = f.submit t('common.edit'), class: 'btn btn-success'
       = link_to t('common.back'), :back, class: 'btn btn-secondary'

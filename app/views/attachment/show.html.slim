@@ -12,68 +12,65 @@ main
     aside.right_col
       .filters_block
         hr/
-        .filt-capt
-          h4.center.text-uppercase
-            = t('.in this photo')
-          p.info
-            = t('.no people')
+        h4.center.text-uppercase
+          = t('.in this photo')
+        p.info
+          = t('.no people')
         hr/
-        .filt-capt
-          h4.center.text-uppercase
-            = t('.information')
-          p.info
-            = t('.keywords')
+        h4.center.text-uppercase
+          = t('.information')
+        p.info
+          = t('.keywords')
+          '
+          = link_to @imageInfo.keywords, findByTag_path(:tag => @imageInfo.keywords), class: 'badge badge-pill badge-info' if !@imageInfo.keywords.blank?
+        p.info
+          = t('.notes')
+          span = @imageInfo.notes
+        p.info
+          = t('.place')
+          span = @imageInfo.place
+        p.info
+          = t('.date')
+          span
+            = @imageInfo.date_accuracy
             '
-            = link_to @imageInfo.keywords, findByTag_path(:tag => @imageInfo.keywords), class: 'badge badge-pill badge-info' if !@imageInfo.keywords.blank?
-          p.info
-            = t('.notes')
-            span = @imageInfo.notes
-          p.info
-            = t('.place')
-            span = @imageInfo.place
-          p.info
-            = t('.date')
-            span
-              = @imageInfo.date_accuracy
-              '
-              = @imageInfo.image_date.strftime("%Y-%m-%d") if !@imageInfo.image_date.blank?
-          p.info
-            = t('.albums')
-            - @attachment.albums.each do |album|
-              .albumsBlock
-                = link_to album_path(album) do
-                  span = album.name
-                  = image_tag album.attachments.last.file.url, alt: "#{album.attachments.last.file.identifier}"
-          p.info
-            = t('.photo link')
-            span.showLink = t('show link')
-            input type="text" value="#{attachment_path(@attachment)}" style="display: none;" readonly="readonly" /
+            = @imageInfo.image_date.strftime("%Y-%m-%d") if !@imageInfo.image_date.blank?
+        p.info
+          = t('.albums')
+          - @attachment.albums.each do |album|
+            .albumsBlock
+              = link_to album_path(album) do
+                span = album.name
+                = image_tag album.attachments.last.file.url, alt: "#{album.attachments.last.file.identifier}"
+        p.info
+          = t('.photo link')
+          span.showLink = t('show link')
+          input type="text" value="#{attachment_path(@attachment)}" style="display: none;" readonly="readonly" /
         hr/
-        .filt-capt
-          h4.center.text-uppercase
-            = t('.information')
-          p.info
-            = t('.type')
-            span = @attachment.file.content_type
-          p.info
-            = t('.width')
-            span
-              = @attachment.file.width
-              '
-              = t('.px')
-          p.info
-            = t('.height')
-            span
-              = @attachment.file.height
-              '
-              = t('.px')
-          p.info
-            = t('.size')
-            span
-              = (@attachment.file.size.to_f / 1024).ceil(1)
-              '
-              = t('.kb')
-          p.info
-            = t('.downloaded')
-            span = @imageInfo.downloaded
+        h4.center.text-uppercase
+          = t('.information')
+        p.info
+          = t('.type')
+          span = @attachment.file.content_type
+        p.info
+          = t('.width')
+          span
+            = @attachment.file.width
+            '
+            = t('.px')
+        p.info
+          = t('.height')
+          span
+            = @attachment.file.height
+            '
+            = t('.px')
+        p.info
+          = t('.size')
+          span
+            = (@attachment.file.size.to_f / 1024).ceil(1)
+            '
+            = t('.kb')
+        p.info
+          = t('.downloaded')
+          span = @imageInfo.downloaded
         hr/
