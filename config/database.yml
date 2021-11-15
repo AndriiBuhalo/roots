@@ -32,5 +32,4 @@ test:
 
 production:
   <<: *default
-  database: roots_production
-  
+  database: roots_production  
