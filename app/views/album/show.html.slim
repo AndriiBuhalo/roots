@@ -1,29 +1,6 @@
 main
   .row
-    aside
-      .filters_block
-        hr/
-        .filt-capt
-          = link_to t('attachment.all media'), attachment_index_path
-          span.filter-block__cross
-            i.fas.fa-plus aria-hidden="true" = link_to '+', new_attachment_path
-        hr/
-        .filt-capt
-          = t('attachment.persons')
-          span.filter-block__cross
-            i.fas.fa-plus aria-hidden="true"
-        hr/
-        .filt-capt.albums
-          = t('attachment.all albums')
-          span.filter-block__cross
-            i.fas.fa-plus aria-hidden="true" = link_to '+', new_album_path
-          - @albums.each do |album|
-            .showAlbums
-              hr/
-              = link_to album_path(album) do
-                label = album.name
-              hr/
-        hr/
+    = render(partial: './layouts/left_col')
     .group_images
       h3
         = @album.name
@@ -31,10 +8,10 @@ main
           |  (#{@images.length})
       label.description = @album.description
       .btn_album
-        = link_to t('common.delete'), album_path(@album), class: 'btn_delete', method: :delete, data: { confirm: t('common.confirmation') }
-        = link_to t('common.edit'), edit_album_path(@album), class: "btn_edit"
-        = link_to t('common.back'), :back, class: 'back'
-        = link_to t('album.add picture'), new_attachment_path(:albumId => @album), class: "btn_edit"
+        = link_to t('common.delete'), album_path(@album), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
+        = link_to t('common.edit'), edit_album_path(@album), class: "btn btn-primary"
+        = link_to t('common.back'), :back, class: 'btn btn-secondary'
+        = link_to t('album.add picture'), new_attachment_path(:albumId => @album), class: "btn btn-primary"
       - if @images.empty?
         .search-no-find
           img src="/assets/search-no-find.png" /

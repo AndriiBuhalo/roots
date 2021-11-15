@@ -1,0 +1,10 @@
+main
+  .row
+    = render(partial: './layouts/left_col')
+    .group_images
+      - @albums.each do |album|
+        .image_block
+          - album.attachments.all.each do |attachment|
+              = link_to album_path(album), class: 'albumA' do
+                span = album.name
+                = image_tag attachment.file.url, class: 'thumb', alt: "#{attachment.file.identifier}" if attachment.file?

@@ -1,6 +1,10 @@
 class AlbumController < ApplicationController
   before_action :set_post, only: [ :show, :edit, :update, :destroy ]
 
+  def index
+    @albums = Album.all
+  end
+
   def show
     @albums = Album.all
     @images = @album.attachments.all.reverse

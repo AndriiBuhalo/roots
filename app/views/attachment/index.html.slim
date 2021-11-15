@@ -1,10 +1,6 @@
 main
-  .searchImage
-    input type="text" placeholder="#{t('.search')}" /
-    button
-      img src="/assets/search"
   .row
-    = render(partial: 'left_col')
+    = render(partial: './layouts/left_col')
     .group_images
       - @attachments.each do |image|
         .image_block

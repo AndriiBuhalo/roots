@@ -1,11 +1,11 @@
 main
   .row
-    = render(partial: 'left_col')
+    = render(partial: './layouts/left_col')
     .group_images.show_image
       .btn_album
-        = link_to t('common.delete'), attachment_path(@attachment), class: 'btn_delete', method: :delete, data: { confirm: t('common.confirmation') }
-        = link_to t('common.edit'), edit_image_info_path(@attachment), class: "btn_edit"
-        = link_to t('common.back'), :back, class: 'back'
+        = link_to t('common.delete'), attachment_path(@attachment), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
+        = link_to t('common.edit'), edit_image_info_path(@attachment), class: "btn btn-primary"
+        = link_to t('common.back'), :back, class: 'btn btn-secondary'
       h3 = @attachment.file.identifier
       .image_block
         = image_tag @attachment.file.url, class: 'large', alt: "#{@attachment.file.identifier}" if @attachment.file?
@@ -13,17 +13,18 @@ main
       .filters_block
         hr/
         .filt-capt
-          h4.title
+          h4.center.text-uppercase
             = t('.in this photo')
           p.info
             = t('.no people')
         hr/
         .filt-capt
-          h4.title
+          h4.center.text-uppercase
             = t('.information')
           p.info
             = t('.keywords')
-            = link_to @imageInfo.keywords, findByTag_path(:tag => @imageInfo.keywords), class: 'keywords' if !@imageInfo.keywords.blank?
+            '
+            = link_to @imageInfo.keywords, findByTag_path(:tag => @imageInfo.keywords), class: 'badge badge-pill badge-info' if !@imageInfo.keywords.blank?
           p.info
             = t('.notes')
             span = @imageInfo.notes
@@ -49,7 +50,7 @@ main
             input type="text" value="#{attachment_path(@attachment)}" style="display: none;" readonly="readonly" /
         hr/
         .filt-capt
-          h4.title
+          h4.center.text-uppercase
             = t('.information')
           p.info
             = t('.type')

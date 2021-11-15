@@ -1,6 +1,6 @@
 main
   .row
-    = render(partial: 'left_col')
+    = render(partial: './layouts/left_col')
     .group_images
       - @attachments.each do |image|
         - if @findIdByTag.include? image.id

@@ -1,14 +1,11 @@
 #main
   .frmAdd
     = form_for @attachment, url: { action: "create" }, html: { multipart: true } do |f|
-      h3= t('image.add pictures')
+      h3.center = t('attachment.add pictures')
       = f.hidden_field :albumId, value: params[:albumId]
       = f.text_field :title, class: 'form-control', placeholder: t('.title')
-      .form-attachments
-        .form-attachments__wrapper
-          = f.file_field :file, class:'attachments', :required => true
-          .form-attachments__items
-            .form-attachments__description
-              span.title= t('.click to add')
-      = f.submit t('common.add'), class: 'btnAddAction'
-      = link_to t('common.back'), :back, class: 'back'
+      .input-group.mb-3
+        = f.file_field :file, class:'form-control', :required => true
+        label.input-group-text for="inputGroupFile02" = t('.click to add')
+      = f.submit t('common.add'), class: 'btn btn-success'
+      = link_to t('common.back'), :back, class: 'btn btn-secondary'

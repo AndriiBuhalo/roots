@@ -1,8 +1,8 @@
 #main
   .frmAdd
     = form_for @album, url: { action: "create" }, html: { multipart: true } do |f|
-      h3= t('.add album')
+      h3.center = t('.add album')
       = f.text_field :name, class: 'form-control', placeholder: t('album.name'), :required => true
       = f.text_field :description, class: 'form-control', placeholder: t('album.description')
-      = f.submit t('common.add'), class: 'btnAddAction'
-      = link_to t('common.back'), :back, class: 'back'
+      = f.submit t('common.add'), class: 'btn btn-success'
+      = link_to t('common.back'), :back, class: 'btn btn-secondary'

@@ -22,3 +22,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## mini_magick
+  Gem mini_magick it's a ruby wrapper for ImageMagick or GraphicsMagick command line.
+
+  To use this gem you need to download the program ImageMagick (https://imagemagick.org) or GraphicsMagick (http://www.graphicsmagick.org).
+  After installation, you need to restart your PC.
+  You can check if you have it installed by running (convert -version)
