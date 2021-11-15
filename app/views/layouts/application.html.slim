@@ -10,7 +10,9 @@ html
   body
     = render 'layouts/header'
     .container
-      p.notice= notice
-      p.alert= alert
+      - flash.each do |name, message|
+        div class=("alert #{bootstrap_class_for(name)}") 
+          button.close data-dismiss="alert"  ×
+          = message
       = yield
       = render 'layouts/footer'
