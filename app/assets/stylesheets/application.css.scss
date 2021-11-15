@@ -109,12 +109,15 @@ p {
   font-weight: 700;
   font-size: 1.2em;
 }
+.user-info{
+  display: flex;
+  align-items: center;  
+}
 .round{
   border-radius: 30px;
 }
 .logo-mail{
   color:#fff;
-  padding-top: 13px;
   padding-left: 10px;
 }
 

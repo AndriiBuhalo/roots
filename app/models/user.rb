@@ -9,6 +9,6 @@ class User < ApplicationRecord
 
   def gravatar
     hash = Digest::MD5.hexdigest(email.downcase)
-    image_src = "https://www.gravatar.com/avatar/#{hash}?s=48"
+    image_src = "https://www.gravatar.com/avatar/#{hash}?s=32"
   end
 end
