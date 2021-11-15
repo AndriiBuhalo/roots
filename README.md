@@ -24,21 +24,17 @@ Things you may want to cover:
 * ...
 
 ## DATABASE ENV
-    GEM DOTENV - helps us load environment variables from .env to `ENV` in * development, and add .env for .gitignore. This is necessary to protect our data.
-    You need copy .env.local.template and add it's to your .env.local in roots directory
+    GEM DOTENV - helps us load environment variables from .env to `ENV` in * development and add this file for .gitignore. This is necessary to protect our data.
+    You need to copy the template from .env.local.template and insert it into .env.local.
 
     DATABASE_URL="postgres://postgres:postgres@localhost:5432"
 
     use ENV variable "DATABASE_URL" 
 
-    which you create in the .env.local file in the root directory and add this file for .gitignore file 
-
-    DATABASE_URL="postgres://postgres:MyPassword@localhost:5432"
-
     where postgres - it's 'username' in your database.yml file
-            postgres - it's 'password' in your database.yml file
-            localhost - it's 'localhost' in your database.yml file
-            5432 - it's 'port' in your database.yml file
+        postgres - it's 'password' in your database.yml file
+        localhost - it's 'localhost' in your database.yml file
+        5432 - it's 'port' in your database.yml file
 
 
 
