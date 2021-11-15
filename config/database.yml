@@ -34,5 +34,5 @@ production:
   <<: *default
   database: roots_production
   username: roots
-  password: <%= ENV['ROOTS_DATABASE_PASSWORD'] %>
+ 
 
