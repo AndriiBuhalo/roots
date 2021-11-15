@@ -33,6 +33,4 @@ test:
 production:
   <<: *default
   database: roots_production
-  username: roots
- 
-
+  
