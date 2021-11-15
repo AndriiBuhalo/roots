@@ -14,7 +14,7 @@ RSpec.feature "Users", type: :feature do
     expect(page).to have_content("tester@example.tld")
   end
 
-  it 'User sign in' do
+  it 'User sign in and log out' do
     create(:user, email: "someone@example.tld", password: "somepassword")
     visit ('welcome_pages/home')
     click_link "Log In"
