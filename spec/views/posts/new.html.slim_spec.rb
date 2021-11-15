@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "posts/new", type: :view do
 
-  let(:valid_post) { create(:post) }
+  let(:valid_post) { build(:post) }
 
   before(:each) do
     assign(:post, valid_post)

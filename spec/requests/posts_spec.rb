@@ -48,12 +48,6 @@ RSpec.describe "/posts", type: :request do
         expect(response).to render_template(:show)
         expect(response.body).to include("Post was successfully created")
       end
-
-
-      it "redirects to the created post" do
-        post posts_url, params: { post: valid_post }
-        expect(response).to redirect_to(post_url(Post.last))
-      end
     end
 
     context "with invalid parameters" do
@@ -74,7 +68,7 @@ RSpec.describe "/posts", type: :request do
   describe "PATCH /update" do
 
     context "with valid parameters" do
-      let(:valid_post) { create(:post) }
+      let!(:valid_post) { create(:post) }
       let(:edited_post) do
      {
        title: Faker::Lorem.characters(number: 40),
@@ -85,21 +79,16 @@ RSpec.describe "/posts", type: :request do
         get edit_post_url(valid_post)
         expect(response).to render_template(:edit)
         patch post_url(valid_post), params: { post: edited_post }
-        expect(response).to redirect_to(assigns(:valid_post))
+        expect(response).to redirect_to(post_url(valid_post))
         follow_redirect!
         expect(response).to render_template(:show)
         expect(response.body).to include("Post was successfully updated")
       end
 
-      it "redirects to the post" do
-        patch post_url(valid_post), params: { post: edited_post }
-        valid_post.reload
-        expect(response).to redirect_to(post_url(valid_post))
-      end
     end
 
     context "with invalid parameters" do
-      let(:valid_post) { create(:post) }
+      let!(:valid_post) { create(:post) }
       let(:edited_invalid_post) do
      {
        title: Faker::Lorem.characters(number: 40),
@@ -111,7 +100,6 @@ RSpec.describe "/posts", type: :request do
         get edit_post_url(valid_post)
         expect(response).to render_template(:edit)
         patch post_url(valid_post), params: { post: edited_invalid_post }
-        valid_post.reload
         expect(response).to render_template(:edit)
       end
     end
