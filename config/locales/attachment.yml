@@ -13,6 +13,7 @@ en:
       title: 'Title'
       click to add: 'Click to add more pictures'
       add picture: 'Add picture'
+      upload: 'Upload'
     show:
       in this photo: 'In this photo'
       no people: 'There are no tagged people in the photo'

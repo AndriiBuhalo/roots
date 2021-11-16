@@ -5,65 +5,26 @@
 .frmAdd{
   padding: 12px;
   background-color: #2a2d34;
-  border: 1px solid #1e1f23;
   color: #dee2e6;
-  margin-bottom: 25px;
   border-radius: 10px;
-  box-shadow: 2px 2px 0 #1e1f23;
 }
-.frmAdd input[type=text]{
-  color: white;
-  padding: 20px 10px;
-  margin-bottom: 20px;
-  font-size: 18px;
-  background-color: #202328!important;
-}
-.frmAdd select, .frmAdd .date_accuracy{
-  border: 1px solid #cccccc;
+.frmAdd select{
   border-radius: 4px;
-  box-sizing: content-box;
-  background: #202328;
-  padding: 10px 10px;
-  width: 28%;
+  padding: 7px 10px;
+  width: 32.7%;
   margin-bottom: 20px;
-  font-size: 18px;
-  color:white;
 }
-.frmAdd .date_accuracy{
-  width: 95%;
-}
-.btn_album, .group_images h3, .group_images .description{
-  margin: 10px 10px;
-}
-.container {
-  width: 90%!important;
-  max-width: 90%!important;
-}
-.row{
-  display: flex;
-  flex-wrap: wrap;
-}
+.frmAdd .date_accuracy, .filters_block p input{width: 100%;}
+.btn_album, .group_images h3, .group_images label{margin: 10px 10px;}
+.container {width: 90%!important;max-width: 90%!important;}
 .group_images{
-  -ms-flex: 0 0 83.666667%;
   flex: 0 0 83.666667%;
   max-width: 83.666667%;
   border: 1px solid silver;
 }
-.show_image{
-  flex: 0 0 63.33%;
-  max-width: 63.33%;
-}
-.search-no-find{
-  display: flex;
-  justify-content: center;
-}
-.image_block{
-  display: inline-block;
-}
-.show_image .image_block{
-  display: flex;
-  justify-content: center;
-}
+.show_image{flex: 0 0 63.33%;max-width: 63.33%;}
+.image_block{display: inline-block;}
+.show_image .image_block{display: flex;justify-content: center;}
 .thumb{
   height: 200px;
   border:1px solid silver;
@@ -72,8 +33,9 @@
 .large{
   border:1px solid silver;
   margin: 10px;
+  max-width: 100%;
 }
-.row aside{
+.row .left_col{
   flex: 0 0 16.33%;
   max-width: 16.33%;
 }
@@ -81,9 +43,7 @@
   flex: 0 0 20.33%;
   max-width: 20.33%;
 }
-.left_col .filters_block, .right_col .filters_block{
-  height: 100%;
-}
+.left_col .filters_block, .right_col .filters_block{height: 100%;}
 .filters_block{
   position: sticky;
   top: 20px;
@@ -91,30 +51,23 @@
   padding: 20px;
   color: #fff;
 }
-.filters_block .info{
+.filters_block p{
   font-weight: bold;
   text-transform: uppercase;
   font-size: 15px;
 }
-.filters_block .info span{
+.filters_block p span{
   word-break: break-all;
-  font-size: 14px;
   padding-left: 6px;
   font-weight: normal;
   text-transform: none;
   color: #ccc;
-}
-.filters_block .info input {
-  width: 100%;
-  background: #1e1f23;
 }
 .albumsBlock a, .albumA{
   display: inline-grid;
   text-align: center;
   font-size: 12px;
 }
-.list-group-item{color:black;}
 .albumA{font-size: 18px;}
 .albumsBlock img {height: 60px;}
-.list-group-item a, .list-group-item label{cursor: pointer;}
-.input-group{display: flex!important;}
+.list-group-item a, .list-group-item label, .filters_block .showLink{cursor: pointer;}

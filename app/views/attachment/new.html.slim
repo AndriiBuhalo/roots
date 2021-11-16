@@ -3,14 +3,14 @@
     = form_for @attachment, url: { action: "create" }, html: { multipart: true } do |f|
       h3.center = t('attachment.add pictures')
       = f.hidden_field :albumId, value: params[:albumId]
-      = f.text_field :title, class: 'form-control', placeholder: t('.title')
+      = f.text_field :title, class: 'form-control mb-3 mt-3', placeholder: t('.title')
       .input-group.mb-3
         .input-group-prepend
-          span#inputGroupFileAddon01.input-group-text Upload
+          span.input-group-text = t('.upload')
         .custom-file
           = f.file_field :file, class:'form-control custom-file-input', :required => true
-          input#inputGroupFile01.custom-file-input type="file" /
-          label.custom-file-label for="inputGroupFile01"
+          label.custom-file-label
             = t('.click to add')
-      = f.submit t('common.add'), class: 'btn btn-success'
-      = link_to t('common.back'), :back, class: 'btn btn-secondary'
+      .d-flex.justify-content-between
+        = f.submit t('common.edit'), class: 'btn btn-success'
+        = link_to t('common.back'), :back, class: 'btn btn-secondary'

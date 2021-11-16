@@ -3,11 +3,9 @@ class AttachmentController < ApplicationController
 
   def index
     @attachments = Attachment.all.reverse
-    @albums = Album.all
   end
 
   def findByTag
-    @albums = Album.all
     @attachments = Attachment.all.reverse
     @findIdByTag = []
     ImageInfo.where(:keywords => params[:tag]).all.each do |findIdByTag|
@@ -16,7 +14,6 @@ class AttachmentController < ApplicationController
   end
 
   def show
-    @albums = Album.all
     @imageInfo = ImageInfo.find_by_attachment_id(@attachment)
   end
 

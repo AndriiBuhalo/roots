@@ -1,19 +1,19 @@
 main
-  .row
+  .d-flex
     = render(partial: './layouts/left_col')
     .group_images
       h3
         = @album.name
         span
           |  (#{@images.length})
-      label.description = @album.description
+      label = @album.description
       .btn_album
         = link_to t('common.delete'), album_path(@album), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
         = link_to t('common.edit'), edit_album_path(@album), class: "btn btn-primary"
         = link_to t('common.back'), :back, class: 'btn btn-secondary'
         = link_to t('album.add picture'), new_attachment_path(:albumId => @album), class: "btn btn-primary"
       - if @images.empty?
-        .search-no-find
+        .d-flex.justify-content-center
           img src="/assets/search-no-find.png" /
         h1.search-no-find = t('.nothing found')
       - else
