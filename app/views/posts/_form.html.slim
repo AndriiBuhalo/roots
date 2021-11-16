@@ -1,0 +1,15 @@
+= simple_form_for(@post) do |f|
+  - if @post.errors.any?
+    .alert.alert-danger role="alert"
+      button.close data-dismiss="alert" &times;
+      h1 = t('global.forms.messages.errors', count: @post.errors.count)
+      ul
+        - @post.errors.full_messages.each do |message|
+          li = message
+
+
+  .field.form-group
+    = f.input :title, placeholder: t('posts.form.title_placeholder')
+  .field
+    = f.input :content, placeholder: t('posts.form.content_placeholder')
+  .actions = f.submit t('global.forms.submit'), class:"btn btn-primary"
