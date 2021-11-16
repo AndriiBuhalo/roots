@@ -26,8 +26,14 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'awesome_print'
+<<<<<<< HEAD
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'slim-rails'
+=======
+gem 'slim-rails'
+gem 'simple_form'
+gem 'rails-i18n', '~> 6.0.0'
+>>>>>>> d640d8316c98cf8085ffd419084be1a749e1016e
 gem 'devise'
 gem 'devise-i18n'
 gem 'rails-i18n'
@@ -40,6 +46,8 @@ group :development, :test do
   gem 'faker'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 5.0.0'
+  gem 'shoulda-matchers', '~> 5.0'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -60,6 +68,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

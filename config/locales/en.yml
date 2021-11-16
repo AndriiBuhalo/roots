@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other
 # than English, add the necessary files in this directory.
@@ -90,3 +91,6 @@ en:
       new:
         title: "Resend unlock instructions"
 
+=======
+en:
+>>>>>>> d640d8316c98cf8085ffd419084be1a749e1016e
