@@ -32,8 +32,9 @@ gem 'simple_form'
 gem 'rails-i18n', '~> 6.0.0'
 gem 'devise'
 gem 'dotenv', '2.1.1'
+gem 'carrierwave', '~> 2.0'
 gem "mini_magick"
-gem 'simple_form'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
