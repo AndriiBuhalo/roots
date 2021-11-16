@@ -1,7 +1,7 @@
-header.navbar.navbar-fixed-top.navbar-inverse
+header.navbar.navbar-dark.fixed-top
     .container
-      = link_to t('global.header.logo'), welcome_pages_home_path, id: "logo"
-      ul.navbar-nav.nav.navbar-right
-        li= link_to t('.home'),   welcome_pages_home_path
-        li= link_to t('.sign_up'),   '#'
-        li= link_to t('.log_in'), '#'
+      = link_to t('global.header.logo'), welcome_pages_home_path, id: "logo", class: "navbar-brand"
+      ul.navbar-nav.justify-content-end
+        li.nav-item= link_to t('.home'),   welcome_pages_home_path, class: "nav-link"
+        li.nav-item= link_to t('.sign_up'),   '#', class: "nav-link"
+        li.nav-item= link_to t('.log_in'), '#', class: "nav-link"

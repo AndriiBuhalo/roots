@@ -16,7 +16,6 @@
 
 /* mixins, variables, etc. */
 
-
 body {
   padding-top: 100px;
 }
@@ -64,31 +63,32 @@ p {
   line-height: 1.7em;
 }
 
-/* header */
+/* header*/
 
-.navbar > .container, .navbar > .container-fluid {
-    display: block;
+header{
+  background-color: #222;
+}
+
+#logo {
+  font-size: 30px;
+  color: #fff;
+  text-transform: capitalize;
+  letter-spacing: -0.5px;
+  font-weight: 700;
 }
 
 .navbar-nav{
   flex-direction: row;
 }
 
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 2em;
-  color: #fff;
-  text-transform: capitalize;
-  letter-spacing: -0.5px;
-  padding-top: 9px;
-  font-weight: 700;
-  transition-duration: 0.5s;
-}
-
 .navbar-nav li{
   font-weight: 700;
   font-size: 1.2em;
+  margin-right: 20px;
+}
+
+.nav-item span{
+  transition-duration: 0.5s;
 }
 
 /* welcome page*/
@@ -132,7 +132,6 @@ footer {
   padding-bottom: 15px;
   border-top: 3px solid #eaeaea;
   color: #777;
-
 }
 
 footer a {
