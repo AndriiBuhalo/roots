@@ -14,11 +14,4 @@ import "bootstrap"
 
 Rails.start()
 Turbolinks.start()
-<<<<<<< HEAD
 ActiveStorage.start()
-
-
-
-=======
-ActiveStorage.start()
->>>>>>> d640d8316c98cf8085ffd419084be1a749e1016e
