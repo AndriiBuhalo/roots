@@ -8,13 +8,7 @@ aside.left_col
       li.list-group-item
         = t('attachment.persons')
         span.badge.badge-primary.badge-pill
-      .panel.panel-default
-        .panel-body.albums
-          = link_to t('attachment.all albums'), album_index_path
-          span.badge.badge-primary.badge-pill.pull-right
-            = link_to '+', new_album_path
-        .panel-footer.showAlbums
-          - @albums.each do |album|
-            li.list-group-item
-              = link_to album_path(album) do
-                label = album.name
+      li.list-group-item
+        = link_to t('attachment.all albums'), album_index_path
+        span.badge.badge-primary.badge-pill
+          = link_to '+', new_album_path
