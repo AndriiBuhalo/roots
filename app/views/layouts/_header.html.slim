@@ -4,9 +4,9 @@ header.navbar.navbar-fixed-top.navbar-inverse
       ul.nav.navbar-nav.navbar-right
         li= link_to "Home",   welcome_pages_home_path
         - if user_signed_in?
-          div.user-info
-            img.gravatar.round src="#{current_user.gravatar}" width="32" height="32" 
-            li.logo-mail
+          div.d-flex.align-items-center
+            img.gravatar.rounded-circle src="#{current_user.gravatar}" width="32" height="32"
+            li.pl-1.text-white
               = current_user.email
           li= link_to "Log Out", destroy_user_session_path, method: :delete
         - else
