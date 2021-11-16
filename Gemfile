@@ -31,6 +31,7 @@ gem 'slim-rails'
 gem 'devise'
 gem 'devise-i18n'
 gem 'rails-i18n'
+gem 'dotenv', '2.1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
