@@ -2,6 +2,6 @@ header.navbar.navbar-dark.fixed-top
     .container
       = link_to t('global.header.logo'), welcome_pages_home_path, id: "logo", class: "navbar-brand"
       ul.navbar-nav.justify-content-end
-        li.nav-item= link_to t('.home'),   welcome_pages_home_path, class: "nav-link"
-        li.nav-item= link_to t('.sign_up'),   '#', class: "nav-link"
+        li.nav-item.mr-4= link_to t('.home'),   welcome_pages_home_path, class: "nav-link"
+        li.nav-item.mr-4= link_to t('.sign_up'),   '#', class: "nav-link"
         li.nav-item= link_to t('.log_in'), '#', class: "nav-link"

@@ -1,5 +1,4 @@
-.center.jumbotron
-  h1 = t('welcome_pages.contacts.title')
-  h2 = t('welcome_pages.contacts.subtitle')
-.welcome-root
-  = image_tag "roots.jpg", alt: "The Roots"
+.center.jumbotron.mb-0
+  h1.display-3 = t('welcome_pages.contacts.title')
+  h2.lead = t('welcome_pages.contacts.subtitle')
+= render 'welcome_root'
