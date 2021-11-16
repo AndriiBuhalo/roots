@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+@import "colors.css.scss";
 
 /* mixins, variables, etc. */
 
@@ -55,7 +56,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #777;
+  color: $light-grey;
 }
 
 p {
@@ -66,15 +67,20 @@ p {
 /* header*/
 
 header{
-  background-color: #222;
+  background-color: $extra-dark-grey;
 }
 
 #logo {
   font-size: 30px;
-  color: #fff;
+  color: $white;
   text-transform: capitalize;
   letter-spacing: -0.5px;
   font-weight: 700;
+  &::before{
+    content: url("tree.png");
+    height: 32px;
+    width: 32px;
+  }
 }
 
 .navbar-nav{
@@ -94,17 +100,17 @@ header{
 /* welcome page*/
 
 .btn-lg{
-  background-color: #4d4d4d;
-  border: 2px solid #000;
-  color: #fff;
+  background-color: $light-grey;
+  border: 2px solid $black;
+  color: $white;
   font-weight: 700;
   transition-duration: 0.5s;
 }
 
 .btn-lg:hover {
-  background-color: #fff;
-  border: 2px solid #000;
-  color: #000;
+  background-color: $extra-dark-grey;
+  border: 2px solid $black;
+  color: $white;
   font-weight: 700;
   transition-duration: 0.5s;
 
@@ -130,17 +136,17 @@ footer {
   margin-top: 45px;
   padding-top: 10px;
   padding-bottom: 15px;
-  border-top: 3px solid #eaeaea;
-  color: #777;
+  border-top: 3px solid $extra-light-grey;
+  color: $light-grey;
 }
 
 footer a {
-  color: #555;
+  color: $dark-grey;
   transition-duration: 0.5s;
 }
 
 footer a:hover {
-  color: #222;
+  color: $extra-dark-grey;
   text-decoration: none;
   transition-duration: 0.5s;
 }
@@ -161,4 +167,3 @@ footer ul li {
   margin-left: 15px;
   font-weight: 700;
 }
-
