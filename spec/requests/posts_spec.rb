@@ -35,10 +35,10 @@ RSpec.describe "/posts", type: :request do
   describe "POST /create" do
     context "with valid parameters" do
       let(:valid_post) do
-     {
+      {
        title: Faker::Lorem.characters(number: 40),
        content: Faker::Lorem.characters(number: 65),
-     }
+      }
       end
 
       it "creates a new Post" do
@@ -70,10 +70,10 @@ RSpec.describe "/posts", type: :request do
     context "with valid parameters" do
       let!(:valid_post) { create(:post) }
       let(:edited_post) do
-     {
+      {
        title: Faker::Lorem.characters(number: 40),
        content: Faker::Lorem.characters(number: 65),
-     }
+      }
      end
       it "updates the requested post" do
         get edit_post_url(valid_post)
@@ -90,10 +90,10 @@ RSpec.describe "/posts", type: :request do
     context "with invalid parameters" do
       let!(:valid_post) { create(:post) }
       let(:edited_invalid_post) do
-     {
+      {
        title: Faker::Lorem.characters(number: 40),
        content: " ",
-     }
+       }
       end
 
       it "renders a successful response (i.e. to display the 'edit' template)" do
