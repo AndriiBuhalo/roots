@@ -1,6 +1,4 @@
 h1 = t('.title')
 == render 'form'
-=> link_to t('.show'), @post
-'|
-=< link_to t('.back'), posts_path
-
+= link_to t('.show'), @post, class:"btn btn-xs btn-success mt-3"
+= link_to t('.back'), posts_path, class:"btn btn-xs btn-info mt-3 ml-3"

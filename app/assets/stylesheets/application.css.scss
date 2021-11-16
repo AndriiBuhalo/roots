@@ -9,15 +9,13 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
  *= require bootstrap
  *= require_tree .
  *= require_self
  */
 
+/* mixins, variables, etc. */
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
 
 body {
   padding-top: 100px;
@@ -73,7 +71,7 @@ p {
 }
 
 .navbar-nav{
-  flex-direction: row; 
+  flex-direction: row;
 }
 
 #logo {
@@ -85,6 +83,17 @@ p {
   letter-spacing: -0.5px;
   padding-top: 9px;
   font-weight: 700;
+<<<<<<< HEAD
+=======
+  transition-duration: 0.5s;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+
+  transition-duration: 0.5s;
+>>>>>>> d640d8316c98cf8085ffd419084be1a749e1016e
 }
 
 .navbar-nav li{

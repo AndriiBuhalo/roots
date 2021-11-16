@@ -1,9 +1,4 @@
 en:
-  activerecord:
-    attributes:
-      post:
-        title: "Title"
-        content: "Content"
   posts:
     edit:
       title: "Editing post"
@@ -18,6 +13,7 @@ en:
       main_title: "Listing posts"
       title: "Title"
       content: "Content"
+      actions: "Actions"
       show: "Show"
       edit: "Edit"
       destroy: "Destroy"
@@ -34,33 +30,9 @@ en:
       title_placeholder: "Write your title"
       content_placeholder: "Write your content"
   global:
-    page_title: "The Roots"
-    header:
-      logo: "The Roots"
-      home: "Home"
-      profile: "Profile"
-      sign_up: "Sign Up"
-      log_in: "Log In"
-      sign_out: "Sign Out"
-    footer:
-      string: "IF-133 Ruby Developers Team"
-      about: "About"
-      contacts: "Contacts"
-      softserve: "SoftServe"
     forms:
       messages:
         errors:
           one: "One error prohibited this post from being saved:"
           other: "%{count} errors prohibited this post from being saved:"
       submit: "Submit"
-  welcome_pages:
-    home:
-      title: "Welcome to The Roots"
-      subtitle: "This is the welcome page for The Roots application."
-      sign_up_link: "Sign up now!"
-    about:
-      title: "About The Roots"
-      subtitle: "This is the description of The Roots application."
-    contacts:
-      title: "Contacts"
-      subtitle: "There are members of Ruby Developers Team."
