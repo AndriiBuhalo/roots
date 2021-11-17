@@ -71,7 +71,7 @@
       let!(:valid_album) { create(:album) }
       let(:edited_album) do
        {
-       name: Faker::Lorem.characters(number: 10),
+        name: Faker::Lorem.characters(number: 10),
        description: Faker::Lorem.characters(number: 10),
       }
      end
