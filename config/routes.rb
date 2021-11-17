@@ -9,4 +9,9 @@ Rails.application.routes.draw do
   resources :attachment
   resources :image_info
   get 'findByTag' => 'attachment#findByTag'
+
+  devise_for :users
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
 end
