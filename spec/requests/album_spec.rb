@@ -1,7 +1,6 @@
  require 'rails_helper'
 
  RSpec.describe "/album", type: :request do
-
   describe "GET /index" do
     it 'renders a successful response' do
       get album_url
