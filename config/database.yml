@@ -25,7 +25,7 @@ default: &default
 development:
   <<: *default
   database: roots_development
-  
+
 test:
   <<: *default
   database: roots_test
