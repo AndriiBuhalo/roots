@@ -6,8 +6,8 @@ main
         = @album.name
         span
           |  (#{@images.length})
-      label = @album.description
-      .ml-3
+      label.ml-3 = @album.description
+      .ml-3.mb-3
         = link_to t('common.delete'), album_path(@album), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
         = link_to t('common.edit'), edit_album_path(@album), class: "btn btn-primary"
         = link_to t('common.back'), :back, class: 'btn btn-secondary'
