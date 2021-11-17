@@ -11,6 +11,7 @@
 
   describe 'GET /show' do
     let(:valid_album) { create(:album) }
+
     it "renders a successful response" do
       get album_url(valid_album)
       expect(response).to render_template(:show)
