@@ -75,7 +75,7 @@
        description: Faker::Lorem.characters(number: 10)
       }
       end
-      it "updates the requested post" do
+      it 'updates the requested post' do
         get edit_album_url(valid_album)
         expect(response).to render_template(:edit)
         patch album_url(valid_album), params: { album: edited_album }
