@@ -8,7 +8,7 @@ header.navbar.navbar-fixed-top.navbar-inverse
             img.gravatar.rounded-circle src="#{current_user.gravatar}" width="32" height="32"
             li.pl-1.text-white
               = current_user.email
-        li= link_to "Log Out", destroy_user_session_path, method: :delete
-        -else
-        li= link_to t('.sign_up'),  new_user_registration_path
-        li= link_to t('.log_in'), new_user_session_path
+          li= link_to "Log Out", destroy_user_session_path, method: :delete
+        - else
+          li= link_to t('.sign_up'),  new_user_registration_path
+          li= link_to t('.log_in'), new_user_session_path
