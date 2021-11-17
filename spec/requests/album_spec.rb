@@ -74,7 +74,7 @@
         name: Faker::Lorem.characters(number: 10),
        description: Faker::Lorem.characters(number: 10)
       }
-     end
+      end
       it "updates the requested post" do
         get edit_album_url(valid_album)
         expect(response).to render_template(:edit)
