@@ -4,7 +4,7 @@ main
     .group_images.show_image
       .ml-3
         = link_to t('common.delete'), attachment_path(@attachment), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
-        = link_to t('common.edit'), edit_image_info_path(@attachment), class: "btn btn-primary"
+        = link_to t('common.edit'), edit_attachment_path(@attachment), class: "btn btn-primary"
         = link_to t('common.back'), :back, class: 'btn btn-secondary'
       h3.m-3 = @attachment.file.identifier
       .d-flex.justify-content-center
@@ -20,19 +20,19 @@ main
         p
           = t('.keywords')
           '
-          = link_to @imageInfo.keywords, findByTag_path(:tag => @imageInfo.keywords), class: 'badge badge-pill badge-info' if !@imageInfo.keywords.blank?
+          = link_to @attachment.keywords, findByTag_path(:tag => @attachment.keywords), class: 'badge badge-pill badge-info' if !@attachment.keywords.blank?
         p
           = t('.notes')
-          span = @imageInfo.notes
+          span = @attachment.notes
         p
           = t('.place')
-          span = @imageInfo.place
+          span = @attachment.place
         p
           = t('.date')
           span
-            = @imageInfo.date_accuracy
+            = @attachment.date_accuracy
             '
-            = @imageInfo.image_date.strftime("%Y-%m-%d") if !@imageInfo.image_date.blank?
+            = @attachment.file_date.strftime("%Y-%m-%d") if !@attachment.file_date.blank?
         p
           = t('.albums')
           - @attachment.albums.each do |album|
@@ -69,4 +69,4 @@ main
             = t('.kb')
         p
           = t('.downloaded')
-          span = @imageInfo.downloaded
+          span = @attachment.downloaded

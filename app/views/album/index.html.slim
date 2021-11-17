@@ -2,17 +2,15 @@ main
   .d-flex
     = render(partial: './layouts/left_col')
     .group_images
-      - @albums.each do |album|
-        .d-inline-block
-          - album.attachments.all.each do |attachment|
-            table.table.table-bordered.ml-3
-              thead
-                tr
-                  th.text-center scope="col"  = t('album.name')
-                  th.text-center scope="col"  = t('album.description')
-              tbody
-                tr
-                  td.text-center
-                    = link_to album_path(album) do
-                      span = album.name
-                  td.text-center = album.description
+      table.table.table-bordered.ml-3
+        thead
+          tr
+            th.text-center scope="col"  = t('album.name')
+            th.text-center scope="col"  = t('album.description')
+        - @albums.each do |album|
+          tbody
+            tr
+              td.text-center
+                = link_to album_path(album) do
+                  span = album.name
+              td.text-center = album.description

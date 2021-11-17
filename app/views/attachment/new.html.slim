@@ -3,7 +3,8 @@
     = form_for @attachment, url: { action: "create" }, html: { multipart: true } do |f|
       h3.center = t('attachment.add pictures')
       = f.hidden_field :albumId, value: params[:albumId]
-      = f.text_field :title, class: 'form-control mb-3 mt-3', placeholder: t('.title')
+      = f.hidden_field :downloaded, value: current_user.email
+      = f.text_field :notes, class: 'form-control mb-3 mt-3', placeholder: t('.notes')
       .input-group.mb-3
         .input-group-prepend
           span.input-group-text = t('.upload')
@@ -12,5 +13,5 @@
           label.custom-file-label
             = t('.click to add')
       .d-flex.justify-content-between
-        = f.submit t('common.edit'), class: 'btn btn-success'
+        = f.submit t('common.add'), class: 'btn btn-success'
         = link_to t('common.back'), :back, class: 'btn btn-secondary'

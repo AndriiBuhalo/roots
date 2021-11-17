@@ -6,15 +6,10 @@ class AttachmentController < ApplicationController
   end
 
   def findByTag
-    @attachments = Attachment.all.reverse
-    @findIdByTag = []
-    ImageInfo.where(:keywords => params[:tag]).all.each do |findIdByTag|
-      @findIdByTag << findIdByTag.attachment_id
-    end
+    @attachments = Attachment.where(:keywords => params[:tag]).all.reverse 
   end
 
   def show
-    @imageInfo = ImageInfo.find_by_attachment_id(@attachment)
   end
 
   def new
@@ -27,7 +22,6 @@ class AttachmentController < ApplicationController
         @album = Album.find(params[:attachment][:albumId])
         @album.attachments << @attachment
       end
-      ImageInfo.create(attachment_id: @attachment.id)
       redirect_to attachment_index_path, success: t('attachment.controller.create')
     else
       redirect_to new_attachment_path, danger: t('attachment.controller.create error')
@@ -36,10 +30,9 @@ class AttachmentController < ApplicationController
 
   def update
     if @attachment.update(file_params)
-      redirect_to attachment_index_path, success: t('attachment.controller.update')
+      redirect_to @attachment, success: t('attachment.controller.update')
     else
-      flash.now[:danger] = t('attachment.controller.update error')
-      render :edit
+      redirect_to edit_attachment_path, danger: t('attachment.controller.update error')
     end
   end
 
@@ -53,6 +46,6 @@ class AttachmentController < ApplicationController
   end
 
   def file_params
-    params.require(:attachment).permit(:file, :title)
+    params.require(:attachment).permit(:file, :keywords, :notes, :place, :date_accuracy, :file_date, :downloaded)
   end
 end

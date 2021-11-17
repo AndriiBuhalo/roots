@@ -10,7 +10,7 @@ en:
       attachments: 'Attachments'
       search: 'Search'
     new:
-      title: 'Title'
+      notes: 'Notes'
       click to add: 'Click to add more pictures'
       add picture: 'Add picture'
       upload: 'Upload'
@@ -35,9 +35,13 @@ en:
       kb: 'kb'
     edit:
       edit image: 'Edit image'
+      keywords: 'Keywords'
+      notes: 'Notes'
+      place: 'Place'
+      date: 'Date'
     controller:
       create: 'Pictures successfully added!'
       create error: 'No pictures added'
-      update: 'Pictures successfully changed!'
-      update error: 'The pictures have not changed!'
+      update: 'Information changed successfully!'
+      update error: 'An error occurred while changing the information'
       destroy: 'Pictures successfully deleted!'

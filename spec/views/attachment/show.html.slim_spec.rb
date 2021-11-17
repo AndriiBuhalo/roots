@@ -16,7 +16,7 @@ RSpec.describe "attachment/show", type: :view do
     expect(rendered).to have_link t('album.all albums'), href: album_index_path
     expect(rendered).to have_link t('+'), href: new_album_path
     expect(rendered).to include valid_attachment.file
-    expect(rendered).to have_link t('common.edit'), href: edit_image_info_path(valid_attachment)
+    expect(rendered).to have_link t('common.edit'), href: edit_attachment_path(valid_attachment)
     expect(rendered).to have_link t('common.back'), href: attachment_index_path
     expect(rendered).to have_link t('common.delete'), href: attachment_path(valid_attachment)
   end
