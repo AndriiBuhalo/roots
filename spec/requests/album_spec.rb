@@ -72,7 +72,7 @@
       let(:edited_album) do
        {
         name: Faker::Lorem.characters(number: 10),
-       description: Faker::Lorem.characters(number: 10),
+       description: Faker::Lorem.characters(number: 10)
       }
      end
       it "updates the requested post" do
