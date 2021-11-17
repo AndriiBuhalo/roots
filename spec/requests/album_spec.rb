@@ -3,7 +3,7 @@
  RSpec.describe "/album", type: :request do
 
   describe "GET /index" do
-    it "renders a successful response" do
+    it 'renders a successful response' do
       get album_url
       expect(response).to be_successful
     end
