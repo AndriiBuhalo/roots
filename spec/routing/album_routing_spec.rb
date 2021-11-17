@@ -11,7 +11,7 @@ RSpec.describe AlbumController, type: :routing do
     end
 
     it 'routes to #show' do
-      expect(get: "/album/1").to route_to("album#show", id: "1")
+      expect(get: '/album/1').to route_to("album#show", id: "1")
     end
 
     it "routes to #edit" do
