@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "posts/show", type: :view do
+RSpec.describe "attachment/show", type: :view do
 
   let(:valid_attachment) { create(:attachment) }
 
