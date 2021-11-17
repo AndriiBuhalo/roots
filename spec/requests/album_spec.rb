@@ -67,7 +67,7 @@
 
   describe "PATCH /update" do
 
-    context "with valid parameters" do
+    context 'with valid parameters' do
       let!(:valid_album) { create(:album) }
       let(:edited_album) do
       {
