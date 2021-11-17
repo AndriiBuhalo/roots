@@ -1,0 +1,14 @@
+p
+  = t('devise.mailer.changed.hello')
+  = @email
+  | \!
+- if @resource.try(:unconfirmed_email?)
+  p
+    = t('devise.mailer.changed.message')
+    = @resource.unconfirmed_email
+    | \.
+- else
+  p
+    = t('devise.mailer.changed.messagesecond')
+    = @resource.email
+    | \.
