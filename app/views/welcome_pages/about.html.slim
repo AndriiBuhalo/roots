@@ -1,4 +1,5 @@
-.center.jumbotron.mb-0.mt-5.text-center
+.center.jumbotron.mb-0.text-center
   h1.display-3 = t('welcome_pages.about.title')
   h2.lead = t('welcome_pages.about.subtitle')
-= render 'welcome_pages/root'
+.welcome-root.d-flex.justify-content-center
+  = image_tag "roots.jpg", alt: "The Roots", class: "w-50"

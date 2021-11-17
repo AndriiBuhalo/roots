@@ -1,14 +1,17 @@
-header.navbar.navbar-dark.bg-dark.fixed-top
+header.navbar.navbar-dark.bg-dark.fixed-top.navbar-expand-md
     .container
       = link_to t('global.header.logo'), welcome_pages_home_path, id: "logo", class: "navbar-brand font-weight-bold"
-      ul.navbar-nav.flex-row.justify-content-end
-        li.nav-item.mr-4= link_to t('.home'),   welcome_pages_home_path, class: "nav-link font-weight-bold"
-        - if user_signed_in?
-          div.d-flex.align-items-center
-            img.gravatar.rounded-circle src="#{current_user.gravatar}" width="32" height="32"
-            li.pl-1.text-white
-              = current_user.email
-          li= link_to "Log Out", destroy_user_session_path, method: :delete
-        - else
-          li.nav-item.mr-4= link_to t('.sign_up'),   new_user_registration_path, class: "nav-link font-weight-bold"
-          li.nav-item= link_to t('.log_in'), new_user_session_path, class: "nav-link font-weight-bold"
+      button.navbar-toggler aria-controls="navbarSupportedContentHeader" aria-expanded="true" aria-label=("Toggle navigation") data-target="#navbarSupportedContentHeader" data-toggle="collapse" type="button"
+        span.navbar-toggler-icon
+      #navbarSupportedContentHeader.collapse.navbar-collapse.justify-content-end
+        ul.navbar-nav
+          li.nav-item.m-2= link_to t('.home'),   welcome_pages_home_path, class: "nav-link font-weight-bold"
+          - if user_signed_in?
+            div.d-flex.align-items-center
+              img.gravatar.rounded-circle src="#{current_user.gravatar}" width="32" height="32"
+              li.pl-1.text-white.mr-4.font-weight-bold
+                = current_user.email
+            li.nav-item.m-2= link_to t('.log_out'), destroy_user_session_path, method: :delete, class: "nav-link font-weight-bold"
+          - else
+            li.nav-item.m-2= link_to t('.sign_up'),   new_user_registration_path, class: "nav-link font-weight-bold"
+            li.nav-item.m-2= link_to t('.log_in'), new_user_session_path, class: "nav-link font-weight-bold"

@@ -1,7 +1,8 @@
-  footer.container.fixed-bottom.d-flex.justify-content-between.align-items-center.bg-light.pt-2.pb-2.navbar-light
-    p.font-weight-bold.mb-0.text-muted = t('global.footer.string')
-    nav
+footer.container.fixed-bottom.bg-light.pt-2.pb-2.navbar-light
+  .row.justify-content-between
+    p.font-weight-bold.text-muted.col-lg-3.nav-link.mb-0.text-center = t('global.footer.string')
+    nav.col-lg-3.d-flex.justify-content-center
       ul.navbar-nav.flex-row.justify-content-end
         li.nav-item.mr-4= link_to t('.about'),   welcome_pages_about_path, class: "nav-link font-weight-bold"
-        li.nav-item.mr-4.font-weight-bold= link_to t('.contacts'), welcome_pages_contacts_path, class: "nav-link font-weight-bold"
-        li.nav-item.font-weight-bold= link_to t('.softserve'), "https://www.softserveinc.com/uk-ua", target: '_blank', class: "nav-link font-weight-bold"
+        li.nav-item.mr-4= link_to t('.contacts'), welcome_pages_contacts_path, class: "nav-link font-weight-bold"
+        li.nav-item= link_to t('.softserve'), "https://www.softserveinc.com/uk-ua", target: '_blank', class: "nav-link font-weight-bold"

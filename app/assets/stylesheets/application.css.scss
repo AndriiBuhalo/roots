@@ -16,6 +16,9 @@
 
 /* mixins, variables, etc.*/
 
+body{
+  margin-top: 50px;
+}
 
 #logo {
   &::before{
