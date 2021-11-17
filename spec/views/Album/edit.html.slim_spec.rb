@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "posts/edit", type: :view do
+RSpec.describe "album/edit", type: :view do
 
   let(:valid_album) { create(:album) }
 

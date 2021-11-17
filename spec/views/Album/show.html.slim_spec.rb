@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "posts/show", type: :view do
+RSpec.describe "album/show", type: :view do
 
   let(:valid_album) { create(:album) }
 
@@ -19,7 +19,7 @@ RSpec.describe "posts/show", type: :view do
     expect(rendered).to include valid_album.description
     expect(rendered).to have_link t('common.edit'), href: edit_album_path(valid_album)
     expect(rendered).to have_link t('common.back'), href: album_index_path
-    expect(rendered).to have_link t('common.delete'), href: edit_album_path(valid_album)
+    expect(rendered).to have_link t('common.delete'), href: album_path(valid_album)
     expect(rendered).to have_link t('album.add picture'), href: new_attachment_path
   end
 end
