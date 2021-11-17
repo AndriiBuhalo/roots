@@ -2,15 +2,15 @@ main
   .d-flex
     = render(partial: './layouts/left_col')
     .group_images.show_image
-      .btn_album
+      .ml-3
         = link_to t('common.delete'), attachment_path(@attachment), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
         = link_to t('common.edit'), edit_image_info_path(@attachment), class: "btn btn-primary"
         = link_to t('common.back'), :back, class: 'btn btn-secondary'
-      h3 = @attachment.file.identifier
-      .image_block
+      h3.m-3 = @attachment.file.identifier
+      .d-flex.justify-content-center
         = image_tag @attachment.file.url, class: 'large', alt: "#{@attachment.file.identifier}" if @attachment.file?
     aside.right_col
-      .filters_block
+      .filters_block.h-100
         h4.center.text-uppercase
           = t('.in this photo')
         p
@@ -42,8 +42,8 @@ main
                 = image_tag album.attachments.last.file.url, alt: "#{album.attachments.last.file.identifier}"
         p
           = t('.photo link')
-          span.showLink = t('show link')
-          input type="text" value="#{attachment_path(@attachment)}" style="display: none;" readonly="readonly" /
+          span.showLink.hand = t('.show link')
+          input.w-100 type="text" value="#{attachment_path(@attachment)}" style="display: none;" readonly="readonly" /
         h4.center.text-uppercase
           = t('.information')
         p

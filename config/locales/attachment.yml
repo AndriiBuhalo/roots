@@ -24,6 +24,7 @@ en:
       date: 'Date:'
       albums: 'Albums:'
       photo link: 'Link to this photo:'
+      show link: 'Show link'
       type: 'Type:'
       width: 'Width:'
       height: 'Height:'

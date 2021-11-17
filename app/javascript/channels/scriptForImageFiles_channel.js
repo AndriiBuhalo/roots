@@ -1,13 +1,5 @@
-$( document ).ready(function() {
-
-  $(document).on("click",".albums", function (e) {
-    $(".showAlbums").toggle("easing");
-  });
-
-  $(document).on("click",".showLink", function (e) {
-    $(".info input").toggle();
-    $(".info input").select();
+$(document).on("click",".showLink", function (e) {
+    $(".filters_block input").toggle();
+    $(".filters_block input").select();
     document.execCommand("copy");
-  });
-
-  });
+});

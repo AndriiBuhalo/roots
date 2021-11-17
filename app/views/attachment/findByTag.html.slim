@@ -4,6 +4,6 @@ main
     .group_images
       - @attachments.each do |image|
         - if @findIdByTag.include? image.id
-          .image_block
+          .d-inline-block
             = link_to attachment_path(image) do
               = image_tag image.file.url, class: 'thumb', alt: "#{image.file.identifier}"

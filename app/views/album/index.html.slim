@@ -3,8 +3,16 @@ main
     = render(partial: './layouts/left_col')
     .group_images
       - @albums.each do |album|
-        .image_block
+        .d-inline-block
           - album.attachments.all.each do |attachment|
-              = link_to album_path(album), class: 'albumA' do
-                span = album.name
-                = image_tag attachment.file.url, class: 'thumb', alt: "#{attachment.file.identifier}" if attachment.file?
+            table.table.table-bordered.ml-3
+              thead
+                tr
+                  th.text-center scope="col"  = t('album.name')
+                  th.text-center scope="col"  = t('album.description')
+              tbody
+                tr
+                  td.text-center
+                    = link_to album_path(album) do
+                      span = album.name
+                  td.text-center = album.description

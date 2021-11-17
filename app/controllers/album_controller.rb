@@ -7,7 +7,7 @@ class AlbumController < ApplicationController
 
   def show
     @albums = Album.all
-    @images = @album.attachments.all.reverse
+    @images = @album.attachments.all
   end
 
   def new

@@ -14,26 +14,22 @@
   width: 32.7%;
   margin-bottom: 20px;
 }
-.frmAdd .date_accuracy, .filters_block p input{width: 100%;}
-.btn_album, .group_images h3, .group_images label{margin: 10px 10px;}
 .container {width: 90%!important;max-width: 90%!important;}
 .group_images{
   flex: 0 0 83.666667%;
   max-width: 83.666667%;
-  border: 1px solid silver;
 }
-.show_image{flex: 0 0 63.33%;max-width: 63.33%;}
-.image_block{display: inline-block;}
-.show_image .image_block{display: flex;justify-content: center;}
+.show_image{
+  flex: 0 0 63.33%;
+  max-width: 63.33%;
+}
 .thumb{
   height: 200px;
-  border:1px solid silver;
-  margin: 10px;
+  margin: 0px 0px 10px 10px;
 }
 .large{
-  border:1px solid silver;
-  margin: 10px;
-  max-width: 100%;
+  margin-left: 10px;
+  margin: 0px 0px 10px 10px;
 }
 .row .left_col{
   flex: 0 0 16.33%;
@@ -43,7 +39,6 @@
   flex: 0 0 20.33%;
   max-width: 20.33%;
 }
-.left_col .filters_block, .right_col .filters_block{height: 100%;}
 .filters_block{
   position: sticky;
   top: 20px;
@@ -63,11 +58,10 @@
   text-transform: none;
   color: #ccc;
 }
-.albumsBlock a, .albumA{
+.albumsBlock a{
   display: inline-grid;
   text-align: center;
   font-size: 12px;
 }
-.albumA{font-size: 18px;}
 .albumsBlock img {height: 60px;}
-.list-group-item a, .list-group-item label, .filters_block .showLink{cursor: pointer;}
+.list-group-item a, .filters_block .showLink{cursor: pointer;}
