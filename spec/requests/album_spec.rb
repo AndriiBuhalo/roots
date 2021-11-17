@@ -18,7 +18,7 @@
     end
   end
 
-  describe "GET /new" do
+  describe 'GET /new' do
     it "renders a successful response" do
       get new_album_url
       expect(response).to render_template(:new)
