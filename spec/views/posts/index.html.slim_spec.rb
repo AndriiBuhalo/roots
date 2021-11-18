@@ -1,14 +1,15 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "posts/index", type: :view do
+RSpec.describe 'posts/index', type: :view do
   let(:valid_post) { create(:post) }
 
-  before(:each) do
+  before do
     assign(:posts, [valid_post])
   end
 
-
-  it "renders a list of posts" do
+  it 'renders a list of posts' do
     render
     expect(rendered).to include t('posts.index.main_title')
     expect(rendered).to include t('posts.index.title')

@@ -1,7 +1,4 @@
-.center.jumbotron
-  h1 = t('welcome_pages.home.title')
-  h2 = t('welcome_pages.home.subtitle')
-  - unless user_signed_in?
-    = link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg"
-.welcome-root
-  = image_tag "roots.jpg", alt: "The Roots"
+h1 = t('welcome_pages.home.title')
+h2 = t('welcome_pages.home.subtitle')
+- unless user_signed_in?
+  = link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg"

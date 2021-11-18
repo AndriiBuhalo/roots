@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 class WelcomePagesController < ApplicationController
-  def home
-  end
+  layout 'public'
 
-  def about
-  end
+  def home; end
 
-  def contacts
-  end
+  def about; end
+
+  def contacts; end
 end
