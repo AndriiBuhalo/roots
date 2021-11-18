@@ -3,6 +3,7 @@ en:
     add picture: 'Add picture'
     all albums: 'All albums'
     create album: 'Create Album'
+    all media: 'All media elements:'
     name: 'Album name'
     description: 'Album description'
     show:

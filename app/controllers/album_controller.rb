@@ -1,13 +1,11 @@
 class AlbumController < ApplicationController
-  before_action :set_post, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_album, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @albums = Album.all
   end
 
   def show
-    @albums = Album.all
-    @images = @album.attachments.all
   end
 
   def new
@@ -36,7 +34,7 @@ class AlbumController < ApplicationController
     redirect_to attachment_index_path, success: t('album.controller.destroy')
   end
 
-  private def set_post
+  private def set_album
     @album = Album.find(params[:id])
   end
 

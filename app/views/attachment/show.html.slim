@@ -3,8 +3,8 @@ main
     = render(partial: './layouts/left_col')
     .group_images.show_image
       .ml-3
-        = link_to t('common.delete'), attachment_path(@attachment), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
         = link_to t('common.edit'), edit_attachment_path(@attachment), class: "btn btn-primary"
+        = link_to t('common.delete'), attachment_path(@attachment), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
         = link_to t('common.back'), :back, class: 'btn btn-secondary'
       h3.m-3 = @attachment.file.identifier
       .d-flex.justify-content-center
@@ -33,17 +33,16 @@ main
             = @attachment.date_accuracy
             '
             = @attachment.file_date.strftime("%Y-%m-%d") if !@attachment.file_date.blank?
-        p
+        p.albumsBlock
           = t('.albums')
           - @attachment.albums.each do |album|
-            .albumsBlock
-              = link_to album_path(album) do
-                span = album.name
-                = image_tag album.attachments.last.file.url, alt: "#{album.attachments.last.file.identifier}"
+            = link_to album_path(album) do
+              = album.name
+              = image_tag album.attachments.last.file.url, alt: "#{album.attachments.last.file.identifier}"
         p
           = t('.photo link')
           span.showLink.hand = t('.show link')
-          input.w-100 type="text" value="#{attachment_path(@attachment)}" style="display: none;" readonly="readonly" /
+          input type="text" value="#{attachment_path(@attachment)}" style="display: none;" readonly="readonly" /
         h4.center.text-uppercase
           = t('.information')
         p

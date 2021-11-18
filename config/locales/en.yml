@@ -35,6 +35,7 @@ en:
     add: 'Add'
     edit: 'Edit'
     delete: 'Delete'
+    show: 'Show'
     confirmation: 'Are you sure'
   devise:
     confirmations:

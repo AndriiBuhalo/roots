@@ -4,11 +4,11 @@ aside.left_col
       li.list-group-item.d-flex.justify-content-between.align-items-center
         = link_to t('attachment.all media'), attachment_index_path
         span.badge.badge-secondary.badge-pill
-          = link_to '+', new_attachment_path, class: 'text-primary'
+          = link_to t('common.add'), new_attachment_path, class: 'text-primary'
       li.list-group-item.d-flex.justify-content-between.align-items-center
         .text-secondary = t('attachment.persons')
         span.badge.badge-secondary.badge-pill
       li.list-group-item.d-flex.justify-content-between.align-items-center
         = link_to t('attachment.all albums'), album_index_path
         span.badge.badge-secondary.badge-pill
-          = link_to '+', new_album_path, class: 'text-primary'
+          = link_to t('common.add'), new_album_path, class: 'text-primary'

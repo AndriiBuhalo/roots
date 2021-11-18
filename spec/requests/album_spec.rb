@@ -4,7 +4,7 @@ RSpec.describe "/album", type: :request do
 
   describe "GET /index" do
     it "renders a successful response" do
-      get album_url
+      get album_index_path
       expect(response).to be_successful
     end
   end
@@ -12,14 +12,14 @@ RSpec.describe "/album", type: :request do
   describe "GET /show" do
     let(:valid_album) { create(:album) }
     it "renders a successful response" do
-      get album_url(valid_album)
+      get album_path(valid_album)
       expect(response).to render_template(:show)
     end
   end
 
   describe "GET /new" do
     it "renders a successful response" do
-      get new_album_url
+      get new_album_path
       expect(response).to render_template(:new)
     end
   end
@@ -27,7 +27,7 @@ RSpec.describe "/album", type: :request do
   describe "GET /edit" do
     let(:valid_album) { create(:album) }
     it "render a successful response" do
-      get edit_album_url(valid_album)
+      get edit_album_path(valid_album)
       expect(response).to render_template(:edit)
     end
   end
@@ -42,7 +42,7 @@ RSpec.describe "/album", type: :request do
       end
 
       it "creates a new Album" do
-        post album_url, params: { album: valid_album }
+        post album_index_path, params: { album: valid_album }
         expect(response).to redirect_to(assigns(:album))
         follow_redirect!
         expect(response).to render_template(:show)
@@ -57,7 +57,7 @@ RSpec.describe "/album", type: :request do
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
-        get new_album_url
+        get new_album_path
         expect(response).to render_template(:new)
         expect(album).not_to be_valid
         expect(response).to render_template(:new)
@@ -76,10 +76,10 @@ RSpec.describe "/album", type: :request do
       }
      end
       it "updates the requested post" do
-        get edit_album_url(valid_album)
+        get edit_album_path(valid_album)
         expect(response).to render_template(:edit)
-        patch album_url(valid_album), params: { album: edited_album }
-        expect(response).to redirect_to(album_url(valid_album))
+        patch album_path(valid_album), params: { album: edited_album }
+        expect(response).to redirect_to(album_path(valid_album))
         follow_redirect!
         expect(response).to render_template(:show)
         expect(response.body).to include("Album successfully modified!")
@@ -97,9 +97,9 @@ RSpec.describe "/album", type: :request do
       end
 
       it "renders a successful response (i.e. to display the 'edit' template)" do
-        get edit_album_url(valid_album)
+        get edit_album_path(valid_album)
         expect(response).to render_template(:edit)
-        patch album_url(valid_album), params: { album: edited_invalid_album }
+        patch album_path(valid_album), params: { album: edited_invalid_album }
         expect(response).to render_template(:edit)
       end
     end
@@ -110,13 +110,13 @@ RSpec.describe "/album", type: :request do
 
     it "destroys the requested album" do
       expect {
-        delete album_url(valid_album)
+        delete album_path(valid_album)
       }.to change(Album, :count).by(-1)
     end
 
     it "redirects to the albums list" do
-      delete album_url(valid_album)
-      expect(response).to redirect_to(album_url)
+      delete album_path(valid_album)
+      expect(response).to redirect_to(attachment_index_path)
     end
   end
 end

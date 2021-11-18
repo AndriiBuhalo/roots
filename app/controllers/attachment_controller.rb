@@ -1,12 +1,12 @@
 class AttachmentController < ApplicationController
-  before_action :set_post, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_attachment, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @attachments = Attachment.all.reverse
   end
 
   def findByTag
-    @attachments = Attachment.where(:keywords => params[:tag]).all.reverse 
+    @attachments = Attachment.where(:keywords => params[:tag]).all.reverse
   end
 
   def show
@@ -41,7 +41,7 @@ class AttachmentController < ApplicationController
     redirect_to attachment_index_path, success: t('attachment.controller.destroy')
   end
 
-  private def set_post
+  private def set_attachment
     @attachment = Attachment.find(params[:id])
   end
 
