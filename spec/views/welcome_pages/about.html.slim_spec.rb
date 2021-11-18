@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'welcome_pages/about.html.slim', type: :view do
   include Devise::Test::ControllerHelpers
 
-	before(:each) do
-	  render template: 'welcome_pages/about', layout: 'layouts/application'
+  before do
+    render template: 'welcome_pages/about', layout: 'layouts/application'
   end
 
   it 'has header menu for public' do
@@ -12,9 +14,9 @@ RSpec.describe 'welcome_pages/about.html.slim', type: :view do
     expect(rendered).to have_link t('global.header.home'), href: welcome_pages_home_path
     expect(rendered).to have_link t('global.header.sign_up'), href: new_user_registration_path
     expect(rendered).to have_link t('global.header.log_in'), href: new_user_session_path
-	end
+  end
 
-	it 'has _about partial' do
+  it 'has _about partial' do
     expect(rendered).to include t('welcome_pages.about.title')
     expect(rendered).to include t('welcome_pages.about.subtitle')
   end
