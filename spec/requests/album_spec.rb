@@ -1,23 +1,23 @@
  require 'rails_helper'
 
-RSpec.describe "/album", type: :request do
-
-  describe "GET /index" do
-    it "renders a successful response" do
-      get album_index_path
+ RSpec.describe "/album", type: :request do
+  describe 'GET /index' do
+    it 'renders a successful response' do
+      get album_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /show" do
+  describe 'GET /show' do
     let(:valid_album) { create(:album) }
-    it "renders a successful response" do
-      get album_path(valid_album)
+
+    it 'renders a successful response' do
+      get album_url(valid_album)
       expect(response).to render_template(:show)
     end
   end
 
-  describe "GET /new" do
+  describe 'GET /new' do
     it "renders a successful response" do
       get new_album_path
       expect(response).to render_template(:new)
@@ -67,16 +67,16 @@ RSpec.describe "/album", type: :request do
 
   describe "PATCH /update" do
 
-    context "with valid parameters" do
+    context 'with valid parameters' do
       let!(:valid_album) { create(:album) }
       let(:edited_album) do
-      {
-       name: Faker::Lorem.characters(number: 10),
-       description: Faker::Lorem.characters(number: 10),
+       {
+        name: Faker::Lorem.characters(number: 10),
+       description: Faker::Lorem.characters(number: 10)
       }
-     end
-      it "updates the requested post" do
-        get edit_album_path(valid_album)
+      end
+      it 'updates the requested post' do
+        get edit_album_url(valid_album)
         expect(response).to render_template(:edit)
         patch album_path(valid_album), params: { album: edited_album }
         expect(response).to redirect_to(album_path(valid_album))
