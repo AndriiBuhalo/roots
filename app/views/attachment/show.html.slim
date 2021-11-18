@@ -20,7 +20,7 @@ main
         p
           = t('.keywords')
           '
-          = link_to @attachment.keywords, findByTag_path(:tag => @attachment.keywords), class: 'badge badge-pill badge-info' if !@attachment.keywords.blank?
+          = link_to @attachment.keywords, attachment_index_path(:tag => @attachment.keywords), class: 'badge badge-pill badge-info' if !@attachment.keywords.blank?
         p
           = t('.notes')
           span = @attachment.notes

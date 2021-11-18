@@ -1,8 +1,0 @@
-main
-  .d-flex
-    = render(partial: './layouts/left_col')
-    .group_images
-      - @attachments.each do |image|
-        .d-inline-block
-          = link_to attachment_path(image) do
-            = image_tag image.file.url, class: 'thumb', alt: "#{image.file.identifier}"

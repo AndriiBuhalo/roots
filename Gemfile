@@ -27,28 +27,17 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'awesome_print'
-<<<<<<< HEAD
-gem 'slim-rails'
-gem 'simple_form'
-gem 'rails-i18n', '~> 6.0.0'
-gem 'carrierwave', '~> 2.0'
-gem 'devise'
-gem 'devise-i18n'
-gem 'carrierwave', '~> 2.0'
-gem 'dotenv-rails', '~> 2.7'
-gem 'mini_magick'
-
-=======
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 gem 'devise-i18n'
 gem 'rails-i18n', '~> 6.0.0'
 gem 'simple_form'
 gem 'slim-rails'
+gem 'carrierwave', '~> 2.0'
 gem 'dotenv-rails', '~> 2.7'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
->>>>>>> origin
+gem 'mini_magick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
