@@ -24,7 +24,6 @@ jobs:
         with:
           ruby-version: 2.7.4
       - name: Simplecov Report
-      - uses: aki77/simplecov-report-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
         env:
@@ -34,4 +33,6 @@ jobs:
           sudo apt-get -yqq install libpq-dev
           gem install bundler
           bundle install --jobs 4 --retry 3
+          bundle exec rails assets:precompile
+          bundle exec rails db:prepare
           bundle exec rspec
