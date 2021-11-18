@@ -1,12 +1,13 @@
 header.navbar.navbar-dark.bg-dark.fixed-top.navbar-expand-md
     .container
-      = link_to t('global.header.logo'), welcome_pages_home_path, id: "logo", class: "navbar-brand font-weight-bold"
+      = link_to t('layouts.header.logo'), welcome_pages_home_path, id: "logo", class: "navbar-brand font-weight-bold"
       button.navbar-toggler aria-controls="navbarSupportedContentHeader" aria-expanded="true" aria-label=("Toggle navigation") data-target="#navbarSupportedContentHeader" data-toggle="collapse" type="button"
         span.navbar-toggler-icon
       #navbarSupportedContentHeader.collapse.navbar-collapse.justify-content-end
         ul.navbar-nav
-          li.nav-item.m-2= link_to t('.home'),   welcome_pages_home_path, class: "nav-link font-weight-bold"
           - if user_signed_in?
+            li.nav-item.m-2= link_to t('.posts'),   posts_path, class: "nav-link font-weight-bold"
+            li.nav-item.m-2= link_to t('.albums'),   '#', class: "nav-link font-weight-bold"
             div.d-flex.align-items-center
               img.gravatar.rounded-circle src="#{current_user.gravatar}" width="32" height="32"
               li.pl-1.text-white.mr-4.font-weight-bold

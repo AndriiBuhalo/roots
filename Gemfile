@@ -30,12 +30,12 @@ gem 'awesome_print'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 gem 'devise-i18n'
-gem 'rails-i18n', '~> 6.0.0'
-gem 'simple_form'
-gem 'slim-rails'
 gem 'dotenv-rails', '~> 2.7'
 gem 'rails-i18n', '~> 6.0.0'
+gem 'rails-i18n', '~> 6.0.0'
 gem 'simple_form'
+gem 'simple_form'
+gem 'slim-rails'
 gem 'slim-rails'
 
 group :development, :test do

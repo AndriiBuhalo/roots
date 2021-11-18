@@ -1,5 +1,5 @@
 en:
-  global:
+  layouts:
     page_title: "The Roots"
     header:
       logo: "The Roots"
@@ -9,6 +9,9 @@ en:
       log_in: "Log In"
       sign_out: "Sign Out"
       log_out: "Log Out"
+      posts: "Posts"
+      albums: "Albums"
+      profile: "Profile"
     footer:
       string: "IF-133 Ruby Developers Team"
       about: "About"
