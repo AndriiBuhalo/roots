@@ -1,10 +1,11 @@
-h2= t("devise.unlock.new.title")
-= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .actions
-    = f.submit t("devise.unlock.new.title")
-= render "devise/shared/links"
+div.row.justify-content-center
+  div.col-6
+    h1
+      = t("devise.unlock.new.title")
+    = simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field
+        = f.input :email, autofocus: true, autocomplete: "email"
+      .actions
+        = f.button :submit, t("devise.unlock.new.title"), class:'btn btn-primary btn-block'
+    = render "devise/shared/links"
