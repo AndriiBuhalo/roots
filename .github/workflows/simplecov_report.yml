@@ -19,21 +19,23 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
-      - uses: actions/checkout@v2
+      - name: Check out code
+        uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7.4
+      - name: Postgres pack
+        run: sudo apt-get -yqq install libpq-dev
+      - name: Install bundler
+        run: gem install bundler
+      - name: Install gems
+        run: bundle install --jobs 4 --retry 3
+      - name: Test
+        run: bundle exec rspec
       - name: Simplecov Report
-        uses: aki77/simplecov-report-action@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
         env:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432
-        run: |
-          sudo apt-get -yqq install libpq-dev
-          gem install bundler
-          bundle install --jobs 4 --retry 3
-          bundle exec rails assets:precompile
-          bundle exec rails db:prepare
-          bundle exec rspec
+        uses: aki77/simplecov-report-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}

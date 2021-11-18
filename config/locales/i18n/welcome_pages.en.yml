@@ -1,0 +1,13 @@
+en:
+  welcome_pages:
+    alt: "The Roots"
+    home:
+      title: "Welcome to The Roots"
+      subtitle: "This is the welcome page for The Roots application."
+      sign_up_link: "Sign up now!"
+    about:
+      title: "About The Roots"
+      subtitle: "This is the description of The Roots application."
+    contacts:
+      title: "Contacts"
+      subtitle: "There are members of Ruby Developers Team."
