@@ -3,4 +3,27 @@
 require 'rails_helper'
 
 RSpec.describe 'welcome_pages/about.html.slim', type: :view do
+  include Devise::Test::ControllerHelpers
+
+  before do
+    render template: 'welcome_pages/about', layout: 'layouts/public'
+  end
+
+  it 'has header menu for public' do
+    expect(rendered).to have_title t('global.page_title')
+    expect(rendered).to have_link t('global.header.home'), href: welcome_pages_home_path
+    expect(rendered).to have_link t('global.header.sign_up'), href: new_user_registration_path
+    expect(rendered).to have_link t('global.header.log_in'), href: new_user_session_path
+  end
+
+  it 'has _about partial' do
+    expect(rendered).to include t('welcome_pages.about.title')
+    expect(rendered).to include t('welcome_pages.about.subtitle')
+  end
+
+  it 'has footer navbar' do
+    expect(rendered).to include t('global.footer.string')
+    expect(rendered).to have_link t('global.footer.about'), href: welcome_pages_about_path
+    expect(rendered).to have_link t('global.footer.contacts'), href: welcome_pages_contacts_path
+  end
 end

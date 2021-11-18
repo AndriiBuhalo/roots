@@ -2,7 +2,6 @@
 
 class WelcomePagesController < ApplicationController
   layout 'public'
-
   def home; end
 
   def about; end
