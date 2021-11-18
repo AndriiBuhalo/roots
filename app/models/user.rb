@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
-  validates_length_of :email, maximum: 45
+  validates :email, length: { maximum: 45 }
   validates :username, presence: false
 
   def gravatar
