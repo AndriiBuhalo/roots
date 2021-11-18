@@ -1,5 +1,6 @@
 en:
   welcome_pages:
+    alt: "The Roots"
     home:
       title: "Welcome to The Roots"
       subtitle: "This is the welcome page for The Roots application."

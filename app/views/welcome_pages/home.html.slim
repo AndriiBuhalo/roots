@@ -4,4 +4,4 @@
   - unless user_signed_in?
     = link_to t('welcome_pages.home.sign_up_link'), new_user_registration_path, class: "btn btn-lg btn-outline-dark"
 .welcome-root.d-flex.justify-content-center
-  = image_tag "roots.jpg", alt: "The Roots", class: "w-50"
+  = image_tag "roots.jpg", alt: t('welcome_pages.alt'), class: "w-50"
