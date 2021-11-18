@@ -1,10 +1,7 @@
-- provide(:title, "Home")
-
-.center.jumbotron
-  h1 Welcome to The Roots
-  h2
-    | This is the welcome page for The Roots application.
+.center.jumbotron.mb-0.text-center
+  h1.display-3 = t('welcome_pages.home.title')
+  h2.lead.mb-5 = t('welcome_pages.home.subtitle')
   - unless user_signed_in?
-    = link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg"
-.welcome-root
-  = link_to image_tag("image.jpg", alt: "The Roots Logo", id: 'welcome-root')
+    = link_to t('welcome_pages.home.sign_up_link'), new_user_registration_path, class: "btn btn-lg btn-outline-dark"
+.welcome-root.d-flex.justify-content-center
+  = image_tag "roots.jpg", alt: t('welcome_pages.alt'), class: "w-50"
