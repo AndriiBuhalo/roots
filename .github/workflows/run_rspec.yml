@@ -23,9 +23,6 @@ jobs:
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.7.4
-      - name: Simplecov Report
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and run tests
         env:
           RAILS_ENV: test
