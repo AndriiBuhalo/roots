@@ -47,17 +47,17 @@ main
           = t('.information')
         p
           = t('.type')
-          span = @attachment.file.content_type
+          span = @attachment.file.content_type if @attachment.file?
         p
           = t('.width')
           span
-            = @attachment.file.width
+            = @attachment.file.width if @attachment.file?
             '
             = t('.px')
         p
           = t('.height')
           span
-            = @attachment.file.height
+            = @attachment.file.height if @attachment.file?
             '
             = t('.px')
         p
