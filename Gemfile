@@ -31,7 +31,7 @@ gem 'simple_form'
 gem 'rails-i18n', '~> 6.0.0'
 gem 'devise'
 gem 'devise-i18n'
-gem 'dotenv', '2.1.1'
+gem 'dotenv-rails', '~> 2.7'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 
