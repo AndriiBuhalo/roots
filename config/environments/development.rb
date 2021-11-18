@@ -76,8 +76,5 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
-  config.action_mailer.default_url_options = {
-    host: ENV.fetch('RAILS_ENV'),
-    port: ENV.fetch('RAILS_ENV')
-  }
+  config.action_mailer.default_url_options = { host: ENV.fetch("RAILS_HOST") , port: ENV.fetch("RAILS_PORT") }
 end
