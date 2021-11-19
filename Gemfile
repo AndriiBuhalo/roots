@@ -32,10 +32,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'dotenv-rails', '~> 2.7'
 gem 'rails-i18n', '~> 6.0.0'
-gem 'rails-i18n', '~> 6.0.0'
 gem 'simple_form'
-gem 'simple_form'
-gem 'slim-rails'
 gem 'slim-rails'
 
 group :development, :test do
