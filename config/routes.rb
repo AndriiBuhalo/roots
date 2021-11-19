@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'welcome_pages/about'
   get 'welcome_pages/contacts'
   devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_scope :user do
     authenticated :user do
       root 'posts#index', as: :authenticated_root
