@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "posts/show", type: :view do
+RSpec.describe 'posts/show', type: :view do
   let(:valid_post) { create(:post) }
 
-  before(:each) do
+  before do
     assign(:post, valid_post)
   end
 
-  it "renders show form" do
+  it 'renders show form' do
     render
     expect(rendered).to include t('posts.show.title')
     expect(rendered).to include valid_post.title

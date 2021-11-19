@@ -1,8 +1,5 @@
-- provide(:title, "Contacts")
-
-.center.jumbotron
-  h1 Contacts
-  h2
-    | There are members of Ruby Developers Team.
-.welcome-root
-  = link_to image_tag("image.jpg", alt: "The Roots", id: 'welcome-root')
+.center.jumbotron.mb-0.text-center
+  h1.display-3 = t('welcome_pages.contacts.title')
+  h2.lead = t('welcome_pages.contacts.subtitle')
+.welcome-root.d-flex.justify-content-center
+  = image_tag "roots.jpg", alt: t('welcome_pages.alt'), class: "w-50"
