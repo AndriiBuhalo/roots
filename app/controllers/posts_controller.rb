@@ -5,15 +5,21 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    set_meta_tags title: t('posts.index.page_title')
   end
 
-  def show; end
+  def show
+    set_meta_tags title: @post.title
+  end
 
   def new
     @post = Post.new
+    set_meta_tags title: t('posts.new.page_title')
   end
 
-  def edit; end
+  def edit
+    set_meta_tags title: t('posts.edit.page_title')
+  end
 
   def create
     @post = Post.new(post_params)
