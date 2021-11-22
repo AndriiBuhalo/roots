@@ -2,7 +2,7 @@ doctype html
 html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
-    title = t('layouts.page_title')
+    title = t('global.page_title')
     meta content="width=device-width,initial-scale=1" name="viewport" /
     = csrf_meta_tags
     = csp_meta_tag
@@ -15,5 +15,5 @@ html
       .center.jumbotron.mb-0.text-center
         = yield
       .welcome-root.d-flex.justify-content-center
-        = image_tag "roots.jpg", alt: t('welcome_pages.alt'), class: "w-50"
+        = image_tag "roots.jpg", alt: t('global.public.alt'), class: "w-50"
       = render 'layouts/footer'
