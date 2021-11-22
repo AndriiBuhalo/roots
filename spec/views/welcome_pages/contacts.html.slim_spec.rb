@@ -8,9 +8,9 @@ RSpec.describe 'welcome_pages/contacts.html.slim', type: :view do
   describe 'contacts page for public' do
     it 'has header menu for public' do
       render template: 'welcome_pages/contacts', layout: 'layouts/public'
-      expect(rendered).to have_title t('layouts.page_title')
-      expect(rendered).to have_link t('layouts.header.sign_up'), href: new_user_registration_path
-      expect(rendered).to have_link t('layouts.header.log_in'), href: new_user_session_path
+      expect(rendered).to have_title t('global.page_title')
+      expect(rendered).to have_link t('global.header.sign_up'), href: new_user_registration_path
+      expect(rendered).to have_link t('global.header.log_in'), href: new_user_session_path
     end
   end
 
@@ -19,9 +19,9 @@ RSpec.describe 'welcome_pages/contacts.html.slim', type: :view do
       user = FactoryBot.create(:user)
       sign_in user
       render template: 'welcome_pages/contacts', layout: 'layouts/application'
-      expect(rendered).to have_title t('layouts.page_title')
-      expect(rendered).to have_link t('layouts.header.posts'), href: posts_path
-      expect(rendered).to have_link t('layouts.header.albums')
+      expect(rendered).to have_title t('global.page_title')
+      expect(rendered).to have_link t('global.header.posts'), href: posts_path
+      expect(rendered).to have_link t('global.header.albums')
       expect(rendered).to have_css('img.gravatar')
       sign_out user
     end
@@ -44,10 +44,10 @@ RSpec.describe 'welcome_pages/contacts.html.slim', type: :view do
     end
 
     it 'has footer navbar' do
-      expect(rendered).to include t('layouts.footer.string')
-      expect(rendered).to have_link t('layouts.footer.about'), href: welcome_pages_about_path
-      expect(rendered).to have_link t('layouts.footer.contacts'), href: welcome_pages_contacts_path
-      expect(rendered).to have_link t('layouts.footer.softserve'), href: 'https://www.softserveinc.com/uk-ua'
+      expect(rendered).to include t('global.footer.string')
+      expect(rendered).to have_link t('global.footer.about'), href: welcome_pages_about_path
+      expect(rendered).to have_link t('global.footer.contacts'), href: welcome_pages_contacts_path
+      expect(rendered).to have_link t('global.footer.softserve'), href: 'https://www.softserveinc.com/uk-ua'
     end
   end
 end
