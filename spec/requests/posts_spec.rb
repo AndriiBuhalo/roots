@@ -3,6 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe '/posts', type: :request do
+
   describe 'GET /index' do
     it 'renders a successful response' do
       get posts_url
@@ -39,8 +40,8 @@ RSpec.describe '/posts', type: :request do
     context 'with valid parameters' do
       let(:valid_post) do
         {
-          title: Faker::Lorem.characters(number: 40),
-          content: Faker::Lorem.characters(number: 65)
+          title: Faker::Lorem.characters(number: 3),
+          content: Faker::Lorem.characters(number: 20)
         }
       end
 
@@ -74,8 +75,8 @@ RSpec.describe '/posts', type: :request do
       let!(:valid_post) { create(:post) }
       let(:edited_post) do
         {
-          title: Faker::Lorem.characters(number: 40),
-          content: Faker::Lorem.characters(number: 65)
+          title: Faker::Lorem.characters(number: 3),
+          content: Faker::Lorem.characters(number: 20)
         }
       end
 
