@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 FactoryBot.define do
   factory :attachment do
     notes { Faker::Lorem.characters(number: 3) }

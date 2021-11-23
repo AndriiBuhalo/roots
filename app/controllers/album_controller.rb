@@ -38,7 +38,6 @@ class AlbumController < ApplicationController
   end
 
   private
-  
   def set_album
     @album = Album.find(params[:id])
   end

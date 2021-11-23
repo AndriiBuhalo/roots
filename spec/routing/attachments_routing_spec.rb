@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe AttachmentController, type: :routing do
@@ -20,10 +22,6 @@ RSpec.describe AttachmentController, type: :routing do
 
     it 'routes to #create' do
       expect(post: '/attachment').to route_to('attachment#create')
-    end
-
-    it 'routes to #update via PUT' do
-      expect(put: '/attachment/1').to route_to('attachment#update', id: '1')
     end
 
     it 'routes to #update via PATCH' do

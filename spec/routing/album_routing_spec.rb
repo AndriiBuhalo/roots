@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe AlbumController, type: :routing do
@@ -20,10 +22,6 @@ RSpec.describe AlbumController, type: :routing do
 
     it 'routes to #create' do
       expect(post: '/album').to route_to('album#create')
-    end
-
-    it 'routes to #update via PUT' do
-      expect(put: '/album/1').to route_to('album#update', id: '1')
     end
 
     it 'routes to #update via PATCH' do

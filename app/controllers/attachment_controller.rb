@@ -5,10 +5,10 @@ class AttachmentController < ApplicationController
 
   def index
     @attachments = if params[:tag]
-      Attachment.where(keywords: params[:tag]).order('id DESC')
-    else
-      Attachment.order('id DESC')
-    end
+                     Attachment.where(keywords: params[:tag]).order('id DESC')
+                   else
+                     Attachment.order('id DESC')
+                   end
   end
 
   def new
@@ -37,7 +37,7 @@ class AttachmentController < ApplicationController
   end
 
   private
-  
+
   def set_attachment
     @attachment = Attachment.find(params[:id])
   end
