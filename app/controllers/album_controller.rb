@@ -1,11 +1,8 @@
 class AlbumController < ApplicationController
-  before_action :set_album, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_album, only: %i[show edit update destroy]
 
   def index
     @albums = Album.order('id DESC')
-  end
-
-  def show
   end
 
   def new

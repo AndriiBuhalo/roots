@@ -1,15 +1,12 @@
 class AttachmentController < ApplicationController
-  before_action :set_attachment, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_attachment, only: %i[show edit update destroy]
 
   def index
-    if !params[:tag]
-      @attachments = Attachment.order('id DESC')
-    else
+    if params[:tag]
       @attachments = Attachment.where(keywords: params[:tag]).order('id DESC')
+    else
+      @attachments = Attachment.order('id DESC')
     end
-  end
-
-  def show
   end
 
   def new

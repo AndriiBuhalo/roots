@@ -38,7 +38,7 @@ main
           - @attachment.albums.each do |album|
             = link_to album_path(album) do
               = album.name
-              = image_tag album.attachments.last.file.url, alt: "#{album.attachments.last.file.identifier}" if @attachment.album.attachments.last.file?
+              = image_tag album.attachments.last.file.url, alt: "#{album.attachments.last.file.identifier}"
         p
           = t('.photo link')
           span.showLink.hand = t('.show link')
