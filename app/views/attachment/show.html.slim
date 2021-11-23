@@ -8,7 +8,7 @@ main
         = link_to t('common.back'), :back, class: 'btn btn-secondary'
       h3.m-3 = @attachment.file.identifier
       .d-flex.justify-content-center
-        = image_tag @attachment.file.url, class: 'large', alt: "#{@attachment.file.identifier}"
+        = image_tag @attachment.file.url, class: 'large', alt: "#{@attachment.file.identifier}" if @attachment.file?
     aside.right_col
       .filters_block.h-100
         h4.center.text-uppercase
@@ -38,7 +38,7 @@ main
           - @attachment.albums.each do |album|
             = link_to album_path(album) do
               = album.name
-              = image_tag album.attachments.last.file.url, alt: "#{album.attachments.last.file.identifier}"
+              = image_tag album.attachments.last.file.url, alt: "#{album.attachments.last.file.identifier}" if @attachment.album.attachments.last.file?
         p
           = t('.photo link')
           span.showLink.hand = t('.show link')
