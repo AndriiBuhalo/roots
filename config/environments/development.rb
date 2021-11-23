@@ -79,4 +79,15 @@ Rails.application.configure do
     host: ENV.fetch('RAILS_ENV'),
     port: ENV.fetch('RAILS_ENV')
   }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.mailgun.org',
+    port:                 587,
+    domain:               'localhost',
+    user_name:            'postmaster@sandbox7e0ad13c0d704bee9dda3ce8c5192923.mailgun.org',
+    password:             'f96f6bda7037eeb747cf9634c294cdd6-7dcc6512-d0b54127',
+    authentication:       'plain',
+    enable_starttls_auto: true }
+
 end
