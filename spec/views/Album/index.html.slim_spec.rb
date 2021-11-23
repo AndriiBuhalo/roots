@@ -1,15 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe "album/index", type: :view do
-
+RSpec.describe 'album/index', type: :view do
   let(:valid_album) { create(:album) }
 
-  before(:each) do
+  before do
     assign(:albums, [valid_album])
   end
 
-
-  it "renders a list of albums" do
+  it 'renders a list of albums' do
     render
     expect(rendered).to have_link t('album.all media'), href: attachment_index_path
     expect(rendered).to have_link t('common.add'), href: new_attachment_path

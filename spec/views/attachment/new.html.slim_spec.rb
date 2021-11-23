@@ -1,14 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "attachment/new", type: :view do
-
+RSpec.describe 'attachment/new', type: :view do
   let(:valid_attachment) { create(:attachment) }
 
-  before(:each) do
+  before do
     assign(:attachment, [valid_attachment])
   end
 
-  it "renders new attachment form" do
+  it 'renders new attachment form' do
   end
-
 end

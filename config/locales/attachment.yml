@@ -9,6 +9,9 @@ en:
       image: 'Image'
       attachments: 'Attachments'
       search: 'Search'
+      file name: 'File name'
+      notes: 'Notes'
+      file: 'File'
     new:
       notes: 'Notes'
       click to add: 'Click to add more pictures'

@@ -2,7 +2,19 @@ main
   .d-flex
     = render(partial: './layouts/left_col')
     .group_images
-      - @attachments.each do |image|
-        .d-inline-block
-          = link_to attachment_path(image) do
-            = image_tag image.file.url, class: 'thumb', alt: "#{image.file.identifier}" if image.file?
+      table.table.table-bordered.ml-3
+        thead
+          tr
+            th.text-center scope="col"  = t('attachment.file name')
+            th.text-center scope="col"  = t('attachment.file')
+            th.text-center scope="col"  = t('attachment.notes')
+            th.text-center scope="col"  = t('common.show')
+            th.text-center scope="col"  = t('common.delete')
+        - @attachments.each do |image|
+          tbody
+            tr
+              td.text-center = image.file.identifier
+              td.text-center = image_tag image.file.url, class: 'small', alt: "#{image.file.identifier}" if image.file?
+              td.text-center = image.notes
+              td.text-center = link_to t('common.show'), attachment_path(image), class: 'btn btn-info'
+              td.text-center = link_to t('common.delete'), attachment_path(image), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }

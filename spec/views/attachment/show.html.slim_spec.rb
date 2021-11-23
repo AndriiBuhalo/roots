@@ -1,14 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe "attachment/show", type: :view do
-
+RSpec.describe 'attachment/show', type: :view do
   let(:valid_attachment) { create(:attachment) }
 
-  before(:each) do
+  before do
     assign(:attachment, valid_attachment)
   end
 
-  it "renders show form" do
+  it 'renders show form' do
     render
     expect(rendered).to have_link t('attachment.all media'), href: attachment_index_path
     expect(rendered).to have_link t('common.add'), href: new_attachment_path

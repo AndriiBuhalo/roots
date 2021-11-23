@@ -2,7 +2,7 @@ class AlbumController < ApplicationController
   before_action :set_album, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @albums = Album.all
+    @albums = Album.order('id DESC')
   end
 
   def show
@@ -18,6 +18,10 @@ class AlbumController < ApplicationController
     else
       redirect_to new_albom_path, danger: t('album.controller.create error')
     end
+  end
+
+  def edit
+    @album.attachments.new
   end
 
   def update
@@ -39,6 +43,6 @@ class AlbumController < ApplicationController
   end
 
   def album_params
-    params.require(:album).permit(:name, :description)
+    params.require(:album).permit(:name, :description, attachments_attributes: [:file])
   end
 end

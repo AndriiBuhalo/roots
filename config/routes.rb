@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   get 'welcome_pages/contacts'
   root to: 'welcome_pages#home'
 
-  resources :album
   resources :attachment
+  concern :attachable do
+    resources :attachment, only: :create
+  end
+  resources :album, concerns: [:attachable]
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_scope :user do

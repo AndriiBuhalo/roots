@@ -8,7 +8,7 @@ main
         = link_to t('common.back'), :back, class: 'btn btn-secondary'
       h3.m-3 = @attachment.file.identifier
       .d-flex.justify-content-center
-        = image_tag @attachment.file.url, class: 'large', alt: "#{@attachment.file.identifier}" if @attachment.file?
+        = image_tag @attachment.file.url, class: 'large', alt: "#{@attachment.file.identifier}"
     aside.right_col
       .filters_block.h-100
         h4.center.text-uppercase
@@ -47,17 +47,17 @@ main
           = t('.information')
         p
           = t('.type')
-          span = @attachment.file.content_type if @attachment.file?
+          span = @attachment.file.content_type
         p
           = t('.width')
           span
-            = @attachment.file.width if @attachment.file?
+            = @attachment.file.width
             '
             = t('.px')
         p
           = t('.height')
           span
-            = @attachment.file.height if @attachment.file?
+            = @attachment.file.height
             '
             = t('.px')
         p

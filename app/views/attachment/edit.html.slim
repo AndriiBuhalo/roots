@@ -1,7 +1,7 @@
 #main
   .frmAdd
     = simple_form_for @attachment, html: { multipart: true } do |f|
-      h3.center = t('.edit image')
+      h3.text-center = t('.edit image')
       = f.input :keywords, class: 'form-control', placeholder: t('.keywords')
       = f.input :notes, class: 'form-control', placeholder: t('.notes')
       = f.input :place, class: 'form-control', placeholder: t('.place')

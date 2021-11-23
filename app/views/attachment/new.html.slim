@@ -1,8 +1,7 @@
 #main
   .frmAdd
     = simple_form_for @attachment, url: { action: "create" }, html: { multipart: true } do |f|
-      h3.center = t('attachment.add pictures')
-      = f.hidden_field :albumId, value: params[:albumId]
+      h3.text-center = t('attachment.add pictures')
       = f.hidden_field :downloaded, value: current_user.email
       = f.input :notes, class: 'form-control mb-3 mt-3', placeholder: t('.notes')
       .input-group.mb-3

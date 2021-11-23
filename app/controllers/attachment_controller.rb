@@ -3,13 +3,10 @@ class AttachmentController < ApplicationController
 
   def index
     if !params[:tag]
-      @attachments = Attachment.all.reverse
+      @attachments = Attachment.order('id DESC')
     else
-      @attachments = Attachment.where(:keywords => params[:tag]).all.reverse
+      @attachments = Attachment.where(keywords: params[:tag]).order('id DESC')
     end
-  end
-
-  def findByTag
   end
 
   def show
@@ -21,13 +18,7 @@ class AttachmentController < ApplicationController
 
   def create
     if @attachment = Attachment.create(file_params)
-      if params[:attachment][:albumId].present?
-        @album = Album.find(params[:attachment][:albumId])
-        @album.attachments << @attachment
-        redirect_to @album, success: t('attachment.controller.create')
-      else
-        redirect_to attachment_index_path, success: t('attachment.controller.create')
-      end
+      redirect_to attachment_index_path, success: t('attachment.controller.create')
     else
       redirect_to new_attachment_path, danger: t('attachment.controller.create error')
     end

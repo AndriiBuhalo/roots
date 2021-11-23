@@ -14,6 +14,7 @@ en:
       nothing found: 'Nothing found!'
     new:
       add album: 'Add album'
+      add picture: 'Add picture'
     edit:
       edit album: 'Edit album'
     controller:
