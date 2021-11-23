@@ -37,6 +37,8 @@ gem 'slim-rails'
 gem 'dotenv-rails', '~> 2.7'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
+gem 'will_paginate-bootstrap4'
+# gem 'will_paginate', '~> 3.3.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

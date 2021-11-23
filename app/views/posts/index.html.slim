@@ -16,3 +16,5 @@ table.table.table-bordered.table-hover
         td =< link_to t('.destroy'), post, data: { confirm: t('posts.index.confirmation') }, class:"btn btn-xs btn-danger", method: :delete
 br
 = link_to t('.new_post'), new_post_path, class:"btn btn-success"
+
+= will_paginate @posts, list_classes: %w(pagination justify-content-center)

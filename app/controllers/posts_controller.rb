@@ -1,18 +1,17 @@
 # frozen_string_literal: true
 
-class PostsController < ApplicationController
+class PostsController < AdminsController
   before_action :set_post, only: %i[show edit update destroy]
-  before_action :authenticate_user!
 
   def index
-    @posts = current_user.posts
+    @posts = current_user.posts.paginate(page: params[:page], per_page: 5)
   end
 
   def show
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def edit
