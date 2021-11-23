@@ -5,6 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.4'
 
+gem 'pg', '~>1.1', :group => [:production, :development, :test]
+gem 'puma', '~> 5.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 # Use postgresql as the database for Active Record
@@ -32,6 +34,7 @@ gem 'omniauth-rails_csrf_protection'
 gem 'rails-i18n', '~> 6.0.0'
 gem 'simple_form'
 gem 'slim-rails'
+gem 'any_login', '~>1.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -66,11 +69,6 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'simplecov', require: false
   gem 'webdrivers'
-end
-
-group :production do
-  gem 'pg', '~>1.1'
-  gem 'puma', '~> 5.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
