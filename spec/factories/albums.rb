@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 FactoryBot.define do
   factory :album, class: 'Album' do
     name { Faker::Lorem.characters(number: 10) }

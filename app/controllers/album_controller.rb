@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AlbumController < ApplicationController
   before_action :set_album, only: %i[show edit update destroy]
 
@@ -35,7 +37,9 @@ class AlbumController < ApplicationController
     redirect_to album_index_path, success: t('album.controller.destroy')
   end
 
-  private def set_album
+  private
+  
+  def set_album
     @album = Album.find(params[:id])
   end
 

@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 class AttachmentController < ApplicationController
   before_action :set_attachment, only: %i[show edit update destroy]
 
   def index
-    if params[:tag]
-      @attachments = Attachment.where(keywords: params[:tag]).order('id DESC')
+    @attachments = if params[:tag]
+      Attachment.where(keywords: params[:tag]).order('id DESC')
     else
-      @attachments = Attachment.order('id DESC')
+      Attachment.order('id DESC')
     end
   end
 
@@ -34,7 +36,9 @@ class AttachmentController < ApplicationController
     redirect_to attachment_index_path, success: t('attachment.controller.destroy')
   end
 
-  private def set_attachment
+  private
+  
+  def set_attachment
     @attachment = Attachment.find(params[:id])
   end
 
