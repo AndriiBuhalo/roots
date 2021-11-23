@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.4'
 
-gem 'pg', '~>1.1', :group => [:production, :development, :test]
+gem 'pg', '~>1.1', group: %i[production development test]
 gem 'puma', '~> 5.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 # Reduces boot times through caching; required in config/boot.rb
+gem 'any_login', '~>1.4'
 gem 'awesome_print'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
@@ -34,7 +35,6 @@ gem 'omniauth-rails_csrf_protection'
 gem 'rails-i18n', '~> 6.0.0'
 gem 'simple_form'
 gem 'slim-rails'
-gem 'any_login', '~>1.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 AnyLogin.setup do |config|
   # # provider (:devise, :authlogic, sorcery, clearance). Provider can be identified automatically based on your Gemfile
   # config.provider = nil
@@ -50,7 +52,7 @@ AnyLogin.setup do |config|
 end
 
 # User class: app/models/user.rb
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   def self.grouped_collection_by_role
     {
       'admin' => User.admins.limit(10),
