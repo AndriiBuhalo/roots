@@ -4,32 +4,45 @@ require 'rails_helper'
 
 RSpec.describe 'layouts/public.html.slim', type: :view do
   include Devise::Test::ControllerHelpers
-  it 'has header menu for public' do
+
+  before do
     render
-    expect(rendered).to have_title t('global.page_title')
-    expect(rendered).to have_link t('global.header.sign_up'), href: new_user_registration_path
-    expect(rendered).to have_link t('global.header.log_in'), href: new_user_session_path
   end
 
-  it 'has header menu for user' do
-    user = FactoryBot.create(:user)
-    sign_in user
-    render
-    expect(rendered).to have_title t('global.page_title')
-    expect(rendered).to have_link t('global.header.posts'), href: posts_path
-    expect(rendered).to have_link t('global.header.albums')
-    expect(rendered).to have_css('img.gravatar')
-    sign_out user
+  context 'user is not logged in' do
+    it 'has header menu for public' do
+      expect(rendered).to have_title t('global.page_title')
+      expect(rendered).to have_link t('global.header.sign_up'), href: new_user_registration_path
+      expect(rendered).to have_link t('global.header.log_in'), href: new_user_session_path
+    end
+  end
+
+  context 'user is logged in' do
+    let(:user) { FactoryBot.create(:user) }
+
+    before do
+      sign_in user
+      render
+    end
+
+    after do
+      sign_out user
+    end
+
+    it 'has header menu for user' do
+      expect(rendered).to have_title t('global.page_title')
+      expect(rendered).to have_link t('global.header.posts'), href: posts_path
+      expect(rendered).to have_link t('global.header.albums')
+      expect(rendered).to have_css('img.gravatar')
+    end
   end
 
   it 'has welcome-root container with image' do
-    render
     expect(rendered).to have_css('.welcome-root')
     expect(rendered).to have_css('img.w-50')
   end
 
   it 'has footer navbar' do
-    render
     expect(rendered).to include t('global.footer.string')
     expect(rendered).to have_link t('global.footer.about'), href: welcome_pages_about_path
     expect(rendered).to have_link t('global.footer.contacts'), href: welcome_pages_contacts_path
