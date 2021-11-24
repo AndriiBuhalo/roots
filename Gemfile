@@ -5,7 +5,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.4'
 
-gem 'pg', '~>1.1', group: %i[production development test]
 gem 'puma', '~> 5.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
@@ -71,6 +70,7 @@ group :test do
 end
 
 group :production do
+  gem 'pg', '~>1.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
