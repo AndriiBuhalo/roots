@@ -7,6 +7,10 @@ class AlbumController < ApplicationController
     @albums = Album.order('id DESC')
   end
 
+  def show
+    @attachments = @album.attachments
+  end
+
   def new
     @album = Album.new
   end

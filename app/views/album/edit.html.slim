@@ -1,13 +1,10 @@
-#main
-  .frmAdd
-    = simple_form_for @album, html: { multipart: true } do |f|
-      h3.text-center= t('.edit album')
-      = f.input :name, class: 'form-control mb-3 mt-3', placeholder: t('album.name'), :required => true
-      = f.input :description, class: 'form-control', placeholder: t('album.description')
-      = f.simple_fields_for :attachments do |attachment_form|
-        = render 'attachment_fields', f: attachment_form
-      .links
-        p = link_to_add_association 'add task', f, :attachments
-      .d-flex.justify-content-between
-        = f.submit t('common.edit'), class: 'btn btn-success'
-        = link_to t('common.back'), :back, class: 'btn btn-secondary'
+= simple_form_for @album, html: { multipart: true } do |f|
+  h1 = t('.edit album')
+  = f.input :name, placeholder: t('album.name'), :required => true
+  = f.input :description, placeholder: t('album.description')
+  = f.simple_fields_for :attachments do |attachment_form|
+    = render 'attachment_fields', f: attachment_form
+  .links
+    p = link_to_add_association t('.add file'), f, :attachments, class: 'btn btn-primary'
+  = f.submit t('common.edit'), class: 'btn btn-success mt-3'
+  = link_to t('common.back'), :back, class: 'btn btn-secondary mt-3 ml-3'

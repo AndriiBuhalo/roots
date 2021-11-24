@@ -1,5 +1,8 @@
 .nested-fields
-  = f.file_field :file
-  = f.label :file do
-    = f.object.file.filename
-  = link_to_remove_association "remove task", f
+  .input-group.mb-3
+    .custom-file
+      = f.file_field :file, id: "inputFile", class: "custom-file-input", disabled: f.object.file?
+      label.custom-file-label for="inputFile" = (f.object.file.identifier ? f.object.file.identifier : t('.add picture'))
+    .input-group-append
+      .btn.btn-outline-secondary
+        = link_to_remove_association t(".remove file"), f

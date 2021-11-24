@@ -1,16 +1,11 @@
-#main
-  .frmAdd
-    = simple_form_for @attachment, url: { action: "create" }, html: { multipart: true } do |f|
-      h3.text-center = t('attachment.add pictures')
-      = f.hidden_field :downloaded, value: current_user.email
-      = f.input :notes, class: 'form-control mb-3 mt-3', placeholder: t('.notes')
-      .input-group.mb-3
-        .input-group-prepend
-          span.input-group-text = t('.upload')
-        .custom-file
-          = f.file_field :file, class:'form-control custom-file-input', :required => true
-          label.custom-file-label
-            = t('.click to add')
-      .d-flex.justify-content-between
-        = f.submit t('common.add'), class: 'btn btn-success'
-        = link_to t('common.back'), :back, class: 'btn btn-secondary'
+= simple_form_for @attachment, url: { action: "create" }, html: { multipart: true } do |f|
+  h1 = t('attachment.add pictures')
+  = f.hidden_field :downloaded, value: current_user.email
+  = f.input :notes, placeholder: t('.notes')
+  .nested-fields
+    .input-group.mb-3
+      .custom-file.w-100
+        = f.file_field :file, id: "inputFile", class:'custom-file-input', :required => true
+        label.custom-file-label for="inputFile" = t('.click to add')
+    = f.submit t('common.add'), class: 'btn btn-success mt-3'
+    = link_to t('common.back'), :back, class: 'btn btn-secondary mt-3 ml-3'

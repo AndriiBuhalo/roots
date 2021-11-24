@@ -8,6 +8,7 @@ main
             th.text-center scope="col"  = t('album.name')
             th.text-center scope="col"  = t('album.description')
             th.text-center scope="col"  = t('common.show')
+            th.text-center scope="col"  = t('common.edit')
             th.text-center scope="col"  = t('common.delete')
         - @albums.each do |album|
           tbody
@@ -15,4 +16,5 @@ main
               td.text-center = album.name
               td.text-center = album.description
               td.text-center = link_to t('common.show'), album_path(album), class: 'btn btn-info'
+              td.text-center = link_to t('common.edit'), edit_album_path(album), class: 'btn btn-primary'
               td.text-center = link_to t('common.delete'), album_path(album), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
