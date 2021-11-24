@@ -24,6 +24,6 @@ header.navbar.navbar-dark.bg-dark.fixed-top.navbar-expand-md
           #dropdownMenuButton.btn.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
             =image_tag "language.png"
           .dropdown-menu aria-labelledby="dropdownMenuButton"
-            li.nav-link= link_to 'Eng',  url_for(locale: :en), class: "nav-link font-weight-bold text-dark"
-            li.nav-link= link_to 'Ukr', url_for(locale: :uk), class: "nav-link font-weight-bold text-dark"
+            li.nav-link= link_to 'Eng',  { locale: :en }, class: "nav-link font-weight-bold text-dark"
+            li.nav-link= link_to 'Ukr', { locale: :uk }, class: "nav-link font-weight-bold text-dark"
 
