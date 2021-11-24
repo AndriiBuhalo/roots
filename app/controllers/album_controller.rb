@@ -20,7 +20,7 @@ class AlbumController < ApplicationController
   end
 
   def edit
-    @album.attachments.new
+    @album.attachments.build
   end
 
   def update
@@ -38,11 +38,12 @@ class AlbumController < ApplicationController
   end
 
   private
+
   def set_album
     @album = Album.find(params[:id])
   end
 
   def album_params
-    params.require(:album).permit(:name, :description, attachments_attributes: [:file])
+    params.require(:album).permit(:name, :description, attachments_attributes: [:id, :file, :_destroy])
   end
 end

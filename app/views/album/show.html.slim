@@ -15,7 +15,7 @@ main
         .d-flex.justify-content-center
           h1.search-no-find = t('.nothing found')
       - else
-        //table.table.table-bordered.ml-3
+        table.table.table-bordered.ml-3
           thead
             tr
               th.text-center scope="col"  = t('attachment.file name')
@@ -31,7 +31,3 @@ main
                 td.text-center = image.notes
                 td.text-center = link_to t('common.show'), attachment_path(image), class: 'btn btn-info'
                 td.text-center = link_to t('common.delete'), attachment_path(image), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
-        - @album.attachments.each do |image|
-          .d-inline-block
-            = link_to attachment_path(image) do
-              = image_tag image.file.url, class: 'thumb', alt: "#{image.file.identifier}" if image.file?

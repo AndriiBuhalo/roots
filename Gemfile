@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'awesome_print'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'carrierwave', '~> 2.0'
+gem 'cocoon'
 gem 'devise'
 gem 'devise-i18n'
 gem 'dotenv-rails', '~> 2.7'

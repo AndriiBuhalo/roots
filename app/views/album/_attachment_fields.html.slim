@@ -1,0 +1,5 @@
+.nested-fields
+  = f.file_field :file
+  = f.label :file do
+    = f.object.file.filename
+  = link_to_remove_association "remove task", f

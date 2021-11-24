@@ -4,7 +4,6 @@
       h3.text-center = t('.add album')
       = f.input :name, class: 'form-control mb-3 mt-3', placeholder: t('album.name'), :required => true
       = f.input :description, class: 'form-control', placeholder: t('album.description')
-      = f.fields_for :attachments do |attachment_form|
       .d-flex.justify-content-between
         = f.submit t('common.add'), class: 'btn btn-success'
         = link_to t('common.back'), :back, class: 'btn btn-secondary'
