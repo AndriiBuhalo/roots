@@ -1,8 +1,5 @@
 - title t('welcome_pages.home.page_title')
 h1.display-2 = t('welcome_pages.home.title_html')
 h2.lead.mb-5.h2 = t('welcome_pages.home.subtitle')
-ul
-  li= link_to 'Eng',  url_for(locale: :en)
-  li= link_to 'Ukr', url_for(locale: :uk)
 - unless user_signed_in?
   = link_to t('welcome_pages.home.sign_up_link'), new_user_registration_path, class: "btn btn-lg btn-outline-dark"
