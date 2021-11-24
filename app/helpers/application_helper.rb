@@ -8,5 +8,4 @@ module ApplicationHelper
       alert: 'alert-warning',
       notice: 'alert-info' }[name.to_sym] || name
   end
-
 end
