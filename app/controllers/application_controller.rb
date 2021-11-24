@@ -11,14 +11,12 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = extract_locale || I18n.default_locale
+    if params[:locale].present?
+      cookies.permanent[:locale] = params[:locale] # save cookies
+    end
+    locale = cookies[:locale]&.to_sym # read cookies
+    if I18n.available_locales.include?(locale)
+      I18n.locale = locale # use cookies locale
+    end
   end
-
-  def extract_locale
-    parsed_locale = params[:locale]
-    I18n.available_locales.map(&:to_s).include?(parsed_locale) ?
-      parsed_locale.to_sym :
-      nil
-  end
-
 end
