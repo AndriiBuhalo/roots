@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'welcome_pages/home.html.slim', type: :view do
   include Devise::Test::ControllerHelpers
 
-  context 'user is not logged in' do
+  context 'when user is not logged in' do
     it 'has _home partial' do
       render
       expect(rendered).to include t('welcome_pages.home.title')
@@ -14,7 +14,7 @@ RSpec.describe 'welcome_pages/home.html.slim', type: :view do
     end
   end
 
-  context 'user is logged in' do
+  context 'when user is logged in' do
     let(:user) { FactoryBot.create(:user) }
 
     before do

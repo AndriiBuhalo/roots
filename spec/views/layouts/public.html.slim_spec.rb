@@ -9,7 +9,7 @@ RSpec.describe 'layouts/public.html.slim', type: :view do
     render
   end
 
-  context 'user is not logged in' do
+  context 'when user is not logged in' do
     it 'has header menu for public' do
       expect(rendered).to have_title t('global.page_title')
       expect(rendered).to have_link t('global.header.sign_up'), href: new_user_registration_path
@@ -17,7 +17,7 @@ RSpec.describe 'layouts/public.html.slim', type: :view do
     end
   end
 
-  context 'user is logged in' do
+  context 'when user is logged in' do
     let(:user) { FactoryBot.create(:user) }
 
     before do
