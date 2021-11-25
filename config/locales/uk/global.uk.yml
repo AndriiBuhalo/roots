@@ -1,5 +1,6 @@
 uk:
   global:
+    translate: "The Roots is now in English!"
     devise:
       titles:
         sign_up: "Зареєструватись"
@@ -16,6 +17,8 @@ uk:
       log_out: "Вийти"
       posts: "Дописи"
       albums: "Альбоми"
+      en_switch: "Англійська"
+      uk_switch: "Українська"
     footer:
       string: "IF-133 Ruby-Розробники"
       about: "Про Нас"

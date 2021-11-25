@@ -23,7 +23,7 @@ header.navbar.navbar-dark.bg-dark.fixed-top.navbar-expand-md
         .dropdown.d-flex.align-items-center
           #dropdownMenuButton.btn.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
             =image_tag "language.png"
-          .dropdown-menu aria-labelledby="dropdownMenuButton"
-            li.nav-link= link_to 'Eng',  { locale: :en }, class: "nav-link font-weight-bold text-dark"
-            li.nav-link= link_to 'Ukr', { locale: :uk }, class: "nav-link font-weight-bold text-dark"
+          ul.dropdown-menu aria-labelledby="dropdownMenuButton"
+            li.nav-link.font-weight-bold.text-muted= link_to_unless current_locale?(:en), t('global.header.en_switch'), locale_path(:en), method: :patch, class: "text-dark text-decoration-none"
+            li.nav-link.font-weight-bold.text-muted= link_to_unless current_locale?(:uk), t('global.header.uk_switch'), locale_path(:uk), method: :patch, class: "text-dark text-decoration-none"
 

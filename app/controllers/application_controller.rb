@@ -6,17 +6,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def default_url_options
-    { locale: I18n.locale }
+  def set_locale
+    I18n.locale = session[:locale] || I18n.default_locale
   end
 
-  def set_locale
-    if params[:locale].present?
-      cookies.permanent[:locale] = params[:locale]
-    end
-    locale = cookies[:locale]&.to_sym
-    if I18n.available_locales.include?(locale)
-      I18n.locale = locale
-    end
-  end
 end
