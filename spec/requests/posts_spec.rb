@@ -3,6 +3,13 @@
 require 'rails_helper'
 
 RSpec.describe '/posts', type: :request do
+  include Devise::Test::IntegrationHelpers
+
+  before(:each) do
+    user = FactoryBot.create(:user)
+    @post = create :post, user: user
+    sign_in user
+  end
 
   describe 'GET /index' do
     it 'renders a successful response' do
@@ -12,10 +19,10 @@ RSpec.describe '/posts', type: :request do
   end
 
   describe 'GET /show' do
-    let(:valid_post) { create(:post) }
+    # let(:valid_post) { create(:post) }
 
     it 'renders a successful response' do
-      get post_url(valid_post)
+      get post_url(@post)
       expect(response).to render_template(:show)
     end
   end
