@@ -7,15 +7,13 @@ class PostsController < AdminsController
     @posts = current_user.posts.paginate(page: params[:page], per_page: 5)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @post = current_user.posts.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @post = current_user.posts.new(post_params)
