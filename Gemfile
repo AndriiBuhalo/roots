@@ -24,11 +24,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 # Reduces boot times through caching; required in config/boot.rb
-gem 'awesome_print'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 gem 'devise-i18n'
-gem 'dotenv-rails', '~> 2.7'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'rails-i18n', '~> 6.0.0'
@@ -42,8 +40,10 @@ group :development, :test do
   gem 'faker'
   gem 'pry-rails'
   gem 'rails-controller-testing'
-  gem 'rspec-rails', '~> 5.0.0', group: :production
+  gem 'rspec-rails', '~> 5.0.0'
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'dotenv-rails', '~> 2.7'
+  gem 'awesome_print'
 end
 
 group :development do
@@ -68,6 +68,10 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'simplecov', require: false
   gem 'webdrivers'
+end
+
+group :production do
+  gem 'rspec-rails', '~> 5.0.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
