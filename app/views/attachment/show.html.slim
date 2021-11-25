@@ -1,71 +1,57 @@
-main
-  .d-flex
-    = render(partial: './layouts/left_col')
-    .group_images.show_image
-      .ml-3
-        = link_to t('common.edit'), edit_attachment_path(@attachment), class: "btn btn-primary"
-        = link_to t('common.delete'), attachment_path(@attachment), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
-        = link_to t('common.back'), :back, class: 'btn btn-secondary'
-      h3.m-3 = @attachment.file.identifier
-      .d-flex.justify-content-center
-        = image_tag @attachment.file.url, class: 'large', alt: "#{@attachment.file.identifier}" if @attachment.file?
-    aside.right_col
-      .filters_block.h-100
-        h4.center.text-uppercase
-          = t('.in this photo')
-        p
-          = t('.no people')
-        h4.center.text-uppercase
-          = t('.information')
-        p
-          = t('.keywords')
-          '
-          = link_to @attachment.keywords, attachment_index_path(:tag => @attachment.keywords), class: 'badge badge-pill badge-info' if !@attachment.keywords.blank?
-        p
-          = t('.notes')
-          span = @attachment.notes
-        p
-          = t('.place')
-          span = @attachment.place
-        p
-          = t('.date')
-          span
-            = @attachment.date_accuracy
-            '
-            = @attachment.file_date.strftime("%Y-%m-%d") if !@attachment.file_date.blank?
-        p.albumsBlock
-          = t('.albums')
-          - @attachment.albums.each do |album|
-            = link_to album_path(album) do
-              = album.name
-              = image_tag album.attachments.last.file.url, alt: "#{album.attachments.last.file.identifier}"
-        p
-          = t('.photo link')
-          span.showLink.hand = t('.show link')
-          input type="text" value="#{attachment_path(@attachment)}" style="display: none;" readonly="readonly" /
-        h4.center.text-uppercase
-          = t('.information')
-        p
-          = t('.type')
-          span = @attachment.file.content_type
-        p
-          = t('.width')
-          span
-            = @attachment.file.width
-            '
-            = t('.px')
-        p
-          = t('.height')
-          span
-            = @attachment.file.height
-            '
-            = t('.px')
-        p
-          = t('.size')
-          span
-            = (@attachment.file.size.to_f / 1024).ceil(1)
-            '
-            = t('.kb')
-        p
-          = t('.downloaded')
-          span = @attachment.downloaded
+h3 = @attachment.file.identifier
+= image_tag @attachment.file.url(:large), class: 'mb-3', alt: "#{@attachment.file.identifier}" if @attachment.file?
+h3.text-uppercase = t('.information')
+p
+  strong.mr-2 = t('.in this photo')
+  = t('.no people')
+p
+  strong.mr-2 = t('.keywords')
+  '
+  = link_to @attachment.keywords, attachment_index_path(:tag => @attachment.keywords), class: 'badge badge-pill badge-info' if !@attachment.keywords.blank?
+p
+  strong.mr-2 = t('.notes')
+  = @attachment.notes
+p
+  strong.mr-2 = t('.place')
+  = @attachment.place
+p
+  strong.mr-2 = t('.date')
+  = @attachment.date_accuracy
+  '
+  = @attachment.file_date.strftime("%Y-%m-%d") if !@attachment.file_date.blank?
+p.albumsBlock
+  strong.mr-2 = t('.albums')
+  - @attachment.albums.each do |album|
+    = link_to album_path(album) do
+      = album.name
+      = image_tag album.attachments.last.file.url, alt: "#{album.attachments.last.file.identifier}"
+p
+  strong.mr-2 = t('.photo link')
+  span.showLink.hand = t('.show link')
+  br/
+  input type="text" class="showInput" value="#{attachment_path(@attachment)}" style="display: none;" readonly="readonly" /
+h3.text-uppercase = t('.information')
+p
+  strong.mr-2 = t('.type')
+  = @attachment.file.content_type
+p
+  strong.mr-2 = t('.width')
+  = @attachment.file.width
+  '
+  = t('.px')
+p
+  strong.mr-2 = t('.height')
+  = @attachment.file.height
+  '
+  = t('.px')
+p
+  strong.mr-2 = t('.size')
+  = (@attachment.file.size.to_f / 1024).ceil(1)
+  '
+  = t('.kb')
+p
+  strong.mr-2 = t('.downloaded')
+  = @attachment.downloaded
+= link_to t('common.edit'), edit_attachment_path(@attachment), class: "btn btn-primary"
+= link_to t('common.delete'), attachment_path(@attachment), class: 'btn btn-danger ml-3', method: :delete, data: { confirm: t('common.confirmation') }
+= link_to t('common.back'), :back, class: 'btn btn-secondary ml-3'

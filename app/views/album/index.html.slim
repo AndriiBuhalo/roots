@@ -1,20 +1,15 @@
-main
-  .d-flex
-    = render(partial: './layouts/left_col')
-    .group_images
-      table.table.table-bordered.ml-3
-        thead
-          tr
-            th.text-center scope="col"  = t('album.name')
-            th.text-center scope="col"  = t('album.description')
-            th.text-center scope="col"  = t('common.show')
-            th.text-center scope="col"  = t('common.edit')
-            th.text-center scope="col"  = t('common.delete')
-        - @albums.each do |album|
-          tbody
-            tr
-              td.text-center = album.name
-              td.text-center = album.description
-              td.text-center = link_to t('common.show'), album_path(album), class: 'btn btn-info'
-              td.text-center = link_to t('common.edit'), edit_album_path(album), class: 'btn btn-primary'
-              td.text-center = link_to t('common.delete'), album_path(album), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
+table.table.table-bordered
+  thead
+    tr
+      th.text-center scope="col"  = t('album.name')
+      th.text-center scope="col"  = t('album.description')
+      th.text-center colspan="3" scope="col" = t('common.actions')
+  - @albums.each do |album|
+    tbody
+      tr
+        td.text-center = album.name
+        td.text-center = album.description
+        td.text-center = link_to t('common.show'), album_path(album), class: 'btn btn-info'
+        td.text-center = link_to t('common.edit'), edit_album_path(album), class: 'btn btn-primary'
+        td.text-center = link_to t('common.delete'), album_path(album), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
+= link_to t('.add album'), new_album_path, class:"btn btn-success"

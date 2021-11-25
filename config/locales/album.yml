@@ -2,6 +2,8 @@ en:
   album:
     name: 'Album name'
     description: 'Album description'
+    index:
+      add album: 'Add album'
     show:
       file name: 'File name'
       notes: 'Notes'

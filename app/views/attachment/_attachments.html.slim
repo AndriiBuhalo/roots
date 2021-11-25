@@ -1,17 +1,15 @@
-table.table.table-bordered.ml-3
+table.table.table-bordered
   thead
     tr
       th.text-center scope="col"  = t('attachment.index.file name')
       th.text-center scope="col"  = t('attachment.index.file')
       th.text-center scope="col"  = t('attachment.index.notes')
-      th.text-center scope="col"  = t('common.show')
-      th.text-center scope="col"  = t('common.edit')
-      th.text-center scope="col"  = t('common.delete')
+      th.text-center colspan="3" scope="col" = t('common.actions')
   - @attachments.each do |image|
     tbody
       tr
         td.text-center = image.file.identifier
-        td.text-center = image_tag image.file.url, class: 'small', alt: "#{image.file.identifier}" if image.file?
+        td.text-center = image_tag image.file.url(:small), alt: "#{image.file.identifier}" if image.file?
         td.text-center = image.notes
         td.text-center = link_to t('common.show'), attachment_path(image), class: 'btn btn-info'
         td.text-center = link_to t('common.edit'), edit_attachment_path(image), class: 'btn btn-primary'

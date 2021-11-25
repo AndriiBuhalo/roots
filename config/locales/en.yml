@@ -5,6 +5,7 @@ en:
     edit: 'Edit'
     delete: 'Delete'
     show: 'Show'
+    actions: 'Actions'
     confirmation: 'Are you sure'
   global:
     page_title: "The Roots"

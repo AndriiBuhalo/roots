@@ -1,5 +1,2 @@
-main
-  .d-flex
-    = render(partial: './layouts/left_col')
-    .group_images
-      = render(partial: 'attachments')
+= render(partial: 'attachments')
+= link_to t('.add file'), new_attachment_path, class:"btn btn-success"
