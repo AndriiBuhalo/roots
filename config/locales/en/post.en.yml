@@ -6,7 +6,7 @@ en:
       show: "Show"
       back: "Back"
     show:
-      page_title_html: "Show %{title}"
+      page_title: "Show %{title}"
       edit: "Edit"
       back: "Back"
       title: "Title:"
