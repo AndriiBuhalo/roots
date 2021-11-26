@@ -127,7 +127,7 @@ Rails.application.configure do
     port: ENV['MAIL_PROVIDER_PORT'],
     user_name: ENV['MAIL_PROVIDER_USERNAME'],
     password: ENV['MAIL_PROVIDER_PASSWORD'],
-    # domain: 'heroku.com',
+    domain: 'heroku.com',
     authentication: 'plain',
     enable_starttls_auto: true
   }
