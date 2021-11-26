@@ -24,7 +24,7 @@ class AlbumController < ApplicationController
   end
 
   def edit
-    @album.attachments.build
+    @album.attachments.build(notes: 'Fancy-Fancy')
   end
 
   def update
@@ -48,6 +48,6 @@ class AlbumController < ApplicationController
   end
 
   def album_params
-    params.require(:album).permit(:name, :description, attachments_attributes: [:id, :file, :_destroy])
+    params.require(:album).permit(:name, :description, attachments_attributes: [:id, :downloaded, :file, :_destroy])
   end
 end
