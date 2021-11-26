@@ -48,6 +48,6 @@ class AlbumController < ApplicationController
   end
 
   def album_params
-    params.require(:album).permit(:name, :description, attachments_attributes: [:id, :downloaded, :file, :_destroy])
+    params.require(:album).permit(:name, :description, attachments_attributes: [:id, :file, :_destroy])
   end
 end
