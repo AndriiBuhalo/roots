@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
   def any_login_name
     [
-      full_name + ' - ' + email + " Domains: #{domains.collect(&:short_code).join(',').presence || 'none'}; Role: #{role}; ID: #{id}", id
+      "#{full_name} - #{email} Domains: #{domains.collect(&:short_code).join(',').presence || 'none'}; Role: #{role}; ID: #{id}", id
     ]
   end
 
