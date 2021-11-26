@@ -58,8 +58,8 @@ group :development do
   gem 'rubocop-performance', '~>1.12', require: false
   gem 'rubocop-rails', '~> 2.12', require: false
   gem 'rubocop-rspec', '~>2.5.0', require: false
+  gem 'letter_opener'
   gem 'spring'
-  gem "letter_opener"
 end
 
 group :test do
