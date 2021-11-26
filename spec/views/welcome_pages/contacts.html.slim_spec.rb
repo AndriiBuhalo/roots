@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe 'welcome_pages/contacts.html.slim', type: :view do
-
   it 'has _contacts partial' do
     render
     expect(rendered).to include t('welcome_pages.contacts.title')
@@ -15,5 +14,4 @@ RSpec.describe 'welcome_pages/contacts.html.slim', type: :view do
     expect(rendered).to have_link t('welcome_pages.contacts.svitlana'), href: 'https://github.com/SvitDZHUS'
     expect(rendered).to have_link t('welcome_pages.contacts.andrii'), href: 'https://github.com/AndriiBuhalo'
   end
-
 end

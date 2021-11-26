@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe 'welcome_pages/about.html.slim', type: :view do
-
   it 'has _about partial' do
     render
     expect(rendered).to include t('welcome_pages.about.title')
@@ -16,5 +15,4 @@ RSpec.describe 'welcome_pages/about.html.slim', type: :view do
     expect(rendered).to include t('welcome_pages.about.photo_albums_title')
     expect(rendered).to include t('welcome_pages.about.photo_albums_paragraph')
   end
-
 end
