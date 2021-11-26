@@ -157,6 +157,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     nio4r (2.5.8)
+<<<<<<< HEAD
     nio4r (2.5.8-java)
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
@@ -166,6 +167,12 @@ GEM
     nokogiri (1.12.5-x64-mingw32)
       racc (~> 1.4)
     nokogiri (1.12.5-x86-mingw32)
+=======
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
+    nokogiri (1.12.5-x86_64-darwin)
+>>>>>>> 8d13b134945d4a537864f5b305c5b1bdc2ff872e
       racc (~> 1.4)
     nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
@@ -387,11 +394,8 @@ GEM
     zeitwerk (2.5.1)
 
 PLATFORMS
-  java
   ruby
-  x64-mingw32
-  x86-mingw32
-  x86-mswin32
+  x86_64-darwin-20
   x86_64-linux
 
 DEPENDENCIES
