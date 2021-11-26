@@ -3,7 +3,7 @@ en:
     alt: "The Roots"
     home:
       page_title: "Welcome"
-      title_html: "Welcome to <strong>The Roots</strong>"
+      title: "Welcome to The Roots"
       subtitle: "You can’t choose your family. However, you can choose our app to keep it organized."
       sign_up_link: "Sign up now!"
     about:

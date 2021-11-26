@@ -3,7 +3,7 @@ uk:
     alt: "The Roots"
     home:
       page_title: "Домашня Сторінка"
-      title_html: "Вітаємо у <strong>The Roots</strong>"
+      title: "Вітаємо у The Roots"
       subtitle: "Ви не вибираєте сім’ю, проте можете вибрати The Roots, щоб “організувати” її."
       sign_up_link: "Зареєструватися!"
     about:
