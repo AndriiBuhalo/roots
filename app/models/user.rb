@@ -23,4 +23,16 @@ class User < ApplicationRecord
     )
     user
   end
+
+  def any_login_name
+    [
+      full_name + ' - ' + email + " Domains: #{domains.collect(&:short_code).join(',').presence || 'none'}; Role: #{role}; ID: #{id}", id
+    ]
+  end
+
+  def self.grouped_users
+    Organization.ordered.includes(:employees).each_with_object({}) do |org, res|
+      res[org.name] = org.employees.ordered.includes(%i[domains organization])
+    end
+  end
 end

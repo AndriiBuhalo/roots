@@ -1,18 +1,13 @@
 # frozen_string_literal: true
 
-# AnyLogin.setup do |config|
-#   config.collection_method = :grouped_collection_by_role
-# end
+AnyLogin.setup do |config|
+  config.collection_method = :grouped_users
+  # to format user name in dropdown list
+  config.name_method = :any_login_name
+end
 
-# # User class: app/models/user.rb
-# class User < ActiveRecord::Base
-#   def self.grouped_collection_by_role
-#     {
-#       'admin'     => User.admins.limit(10),
-#       'moderator' => User.moderators.limit(10),
-#       'user'      => User.users.limit(10)
-#     }
-#   end
+# User class: app/models/user.rb
+
 # # provider (:devise, :authlogic, sorcery, clearance). Provider can be identified automatically based on your Gemfile
 # config.provider = nil
 
