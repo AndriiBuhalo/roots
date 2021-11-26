@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   get 'welcome_pages/about'
   get 'welcome_pages/contacts'
 
-  resources :attachment
+  resources :attachments
   concern :attachable do
-    resources :attachment, only: :create
+    resources :attachments, only: :create
   end
-  resources :album, concerns: [:attachable]
+  resources :albums, concerns: [:attachable]
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_scope :user do
