@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-class PostsController < ApplicationController
+class PostsController < DashboardController
   before_action :set_post, only: %i[show edit update destroy]
-  before_action :authenticate_user!
 
   def index
     @posts = current_user.posts

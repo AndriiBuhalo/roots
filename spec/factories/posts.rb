@@ -4,10 +4,22 @@ FactoryBot.define do
   factory :post, class: 'Post' do
     title { Faker::Lorem.characters(number: 20) }
     content { Faker::Lorem.characters(number: 100) }
-  end
+    created_by { user }
 
-  factory :invalid_post, class: 'Post' do
-    title { Faker::Lorem.characters(number: 1) }
-    content { Faker::Lorem.characters(number: 1) }
+    trait :invalid_post do
+      title { Faker::Lorem.characters(number: 1) }
+      content { Faker::Lorem.characters(number: 1) }
+      created_by { user }
+    end
+
+    # factory :post, class: 'Post' do
+  #   title { Faker::Lorem.characters(number: 20) }
+  #   content { Faker::Lorem.characters(number: 100) }
+  # end
+  #
+  # factory :invalid_post, class: 'Post' do
+  #   title { Faker::Lorem.characters(number: 1) }
+  #   content { Faker::Lorem.characters(number: 1) }
+  # end
   end
 end
