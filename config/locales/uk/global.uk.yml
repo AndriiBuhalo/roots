@@ -1,6 +1,6 @@
 uk:
   global:
-    translate: "The Roots is now in English!"
+    translate: "The Roots тепер українською!"
     devise:
       titles:
         sign_up: "Зареєструватись"
