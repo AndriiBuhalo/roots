@@ -1,5 +1,28 @@
-.center.jumbotron.mb-0.text-center
-  h1.display-3 = t('welcome_pages.contacts.title')
-  h2.lead = t('welcome_pages.contacts.subtitle')
-.welcome-root.d-flex.justify-content-center
-  = image_tag "roots.jpg", alt: t('welcome_pages.alt'), class: "w-50"
+h1.display-3 = t('welcome_pages.contacts.title')
+h2.lead.mb-5 = t('welcome_pages.contacts.subtitle')
+.row
+  .col-lg-4.mb-4.px-4
+    .card.shadow
+      .card-header
+        = link_to t('welcome_pages.contacts.nikolay'), 'https://github.com/Nikolay010', target: '_blank', class: 'nav-link lead font-weight-bold text-dark'
+  .col-lg-4.mb-4.px-4
+    .card.shadow
+      .card-header
+        = link_to t('welcome_pages.contacts.ostap'), 'https://github.com/semenchukostap', target: '_blank', class: 'nav-link lead font-weight-bold text-dark'
+  .col-lg-4.mb-4.px-4
+    .card.shadow
+      .card-header
+        = link_to t('welcome_pages.contacts.valentyn'), 'https://github.com/N1KeLoS', target: '_blank', class: 'nav-link lead font-weight-bold text-dark'
+  .col-lg-4.mb-4.px-4
+    .card.shadow
+      .card-header
+        = link_to t('welcome_pages.contacts.max'), 'https://github.com/Stankovskij', target: '_blank', class: 'nav-link lead font-weight-bold text-dark'
+  .col-lg-4.mb-4.px-4
+    .card.shadow
+      .card-header
+        = link_to t('welcome_pages.contacts.svitlana'), 'https://github.com/SvitDZHUS', target: '_blank', class: 'nav-link lead font-weight-bold text-dark'
+  .col-lg-4.mb-4.px-4
+    .card.shadow
+      .card-header
+        = link_to t('welcome_pages.contacts.andrii'), 'https://github.com/AndriiBuhalo', target: '_blank', class: 'nav-link lead font-weight-bold text-dark'
+
