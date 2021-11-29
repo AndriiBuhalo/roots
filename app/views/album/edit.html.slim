@@ -1,6 +1,7 @@
 = simple_form_for @album, html: { multipart: true } do |f|
+  = render './layouts/error_messages', object: f.object
   h1 = t('.edit album')
-  = f.input :name, placeholder: t('album.name'), :required => true
+  = f.input :name, placeholder: t('album.name')
   = f.input :description, placeholder: t('album.description')
   = f.simple_fields_for :attachments do |attachment_form|
     = render 'attachment_fields', f: attachment_form

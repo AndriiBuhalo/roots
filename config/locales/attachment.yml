@@ -32,8 +32,8 @@ en:
     edit:
       edit file: 'Edit file'
     controller:
-      create: 'Pictures successfully added!'
-      create error: 'No pictures added'
+      create: 'File successfully added!'
+      create error: 'No file added'
       update: 'Information changed successfully!'
       update error: 'An error occurred while changing the information'
-      destroy: 'Pictures successfully deleted!'
+      destroy: 'File successfully deleted!'

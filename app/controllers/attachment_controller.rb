@@ -16,10 +16,11 @@ class AttachmentController < ApplicationController
   end
 
   def create
-    if Attachment.create(file_params)
-      redirect_to attachment_index_path, success: t('attachment.controller.create')
+    @attachment = Attachment.new(file_params)
+    if @attachment.save
+      redirect_to @attachment, success: t('attachment.controller.create')
     else
-      redirect_to new_attachment_path, danger: t('attachment.controller.create error')
+      render :new, danger: t('attachment.controller.create error')
     end
   end
 
@@ -27,7 +28,7 @@ class AttachmentController < ApplicationController
     if @attachment.update(file_params)
       redirect_to @attachment, success: t('attachment.controller.update')
     else
-      redirect_to edit_attachment_path, danger: t('attachment.controller.update error')
+      render :edit, danger: t('attachment.controller.update error')
     end
   end
 

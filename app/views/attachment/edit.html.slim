@@ -1,4 +1,5 @@
 = simple_form_for @attachment do |f|
+  = render './layouts/error_messages', object: f.object
   h3 = t('.edit file')
   = f.input :keyword, placeholder: t('attachment.keyword')
   = f.input :notes, placeholder: t('attachment.notes')

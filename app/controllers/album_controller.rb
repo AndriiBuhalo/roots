@@ -16,10 +16,11 @@ class AlbumController < ApplicationController
   end
 
   def create
-    if Album.create(album_params)
+    @album = Album.new(album_params)
+    if @album.save
       redirect_to @album, success: t('album.controller.create')
     else
-      redirect_to new_albom_path, danger: t('album.controller.create error')
+      render :new, danger: t('album.controller.create error')
     end
   end
 
@@ -31,8 +32,7 @@ class AlbumController < ApplicationController
     if @album.update(album_params)
       redirect_to @album, success: t('album.controller.update')
     else
-      flash.now[:danger] = t('album.controller.update error')
-      render :edit
+      render :edit, danger: t('album.controller.update error')
     end
   end
 
