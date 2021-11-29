@@ -1,5 +1,18 @@
-.center.jumbotron.mb-0.text-center
-  h1.display-3 = t('welcome_pages.about.title')
-  h2.lead = t('welcome_pages.about.subtitle')
-.welcome-root.d-flex.justify-content-center
-  = image_tag "roots.jpg", alt: t('welcome_pages.alt'), class: "w-50"
+h1.display-3 = t('welcome_pages.about.title')
+h2.lead.mb-5 = t('welcome_pages.about.subtitle')
+.card-deck.mb-3.text-center
+  .card.shadow.rounded
+    .card-header.mb-0
+      h2.mt-2 = t('welcome_pages.about.family_tree_title')
+    .card-body
+      p = t('welcome_pages.about.family_tree_paragraph')
+  .card.shadow.rounded
+    .card-header
+      h2.mt-2 = t('welcome_pages.about.personal_posts_title')
+    .card-body
+      p = t('welcome_pages.about.personal_posts_paragraph')
+  .card.shadow.rounded
+    .card-header
+      h2.mt-2 = t('welcome_pages.about.photo_albums_title')
+    .card-body
+      p = t('welcome_pages.about.photo_albums_paragraph')
