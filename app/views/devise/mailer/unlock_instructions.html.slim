@@ -1,7 +1,7 @@
-p
+h2
   = t('devise.mailer.changed.hello')
+p
   = @resource.email
-  | \!
 p= t('devise.mailer.unlock.message')
 p= t('devise.mailer.unlock.click')
 p= link_to t('devise.mailer.unlock.button'), unlock_url(@resource, unlock_token: @token)
