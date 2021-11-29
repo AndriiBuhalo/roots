@@ -5,10 +5,12 @@ require 'rails_helper'
 RSpec.describe '/posts', type: :request do
   include Devise::Test::IntegrationHelpers
 
-  before(:each) do
-    user = FactoryBot.create(:user)
-    @post = create :post, user: user
+  before do
     sign_in user
+  end
+
+  after do
+    sign_out user
   end
 
   describe 'GET /index' do
@@ -19,7 +21,7 @@ RSpec.describe '/posts', type: :request do
   end
 
   describe 'GET /show' do
-    # let(:valid_post) { create(:post) }
+    let(:valid_post) { create(:post, :valid_post) }
 
     it 'renders a successful response' do
       get post_url(@post)
@@ -35,7 +37,7 @@ RSpec.describe '/posts', type: :request do
   end
 
   describe 'GET /edit' do
-    let(:valid_post) { create(:post) }
+    let(:valid_post) { create(:post, :valid_post) }
 
     it 'render a successful response' do
       get edit_post_url(valid_post)
@@ -62,7 +64,7 @@ RSpec.describe '/posts', type: :request do
     end
 
     context 'with invalid parameters' do
-      let(:post) { build(:invalid_post) }
+      let(:post) { build(:post, :invalid_post) }
 
       it 'does not create a new Post' do
         expect(post).not_to be_valid
@@ -79,7 +81,7 @@ RSpec.describe '/posts', type: :request do
 
   describe 'PATCH /update' do
     context 'with valid parameters' do
-      let!(:valid_post) { create(:post) }
+      let!(:valid_post) { create(:post, :valid_post) }
       let(:edited_post) do
         {
           title: Faker::Lorem.characters(number: 3),
@@ -99,7 +101,7 @@ RSpec.describe '/posts', type: :request do
     end
 
     context 'with invalid parameters' do
-      let!(:valid_post) { create(:post) }
+      let!(:valid_post) { create(:post, :valid_post) }
       let(:edited_invalid_post) do
         {
           title: Faker::Lorem.characters(number: 40),
@@ -117,7 +119,7 @@ RSpec.describe '/posts', type: :request do
   end
 
   describe 'DELETE /destroy' do
-    let!(:valid_post) { create(:post) }
+    let!(:valid_post) { create(:post, :valid_post) }
 
     it 'destroys the requested post' do
       expect do

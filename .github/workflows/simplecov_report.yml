@@ -4,6 +4,7 @@ on:
     types: [ assigned, opened, synchronize, reopened ]
 jobs:
   build:
+    name: runner
     runs-on: ubuntu-latest
     services:
       postgres:

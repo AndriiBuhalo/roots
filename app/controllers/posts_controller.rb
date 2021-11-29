@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-class PostsController < AdminsController
+
+class PostsController < DashboardController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
