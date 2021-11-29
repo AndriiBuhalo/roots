@@ -12,4 +12,4 @@ table.table.table-bordered
         td.text-center = link_to t('common.show'), album_path(album), class: 'btn btn-info'
         td.text-center = link_to t('common.edit'), edit_album_path(album), class: 'btn btn-primary'
         td.text-center = link_to t('common.delete'), album_path(album), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
-= link_to t('.add album'), new_album_path, class:"btn btn-success"
+= link_to t('.create album'), new_album_path, class:"btn btn-success"

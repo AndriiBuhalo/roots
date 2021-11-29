@@ -16,7 +16,7 @@ class AlbumController < ApplicationController
   end
 
   def create
-    if @album = Album.create(album_params)
+    if Album.create(album_params)
       redirect_to @album, success: t('album.controller.create')
     else
       redirect_to new_albom_path, danger: t('album.controller.create error')
@@ -24,7 +24,7 @@ class AlbumController < ApplicationController
   end
 
   def edit
-    @album.attachments.build(notes: 'Fancy-Fancy')
+    @album.attachments.build
   end
 
   def update
@@ -48,6 +48,6 @@ class AlbumController < ApplicationController
   end
 
   def album_params
-    params.require(:album).permit(:name, :description, attachments_attributes: [:id, :file, :_destroy])
+    params.require(:album).permit(:name, :description, attachments_attributes: %i[id _destroy file])
   end
 end

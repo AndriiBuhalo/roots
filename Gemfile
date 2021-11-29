@@ -37,6 +37,7 @@ gem 'omniauth-rails_csrf_protection'
 gem 'rails-i18n', '~> 6.0.0'
 gem 'simple_form'
 gem 'slim-rails'
+gem 'wdm', '>= 0.1.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

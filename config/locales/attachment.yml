@@ -1,21 +1,20 @@
 en:
   attachment:
-    all albums: 'All albums'
-    all media: 'All media elements:'
-    persons: 'Persons'
+    notes: 'Notes'
+    keyword: 'Keyword'
+    place: 'Place'
     index:
       file name: 'File name'
-      notes: 'Notes'
-      file: 'File'
       add file: 'Add file'
     new:
-      notes: 'Notes'
-      click to add: 'Click to add more pictures'
+      create file: 'Create file'
+      add file: 'Add file'
+      upload: 'Upload'
     show:
       in this photo: 'In this photo'
       no people: 'There are no tagged people in the photo'
       information: 'Information'
-      keywords: 'Keywords:'
+      keyword: 'Keyword:'
       notes: 'Notes:'
       place: 'Place:'
       date: 'Date:'
@@ -32,10 +31,6 @@ en:
       kb: 'kb'
     edit:
       edit file: 'Edit file'
-      keywords: 'Keywords'
-      notes: 'Notes'
-      place: 'Place'
-      date: 'Date'
     controller:
       create: 'Pictures successfully added!'
       create error: 'No pictures added'

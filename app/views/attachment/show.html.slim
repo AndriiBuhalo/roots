@@ -5,9 +5,9 @@ p
   strong.mr-2 = t('.in this photo')
   = t('.no people')
 p
-  strong.mr-2 = t('.keywords')
+  strong.mr-2 = t('.keyword')
   '
-  = link_to @attachment.keywords, attachment_index_path(:tag => @attachment.keywords), class: 'badge badge-pill badge-info' if !@attachment.keywords.blank?
+  = link_to @attachment.keyword, attachment_index_path(:tag => @attachment.keyword), class: 'badge badge-pill badge-info' if !@attachment.keyword.blank?
 p
   strong.mr-2 = t('.notes')
   = @attachment.notes
@@ -16,9 +16,7 @@ p
   = @attachment.place
 p
   strong.mr-2 = t('.date')
-  = @attachment.date_accuracy
-  '
-  = @attachment.file_date.strftime("%Y-%m-%d") if !@attachment.file_date.blank?
+  = @attachment.date.strftime("%Y-%m-%d") if !@attachment.date.blank?
 p.albumsBlock
   strong.mr-2 = t('.albums')
   - @attachment.albums.each do |album|
@@ -31,24 +29,25 @@ p
   br/
   input type="text" class="showInput" value="#{attachment_path(@attachment)}" style="display: none;" readonly="readonly" /
 h3.text-uppercase = t('.information')
-p
-  strong.mr-2 = t('.type')
-  = @attachment.file.content_type
-p
-  strong.mr-2 = t('.width')
-  = @attachment.file.width
-  '
-  = t('.px')
-p
-  strong.mr-2 = t('.height')
-  = @attachment.file.height
-  '
-  = t('.px')
-p
-  strong.mr-2 = t('.size')
-  = (@attachment.file.size.to_f / 1024).ceil(1)
-  '
-  = t('.kb')
+- if @attachment.file?
+  p
+    strong.mr-2 = t('.type')
+    = @attachment.file.content_type
+  p
+    strong.mr-2 = t('.width')
+    = @attachment.file.width
+    '
+    = t('.px')
+  p
+    strong.mr-2 = t('.height')
+    = @attachment.file.height
+    '
+    = t('.px')
+  p
+    strong.mr-2 = t('.size')
+    = (@attachment.file.size.to_f / 1024).ceil(1)
+    '
+    = t('.kb')
 p
   strong.mr-2 = t('.downloaded')
   = @attachment.downloaded

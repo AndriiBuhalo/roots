@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_17_170934) do
+ActiveRecord::Schema.define(version: 2021_11_29_091857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,11 +32,10 @@ ActiveRecord::Schema.define(version: 2021_11_17_170934) do
 
   create_table "attachments", force: :cascade do |t|
     t.string "file"
-    t.string "keywords"
+    t.string "keyword"
     t.string "notes"
     t.string "place"
-    t.string "date_accuracy"
-    t.datetime "file_date"
+    t.datetime "date"
     t.string "downloaded"
   end
 

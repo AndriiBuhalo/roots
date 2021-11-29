@@ -1,7 +1,7 @@
 .nested-fields
   .input-group.mb-3
     .custom-file
-      = f.file_field :file, id: "inputFile", class: "custom-file-input", multiple: true, disabled: f.object.file?
+      = f.file_field :file, id: "inputFile", class: "custom-file-input", disabled: f.object.file?
       label.custom-file-label for="inputFile" = f.object.file.identifier || t('.add picture')
     .input-group-append
       .btn.btn-outline-secondary

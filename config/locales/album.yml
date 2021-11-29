@@ -10,7 +10,7 @@ en:
       file: 'File'
       nothing found: 'Nothing found!'
     new:
-      add album: 'Add album'
+      create album: 'Create album'
       add picture: 'Add picture'
     edit:
       edit album: 'Edit album'

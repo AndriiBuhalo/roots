@@ -5,7 +5,7 @@ class AttachmentController < ApplicationController
 
   def index
     @attachments = if params[:tag]
-                     Attachment.where(keywords: params[:tag]).order('id DESC')
+                     Attachment.where(keyword: params[:tag]).order('id DESC')
                    else
                      Attachment.order('id DESC')
                    end
@@ -16,7 +16,7 @@ class AttachmentController < ApplicationController
   end
 
   def create
-    if @attachment = Attachment.create(file_params)
+    if Attachment.create(file_params)
       redirect_to attachment_index_path, success: t('attachment.controller.create')
     else
       redirect_to new_attachment_path, danger: t('attachment.controller.create error')
@@ -43,6 +43,6 @@ class AttachmentController < ApplicationController
   end
 
   def file_params
-    params.require(:attachment).permit(:file, :keywords, :notes, :place, :date_accuracy, :file_date, :downloaded)
+    params.require(:attachment).permit(:file, :keyword, :notes, :place, :date, :downloaded)
   end
 end
