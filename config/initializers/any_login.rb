@@ -20,7 +20,7 @@ AnyLogin.setup do |config|
   # config.name_method = proc { |e| [e.email, e.id] }
 
   # # after logging in redirect user to path
-  config.redirect_path_after_login = :root_path
+  config.redirect_path_after_login = :authenticated_root_path
 
   # # login on select change event OR click on button, or BOTH
   config.login_on = :both
