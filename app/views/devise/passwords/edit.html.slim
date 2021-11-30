@@ -10,5 +10,5 @@ div.row.justify-content-center
       .field
         = f.input :password_confirmation, autocomplete: "new-password"
       .actions
-        = f.button :submit t('devise.passwords.edit.button'), class:'btn btn-primary btn-block'
+        = f.button :submit, t('devise.passwords.edit.button'), class:'btn btn-primary btn-block'
     = render "devise/shared/links"
