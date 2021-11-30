@@ -1,7 +1,10 @@
 = simple_form_for @album, url: { action: "create" }, html: { multipart: true } do |f|
-  = render './layouts/error_messages', object: f.object
-  h1 = t('.create album')
+  h1 = t('.create_album')
   = f.input :name, placeholder: t('album.name')
   = f.input :description, placeholder: t('album.description')
+  = f.simple_fields_for :attachments do |attachment_form|
+    = render 'attachment_fields', f: attachment_form
+  .links
+    p = link_to_add_association t('.add_file'), f, :attachments, class: 'btn btn-primary'
   = f.submit t('common.add'), class: 'btn btn-success mt-3'
   = link_to t('common.back'), :back, class: 'btn btn-secondary mt-3 ml-3'

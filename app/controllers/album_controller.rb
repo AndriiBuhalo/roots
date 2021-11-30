@@ -4,7 +4,7 @@ class AlbumController < ApplicationController
   before_action :set_album, only: %i[show edit update destroy]
 
   def index
-    @albums = Album.order('id DESC')
+    @albums = Album.order(id: :desc)
   end
 
   def show
@@ -13,6 +13,7 @@ class AlbumController < ApplicationController
 
   def new
     @album = Album.new
+    @album.attachments.build
   end
 
   def create
@@ -20,7 +21,8 @@ class AlbumController < ApplicationController
     if @album.save
       redirect_to @album, success: t('album.controller.create')
     else
-      render :new, danger: t('album.controller.create error')
+      flash[:danger] = t('album.controller.create_error')
+      render :new
     end
   end
 
@@ -32,7 +34,8 @@ class AlbumController < ApplicationController
     if @album.update(album_params)
       redirect_to @album, success: t('album.controller.update')
     else
-      render :edit, danger: t('album.controller.update error')
+      flash[:danger] = t('album.controller.update_error')
+      render :edit
     end
   end
 

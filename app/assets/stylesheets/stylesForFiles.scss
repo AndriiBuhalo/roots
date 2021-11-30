@@ -1,9 +1,6 @@
 .albumsBlock a{
   display: table-caption;
   text-align: center;
-  font-size: 12px;
 }
-.albumsBlock img {height: 60px;}
-.showLink{cursor: pointer;}
-.custom-file-label{overflow: hidden;}
 .custom-file-label::after{content:none}
+.file_name{display: none}

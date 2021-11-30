@@ -1,56 +1,59 @@
-h3 = @attachment.file.identifier
-= image_tag @attachment.file.url(:large), class: 'mb-3', alt: "#{@attachment.file.identifier}" if @attachment.file?
+h3 = @attachment.file_name
+= image_tag @attachment.file.url(:large), class: 'mb-3', alt: "#{@attachment.file_name}" if @attachment.file?
 h3.text-uppercase = t('.information')
 p
-  strong.mr-2 = t('.in this photo')
-  = t('.no people')
+  strong = t('.in_photo')
+  '
+  = t('.no_people')
 p
-  strong.mr-2 = t('.keyword')
+  strong = t('.keyword')
   '
   = link_to @attachment.keyword, attachment_index_path(:tag => @attachment.keyword), class: 'badge badge-pill badge-info' if !@attachment.keyword.blank?
 p
-  strong.mr-2 = t('.notes')
+  strong = t('.notes')
+  '
   = @attachment.notes
 p
-  strong.mr-2 = t('.place')
+  strong = t('.place')
+  '
   = @attachment.place
 p
-  strong.mr-2 = t('.date')
+  strong = t('.date')
+  '
   = @attachment.date.strftime("%Y-%m-%d") if !@attachment.date.blank?
 p.albumsBlock
-  strong.mr-2 = t('.albums')
+  strong = t('.albums')
   - @attachment.albums.each do |album|
     = link_to album_path(album) do
       = album.name
-      = image_tag album.attachments.last.file.url, alt: "#{album.attachments.last.file.identifier}"
-p
-  strong.mr-2 = t('.photo link')
-  span.showLink.hand = t('.show link')
-  br/
-  input type="text" class="showInput" value="#{attachment_path(@attachment)}" style="display: none;" readonly="readonly" /
+      = image_tag album.attachments.last.file.url(:small), alt: "#{album.attachments.last.file_name}"
 h3.text-uppercase = t('.information')
 - if @attachment.file?
   p
-    strong.mr-2 = t('.type')
+    strong = t('.type')
+    '
     = @attachment.file.content_type
   p
-    strong.mr-2 = t('.width')
+    strong = t('.width')
+    '
     = @attachment.file.width
     '
     = t('.px')
   p
-    strong.mr-2 = t('.height')
+    strong = t('.height')
+    '
     = @attachment.file.height
     '
     = t('.px')
   p
-    strong.mr-2 = t('.size')
+    strong = t('.size')
+    '
     = (@attachment.file.size.to_f / 1024).ceil(1)
     '
     = t('.kb')
 p
-  strong.mr-2 = t('.downloaded')
-  = @attachment.downloaded
+  strong = t('.downloaded')
+  '
 = link_to t('common.edit'), edit_attachment_path(@attachment), class: "btn btn-primary"
 = link_to t('common.delete'), attachment_path(@attachment), class: 'btn btn-danger ml-3', method: :delete, data: { confirm: t('common.confirmation') }
 = link_to t('common.back'), :back, class: 'btn btn-secondary ml-3'

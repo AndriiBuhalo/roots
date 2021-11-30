@@ -4,11 +4,8 @@ class AttachmentController < ApplicationController
   before_action :set_attachment, only: %i[show edit update destroy]
 
   def index
-    @attachments = if params[:tag]
-                     Attachment.where(keyword: params[:tag]).order('id DESC')
-                   else
-                     Attachment.order('id DESC')
-                   end
+    @attachments = Attachment.order(id: :desc)
+    @attachments = @attachments.where(keyword: params[:tag]) if params[:tag]
   end
 
   def new
@@ -20,7 +17,8 @@ class AttachmentController < ApplicationController
     if @attachment.save
       redirect_to @attachment, success: t('attachment.controller.create')
     else
-      render :new, danger: t('attachment.controller.create error')
+      flash[:danger] = t('attachment.controller.create_error')
+      render :new
     end
   end
 
@@ -28,7 +26,8 @@ class AttachmentController < ApplicationController
     if @attachment.update(file_params)
       redirect_to @attachment, success: t('attachment.controller.update')
     else
-      render :edit, danger: t('attachment.controller.update error')
+      flash[:danger] = t('attachment.controller.update_error')
+      render :edit
     end
   end
 
@@ -44,6 +43,6 @@ class AttachmentController < ApplicationController
   end
 
   def file_params
-    params.require(:attachment).permit(:file, :keyword, :notes, :place, :date, :downloaded)
+    params.require(:attachment).permit(:file_name, :file, :keyword, :notes, :place, :date)
   end
 end

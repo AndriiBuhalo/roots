@@ -1,26 +1,25 @@
 en:
   attachment:
+    file_name: 'File name'
+    file: 'File'
     notes: 'Notes'
     keyword: 'Keyword'
     place: 'Place'
     index:
-      file name: 'File name'
-      add file: 'Add file'
+      create_file: 'Create file'
     new:
-      create file: 'Create file'
-      add file: 'Add file'
+      create_file: 'Create file'
+      add_file: 'Add file'
       upload: 'Upload'
     show:
-      in this photo: 'In this photo'
-      no people: 'There are no tagged people in the photo'
+      in_photo: 'In this photo'
+      no_people: 'There are no tagged people in the photo'
       information: 'Information'
       keyword: 'Keyword:'
       notes: 'Notes:'
       place: 'Place:'
       date: 'Date:'
       albums: 'Albums:'
-      photo link: 'Link to this photo:'
-      show link: 'Show link'
       type: 'Type:'
       width: 'Width:'
       height: 'Height:'
@@ -30,10 +29,10 @@ en:
       px: 'px'
       kb: 'kb'
     edit:
-      edit file: 'Edit file'
+      edit_file: 'Edit file'
     controller:
       create: 'File successfully added!'
-      create error: 'No file added'
+      create_error: 'No file added'
       update: 'Information changed successfully!'
-      update error: 'An error occurred while changing the information'
+      update_error: 'An error occurred while changing the information'
       destroy: 'File successfully deleted!'

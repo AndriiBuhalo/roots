@@ -2,7 +2,7 @@
   .input-group.mb-3
     .custom-file
       = f.file_field :file, id: "inputFile", class: "custom-file-input", disabled: f.object.file?
-      label.custom-file-label for="inputFile" = f.object.file.identifier || t('.add picture')
+      label.custom-file-label.overflow-hidden for="inputFile" = f.object.file_name || t('.add_picture')
     .input-group-append
       .btn.btn-outline-secondary
-        = link_to_remove_association t(".remove file"), f
+        = link_to_remove_association t(".remove_file"), f
