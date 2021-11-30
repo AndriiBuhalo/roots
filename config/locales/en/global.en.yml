@@ -1,4 +1,14 @@
 en:
+  common:
+    back: 'Back'
+    create: 'Create'
+    add: 'Add'
+    edit: 'Edit'
+    save: 'Save'
+    delete: 'Delete'
+    show: 'Show'
+    actions: 'Actions'
+    confirmation: 'Are you sure'
   global:
     page_title: "The Roots"
     header:
