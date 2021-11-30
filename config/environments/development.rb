@@ -76,7 +76,15 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
   config.action_mailer.default_url_options = {
+<<<<<<< HEAD
     host: ENV.fetch('DATABASE_URL'),
     port: ENV.fetch('DATABASE_URL')
+=======
+    host: ENV.fetch('RAILS_HOST', 'localhost'),
+    port: ENV.fetch('RAILS_PORT', 3000)
+>>>>>>> 683dc74ccdece07f8f55421c243853e24114a718
   }
+
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
 end
