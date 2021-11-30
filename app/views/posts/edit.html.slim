@@ -1,4 +1,4 @@
-- title t('posts.edit.page_title')
+- title t('posts.edit.page_title', title: @post.title)
 h1 = t('.title')
 == render 'form'
 = link_to t('.show'), @post, class:"btn btn-xs btn-success mt-3"

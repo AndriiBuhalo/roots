@@ -1,7 +1,7 @@
 en:
   posts:
     edit:
-      page_title: "Edit Post"
+      page_title: "Edit %{title}"
       title: "Editing post"
       show: "Show"
       back: "Back"
