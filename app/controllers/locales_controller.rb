@@ -5,7 +5,7 @@ class LocalesController < ApplicationController
 
   def update
     cookies[:locale] = params[:id]
-    redirect_back fallback_location: welcome_pages_home_path # request.referer
+    redirect_back fallback_location: welcome_pages_home_path
   end
 
   private
