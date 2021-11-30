@@ -4,14 +4,6 @@ require 'rails_helper'
 
 RSpec.describe '/posts', type: :request do
 
-  before do
-    sign_in user
-  end
-
-  after do
-    sign_out user
-  end
-
   describe 'GET /index' do
     it 'renders a successful response' do
       get posts_url
@@ -20,7 +12,8 @@ RSpec.describe '/posts', type: :request do
   end
 
   describe 'GET /show' do
-    let(:valid_post) { create(:post, :valid_post) }
+
+    let(:valid_post) { create(:post) }
 
     it 'renders a successful response' do
       get post_url(valid_post)
