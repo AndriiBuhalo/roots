@@ -4,6 +4,11 @@ header.navbar.navbar-dark.bg-dark.fixed-top.navbar-expand-md
     button.navbar-toggler aria-controls="navbarSupportedContentHeader" aria-expanded="true" aria-label=("Toggle navigation") data-target="#navbarSupportedContentHeader" data-toggle="collapse" type="button"
       span.navbar-toggler-icon
     #navbarSupportedContentHeader.collapse.navbar-collapse.justify-content-between
+    ul.navbar-nav.align-items-center.mr-auto
+      - if user_signed_in?
+        li.nav-link.nav-item = link_to t('global.header.Posts'), posts_path
+        li.nav-link.nav-item = link_to t('global.header.Albums'), '#'
+        li.nav-item.nav-item = link_to t('global.header.Person'), '#'
     ul.navbar-nav.align-items-center
       - if user_signed_in?
         div.d-flex.align-items-center.mr-2
