@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    add_breadcrumb "Posts", posts_path
   end
 
   def show; end
