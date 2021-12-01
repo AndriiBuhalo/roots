@@ -4,8 +4,10 @@ require 'rails_helper'
 
 RSpec.describe 'Posts', type: :feature do
 
+  let(:user) { create(:user) }
+  let(:post) { create(:post, created_by: user) }
+
   before(:each) do
-    user = FactoryBot.create(:user)
     login_as(user)
     visit('/posts')
   end
@@ -32,7 +34,6 @@ RSpec.describe 'Posts', type: :feature do
   context 'Update post' do
 
     scenario 'should update' do
-      post = FactoryBot.create(:post)
       visit edit_post_path(post)
       fill_in 'Title', with: 'Test title'
       fill_in 'Content', with: 'Test content'
@@ -42,7 +43,6 @@ RSpec.describe 'Posts', type: :feature do
   end
 
     scenario "shouldn't update" do
-      post = FactoryBot.create(:post)
       visit edit_post_path(post)
       fill_in 'Title', with: 'Test title'
       fill_in 'Content', with: ''

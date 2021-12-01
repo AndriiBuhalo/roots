@@ -24,6 +24,12 @@ jobs:
         with:
           ruby-version: 2.7.4
       - name: Build and run tests
+      - name: Coverage info
+        uses: actions/upload-artifact@master
+        if: always()
+        with:
+          name: coverage-report
+          path: coverage
         env:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432
