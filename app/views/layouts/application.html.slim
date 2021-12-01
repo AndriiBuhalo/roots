@@ -9,9 +9,9 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body.mt-100
-    = render 'layouts/header'
+    = render 'shared/header'
     .container
-      = render 'layouts/messages'
-      = render_breadcrumbs
+      = render 'shared/messages'
+      = render 'shared/breadcrumbs'
       = yield
-      = render 'layouts/footer'
+      = render 'shared/footer'

@@ -9,11 +9,12 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body.mt-100
-    = render 'layouts/header'
+    = render 'shared/header'
     .container
-      = render 'layouts/messages'
+      = render 'shared/messages'
+      = render 'shared/breadcrumbs'
       .center.jumbotron.mb-0.text-center
         = yield
       .welcome-root.d-flex.justify-content-center
         = image_tag "roots.jpg", alt: t('global.public.alt'), class: "w-50"
-      = render 'layouts/footer'
+      = render 'shared/footer'

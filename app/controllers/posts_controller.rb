@@ -2,19 +2,26 @@
 
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
+  before_action :set_index_breadcrumb, only: %i[show edit new]
 
   def index
     @posts = Post.all
-    add_breadcrumb "Posts", posts_path
+    add_breadcrumb('Posts')
   end
 
-  def show; end
+  def show
+    add_breadcrumb(@post.title)
+  end
 
   def new
     @post = Post.new
+    add_breadcrumb('New Post')
   end
 
-  def edit; end
+  def edit
+    add_breadcrumb(@post.title, post_path(@post))
+    add_breadcrumb('Edit')
+  end
 
   def create
     @post = Post.new(post_params)
@@ -49,5 +56,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :content)
+  end
+
+  def set_index_breadcrumb
+    add_breadcrumb('Posts', posts_path)
   end
 end
