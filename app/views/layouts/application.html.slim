@@ -12,6 +12,6 @@ html
     = render 'shared/header'
     .container
       = render 'shared/messages'
-      = render 'shared/breadcrumbs'
+      = render 'shared/breadcrumbs' if current_user
       = yield
       = render 'shared/footer'

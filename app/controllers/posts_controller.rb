@@ -6,21 +6,21 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    add_breadcrumb('Posts')
+    add_breadcrumb(t('posts.index.breadcrumb'))
   end
 
   def show
-    add_breadcrumb(@post.title)
+    add_breadcrumb(t('posts.show.breadcrumb', title: @post.title))
   end
 
   def new
     @post = Post.new
-    add_breadcrumb('New Post')
+    add_breadcrumb(t('posts.new.breadcrumb'))
   end
 
   def edit
-    add_breadcrumb(@post.title, post_path(@post))
-    add_breadcrumb('Edit')
+    add_breadcrumb(t('posts.show.breadcrumb', title: @post.title), post_path(@post))
+    add_breadcrumb(t('posts.edit.breadcrumb', title: @post.title))
   end
 
   def create
@@ -59,6 +59,6 @@ class PostsController < ApplicationController
   end
 
   def set_index_breadcrumb
-    add_breadcrumb('Posts', posts_path)
+    add_breadcrumb(t('posts.index.breadcrumb'), posts_path)
   end
 end

@@ -1,15 +1,18 @@
 en:
   posts:
     edit:
+      breadcrumb: "Edit %{title}"
       title: "Editing post"
       show: "Show"
       back: "Back"
     show:
+      breadcrumb: "Show %{title}"
       edit: "Edit"
       back: "Back"
       title: "Title:"
       content: "Content:"
     index:
+      breadcrumb: "Posts"
       main_title: "Listing posts"
       title: "Title"
       content: "Content"
@@ -20,6 +23,7 @@ en:
       confirmation: "Are you sure?"
       new_post: "New Post"
     new:
+      breadcrumb: "New Post"
       title: "New post"
       back: "Back"
     controller:

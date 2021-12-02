@@ -6,11 +6,12 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :danger, :info, :warning
 
   def add_breadcrumb(label, path = nil)
-    @breadcrumbs << { label: label, path: path }
+    @breadcrumbs.push({ label: label, path: path })
   end
+
+  private
 
   def set_breadcrumbs
     @breadcrumbs = []
   end
-
 end
