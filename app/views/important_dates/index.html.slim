@@ -1,0 +1,25 @@
+h1 Listing important_dates
+
+table
+  thead
+    tr
+      th Event
+      th Event date
+      th Description
+      th
+      th
+      th
+
+  tbody
+    - @important_dates.each do |important_date|
+      tr
+        td = important_date.event
+        td = important_date.event_date
+        td = important_date.description
+        td = link_to 'Show', important_date
+        td = link_to 'Edit', edit_important_date_path(important_date)
+        td = link_to 'Destroy', important_date, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Important date', new_important_date_path

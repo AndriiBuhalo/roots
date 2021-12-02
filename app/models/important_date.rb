@@ -1,0 +1,2 @@
+class ImportantDate < ApplicationRecord
+end

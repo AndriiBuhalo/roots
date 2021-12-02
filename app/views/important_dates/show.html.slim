@@ -1,0 +1,17 @@
+p#notice = notice
+
+p
+  strong Event:
+  = @important_date.event
+
+p
+  strong Event date:
+  = @important_date.event_date
+
+p
+  strong Description:
+  = @important_date.description
+
+=> link_to 'Edit', edit_important_date_path(@important_date)
+'|
+=< link_to 'Back', important_dates_path

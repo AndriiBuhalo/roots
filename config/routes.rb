@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :important_dates
   resources :posts
   get 'welcome_pages/home'
   get 'welcome_pages/about'
