@@ -15,7 +15,7 @@ header.navbar.navbar-dark.bg-dark.fixed-top.navbar-expand-md
           a#dropdownMenuLink.btn.dropdown-toggle.nav-link.font-weight-bold[ href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ]
             img.gravatar.rounded-circle.mr-2 src="#{current_user.gravatar}" width="32" height="32"
           ul.dropdown-menu.text-black[aria-labelledby="dropdownMenuLink"]
-            h8.m-2 Signed in as
+            li.small.m-2 Signed in as
             li.nav-link.dropdown-item.nav-item.text-dark.disabled = current_user.email
             .dropdown-divider
             li.nav-link.dropdown-item.nav-item = link_to t('global.header.Edit Profile'), edit_user_registration_path, class: "text-dark"
