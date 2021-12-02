@@ -14,7 +14,7 @@ RSpec.describe '/albums', type: :request do
     let(:valid_album) { create(:album) }
 
     it 'renders a successful response' do
-      get album_index_path(valid_album)
+      get album_path(valid_album)
       expect(response).to render_template(:show)
     end
   end
@@ -82,7 +82,7 @@ RSpec.describe '/albums', type: :request do
       it 'updates the requested post' do
         get edit_album_url(valid_album)
         expect(response).to render_template(:edit)
-        patch album_index_path(valid_album), params: { album: edited_album }
+        patch album_path(valid_album), params: { album: edited_album }
         expect(response).to redirect_to(album_index_path(valid_album))
         follow_redirect!
         expect(response).to render_template(:show)
@@ -113,7 +113,7 @@ RSpec.describe '/albums', type: :request do
 
     it 'destroys the requested album' do
       expect do
-        delete album_index_path(valid_album)
+        delete album_path(valid_album)
       end.to change(Album, :count).by(-1)
     end
 
