@@ -4,7 +4,7 @@ class PostsController < DashboardController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = current_user.posts
+    @posts = current_user.
   end
 
   def show
