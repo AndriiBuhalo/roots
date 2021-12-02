@@ -11,7 +11,7 @@ class PostsController < DashboardController
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.new
   end
 
   def edit
