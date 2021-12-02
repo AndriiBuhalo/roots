@@ -1,17 +1,12 @@
-p#notice = notice
-
+- title t('important_dates.show.page_title', event: @important_date.event)
 p
-  strong Event:
+  strong = t('.event')
   = @important_date.event
-
 p
-  strong Event date:
+  strong = t('.event_date')
   = @important_date.event_date
-
 p
-  strong Description:
+  strong = t('.description')
   = @important_date.description
-
-=> link_to 'Edit', edit_important_date_path(@important_date)
-'|
-=< link_to 'Back', important_dates_path
+= link_to t('.edit'), edit_important_date_path(@important_date), class:"btn btn-xs btn-success"
+= link_to t('.back'), important_dates_path, class:"btn btn-xs btn-info ml-3"

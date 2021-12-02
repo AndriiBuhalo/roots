@@ -1,0 +1,44 @@
+en:
+  important_dates:
+    edit:
+      page_title: "Edit %{event}"
+      title: "Editing important date"
+      show: "Show"
+      back: "Back"
+    show:
+      page_title: "Show %{event}"
+      edit: "Edit"
+      back: "Back"
+      event: "Event:"
+      event_date: "Event date:"
+      description: "Description:"
+    index:
+      page_title: "Important dates"
+      main_title: "Listing important dates"
+      event: "Event"
+      event_date: "Event date"
+      description: "Description"
+      actions: "Actions"
+      show: "Show"
+      edit: "Edit"
+      destroy: "Destroy"
+      confirmation: "Are you sure?"
+      new_important_date: "New Important date"
+    new:
+      page_title: "New Important Date"
+      title: "New important date"
+      back: "Back"
+    controller:
+      create: "Post was successfully created"
+      update: "Post was successfully updated"
+      destroy: "Post was successfully deleted"
+    form:
+      event_placeholder: "Write your event"
+      description_placeholder: "Write your description"
+  global:
+    forms:
+      messages:
+        errors:
+          one: "One error prohibited this post from being saved:"
+          other: "%{count} errors prohibited this post from being saved:"
+      submit: "Submit"

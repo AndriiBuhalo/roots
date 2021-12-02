@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ImportantDatesController < ApplicationController
-  before_action :set_important_date, only: %i[ show edit update destroy ]
+  before_action :set_important_date, only: %i[show edit update destroy]
 
   # GET /important_dates or /important_dates.json
   def index
@@ -7,8 +9,7 @@ class ImportantDatesController < ApplicationController
   end
 
   # GET /important_dates/1 or /important_dates/1.json
-  def show
-  end
+  def show; end
 
   # GET /important_dates/new
   def new
@@ -16,8 +17,7 @@ class ImportantDatesController < ApplicationController
   end
 
   # GET /important_dates/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /important_dates or /important_dates.json
   def create
@@ -25,7 +25,7 @@ class ImportantDatesController < ApplicationController
 
     respond_to do |format|
       if @important_date.save
-        format.html { redirect_to @important_date, notice: "Important date was successfully created." }
+        format.html { redirect_to @important_date, notice: 'Important date was successfully created.' }
         format.json { render :show, status: :created, location: @important_date }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class ImportantDatesController < ApplicationController
   def update
     respond_to do |format|
       if @important_date.update(important_date_params)
-        format.html { redirect_to @important_date, notice: "Important date was successfully updated." }
+        format.html { redirect_to @important_date, notice: 'Important date was successfully updated.' }
         format.json { render :show, status: :ok, location: @important_date }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,19 +51,20 @@ class ImportantDatesController < ApplicationController
   def destroy
     @important_date.destroy
     respond_to do |format|
-      format.html { redirect_to important_dates_url, notice: "Important date was successfully destroyed." }
+      format.html { redirect_to important_dates_url, notice: 'Important date was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_important_date
-      @important_date = ImportantDate.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def important_date_params
-      params.require(:important_date).permit(:event, :event_date, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_important_date
+    @important_date = ImportantDate.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def important_date_params
+    params.require(:important_date).permit(:event, :event_date, :description)
+  end
 end

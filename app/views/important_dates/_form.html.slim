@@ -3,9 +3,9 @@
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .form-inputs
-    = f.input :event
+    = f.input :event, placeholder: t('important_dates.form.event_placeholder')
     = f.input :event_date
-    = f.input :description
+    = f.input :description, placeholder: t('important_dates.form.description_placeholder')
 
   .form-actions
-    = f.button :submit
+    = f.submit t('global.forms.submit'), class:"btn btn-primary"
