@@ -7,7 +7,4 @@ class Attachment < ApplicationRecord
   mount_uploader :file, FileUploader
 
   validates :file, presence: true
-  validates :file_name, presence: true, length: { minimum: 1, maximum: 75 }
-  # validates :notes, length: { minimum: 3, maximum: 300 }
-  # validates :place, length: { minimum: 3, maximum: 150 }
 end

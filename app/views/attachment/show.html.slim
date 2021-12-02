@@ -21,10 +21,10 @@ p
   strong = t('.date')
   '
   = @attachment.date.strftime("%Y-%m-%d") if !@attachment.date.blank?
-p.albumsBlock
+p
   strong = t('.albums')
   - @attachment.albums.each do |album|
-    = link_to album_path(album) do
+    = link_to album_path(album), class: 'd-table-cell text-center' do
       = album.name
       = image_tag album.attachments.last.file.url(:small), alt: "#{album.attachments.last.file_name}"
 h3.text-uppercase = t('.information')
