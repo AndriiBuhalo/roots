@@ -27,4 +27,3 @@ header.navbar.navbar-dark.bg-dark.fixed-top.navbar-expand-md
           ul.dropdown-menu aria-labelledby="dropdownMenuButton"
             li.nav-link.font-weight-bold.text-muted= link_to_unless current_locale?(:en), t('global.header.en_switch'), locale_path(:en), method: :patch, class: "text-dark text-decoration-none"
             li.nav-link.font-weight-bold.text-muted= link_to_unless current_locale?(:uk), t('global.header.uk_switch'), locale_path(:uk), method: :patch, class: "text-dark text-decoration-none"
-
