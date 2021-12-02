@@ -4,18 +4,16 @@ class PostsController < DashboardController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = current_user.posts
+    @posts = Post.where(created_by_id: current_user.id)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @post = current_user.posts.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @post = current_user.posts.new(post_params)
