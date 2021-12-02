@@ -1,15 +1,18 @@
- # frozen_string_literal: true
+# frozen_string_literal: true
 
 require 'rails_helper'
 
 RSpec.describe '/important_dates', type: :request do
   let(:valid_attributes) do
+    {
     skip('Add a hash of attributes valid for your model')
+    }
   end
 
-
   let(:invalid_attributes) do
+    {
     skip('Add a hash of attributes invalid for your model')
+    }
   end
 
   describe 'GET /index' do
@@ -46,9 +49,9 @@ RSpec.describe '/important_dates', type: :request do
   describe 'POST /create' do
     context 'with valid parameters' do
       it 'creates a new ImportantDate' do
-        expect {
+        expect do
           post important_dates_url, params: { important_date: valid_attributes }
-        }.to change(ImportantDate, :count).by(1)
+        end.to change(ImportantDate, :count).by(1)
       end
 
       it 'redirects to the created important_date' do
@@ -59,9 +62,9 @@ RSpec.describe '/important_dates', type: :request do
 
     context 'with invalid parameters' do
       it 'does not create a new ImportantDate' do
-        expect {
+        expect do
           post important_dates_url, params: { important_date: invalid_attributes }
-        }.to change(ImportantDate, :count).by(0)
+        end.to change(ImportantDate, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
@@ -104,9 +107,9 @@ RSpec.describe '/important_dates', type: :request do
   describe 'DELETE /destroy' do
     it 'destroys the requested important_date' do
       important_date = ImportantDate.create! valid_attributes
-      expect {
+      expect do
         delete important_date_url(important_date)
-      }.to change(ImportantDate, :count).by(-1)
+      end.to change(ImportantDate, :count).by(-1)
     end
 
     it 'redirects to the important_dates list' do
