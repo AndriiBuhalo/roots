@@ -83,7 +83,7 @@ RSpec.describe '/albums', type: :request do
         get edit_album_url(valid_album)
         expect(response).to render_template(:edit)
         patch album_path(valid_album), params: { album: edited_album }
-        expect(response).to redirect_to(album_index_path(valid_album))
+        expect(response).to redirect_to(album_path(valid_album))
         follow_redirect!
         expect(response).to render_template(:show)
         expect(response.body).to include('Album successfully modified!')
@@ -118,7 +118,7 @@ RSpec.describe '/albums', type: :request do
     end
 
     it 'redirects to the albums list' do
-      delete album_index_path(valid_album)
+      delete album_path(valid_album)
       expect(response).to redirect_to(album_index_path)
     end
   end
