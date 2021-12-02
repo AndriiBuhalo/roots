@@ -27,7 +27,7 @@ RSpec.describe '/posts', type: :request do
     let(:valid_post) { create(:post) }
 
     it 'renders a successful response' do
-      get post_url(@post)
+      get post_url(valid_post)
       expect(response).to render_template(:show)
     end
   end
