@@ -2,6 +2,10 @@
 
 en:
   devise:
+    titles:
+      sign_up: "Sign Up"
+      log_in: "Log In"
+      password_reset: "Password Reset"
     providers:
       google_oauth2: "Google"
     confirmations:
