@@ -3,16 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe '/albums', type: :request do
-  let(:user) { create(:user) }
-
-  before do
-    login_as(user)
-  end
-
-  after do
-    logout(user)
-  end
-
   describe 'GET /index' do
     it 'renders a successful response' do
       get album_index_path
