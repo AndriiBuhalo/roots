@@ -1,15 +1,18 @@
 en:
   posts:
     edit:
+      page_title: "Edit %{title}"
       title: "Editing post"
       show: "Show"
       back: "Back"
     show:
+      page_title: "Show %{title}"
       edit: "Edit"
       back: "Back"
       title: "Title:"
       content: "Content:"
     index:
+      page_title: "Posts"
       main_title: "Listing posts"
       title: "Title"
       content: "Content"
@@ -20,6 +23,7 @@ en:
       confirmation: "Are you sure?"
       new_post: "New Post"
     new:
+      page_title: "New Post"
       title: "New post"
       back: "Back"
     controller:
