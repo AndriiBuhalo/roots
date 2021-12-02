@@ -23,6 +23,10 @@ gem 'cocoon'
 gem 'devise'
 gem 'devise-i18n'
 gem 'jbuilder', '~> 2.7'
+<<<<<<< HEAD
+=======
+gem 'meta-tags'
+>>>>>>> main
 gem 'mini_magick'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
