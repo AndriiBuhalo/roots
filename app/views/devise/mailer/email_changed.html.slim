@@ -1,7 +1,7 @@
-p
+h2
   = t('devise.mailer.changed.hello')
-  = @email
-  | \!
+p
+  = @resource.email
 - if @resource.try(:unconfirmed_email?)
   p
     = t('devise.mailer.changed.message')

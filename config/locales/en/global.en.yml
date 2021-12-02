@@ -1,0 +1,23 @@
+en:
+  global:
+    page_title: "The Roots"
+    header:
+      logo: "The Roots"
+      home: "Home"
+      profile: "Profile"
+      sign_up: "Sign Up"
+      log_in: "Log In"
+      sign_out: "Sign Out"
+      log_out: "Log Out"
+      posts: "Posts"
+      attachments: "Attachments"
+      albums: "Albums"
+      profile: "Profile"
+      persons: "Persons"
+    footer:
+      string: "IF-133 Ruby Developers Team"
+      about: "About"
+      contacts: "Contacts"
+      softserve: "SoftServe"
+    public:
+      alt: "The Roots"
