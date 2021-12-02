@@ -4,7 +4,8 @@ FactoryBot.define do
   factory :post, class: 'Post' do
     title { Faker::Lorem.characters(number: 20) }
     content { Faker::Lorem.characters(number: 100) }
-
+    created_by { create :user }
+    
     trait :invalid_post do
       title { Faker::Lorem.characters(number: 1) }
       content { Faker::Lorem.characters(number: 1) }
