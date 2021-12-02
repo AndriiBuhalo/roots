@@ -8,7 +8,8 @@ p
 p
   strong = t('.keyword')
   '
-  = link_to @attachment.keyword, attachment_index_path(:tag => @attachment.keyword), class: 'badge badge-pill badge-info' if !@attachment.keyword.blank?
+  - @attachment.keywords.split(',').each do |keyword|
+    = link_to keyword, attachment_index_path(:tag => keyword), class: 'badge badge-pill badge-info mr-2'
 p
   strong = t('.notes')
   '
@@ -25,8 +26,8 @@ p
   strong = t('.albums')
   - @attachment.albums.each do |album|
     = link_to album_path(album), class: 'd-table-cell text-center' do
-      = album.name
       = image_tag album.attachments.last.file.url(:small), alt: "#{album.attachments.last.file_name}"
+      span.d-block = album.name
 h3.text-uppercase = t('.information')
 - if @attachment.file?
   p
@@ -54,6 +55,8 @@ h3.text-uppercase = t('.information')
 p
   strong = t('.downloaded')
   '
+p
+  a.btn.btn-info href="#{@attachment.file}" download="file" = t('.donwload')
 = link_to t('common.edit'), edit_attachment_path(@attachment), class: "btn btn-primary"
 = link_to t('common.delete'), attachment_path(@attachment), class: 'btn btn-danger ml-3', method: :delete, data: { confirm: t('common.confirmation') }
 = link_to t('common.back'), :back, class: 'btn btn-secondary ml-3'

@@ -28,6 +28,7 @@ en:
       copied: 'Copied'
       px: 'px'
       kb: 'kb'
+      donwload: 'Donwload'
     edit:
       edit_file: 'Edit file'
     controller:

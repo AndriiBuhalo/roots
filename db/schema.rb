@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_164147) do
+ActiveRecord::Schema.define(version: 2021_12_02_154722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,14 +31,14 @@ ActiveRecord::Schema.define(version: 2021_11_30_164147) do
   end
 
   create_table "attachments", force: :cascade do |t|
+    t.string "file_name"
     t.string "file"
-    t.string "keyword"
+    t.string "keywords"
     t.string "notes"
     t.string "place"
     t.datetime "date"
-    t.bigint "author_id"
-    t.string "file_name"
-    t.index ["author_id"], name: "index_attachments_on_author_id"
+    t.bigint "created_by_id"
+    t.index ["created_by_id"], name: "index_attachments_on_created_by_id"
   end
 
   create_table "posts", force: :cascade do |t|

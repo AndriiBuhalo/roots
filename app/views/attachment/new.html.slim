@@ -1,6 +1,6 @@
 = simple_form_for @attachment, url: { action: "create" } do |f|
   h1 = t('.create_file')
-  = f.input :keyword, placeholder: t('attachment.keyword')
+  = f.input :keywords, placeholder: t('attachment.keyword')
   = f.input :notes, placeholder: t('attachment.notes')
   = f.input :place, placeholder: t('attachment.place')
   = f.input :date, as: :date, html5: true

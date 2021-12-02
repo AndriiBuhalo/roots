@@ -5,7 +5,7 @@ class AttachmentController < ApplicationController
 
   def index
     @attachments = Attachment.order(id: :desc)
-    @attachments = @attachments.where(keyword: params[:tag]) if params[:tag]
+    @attachments = @attachments.where("keywords LIKE '%#{params[:tag]}%'") if params[:tag]
   end
 
   def new
@@ -44,6 +44,6 @@ class AttachmentController < ApplicationController
 
   def file_params
     params[:attachment][:file_name] = params[:attachment][:file].original_filename if params[:attachment][:file]
-    params.require(:attachment).permit(:file, :keyword, :notes, :place, :date, :file_name)
+    params.require(:attachment).permit(:file, :keywords, :notes, :place, :date, :file_name)
   end
 end
