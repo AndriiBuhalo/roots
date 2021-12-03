@@ -14,6 +14,6 @@ module ApplicationHelper
   end
 
   def locale_switcher(locale)
-    translation_key = "global.header.#{locale}_switch"
+    "global.header.#{locale}_switch"
   end
 end
