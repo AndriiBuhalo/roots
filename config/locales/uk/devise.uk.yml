@@ -98,7 +98,7 @@ uk:
       links:
         confirm: "Не отримали листа з підтвердженням?"
         unlock: "Не отримали вказівок для розблокування?"
-        sign: "Увійти через Google"
+        sign: "Увійти через %{provider}"
         back: "Повернутися"
         didn_t_receive_confirmation_instructions: "Не отримали листа з підтвердженням?"
         didn_t_receive_unlock_instructions: "Не отримали вказівок з розблокування?"
