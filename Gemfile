@@ -18,6 +18,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 
 
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -27,11 +28,14 @@ gem 'turbolinks', '~> 5'
 # Reduces boot times through caching; required in config/boot.rb
 
 
+
+gem 'any_login', '~> 1.4'
 gem 'awesome_print'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 gem 'devise-i18n'
 gem 'jbuilder', '~> 2.7'
+gem 'meta-tags'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'rails-i18n', '~> 6.0.0'
