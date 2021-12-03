@@ -1,17 +1,9 @@
 # frozen_string_literal: true
 
 class LocalesController < ApplicationController
-  after_action :show_flash
-
   def update
     cookies[:locale] = params[:locale]
-    redirect_back fallback_location: welcome_pages_home_path
-  end
-
-  private
-
-  def show_flash
-    I18n.locale = cookies[:locale] || I18n.default_locale
-    flash[:notice] = I18n.t 'global.translate'
+    I18n.locale = params[:locale]
+    redirect_back fallback_location: welcome_pages_home_path, notice: I18n.t('global.translate')
   end
 end

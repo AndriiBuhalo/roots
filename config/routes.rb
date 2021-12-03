@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :locales, only: :update, param: :locale, constraints: { locale: /(en|uk)/ }
+  resources :locales, only: :update, param: :locale, constraints: { locale: /#{I18n.available_locales.join('|')}/ }
+  # resources :locales, only: :update, param: :locale, constraints: lambda { |request| I18n.available_locales.include?(request.params[:locale])}
   resources :posts
   get 'welcome_pages/home'
   get 'welcome_pages/about'

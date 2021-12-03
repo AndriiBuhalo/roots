@@ -12,4 +12,8 @@ module ApplicationHelper
   def current_locale?(locale)
     I18n.locale == locale
   end
+
+  def locale_switcher(locale)
+    translation_key = "global.header.#{locale}_switch"
+  end
 end

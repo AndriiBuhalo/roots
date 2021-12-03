@@ -7,10 +7,10 @@ class ApplicationController < ActionController::Base
   private
 
   def set_locale
-    if I18n.available_locales.include?(cookies[:locale].to_sym)
-      I18n.locale = cookies[:locale]
-    else
-      I18n.locale = I18n.default_locale
-    end
+    I18n.locale = if I18n.available_locales.map(&:to_s).include?(cookies[:locale])
+                    cookies[:locale]
+                  else
+                    I18n.default_locale
+                  end
   end
 end
