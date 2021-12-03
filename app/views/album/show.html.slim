@@ -9,6 +9,6 @@ label.ml-3 = @album.description
   = link_to t('common.back'), :back, class: 'btn btn-secondary'
 - if @album.attachments.empty?
   .d-flex.justify-content-center
-    h1.search-no-find = t('.empty')
+    h1 = t('.empty')
 - else
   = render(partial: './attachment/attachments')

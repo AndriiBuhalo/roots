@@ -39,8 +39,8 @@ RSpec.describe '/albums', type: :request do
     context 'with valid parameters' do
       let(:valid_album) do
         {
-          name: Faker::Lorem.characters(number: 3),
-          description: Faker::Lorem.characters(number: 20)
+          name: Faker::Name.initials(number: 10),
+          description: Faker::Hobby.activity
         }
       end
 
@@ -74,8 +74,8 @@ RSpec.describe '/albums', type: :request do
       let!(:valid_album) { create(:album) }
       let(:edited_album) do
         {
-          name: Faker::Lorem.characters(number: 3),
-          description: Faker::Lorem.characters(number: 20)
+          name: Faker::Name.initials(number: 10),
+          description: Faker::Hobby.activity
         }
       end
 

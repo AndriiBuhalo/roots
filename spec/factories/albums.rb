@@ -2,12 +2,12 @@
 
 FactoryBot.define do
   factory :album, class: 'Album' do
-    name { Faker::Lorem.characters(number: 10) }
-    description { Faker::Lorem.characters(number: 65) }
+    name { Faker::Name.initials(number: 10) }
+    description { Faker::Hobby.activity }
 
     trait :invalid_album do
-      name { Faker::Lorem.characters(number: 1) }
-      description { Faker::Lorem.characters(number: 1) }
+      name { Faker::Name.initials(number: 1) }
+      description { Faker::Name.initials(number: 1) }
     end
   end
 end

@@ -43,7 +43,6 @@ class AttachmentController < ApplicationController
   end
 
   def file_params
-    params[:attachment][:file_name] = params[:attachment][:file].original_filename if params[:attachment][:file]
     params.require(:attachment).permit(:file, :keywords, :notes, :place, :date, :file_name)
   end
 end

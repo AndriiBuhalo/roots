@@ -7,4 +7,9 @@ class Attachment < ApplicationRecord
   mount_uploader :file, FileUploader
 
   validates :file, presence: true
+
+  before_create :set_original_file_name
+  def set_original_file_name
+    self.file_name = file.send(:original_filename)
+  end
 end
