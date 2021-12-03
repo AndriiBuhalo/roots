@@ -57,6 +57,6 @@ p
   '
 p
   a.btn.btn-info href="#{@attachment.file}" download="file" = t('.donwload')
-= link_to t('common.edit'), edit_attachment_path(@attachment), class: "btn btn-primary"
-= link_to t('common.delete'), attachment_path(@attachment), class: 'btn btn-danger ml-3', method: :delete, data: { confirm: t('common.confirmation') }
-= link_to t('common.back'), :back, class: 'btn btn-secondary ml-3'
+= link_to t('global.common.edit'), edit_attachment_path(@attachment), class: "btn btn-primary"
+= link_to t('global.common.delete'), attachment_path(@attachment), class: 'btn btn-danger ml-3', method: :delete, data: { confirm: t('common.confirmation') }
+= link_to t('global.common.back'), :back, class: 'btn btn-secondary ml-3'

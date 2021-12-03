@@ -11,6 +11,6 @@ table.table.table-bordered
         td.text-center = image.file_name
         td.text-center = image_tag image.file.url(:small), alt: "#{image.file_name}" if image.file?
         td.text-center = image.notes
-        td.text-center = link_to t('common.show'), attachment_path(image), class: 'btn btn-info'
-        td.text-center = link_to t('common.edit'), edit_attachment_path(image), class: 'btn btn-primary'
-        td.text-center = link_to t('common.delete'), attachment_path(image), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
+        td.text-center = link_to t('global.common.show'), attachment_path(image), class: 'btn btn-info'
+        td.text-center = link_to t('global.common.edit'), edit_attachment_path(image), class: 'btn btn-primary'
+        td.text-center = link_to t('global.common.delete'), attachment_path(image), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
