@@ -4,7 +4,7 @@ class LocalesController < ApplicationController
   after_action :show_flash
 
   def update
-    cookies[:locale] = params[:id]
+    cookies[:locale] = params[:locale]
     redirect_back fallback_location: welcome_pages_home_path
   end
 
