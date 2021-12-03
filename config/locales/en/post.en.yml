@@ -2,17 +2,20 @@ en:
   posts:
     edit:
       breadcrumb: "Edit %{title}"
+      page_title: "Edit %{title}"
       title: "Editing post"
       show: "Show"
       back: "Back"
     show:
       breadcrumb: "Show %{title}"
+      page_title: "Show %{title}"
       edit: "Edit"
       back: "Back"
       title: "Title:"
       content: "Content:"
     index:
       breadcrumb: "Posts"
+      page_title: "Posts"
       main_title: "Listing posts"
       title: "Title"
       content: "Content"
@@ -24,6 +27,7 @@ en:
       new_post: "New Post"
     new:
       breadcrumb: "New Post"
+      page_title: "New Post"
       title: "New post"
       back: "Back"
     controller:

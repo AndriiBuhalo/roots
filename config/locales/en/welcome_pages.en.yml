@@ -2,10 +2,12 @@ en:
   welcome_pages:
     alt: "The Roots"
     home:
+      page_title: "Welcome"
       title: "Welcome to The Roots"
       subtitle: "You can’t choose your family. However, you can choose our app to keep it organized."
       sign_up_link: "Sign up now!"
     about:
+      page_title: "About"
       title: "About The Roots"
       subtitle: "Now you have an opportunity to explore your roots and keep them not only in the memories."
       family_tree_title: "Family Tree"
@@ -15,6 +17,7 @@ en:
       photo_albums_title: "Photo Albums"
       photo_albums_paragraph: "Some photos are too special to post on Instagram. Upload them to The Roots and create albums. Then, share them only with family."
     contacts:
+      page_title: "Contacts"
       title: "Contacts"
       subtitle: "There are members of Ruby Developers Team."
       nikolay: "Kulikovskiy Nikolay"
