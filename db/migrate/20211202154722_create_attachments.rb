@@ -9,8 +9,7 @@ class CreateAttachments < ActiveRecord::Migration[6.1]
       t.string :notes
       t.string :place
       t.datetime :date
-      t.bigint :created_by_id
-      t.index ['created_by_id'], name: 'index_attachments_on_created_by_id'
+      add_reference :attachments, :created_by
     end
   end
 end
