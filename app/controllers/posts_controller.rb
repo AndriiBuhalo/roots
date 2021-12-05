@@ -1,11 +1,9 @@
 # frozen_string_literal: true
-
-
 class PostsController < DashboardController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = current_user.posts.paginate(page: params[:page], per_page: NUMBER)
+    @posts = current_user.posts.paginate(page: params[:page], per_page: PER_PAGE)
   end
 
   def show; end
