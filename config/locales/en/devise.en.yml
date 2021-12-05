@@ -6,6 +6,8 @@ en:
       sign_up: "Sign Up"
       log_in: "Log In"
       password_reset: "Password Reset"
+      accept_invitation: "Accept Invitation"
+      send_invitation: "Send Invitation"
     providers:
       google_oauth2: "Google"
     confirmations:
@@ -15,6 +17,7 @@ en:
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
+      invited: "You have a pending invitation, accept it to finish creating your account."
       already_authenticated: "You are already signed in."
       inactive: "Your account is not activated yet."
       invalid: "Invalid %{authentication_keys} or password."
@@ -24,7 +27,27 @@ en:
       timeout: "Your session expired. Please sign in again to continue."
       unauthenticated: "You need to sign in or sign up before continuing."
       unconfirmed: "You have to confirm your email address before continuing."
+    invitations:
+      send_instructions: "An invitation email has been sent to %{email}."
+      invitation_token_invalid: "The invitation token provided is not valid!"
+      updated: "Your password was set successfully. You are now signed in."
+      updated_not_active: "Your password was set successfully."
+      no_invitations_remaining: "No invitations remaining"
+      invitation_removed: "Your invitation was removed."
+      new:
+        header: "Send invitation"
+        submit_button: "Send an invitation"
+      edit:
+        header: "Set your password"
+        submit_button: "Set my password"
     mailer:
+      invitation_instructions:
+        subject: "Invitation instructions"
+        hello: "Hello %{email}"
+        someone_invited_you: "Someone has invited you to %{url}, you can accept it through the link below."
+        accept: "Accept invitation"
+        accept_until: "This invitation will be due in %{due_date}."
+        ignore: "If you don't want to accept the invitation, please ignore this email. Your account won't be created until you access the link above and set your password."
       confirmation:
         welcome: "Welcome"
         confirm: "You can confirm your account email through the link below:"
@@ -121,3 +144,9 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  time:
+    formats:
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"
