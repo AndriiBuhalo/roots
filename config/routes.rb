@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  put 'locales/:locale', to: 'locales#update', as: :locale, constraints: { locale: /#{I18n.available_locales.join('|')}/ }
+  put 'locales/:locale', to: 'locales#update', as: :locale,
+                         constraints: { locale: /#{I18n.available_locales.join('|')}/ }
   resources :posts
   get 'welcome_pages/home'
   get 'welcome_pages/about'
