@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'posts/edit', type: :view do
-  let(:valid_post) { create(:post) }
+  let(:valid_post) { create(:post, :with_user) }
 
   before do
     assign(:post, valid_post)

@@ -24,7 +24,7 @@ RSpec.describe '/posts', type: :request do
 
   describe 'GET /show' do
 
-    let(:valid_post) { create(:post) }
+    let(:valid_post) { create(:post, created_by: user) }
 
     it 'renders a successful response' do
       get post_url(valid_post)
@@ -41,7 +41,7 @@ RSpec.describe '/posts', type: :request do
 
   describe 'GET /edit' do
 
-    let(:valid_post) { create(:post) }
+    let(:valid_post) { create(:post, created_by: user) }
 
     it 'render a successful response' do
       get edit_post_url(valid_post)
@@ -88,7 +88,7 @@ RSpec.describe '/posts', type: :request do
   describe 'PATCH /update' do
     context 'with valid parameters' do
 
-      let!(:valid_post) { create(:post) }
+      let!(:valid_post) { create(:post, created_by: user) }
       let(:edited_post) do
         {
           title: Faker::Lorem.characters(number: 3),
@@ -109,7 +109,7 @@ RSpec.describe '/posts', type: :request do
 
     context 'with invalid parameters' do
 
-      let!(:valid_post) { create(:post) }
+      let!(:valid_post) { create(:post, created_by: user) }
       let(:edited_invalid_post) do
         {
           title: Faker::Lorem.characters(number: 40),
@@ -128,7 +128,7 @@ RSpec.describe '/posts', type: :request do
 
   describe 'DELETE /destroy' do
 
-    let!(:valid_post) { create(:post) }
+    let!(:valid_post) { create(:post, created_by: user) }
 
     it 'destroys the requested post' do
       expect do

@@ -3,10 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe 'posts/index', type: :view do
-  let(:valid_post) { create(:post) }
+  
+  let(:user) { create(:user) }
+  let(:post) { create(:post, created_by: user) }
 
   before do
-    assign(:posts, [valid_post])
+    assign(:posts, [post])
   end
 
   it 'renders a list of posts' do
