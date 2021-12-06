@@ -8,10 +8,10 @@ RSpec.describe 'Posts', type: :feature do
   let(:post) { create(:post, created_by: user) }
 
   before(:each) do
-    login_as(user)
+    sign_in(user)
     visit('/posts')
   end
-
+  
   context 'Create post' do
 
     scenario 'should create' do
