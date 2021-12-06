@@ -6,5 +6,5 @@
     = render 'attachment_fields', f: attachment_form
   .links
     p = link_to_add_association t('.add_file'), f, :attachments, class: 'btn btn-primary'
-  = f.submit t('global.common.add'), class: 'btn btn-success mt-3'
-  = link_to t('global.common.back'), :back, class: 'btn btn-secondary mt-3 ml-3'
+  = f.submit t('common.add'), class: 'btn btn-success mt-3'
+  = link_to t('common.back'), :back, class: 'btn btn-secondary mt-3 ml-3'
