@@ -36,7 +36,4 @@ en:
   global:
     forms:
       messages:
-        errors:
-          one: "One error prohibited this post from being saved:"
-          other: "%{count} errors prohibited this post from being saved:"
       submit: "Submit"
