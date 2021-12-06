@@ -3,6 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe '/posts', type: :request do
+  include Devise::Test::IntegrationHelpers
 
   let(:user) { create(:user) }
 
@@ -22,7 +23,7 @@ RSpec.describe '/posts', type: :request do
   end
 
   describe 'GET /show' do
-    
+
     let(:valid_post) { create(:post, created_by: user) }
 
     it 'renders a successful response' do
