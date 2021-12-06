@@ -1,11 +1,5 @@
-# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
-
 en:
   devise:
-    titles:
-      sign_up: "Sign Up"
-      log_in: "Log In"
-      password_reset: "Password Reset"
     providers:
       google_oauth2: "Google"
     confirmations:
@@ -110,7 +104,7 @@ en:
       links:
         confirm: "Didn't receive confirmation instructions?"
         unlock: "Didn't receive unlock instructions?"
-        sign: "Sign in with"
+        sign: "Sign in with %{provider}"
   errors:
     messages:
       already_confirmed: "was already confirmed, please try signing in"
