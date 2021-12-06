@@ -8,4 +8,8 @@ module ApplicationHelper
       alert: 'alert-warning',
       notice: 'alert-info' }[name.to_sym] || name
   end
+
+  def current_locale?(locale)
+    I18n.locale == locale
+  end
 end
