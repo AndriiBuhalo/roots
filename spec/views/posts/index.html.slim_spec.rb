@@ -10,7 +10,7 @@ RSpec.describe 'posts/index', type: :view do
   before do
     assign(:posts, [post])
   end
-
+  
   it 'renders a list of posts' do
     render
     expect(rendered).to include t('posts.index.main_title')
