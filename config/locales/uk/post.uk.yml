@@ -1,0 +1,44 @@
+uk:
+  posts:
+    edit:
+      page_title: "Редагувати %{title}"
+      title: "Редагування"
+      show: "Детальніше"
+      back: "Назад"
+    show:
+      page_title: "Переглянути %{title}"
+      edit: "Редагувати"
+      back: "Назад"
+      title: "Тема:"
+      content: "Зміст:"
+    index:
+      page_title: "Дописи"
+      main_title: "Список Дописів"
+      title: "Тема"
+      content: "Зміст"
+      actions: "Дії"
+      show: "Переглянути"
+      edit: "Редагувати"
+      destroy: "Видалити"
+      confirmation: "Ви впевнені?"
+      new_post: "Новий Допис"
+    new:
+      page_title: "Новий Допис"
+      title: "Новий Допис"
+      back: "Назад"
+    controller:
+      create: "Допис успішно створено"
+      update: "Допис успішно збережено"
+      destroy: "Допис успішно видалено"
+    form:
+      title_placeholder: "Тема допису"
+      content_placeholder: "Зміст допису"
+  global:
+    forms:
+      messages:
+        errors:
+          few: "Допис не вдалося зберегти через %{count} помилки"
+          many: "Допис не вдалося зберегти через %{count} помилок"
+          one: "Допис не вдалося зберегти через %{count} помилку"
+          other: "Допис не вдалося зберегти через %{count} помилок"
+      submit: "Зберегти"
