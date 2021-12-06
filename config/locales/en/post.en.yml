@@ -35,5 +35,4 @@ en:
       content_placeholder: "Write your content"
   global:
     forms:
-      messages:
       submit: "Submit"

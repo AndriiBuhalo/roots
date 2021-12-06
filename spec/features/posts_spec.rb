@@ -11,7 +11,7 @@ RSpec.describe 'Posts', type: :feature do
     sign_in(user)
     visit('/posts')
   end
-  
+
   context 'Create post' do
 
     scenario 'should create' do
