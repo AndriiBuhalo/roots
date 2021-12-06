@@ -4,16 +4,16 @@ class AttachmentController < ApplicationController
   before_action :set_attachment, only: %i[show edit update destroy]
 
   def index
-    @attachments = Attachment.order(id: :desc)
+    @attachments = Attachment.by_user(current_user)
     @attachments = @attachments.where("keywords LIKE '%#{params[:tag]}%'") if params[:tag]
   end
 
   def new
-    @attachment = Attachment.new
+    @attachment = Attachment.by_user(current_user).new
   end
 
   def create
-    @attachment = Attachment.new(file_params)
+    @attachment = Attachment.by_user(current_user).new(file_params)
     if @attachment.save
       redirect_to @attachment, success: t('attachment.controller.create')
     else
@@ -39,7 +39,7 @@ class AttachmentController < ApplicationController
   private
 
   def set_attachment
-    @attachment = Attachment.find(params[:id])
+    @attachment = Attachment.by_user(current_user).find(params[:id])
   end
 
   def file_params

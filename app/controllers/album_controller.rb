@@ -4,7 +4,7 @@ class AlbumController < ApplicationController
   before_action :set_album, only: %i[show edit update destroy]
 
   def index
-    @albums = Album.order(id: :desc)
+    @albums = Album.by_user(current_user)
   end
 
   def show
@@ -12,12 +12,12 @@ class AlbumController < ApplicationController
   end
 
   def new
-    @album = Album.new
+    @album = Album.by_user(current_user).new
     @album.attachments.build
   end
 
   def create
-    @album = Album.new(album_params)
+    @album = Album.by_user(current_user).new(album_params)
     if @album.save
       redirect_to @album, success: t('album.controller.create')
     else
@@ -47,7 +47,7 @@ class AlbumController < ApplicationController
   private
 
   def set_album
-    @album = Album.find(params[:id])
+    @album = Album.by_user(current_user).find(params[:id])
   end
 
   def album_params

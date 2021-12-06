@@ -9,7 +9,6 @@ class CreateAttachments < ActiveRecord::Migration[6.1]
       t.string :notes
       t.string :place
       t.datetime :date
-      add_reference :attachments, :created_by
     end
   end
 end
