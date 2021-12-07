@@ -2,10 +2,10 @@
 
 class PostsController < DashboardController
   before_action :set_post, only: %i[show edit update destroy]
-  before_action :set_index_breadcrumb, only: %i[show edit new]
-
+  #before_action :set_index_breadcrumb, only: %i[show edit new]
+  add_breadcrumb(t('posts.index.breadcrumb'))
   def index
-    add_breadcrumb(t('posts.index.breadcrumb'))
+    #add_breadcrumb(t('posts.index.breadcrumb'))
     @posts = Post.by_user(current_user)
   end
 
