@@ -1,5 +1,11 @@
 en:
   global:
+    translate: "The Roots is now in English!"
+    devise:
+      titles:
+        sign_up: "Sign Up"
+        log_in: "Log In"
+        password_reset: "Password Reset"
     page_title: "The Roots"
     header:
       logo: "The Roots"
@@ -11,6 +17,9 @@ en:
       log_out: "Log Out"
       posts: "Posts"
       albums: "Albums"
+      persons: "Persons"
+      en_switch: "English"
+      uk_switch: "Ukrainian"
       profile: "Profile"
       persons: "Persons"
     footer:

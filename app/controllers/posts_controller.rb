@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-class PostsController < ApplicationController
+class PostsController < DashboardController
   before_action :set_post, only: %i[show edit update destroy]
   before_action :set_index_breadcrumb, only: %i[show edit new]
 
   def index
-    @posts = Post.all
     add_breadcrumb(t('posts.index.breadcrumb'))
+    @posts = Post.by_user(current_user)
   end
 
   def show
@@ -14,8 +14,8 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
     add_breadcrumb(t('posts.new.breadcrumb'))
+    @post = Post.by_user(current_user).new
   end
 
   def edit
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = Post.by_user(current_user).new(post_params)
     if @post.save
       flash[:notice] = t('.controller.create')
       redirect_to @post
@@ -51,7 +51,7 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = Post.by_user(current_user).find(params[:id])
   end
 
   def post_params

@@ -9,13 +9,21 @@ header.navbar.navbar-dark.bg-dark.fixed-top.navbar-expand-md
           li.nav-item.m-2= link_to t('global.header.posts'), posts_path, class: "nav-link font-weight-bold"
           li.nav-item.m-2= link_to t('global.header.albums'), '#', class: "nav-link font-weight-bold"
           li.nav-item.m-2= link_to t('global.header.persons'), '#', class: "nav-link font-weight-bold"
-      ul.navbar-nav
-        - if user_signed_in?
-          div.d-flex.align-items-center.mr-2
-            img.gravatar.rounded-circle.mr-2 src="#{current_user.gravatar}" width="32" height="32"
-            li.pl-1.text-white.mr-4.font-weight-bold.d-flex.align-items-center
-              = current_user.email
-          li.nav-item.m-2= link_to t('global.header.log_out'), destroy_user_session_path, method: :delete, class: "nav-link font-weight-bold"
-        - else
-          li.nav-item.m-2= link_to t('global.header.sign_up'),   new_user_registration_path, class: "nav-link font-weight-bold"
-          li.nav-item.m-2= link_to t('global.header.log_in'), new_user_session_path, class: "nav-link font-weight-bold"
+      .d-flex.flex-md-row.flex-column
+        .d-flex.flex-row
+          ul.navbar-nav
+            - if user_signed_in?
+              div.d-flex.align-items-center.mr-2
+                img.gravatar.rounded-circle.mr-2 src="#{current_user.gravatar}" width="32" height="32"
+                li.pl-1.text-white.mr-4.font-weight-bold.d-flex.align-items-center
+                  = current_user.email
+              li.nav-item.m-2= link_to t('global.header.log_out'), destroy_user_session_path, method: :delete, class: "nav-link font-weight-bold"
+            - else
+              li.nav-item.m-2= link_to t('global.header.sign_up'),   new_user_registration_path, class: "nav-link font-weight-bold"
+              li.nav-item.m-2= link_to t('global.header.log_in'), new_user_session_path, class: "nav-link font-weight-bold"
+        .dropdown.d-flex.align-items-center
+          #dropdownMenuButton.btn.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
+            = image_tag "language.png"
+          ul.dropdown-menu.border.border-dark aria-labelledby="dropdownMenuButton"
+            - I18n.available_locales.each do |locale|
+              li.nav-link.font-weight-bold.text-muted= link_to_unless current_locale?(locale), I18n.t("global.header.#{locale}_switch"), locale_path(locale), method: :put, class: "text-dark text-decoration-none"
