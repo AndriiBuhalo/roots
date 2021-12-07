@@ -3,6 +3,18 @@
 require 'rails_helper'
 
 RSpec.describe '/albums', type: :request do
+  include Devise::Test::IntegrationHelpers
+
+  let(:user) { create(:user) }
+
+  before do
+    login_as(user)
+  end
+
+  after do
+    logout(user)
+  end
+
   describe 'GET /index' do
     it 'renders a successful response' do
       get album_index_path
@@ -11,7 +23,7 @@ RSpec.describe '/albums', type: :request do
   end
 
   describe 'GET /show' do
-    let(:valid_album) { create(:album) }
+    let(:valid_album) { create(:album, created_by: user) }
 
     it 'renders a successful response' do
       get album_path(valid_album)
@@ -27,7 +39,7 @@ RSpec.describe '/albums', type: :request do
   end
 
   describe 'GET /edit' do
-    let(:valid_album) { create(:album) }
+    let(:valid_album) { create(:album, created_by: user) }
 
     it 'render a successful response' do
       get edit_album_url(valid_album)
@@ -71,7 +83,7 @@ RSpec.describe '/albums', type: :request do
 
   describe 'PATCH /update' do
     context 'with valid parameters' do
-      let!(:valid_album) { create(:album) }
+      let!(:valid_album) { create(:album, created_by: user) }
       let(:edited_album) do
         {
           name: Faker::Name.initials(number: 10),
@@ -91,7 +103,7 @@ RSpec.describe '/albums', type: :request do
     end
 
     context 'with invalid parameters' do
-      let!(:valid_album) { create(:album) }
+      let!(:valid_album) { create(:album, created_by: user) }
       let(:edited_invalid_album) do
         {
           name: Faker::Lorem.characters(number: 100),
@@ -109,7 +121,7 @@ RSpec.describe '/albums', type: :request do
   end
 
   describe 'DELETE /destroy' do
-    let!(:valid_album) { create(:album) }
+    let!(:valid_album) { create(:album, created_by: user) }
 
     it 'destroys the requested album' do
       expect do
