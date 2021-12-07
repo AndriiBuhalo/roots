@@ -117,7 +117,7 @@ RSpec.describe '/important_dates', type: :request do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         get edit_important_date_url(valid_important_date)
         expect(response).to render_template(:edit)
-        patch important_date_url(valid_important_date), params: { important_date: edited_invalid_important_date }
+        patch important_date_url(valid_important_date), params: { important_date: edited_important_date }
         expect(response).to render_template(:edit)
       end
     end
