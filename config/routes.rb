@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   put 'locales/:locale', to: 'locales#update', as: :locale,
                          constraints: { locale: /#{I18n.available_locales.join('|')}/ }
   resources :posts
-  get 'welcome_pages/home'
+  get 'welcome_pages/welcome'
   get 'welcome_pages/about'
   get 'welcome_pages/contacts'
-  get 'dashboard/profile'
+  get 'dashboard/home'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_scope :user do
     authenticated :user do
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
 
     unauthenticated do
-      root 'welcome_pages#home', as: :unauthenticated_root
+      root 'welcome_pages#welcome', as: :unauthenticated_root
     end
     get '/users/sign_out' => 'devise/sessions#destroy'
   end

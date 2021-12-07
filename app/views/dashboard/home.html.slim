@@ -28,4 +28,9 @@
           li.nav-item = link_to t('global.header.albums'), '#', class: "mr-4 font-weight-bold text-dark"
           li.nav-item = link_to t('global.header.persons'), '#', class: "mr-4 font-weight-bold text-dark"
           li.nav-item = link_to t('global.header.important_dates'), '#', class: "font-weight-bold text-dark"
+    .card.shadow-sm.rounded
+      .card-header.d-flex.align-items-end
+        = image_tag "tree-64.png", alt: t('global.public.alt')
+        h2.font-weight-bold.ml-2 = t('dashboard.activity.recent_activity')  
+      .card-body
 

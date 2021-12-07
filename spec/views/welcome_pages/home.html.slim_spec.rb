@@ -2,15 +2,15 @@
 
 require 'rails_helper'
 
-RSpec.describe 'welcome_pages/home.html.slim', type: :view do
+RSpec.describe 'welcome_pages/welcome.html.slim', type: :view do
   include Devise::Test::ControllerHelpers
 
   context 'when user is not logged in' do
-    it 'has _home partial' do
+    it 'has _welcomee partial' do
       render
-      expect(rendered).to include t('welcome_pages.home.title')
-      expect(rendered).to include t('welcome_pages.home.subtitle')
-      expect(rendered).to have_link t('welcome_pages.home.sign_up_link'), href: new_user_registration_path
+      expect(rendered).to include t('welcome_pages.welcome.title')
+      expect(rendered).to include t('welcome_pages.welcome.subtitle')
+      expect(rendered).to have_link t('welcome_pages.welcome.sign_up_link'), href: new_user_registration_path
     end
   end
 
@@ -27,7 +27,7 @@ RSpec.describe 'welcome_pages/home.html.slim', type: :view do
     end
 
     it 'has not a Sign Up link for user' do
-      expect(rendered).not_to have_link t('welcome_pages.home.sign_up_link'), href: new_user_registration_path
+      expect(rendered).not_to have_link t('welcome_pages.welcome.sign_up_link'), href: new_user_registration_path
     end
   end
 end

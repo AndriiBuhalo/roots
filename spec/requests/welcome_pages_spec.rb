@@ -3,11 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe 'WelcomePages', type: :request do
-  describe 'GET /home' do
+  describe 'GET /welcome' do
     it 'returns http success' do
-      get '/welcome_pages/home'
+      get '/welcome_pages/м'
       expect(response).to have_http_status(:success)
-      expect(response).to render_template(:home, layout: :public)
+      expect(response).to render_template(:welcome, layout: :public)
     end
   end
 

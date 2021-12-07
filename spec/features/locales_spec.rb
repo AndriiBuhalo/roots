@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :feature do
   before do
-    visit('welcome_pages/home')
+    visit('welcome_pages/welcome')
   end
 
   it 'switches the locale for public' do
