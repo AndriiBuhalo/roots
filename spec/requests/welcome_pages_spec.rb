@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'WelcomePages', type: :request do
   describe 'GET /welcome' do
     it 'returns http success' do
-      get '/welcome_pages/м'
+      get '/welcome_pages/welcome'
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:welcome, layout: :public)
     end

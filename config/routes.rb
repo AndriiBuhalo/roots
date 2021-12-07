@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'welcome_pages/welcome'
   get 'welcome_pages/about'
   get 'welcome_pages/contacts'
-  get 'dashboard/home'
+  get 'invitations', to: 'invitations#index'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_scope :user do
     authenticated :user do

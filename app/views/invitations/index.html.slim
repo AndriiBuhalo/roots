@@ -1,0 +1,16 @@
+- title t('invitations.index.page_title')
+h1 = t('.main_title')
+
+table.table.table-bordered.table-hover
+    thead
+        tr
+            th scope="col" = t('dashboard.invite.invitee_email')
+            th scope="col" = t('dashboard.invite.invitee_status')
+            th scope="col" = t('dashboard.invite.invited_at')
+    tbody
+    - @invitees.each do |invitee|
+        tr
+            td = invitee.email
+            td = invitation_status(invitee)
+            td = invitee.invitation_sent_at
+= link_to t('dashboard.invite.invite_user'), new_user_invitation_path, class:"btn btn-success"
