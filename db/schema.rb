@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2021_12_05_164138) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "created_by_id"
+    t.index ["created_by_id"], name: "index_posts_on_created_by_id"
   end
 
   create_table "users", force: :cascade do |t|
