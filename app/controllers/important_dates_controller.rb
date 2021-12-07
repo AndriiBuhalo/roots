@@ -17,21 +17,21 @@ class ImportantDatesController < DashboardController
 
   def create
     @important_date = ImportantDate.by_user(current_user).new(important_date_params)
-      if @important_date.save
-        flash[:notice] = t('.controller.create')
-        redirect_to @important_date
-      else
-        render 'new'
-      end
+    if @important_date.save
+      flash[:notice] = t('.controller.create')
+      redirect_to @important_date
+    else
+      render 'new'
+    end
   end
 
   def update
-      if @important_date.update(important_date_params)
-        flash[:notice] = t('.controller.update')
-        redirect_to @important_date
-      else
-        render 'edit'
-      end
+    if @important_date.update(important_date_params)
+      flash[:notice] = t('.controller.update')
+      redirect_to @important_date
+    else
+      render 'edit'
+    end
   end
 
   def destroy
