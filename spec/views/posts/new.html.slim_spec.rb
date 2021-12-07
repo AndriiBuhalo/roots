@@ -3,10 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe 'posts/new', type: :view do
-  let(:valid_post) { build(:post) }
+  let(:user) { create(:user) }
+  let(:post) { create(:post, created_by: user) }
 
   before do
-    assign(:post, valid_post)
+    assign(:post, post)
   end
 
   it 'renders new post form' do

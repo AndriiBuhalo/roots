@@ -1,0 +1,30 @@
+uk:
+  global:
+    translate: "The Roots тепер українською!"
+    devise:
+      titles:
+        sign_up: "Зареєструватись"
+        log_in: "Увійти"
+        password_reset: "Зміна Пароля"
+    page_title: "The Roots"
+    header:
+      logo: "The Roots"
+      home: "Головна"
+      profile: "Сторінка"
+      sign_up: "Зареєструватись"
+      log_in: "Увійти"
+      sign_out: "Вийти"
+      log_out: "Вийти"
+      important_dates: "Важливі Дати"
+      posts: "Дописи"
+      albums: "Альбоми"
+      persons: "Люди"
+      en_switch: "Англійська"
+      uk_switch: "Українська"
+    footer:
+      string: "IF-133 Ruby-Розробники"
+      about: "Про Нас"
+      contacts: "Контакти"
+      softserve: "SoftServe"
+    public:
+      alt: "Коріння"
