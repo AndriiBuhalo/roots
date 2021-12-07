@@ -2,7 +2,7 @@
 
 class ApplicationController < ActionController::Base
   before_action :set_breadcrumbs
-
+  before_action :set_locale
   add_flash_types :success, :danger, :info, :warning
 
   def add_breadcrumb(label, path = nil)
@@ -14,10 +14,6 @@ class ApplicationController < ActionController::Base
   def set_breadcrumbs
     @breadcrumbs = []
   end
-  before_action :set_locale
-  add_flash_types :success, :danger, :info, :warning
-
-  private
 
   def set_locale
     locale_in_cookies = I18n.available_locales.map(&:to_s).include?(cookies[:locale])
