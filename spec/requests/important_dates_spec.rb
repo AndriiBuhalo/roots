@@ -3,6 +3,17 @@
 require 'rails_helper'
 
 RSpec.describe '/important_dates', type: :request do
+  include Devise::Test::IntegrationHelpers
+
+  let(:user) { create(:user) }
+
+  before(:each) do
+    login_as(user)
+  end
+
+  after(:each) do
+    logout(user)
+  end
 
   describe 'GET /index' do
     it 'renders a successful response' do
@@ -12,7 +23,8 @@ RSpec.describe '/important_dates', type: :request do
   end
 
   describe 'GET /show' do
-    let(:valid_important_date) { create(:important_date) }
+
+    let(:valid_important_date) { create(:important_date, created_by: user) }
 
     it 'renders a successful response' do
       get important_date_url(valid_important_date)
@@ -28,7 +40,7 @@ RSpec.describe '/important_dates', type: :request do
   end
 
   describe 'GET /edit' do
-    let(:valid_important_date) { create(:important_date) }
+    let(:valid_important_date) { create(:important_date, created_by: user) }
 
     it 'render a successful response' do
       get edit_important_date_url(valid_important_date)
@@ -56,16 +68,17 @@ RSpec.describe '/important_dates', type: :request do
     end
 
     context 'with invalid parameters' do
-      let(:important_date) { build(:invalid_important_date) }
+
+      let(:invalid_important_date) { build(:important_date, :invalid_important_date) }
 
       it 'does not create a new ImportantDate' do
-        expect(important_date).not_to be_valid
+        expect(invalid_important_date).not_to be_valid
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
         get new_important_date_url
         expect(response).to render_template(:new)
-        expect(important_date).not_to be_valid
+        expect(invalid_important_date).not_to be_valid
         expect(response).to render_template(:new)
       end
     end
@@ -73,7 +86,7 @@ RSpec.describe '/important_dates', type: :request do
 
   describe 'PATCH /update' do
     context 'with valid parameters' do
-      let!(:valid_important_date) { create(:important_date) }
+      let!(:valid_important_date) { create(:important_date, created_by: user) }
       let(:edited_important_date) do
         {
           event: Faker::Lorem.characters(number: 20),
@@ -94,7 +107,7 @@ RSpec.describe '/important_dates', type: :request do
     end
 
     context 'with invalid parameters' do
-      let!(:valid_important_date) { create(:important_date) }
+      let!(:valid_important_date) { create(:important_date, created_by: user) }
       let(:edited_important_date) do
         {
           event: Faker::Lorem.characters(number: 1),
@@ -112,12 +125,14 @@ RSpec.describe '/important_dates', type: :request do
   end
 
   describe 'DELETE /destroy' do
-    let!(:valid_important_date) { create(:important_date) }
+
+    let!(:valid_important_date) { create(:important_date, created_by: user) }
 
     it 'destroys the requested important_date' do
       expect do
         delete important_date_url(valid_important_date)
-      end.to change(ImportantDate, :count).by(-1)
+      end
+      .to change(ImportantDate, :count).by(-1)
     end
 
     it 'redirects to the important_dates list' do
@@ -125,4 +140,5 @@ RSpec.describe '/important_dates', type: :request do
       expect(response).to redirect_to(important_dates_url)
     end
   end
-end end
+end
+end

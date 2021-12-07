@@ -9,5 +9,6 @@ RSpec.describe ImportantDate, type: :model do
     it { is_expected.to validate_presence_of(:description) }
     it { is_expected.to validate_length_of(:event).is_at_least(3).is_at_most(50) }
     it { is_expected.to validate_length_of(:description).is_at_least(3).is_at_most(100) }
+    it { is_expected.to belong_to(:created_by) }
   end
 end

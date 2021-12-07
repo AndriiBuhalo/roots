@@ -1,8 +1,5 @@
 = simple_form_for(@important_date) do |f|
-  .field
     = f.input :event, placeholder: t('important_dates.form.event_placeholder')
     = f.input :event_date, html5: true
     = f.input :description, placeholder: t('important_dates.form.description_placeholder')
-
-  .actions
     = f.submit t('global.forms.submit'), class:"btn btn-primary"

@@ -1,22 +1,22 @@
 # frozen_string_literal: true
 
-class ImportantDatesController < ApplicationController
+class ImportantDatesController < DashboardController
   before_action :set_important_date, only: %i[show edit update destroy]
 
   def index
-    @important_dates = ImportantDate.all
+    @important_dates = ImportantDate.by_user(current_user)
   end
 
   def show; end
 
   def new
-    @important_date = ImportantDate.new
+    @important_date = ImportantDate.by_user(current_user).new
   end
 
   def edit; end
 
   def create
-    @important_date = ImportantDate.new(important_date_params)
+    @important_date = ImportantDate.by_user(current_user).new(important_date_params)
       if @important_date.save
         flash[:notice] = t('.controller.create')
         redirect_to @important_date
@@ -43,7 +43,7 @@ class ImportantDatesController < ApplicationController
   private
 
   def set_important_date
-    @important_date = ImportantDate.find(params[:id])
+    @important_date = ImportantDate.by_user(current_user).find(params[:id])
   end
 
   def important_date_params
