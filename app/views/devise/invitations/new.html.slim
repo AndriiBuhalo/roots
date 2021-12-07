@@ -1,11 +1,8 @@
 - title t('devise.titles.send_invitation')
 div.row.justify-content-center
   div.col-6
-    h1
-      = t('devise.invitations.new.header')
+    h1 = t('devise.invitations.new.header')
     = simple_form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post }) do |f|
-      .field
-        = f.input :email, autofocus: true, autocomplete: "email"
-      .actions
-        = f.button :submit, t('devise.invitations.new.submit_button'), class:'btn btn-primary btn-block'
+      = f.input :email, autofocus: true, autocomplete: "email"
+      = f.button :submit, t('devise.invitations.new.submit_button'), class:'btn btn-primary btn-block'
 
