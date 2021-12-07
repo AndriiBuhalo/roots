@@ -29,16 +29,12 @@ en:
       title: "New important date"
       back: "Back"
     controller:
-      create: "Post was successfully created"
-      update: "Post was successfully updated"
-      destroy: "Post was successfully deleted"
+      create: "Important date was successfully created."
+      update: "Important date was successfully updated."
+      destroy: "Important date was successfully destroyed."
     form:
       event_placeholder: "Write your event"
       description_placeholder: "Write your description"
   global:
     forms:
-      messages:
-        errors:
-          one: "One error prohibited this post from being saved:"
-          other: "%{count} errors prohibited this post from being saved:"
       submit: "Submit"

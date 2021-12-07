@@ -3,115 +3,126 @@
 require 'rails_helper'
 
 RSpec.describe '/important_dates', type: :request do
-  let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
-  end
-
-  let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
-  end
 
   describe 'GET /index' do
     it 'renders a successful response' do
-      ImportantDate.create! valid_attributes
       get important_dates_url
       expect(response).to be_successful
     end
   end
 
   describe 'GET /show' do
+    let(:valid_important_date) { create(:important_date) }
+
     it 'renders a successful response' do
-      important_date = ImportantDate.create! valid_attributes
-      get important_date_url(important_date)
-      expect(response).to be_successful
+      get important_date_url(valid_important_date)
+      expect(response).to render_template(:show)
     end
   end
 
   describe 'GET /new' do
     it 'renders a successful response' do
       get new_important_date_url
-      expect(response).to be_successful
+      expect(response).to render_template(:new)
     end
   end
 
   describe 'GET /edit' do
+    let(:valid_important_date) { create(:important_date) }
+
     it 'render a successful response' do
-      important_date = ImportantDate.create! valid_attributes
-      get edit_important_date_url(important_date)
-      expect(response).to be_successful
+      get edit_important_date_url(valid_important_date)
+      expect(response).to render_template(:edit)
     end
   end
 
   describe 'POST /create' do
     context 'with valid parameters' do
-      it 'creates a new ImportantDate' do
-        expect do
-          post important_dates_url, params: { important_date: valid_attributes }
-        end.to change(ImportantDate, :count).by(1)
+      let(:valid_important_date) do
+        {
+          event: Faker::Lorem.characters(number: 20),
+          event_date: Faker::Date.in_date_period,
+          description: Faker::Lorem.characters(number: 100)
+        }
       end
 
-      it 'redirects to the created important_date' do
-        post important_dates_url, params: { important_date: valid_attributes }
-        expect(response).to redirect_to(important_date_url(ImportantDate.last))
+      it 'creates a new ImportantDate' do
+        post important_dates_url, params: { important_date: valid_important_date }
+        expect(response).to redirect_to(assigns(:important_date))
+        follow_redirect!
+        expect(response).to render_template(:show)
+        expect(response.body).to include('Important date was successfully created')
       end
     end
 
     context 'with invalid parameters' do
+      let(:important_date) { build(:invalid_important_date) }
+
       it 'does not create a new ImportantDate' do
-        expect do
-          post important_dates_url, params: { important_date: invalid_attributes }
-        end.to change(ImportantDate, :count).by(0)
+        expect(important_date).not_to be_valid
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
-        post important_dates_url, params: { important_date: invalid_attributes }
-        expect(response).to be_successful
+        get new_important_date_url
+        expect(response).to render_template(:new)
+        expect(important_date).not_to be_valid
+        expect(response).to render_template(:new)
       end
     end
   end
 
   describe 'PATCH /update' do
     context 'with valid parameters' do
-      let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
+      let!(:valid_important_date) { create(:important_date) }
+      let(:edited_important_date) do
+        {
+          event: Faker::Lorem.characters(number: 20),
+          event_date: Faker::Date.in_date_period,
+          description: Faker::Lorem.characters(number: 100)
+        }
       end
 
       it 'updates the requested important_date' do
-        important_date = ImportantDate.create! valid_attributes
-        patch important_date_url(important_date), params: { important_date: new_attributes }
-        important_date.reload
-        skip('Add assertions for updated state')
-      end
-
-      it 'redirects to the important_date' do
-        important_date = ImportantDate.create! valid_attributes
-        patch important_date_url(important_date), params: { important_date: new_attributes }
-        important_date.reload
-        expect(response).to redirect_to(important_date_url(important_date))
+        get edit_important_date_url(valid_important_date)
+        expect(response).to render_template(:edit)
+        patch important_date_url(valid_important_date), params: { important_date: edited_important_date }
+        expect(response).to redirect_to(important_date_url(valid_important_date))
+        follow_redirect!
+        expect(response).to render_template(:show)
+        expect(response.body).to include('Important date was successfully updated')
       end
     end
 
     context 'with invalid parameters' do
+      let!(:valid_important_date) { create(:important_date) }
+      let(:edited_important_date) do
+        {
+          event: Faker::Lorem.characters(number: 1),
+          event_date: Faker::Date.in_date_period,
+          description: Faker::Lorem.characters(number: 1)
+        }
+
       it "renders a successful response (i.e. to display the 'edit' template)" do
-        important_date = ImportantDate.create! valid_attributes
-        patch important_date_url(important_date), params: { important_date: invalid_attributes }
-        expect(response).to be_successful
+        get edit_important_date_url(valid_important_date)
+        expect(response).to render_template(:edit)
+        patch important_date_url(valid_important_date), params: { important_date: edited_invalid_important_date }
+        expect(response).to render_template(:edit)
       end
     end
   end
 
   describe 'DELETE /destroy' do
+    let!(:valid_important_date) { create(:important_date) }
+
     it 'destroys the requested important_date' do
-      important_date = ImportantDate.create! valid_attributes
       expect do
-        delete important_date_url(important_date)
+        delete important_date_url(valid_important_date)
       end.to change(ImportantDate, :count).by(-1)
     end
 
     it 'redirects to the important_dates list' do
-      important_date = ImportantDate.create! valid_attributes
-      delete important_date_url(important_date)
+      delete important_date_url(valid_important_date)
       expect(response).to redirect_to(important_dates_url)
     end
   end
-end
+end end

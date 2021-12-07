@@ -1,9 +1,15 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :important_date do
-    event { 'MyText' }
-    event_date { '2021-12-02' }
-    description { 'MyString' }
+  factory :important_date, class: 'ImportantDate' do
+    event { Faker::Lorem.characters(number: 20) }
+    event_date { Faker::Date.in_date_period }
+    description { Faker::Lorem.characters(number: 100) }
+  end
+
+  factory :invalid_important_date, class: 'ImportantDate' do
+    event { Faker::Lorem.characters(number: 1) }
+    event_date { Faker::Date.in_date_period }
+    description { Faker::Lorem.characters(number: 1) }
   end
 end

@@ -1,11 +1,8 @@
 = simple_form_for(@important_date) do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-
-  .form-inputs
+  .field
     = f.input :event, placeholder: t('important_dates.form.event_placeholder')
-    = f.input :event_date
+    = f.input :event_date, html5: true
     = f.input :description, placeholder: t('important_dates.form.description_placeholder')
 
-  .form-actions
+  .actions
     = f.submit t('global.forms.submit'), class:"btn btn-primary"
