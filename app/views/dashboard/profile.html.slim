@@ -1,0 +1,31 @@
+.row.gutters-sm
+  .col-md-4.mb-3
+    .card.mb-3.shadow-sm.rounded
+      .card-header.d-flex.justify-content-center 
+        p.mb-0.font-weight-bold = current_user.email.split('@').first
+    .card.shadow-sm.rounded
+      .card-header
+        h3.font-weight-bold = t('dashboard.invite.your_invitations')
+        p.mb-0.text-muted.font-weight-bold = t('dashboard.invite.invitation_count', count: current_user.invitees.count)
+      .card-body.p-0.mh-200.position-relative.overflow-auto
+        table.table.table-bordered.table-hover.mb-0
+          thead
+            tr
+              th scope="col" = t('dashboard.invite.invitee_email')
+              th colspan="3" scope="col" = t('dashboard.invite.invitee_status')
+          tbody
+            - current_user.invitees.each do |invitee|
+              tr
+                td = invitee.email
+                td = invitation_status(invitee)
+      .card-footer
+        = link_to t('dashboard.invite.invite_user'), new_user_invitation_path, class:"btn btn-success"
+  .col-md-8
+    .card.mb-3.shadow-sm.rounded
+      .card-header.d-flex.justify-content-center
+        ul.nav.text-decoration-none
+          li.nav-item = link_to t('global.header.posts'), posts_path, class: "mr-4 font-weight-bold text-dark"
+          li.nav-item = link_to t('global.header.albums'), '#', class: "mr-4 font-weight-bold text-dark"
+          li.nav-item = link_to t('global.header.persons'), '#', class: "mr-4 font-weight-bold text-dark"
+          li.nav-item = link_to t('global.header.important_dates'), '#', class: "font-weight-bold text-dark"
+

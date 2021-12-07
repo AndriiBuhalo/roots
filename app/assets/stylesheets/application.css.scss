@@ -22,6 +22,10 @@
   padding-bottom: 150px;
 }
 
+.mh-200{
+  max-height: 200px;
+}
+
 #logo {
   &::before{
     content: url("tree.png");

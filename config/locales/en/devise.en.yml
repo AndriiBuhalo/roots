@@ -131,7 +131,7 @@ en:
       links:
         confirm: "Didn't receive confirmation instructions?"
         unlock: "Didn't receive unlock instructions?"
-        sign: "Sign in with %{provider}"
+        sign: "Log in with %{provider}"
   errors:
     messages:
       already_confirmed: "was already confirmed, please try signing in"

@@ -1,0 +1,13 @@
+en:
+  dashboard:
+    invite:
+      your_invitations: "Your invitees"
+      invitation_count:
+        one: "You have invited %{count} user so far."
+        other: "You have invited %{count} users so far."
+      invite_user: "Invite new User!"
+      invitee_email: "Email"
+      invitee_status: "Invitation"
+      status:
+        accepted: "Accepted"
+        non-accepted: "Non-accepted"

@@ -12,4 +12,8 @@ module ApplicationHelper
   def current_locale?(locale)
     I18n.locale == locale
   end
+
+  def invitation_status(invitee)
+    invitee.invitation_accepted_at ? t('dashboard.invite.status.accepted') : t('dashboard.invite.status.non-accepted')
+  end
 end
