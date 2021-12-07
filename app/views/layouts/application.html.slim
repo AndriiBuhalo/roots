@@ -2,13 +2,13 @@ doctype html
 html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
-    title = t('global.page_title')
     meta content="width=device-width,initial-scale=1" name="viewport" /
     = csrf_meta_tags
     = csp_meta_tag
+    = display_meta_tags site: t('global.page_title'), reverse: true
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  body.mt-100
+  body.mt-100.pb-150
     = render 'layouts/header'
     .container
       = render 'layouts/messages'

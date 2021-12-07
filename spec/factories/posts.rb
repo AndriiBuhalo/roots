@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :post, class: 'Post' do
+  factory :post do
     title { Faker::Lorem.characters(number: 20) }
     content { Faker::Lorem.characters(number: 100) }
     

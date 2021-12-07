@@ -1,7 +1,5 @@
 = simple_form_for(@post) do |f|
-  .field
-    = f.input :title, placeholder: t('posts.form.title_placeholder')
-  .field
-    = f.input :content, placeholder: t('posts.form.content_placeholder')
-  .actions
-    = f.submit t('global.forms.submit'), class:"btn btn-primary"
+  = f.input :title, placeholder: t('posts.form.title_placeholder')
+  = f.input :content, placeholder: t('posts.form.content_placeholder')
+  = f.submit t('global.forms.submit'), class:"btn btn-primary"
+
