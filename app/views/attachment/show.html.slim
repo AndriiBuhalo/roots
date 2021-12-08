@@ -1,63 +1,46 @@
-h3 = @attachment.file_name
-= image_tag @attachment.file.url(:large), class: 'mb-3', alt: "#{@attachment.file_name}" if @attachment.file?
+h3 = @attachment.original_filename
+= image_tag @attachment.file.url(:large), class: 'mb-3', alt: "#{@attachment.original_filename}" if @attachment.file?
 h3.text-uppercase = t('.information')
 p
-  strong = t('.in_photo')
-  '
-  = t('.no_people')
-p
-  strong = t('.keyword')
-  '
+  strong => t('.keyword')
   - if @attachment.keywords?
     - @attachment.keywords.split(',').each do |keyword|
       = link_to keyword, attachment_index_path(:tag => keyword), class: 'badge badge-pill badge-info mr-2'
 p
-  strong = t('.notes')
-  '
+  strong => t('.notes')
   = @attachment.notes
 p
-  strong = t('.place')
-  '
+  strong => t('.place')
   = @attachment.place
 p
-  strong = t('.date')
-  '
+  strong => t('.date')
   = @attachment.date.strftime("%Y-%m-%d") if !@attachment.date.blank?
 p
   strong = t('.albums')
   - @attachment.albums.each do |album|
     = link_to album_path(album), class: 'd-table-cell text-center' do
-      = image_tag album.attachments.last.file.url(:small), alt: "#{album.attachments.last.file_name}"
+      = image_tag album.attachments.last.file.url(:small), alt: "#{album.attachments.last.original_filename}"
       span.d-block = album.name
 h3.text-uppercase = t('.information')
 - if @attachment.file?
   p
-    strong = t('.type')
-    '
+    strong => t('.type')
     = @attachment.file.content_type
   p
-    strong = t('.width')
-    '
+    strong => t('.width')
     = @attachment.file.width
-    '
-    = t('.px')
+    =< t('.px')
   p
-    strong = t('.height')
-    '
+    strong => t('.height')
     = @attachment.file.height
-    '
-    = t('.px')
+    =< t('.px')
   p
-    strong = t('.size')
-    '
-    = (@attachment.file.size.to_f / 1024).ceil(1)
-    '
-    = t('.kb')
+    strong => t('.size')
+    = number_to_human_size(@attachment.file.size)
 p
-  strong = t('.downloaded')
-  '
+  strong => t('.downloaded')
 p
-  a.btn.btn-info href="#{@attachment.file}" download="file" = t('.donwload')
+  a.btn.btn-info href="#{@attachment.file.url}" download="#{@attachment.original_filename}" = t('.donwload')
 = link_to t('common.edit'), edit_attachment_path(@attachment), class: "btn btn-primary"
 = link_to t('common.delete'), attachment_path(@attachment), class: 'btn btn-danger ml-3', method: :delete, data: { confirm: t('common.confirmation') }
 = link_to t('common.back'), :back, class: 'btn btn-secondary ml-3'

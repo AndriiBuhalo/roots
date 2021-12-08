@@ -124,9 +124,7 @@ RSpec.describe '/albums', type: :request do
     let!(:valid_album) { create(:album, created_by: user) }
 
     it 'destroys the requested album' do
-      expect do
-        delete album_path(valid_album)
-      end.to change(Album, :count).by(-1)
+      expect { delete album_path(valid_album) }.to change(Album, :count).by(-1)
     end
 
     it 'redirects to the albums list' do

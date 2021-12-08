@@ -1,5 +1,5 @@
-$(document).on('change', '#inputFile', function (e) {
+$(document).on('change', '.custom-file-input', function (e) {
   let file = e.target.files[0];
-  let count = $('.nested-fields').find('#inputFile').index($(this));
+  let count = $('.input-group').find('.custom-file-input').index($(this));
   document.querySelectorAll('.custom-file-label')[count].innerHTML = file.name;
  });

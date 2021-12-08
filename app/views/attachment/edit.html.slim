@@ -1,6 +1,6 @@
 = simple_form_for @attachment do |f|
   h3 = t('.edit_file')
-  = f.input :file_name, placeholder: t('attachment.file_name')
+  = f.input :original_filename, placeholder: t('attachment.file_name')
   = f.input :keywords, placeholder: t('attachment.keyword')
   = f.input :notes, placeholder: t('attachment.notes')
   = f.input :place, placeholder: t('attachment.place')

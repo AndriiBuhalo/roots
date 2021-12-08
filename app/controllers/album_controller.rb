@@ -12,12 +12,13 @@ class AlbumController < ApplicationController
   end
 
   def new
-    @album = Album.by_user(current_user).new
+    @album = Album.new
     @album.attachments.build
   end
 
   def create
     @album = Album.by_user(current_user).new(album_params)
+    @album.attachments.update(created_by_id: current_user)
     if @album.save
       redirect_to @album, success: t('album.controller.create')
     else

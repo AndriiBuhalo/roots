@@ -1,16 +1,16 @@
 table.table.table-bordered
   thead
-    tr
-      th.text-center scope="col"  = t('attachment.file_name')
-      th.text-center scope="col"  = t('attachment.file')
-      th.text-center scope="col"  = t('attachment.notes')
-      th.text-center colspan="3" scope="col" = t('common.actions')
-  - @attachments.each do |image|
-    tbody
-      tr
-        td.text-center = image.file_name
-        td.text-center = image_tag image.file.url(:small), alt: "#{image.file_name}" if image.file?
-        td.text-center = image.notes
-        td.text-center = link_to t('common.show'), attachment_path(image), class: 'btn btn-info'
-        td.text-center = link_to t('common.edit'), edit_attachment_path(image), class: 'btn btn-primary'
-        td.text-center = link_to t('common.delete'), attachment_path(image), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
+    tr.text-center
+      th scope="col" = t('attachment.file_name')
+      th scope="col" = t('attachment.file')
+      th scope="col" = t('attachment.notes')
+      th colspan="3" scope="col" = t('common.actions')
+  tbody
+    - @attachments.each do |image|
+        tr.text-center
+          td = image.original_filename
+          td = image_tag image.file.url(:small), alt: "#{image.original_filename}" if image.file?
+          td = image.notes
+          td = link_to t('common.show'), attachment_path(image), class: 'btn btn-info'
+          td = link_to t('common.edit'), edit_attachment_path(image), class: 'btn btn-primary'
+          td = link_to t('common.delete'), attachment_path(image), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }

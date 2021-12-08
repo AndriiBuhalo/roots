@@ -4,13 +4,12 @@
   = f.input :notes, placeholder: t('attachment.notes')
   = f.input :place, placeholder: t('attachment.place')
   = f.input :date, as: :date, html5: true
-  .nested-fields
-    .input-group.mb-3
-      .custom-file
-        = f.file_field :file, id: "inputFile", class: "custom-file-input"
-        label.custom-file-label for="inputFile" = t('.add_file')
-      .input-group-append
-        .input-group-text
-          = t('.upload')
-    = f.submit t('common.add'), class: 'btn btn-success mt-3'
-    = link_to t('common.back'), :back, class: 'btn btn-secondary mt-3 ml-3'
+  .input-group.mb-3
+    .custom-file
+      = f.file_field :file, class: "custom-file-input"
+      label.custom-file-label = t('.add_file')
+    .input-group-append
+      .input-group-text
+        = t('.upload')
+  = f.submit t('common.add'), class: 'btn btn-success mt-3'
+  = link_to t('common.back'), :back, class: 'btn btn-secondary mt-3 ml-3'

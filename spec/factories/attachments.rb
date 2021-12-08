@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :attachment do
-    file { Faker::File.file_name(dir: 'path/to') }
+    file { Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, '/spec/fixtures/attachment/test.jpg'))) }
 
     trait :with_user do
       created_by { create :user }

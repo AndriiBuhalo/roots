@@ -9,7 +9,7 @@ class AttachmentController < ApplicationController
   end
 
   def new
-    @attachment = Attachment.by_user(current_user).new
+    @attachment = Attachment.new
   end
 
   def create
@@ -43,6 +43,6 @@ class AttachmentController < ApplicationController
   end
 
   def file_params
-    params.require(:attachment).permit(:file, :keywords, :notes, :place, :date, :file_name)
+    params.require(:attachment).permit(:file, :keywords, :notes, :place, :date, :original_filename)
   end
 end

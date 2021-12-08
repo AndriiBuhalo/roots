@@ -4,7 +4,6 @@ require 'rails_helper'
 
 RSpec.describe '/attachments', type: :request do
   include Devise::Test::IntegrationHelpers
-  include CarrierWave::Test::Matchers
 
   let(:user) { create(:user) }
 
@@ -52,7 +51,7 @@ RSpec.describe '/attachments', type: :request do
     context 'with valid parameters' do
       let(:valid_attachment) do
         {
-          file: Faker::Avatar.image(slug: 'my-own-slug')
+          file: Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, '/spec/fixtures/attachment/test.jpg')))
         }
       end
 
@@ -86,7 +85,7 @@ RSpec.describe '/attachments', type: :request do
       let!(:valid_attachment) { create(:attachment, created_by: user) }
       let(:edited_attachment) do
         {
-          file: Faker::Avatar.image(slug: 'my-own-slug')
+          file: Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, '/spec/fixtures/attachment/test.jpg')))
         }
       end
 
@@ -122,9 +121,7 @@ RSpec.describe '/attachments', type: :request do
     let!(:valid_attachment) { create(:attachment, created_by: user) }
 
     it 'destroys the requested attachment' do
-      expect do
-        delete attachment_path(valid_attachment)
-      end.to change(Attachment, :count).by(-1)
+      expect { delete attachment_path(valid_attachment) }.to change(Attachment, :count).by(-1)
     end
 
     it 'redirects to the attachments list' do

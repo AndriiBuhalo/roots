@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_06_193938) do
+ActiveRecord::Schema.define(version: 2021_12_07_123318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "albums", force: :cascade do |t|
     t.string "name"
-    t.string "description"
+    t.text "description"
+    t.bigint "created_by_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "created_by_id"
     t.index ["created_by_id"], name: "index_albums_on_created_by_id"
   end
 
@@ -33,13 +33,15 @@ ActiveRecord::Schema.define(version: 2021_12_06_193938) do
   end
 
   create_table "attachments", force: :cascade do |t|
-    t.string "file_name"
+    t.string "original_filename"
     t.string "file"
     t.string "keywords"
-    t.string "notes"
+    t.text "notes"
     t.string "place"
     t.datetime "date"
     t.bigint "created_by_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["created_by_id"], name: "index_attachments_on_created_by_id"
   end
 
