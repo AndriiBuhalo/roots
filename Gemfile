@@ -36,8 +36,6 @@ gem 'omniauth-rails_csrf_protection'
 gem 'rails-i18n', '~> 6.0.0'
 gem 'simple_form'
 gem 'slim-rails'
-
-gem 'dotenv-rails', '~> 2.7'
 gem 'will_paginate-bootstrap4'
 # gem 'will_paginate', '~> 3.3.0'
 

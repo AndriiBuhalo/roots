@@ -49,4 +49,19 @@ RSpec.describe 'Posts', type: :feature do
       click_button 'Submit'
       expect(page).to have_content("Content can't be blank and Content is too short (minimum is 5 characters)")
     end
+
+
+    it 'show post' do
+      post = create(:post, title: 'title', content: 'some content', created_by: user)
+      visit posts_url(post)
+      expect(page).to have_content('title')
+      expect(page).to have_content('some content')
+    end
+
+    it 'showing index page' do
+      post = create(:post, title: 'title', content: 'some content', created_by: user)
+      visit('/posts')
+      expect(page).to have_content('title')
+      expect(page).to have_content('some content')
+    end
 end
