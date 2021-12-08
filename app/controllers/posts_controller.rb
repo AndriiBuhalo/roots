@@ -4,19 +4,22 @@ class PostsController < DashboardController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = Post.by_user(current_user)
+    @posts = Post.all # by_user(current_user)
+    authorize @posts
   end
 
   def show; end
 
   def new
     @post = Post.by_user(current_user).new
+    authorize @post
   end
 
   def edit; end
 
   def create
     @post = Post.by_user(current_user).new(post_params)
+    authorize @post
     if @post.save
       flash[:notice] = t('.controller.create')
       redirect_to @post
@@ -44,6 +47,7 @@ class PostsController < DashboardController
 
   def set_post
     @post = Post.by_user(current_user).find(params[:id])
+    authorize @post
   end
 
   def post_params

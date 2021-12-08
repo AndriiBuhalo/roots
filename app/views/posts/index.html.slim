@@ -12,8 +12,8 @@ table.table.table-bordered.table-hover
       tr
         td = post.title
         td = post.content
-        td =< link_to t('.show'), post, class:"btn btn-xs btn-info"
-        td =< link_to t('.edit'), edit_post_path(post), class:"btn btn-xs btn-success"
-        td =< link_to t('.destroy'), post, data: { confirm: t('posts.index.confirmation') }, class:"btn btn-xs btn-danger", method: :delete
+        td =< link_to t('.show'), post, class:"btn btn-xs btn-info" if policy(post).show?
+        td =< link_to t('.edit'), edit_post_path(post), class:"btn btn-xs btn-success" if policy(post).update?
+        td =< link_to t('.destroy'), post, data: { confirm: t('posts.index.confirmation') }, class:"btn btn-xs btn-danger", method: :delete if policy(post).destroy?
 br
 = link_to t('.new_post'), new_post_path, class:"btn btn-success"
