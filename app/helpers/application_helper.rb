@@ -14,6 +14,6 @@ module ApplicationHelper
   end
 
   def invitation_status(invitee)
-    invitee.invitation_accepted_at ? t('dashboard.invite.status.accepted') : t('dashboard.invite.status.non-accepted')
+    invitee.invitation_accepted_at ? t('invitations.index.status.accepted') : t('invitations.index.status.non-accepted')
   end
 end

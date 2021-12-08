@@ -1,16 +1,16 @@
 - title t('invitations.index.page_title')
-h1 = t('.main_title')
-
+h1 = t('invitations.index.main_title')
+p.lead.text-muted.font-weight-bold = t('invitations.index.invitation_count', count: current_user.invitees.count)
 table.table.table-bordered.table-hover
     thead
         tr
-            th scope="col" = t('dashboard.invite.invitee_email')
-            th scope="col" = t('dashboard.invite.invitee_status')
-            th scope="col" = t('dashboard.invite.invited_at')
+            th scope="col" = t('invitations.index.invitee_email')
+            th scope="col" = t('invitations.index.invitation_status')
+            th scope="col" = t('invitations.index.invitation_date')
     tbody
     - @invitees.each do |invitee|
         tr
             td = invitee.email
             td = invitation_status(invitee)
-            td = invitee.invitation_sent_at
-= link_to t('dashboard.invite.invite_user'), new_user_invitation_path, class:"btn btn-success"
+            td = l invitee.invitation_sent_at, format: :invitation_date_format
+= link_to t('invitations.index.invite_user'), invitations_new_path, class:"btn btn-success"

@@ -33,6 +33,7 @@ RSpec.describe 'layouts/application.html.slim', type: :view do
       expect(rendered).to have_title t('global.page_title')
       expect(rendered).to have_link t('global.header.posts'), href: posts_path
       expect(rendered).to have_link t('global.header.albums')
+      expect(rendered).to have_link t('global.header.invite'), href: invitations_path
       expect(rendered).to have_css('img.gravatar')
     end
   end

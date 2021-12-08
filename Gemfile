@@ -42,6 +42,7 @@ gem 'slim-rails'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails', '~> 2.7'
+  gem 'email_spec'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry-rails'
@@ -71,4 +72,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-

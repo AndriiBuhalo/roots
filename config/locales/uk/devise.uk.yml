@@ -1,5 +1,11 @@
 uk:
   devise:
+    titles:
+      sign_up: "Зареєструватись"
+      log_in: "Увійти"
+      password_reset: "Зміна Пароля"
+      accept_invitation: "Прийняти Запрошення"
+      send_invitation: "Нове Запрошення"
     providers:
       google_oauth2: "Google"
     confirmations:
@@ -152,7 +158,4 @@ uk:
         other: "%{resource}: не вдалося зберегти через %{count} помилок"
   time:
     formats:
-      devise:
-        mailer:
-          invitation_instructions:
-            accept_until_format: "%I:%M %p %B %d, %Y"
+      invitation_date_format: "%d %b %Y, %H:%M "

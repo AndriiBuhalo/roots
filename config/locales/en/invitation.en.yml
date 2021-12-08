@@ -1,13 +1,17 @@
 en:
-  dashboard:
-    invite:
-      your_invitations: "Your invitees"
+  invitations:
+    index:
+      page_title: "Invitations"
+      main_title: "Listing Invitations"
       invitation_count:
         one: "You have invited %{count} user so far."
         other: "You have invited %{count} users so far."
-      invite_user: "Invite new User!"
       invitee_email: "Email"
-      invitee_status: "Invitation"
+      invitation_status: "Status"
+      invitation_date: "Date"
+      invite_user: "Invite new User!"
       status:
         accepted: "Accepted"
         non-accepted: "Non-accepted"
+    new:
+      back: "Back"

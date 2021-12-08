@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'welcome_pages/about'
   get 'welcome_pages/contacts'
   get 'invitations', to: 'invitations#index'
+  get 'invitations/new', to: redirect('/users/invitation/new')
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_scope :user do
     authenticated :user do

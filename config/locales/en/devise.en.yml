@@ -5,7 +5,7 @@ en:
       log_in: "Log In"
       password_reset: "Password Reset"
       accept_invitation: "Accept Invitation"
-      send_invitation: "Send Invitation"
+      send_invitation: "New Invitation"
     providers:
       google_oauth2: "Google"
     confirmations:
@@ -144,7 +144,5 @@ en:
         other: "%{count} errors prohibited this %{resource} from being saved:"
   time:
     formats:
-      devise:
-        mailer:
-          invitation_instructions:
-            accept_until_format: "%B %d, %Y %I:%M %p"
+      invitation_date_format: "%B %d, %Y %I:%M %p"
+      
