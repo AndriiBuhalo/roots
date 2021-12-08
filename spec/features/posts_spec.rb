@@ -6,13 +6,13 @@ RSpec.describe 'Posts', type: :feature do
   let(:user) { create(:user) }
   let(:post) { create(:post, created_by: user) }
 
-  before do
+  before(:each) do
     sign_in(user)
     visit('/posts')
   end
 
   context 'Create post' do
-    it 'creates' do
+    scenario 'should create' do
       click_link 'New Post'
       fill_in 'Title', with: 'Test title'
       fill_in 'Content', with: 'Test content'
@@ -20,7 +20,7 @@ RSpec.describe 'Posts', type: :feature do
       expect(page).to have_content('Post was successfully created')
     end
 
-    it 'does not create' do
+    scenario "shouldn't create"
       click_link 'New Post'
       fill_in 'Title', with: 'Test title'
       fill_in 'Content', with: ''
@@ -30,7 +30,7 @@ RSpec.describe 'Posts', type: :feature do
   end
 
   context 'Update post' do
-    it 'updates' do
+    scenario 'should update' do
       visit edit_post_path(post)
       fill_in 'Title', with: 'Test title'
       fill_in 'Content', with: 'Test content'
@@ -39,7 +39,7 @@ RSpec.describe 'Posts', type: :feature do
     end
   end
 
-  it 'does not update' do
+  scenario "shouldn't update" do
     visit edit_post_path(post)
     fill_in 'Title', with: 'Test title'
     fill_in 'Content', with: ''

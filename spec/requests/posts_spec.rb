@@ -7,11 +7,11 @@ RSpec.describe '/posts', type: :request do
 
   let(:user) { create(:user) }
 
-  before do
+  before(:each) do
     login_as(user)
   end
 
-  after do
+  after(:each) do
     logout(user)
   end
 
