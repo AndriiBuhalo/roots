@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  before_action :set_breadcrumbs
   before_action :set_locale
+  before_action :set_breadcrumbs
   add_flash_types :success, :danger, :info, :warning
 
   def add_breadcrumb(label, path = nil)
@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   private
 
   def set_breadcrumbs
-    @breadcrumbs = []
+    @breadcrumbs =[]
   end
 
   def set_locale
