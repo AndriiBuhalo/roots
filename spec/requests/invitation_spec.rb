@@ -11,10 +11,6 @@ RSpec.describe 'Invitations', type: :request do
     login_as(user)
   end
 
-  after do
-    logout(user)
-  end
-
   describe 'GET /invitations' do
     it 'returns http success' do
       # sign_in user
