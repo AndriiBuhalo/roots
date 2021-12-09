@@ -36,6 +36,10 @@ class AttachmentController < ApplicationController
     redirect_to attachment_index_path, success: t('attachment.controller.destroy')
   end
 
+  def add_attachment_to_album
+    render plain: params[:album].inspect
+  end
+
   private
 
   def set_attachment

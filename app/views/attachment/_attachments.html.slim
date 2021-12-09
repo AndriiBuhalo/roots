@@ -4,7 +4,7 @@ table.table.table-bordered
       th scope="col" = t('attachment.file_name')
       th scope="col" = t('attachment.file')
       th scope="col" = t('attachment.notes')
-      th colspan="3" scope="col" = t('common.actions')
+      th colspan="4" scope="col" = t('common.actions')
   tbody
     - @attachments.each do |image|
         tr.text-center
@@ -14,3 +14,7 @@ table.table.table-bordered
           td = link_to t('common.show'), attachment_path(image), class: 'btn btn-info'
           td = link_to t('common.edit'), edit_attachment_path(image), class: 'btn btn-primary'
           td = link_to t('common.delete'), attachment_path(image), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
+          td = link_to 'Add to album', attachment_path(image),  :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary'
+#modal-window.modal tabindex="-1"
+  .modal-dialog
+    .modal-content

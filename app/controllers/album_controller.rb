@@ -18,7 +18,6 @@ class AlbumController < ApplicationController
 
   def create
     @album = Album.by_user(current_user).new(album_params)
-    @album.attachments.update(created_by_id: current_user)
     if @album.save
       redirect_to @album, success: t('album.controller.create')
     else
@@ -52,6 +51,6 @@ class AlbumController < ApplicationController
   end
 
   def album_params
-    params.require(:album).permit(:name, :description, attachments_attributes: %i[id _destroy file])
+    params.require(:album).permit(:name, :description, attachments_attributes: %i[id _destroy file created_by_id])
   end
 end

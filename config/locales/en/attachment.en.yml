@@ -5,8 +5,8 @@ en:
     notes: 'Notes'
     keyword: 'Keyword'
     place: 'Place'
-    index:
-      create_file: 'Create file'
+    create_file: 'Create file'
+    title: '%{title}'
     new:
       create_file: 'Create file'
       add_file: 'Add file'

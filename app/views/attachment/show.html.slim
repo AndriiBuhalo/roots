@@ -1,3 +1,4 @@
+- title t('attachment.title', title: "Show #{@attachment.original_filename}")
 h3 = @attachment.original_filename
 = image_tag @attachment.file.url(:large), class: 'mb-3', alt: "#{@attachment.original_filename}" if @attachment.file?
 h3.text-uppercase = t('.information')
@@ -18,7 +19,7 @@ p
 p
   strong = t('.albums')
   - @attachment.albums.each do |album|
-    = link_to album_path(album), class: 'd-table-cell text-center' do
+    = link_to album_path(album), class: 'd-table-cell text-center pr-3' do
       = image_tag album.attachments.last.file.url(:small), alt: "#{album.attachments.last.original_filename}"
       span.d-block = album.name
 h3.text-uppercase = t('.information')
@@ -39,6 +40,7 @@ h3.text-uppercase = t('.information')
     = number_to_human_size(@attachment.file.size)
 p
   strong => t('.downloaded')
+  = @attachment.created_by.email
 p
   a.btn.btn-info href="#{@attachment.file.url}" download="#{@attachment.original_filename}" = t('.donwload')
 = link_to t('common.edit'), edit_attachment_path(@attachment), class: "btn btn-primary"

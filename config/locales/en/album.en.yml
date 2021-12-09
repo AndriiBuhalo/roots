@@ -1,5 +1,6 @@
 en:
   album:
+    title: '%{title}'
     name: 'Album name'
     description: 'Album description'
     index:

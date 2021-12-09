@@ -6,6 +6,7 @@ en:
     edit: 'Edit'
     save: 'Save'
     delete: 'Delete'
+    destroy: 'Destroy'
     show: 'Show'
     actions: 'Actions'
     confirmation: 'Are you sure'
