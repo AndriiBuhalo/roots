@@ -1,15 +1,22 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe AttachmentPolicy, type: :policy do
-  let(:user) { User.new }
-
+  include Devise::Test::IntegrationHelpers
   subject { described_class }
 
-  permissions ".scope" do
-    pending "add some examples to (or delete) #{__FILE__}"
+  let(:user) { create(:user) }
+
+  before do
+    login_as(user)
   end
 
-  permissions :show? do
+  after do
+    logout(user)
+  end
+
+  permissions '.scope' do
     pending "add some examples to (or delete) #{__FILE__}"
   end
 

@@ -46,7 +46,7 @@ class PostsController < DashboardController
   private
 
   def set_post
-    @post = Post.by_user(current_user).find(params[:id])
+    @post = Post.find(params[:id])
     authorize @post
   end
 

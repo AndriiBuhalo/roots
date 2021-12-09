@@ -1,15 +1,22 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe PostPolicy, type: :policy do
+  include Devise::Test::IntegrationHelpers
   subject { described_class }
 
-  let(:user) { User.new }
+  let(:user) { create(:user) }
 
-  permissions '.scope' do
-    pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    login_as(user)
   end
 
-  permissions :show? do
+  after do
+    logout(user)
+  end
+
+  permissions '.scope' do
     pending "add some examples to (or delete) #{__FILE__}"
   end
 

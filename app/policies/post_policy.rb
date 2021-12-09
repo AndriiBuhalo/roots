@@ -1,3 +1,6 @@
+# class PostPolicy::Scope
+# frozen_string_literal: true
+
 class PostPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
@@ -11,7 +14,7 @@ class PostPolicy < ApplicationPolicy
 
   def index?
     @record.each do |record|
-      @user.id == record.created_by_id || @user.admin?
+      @user == record.created_by || @user.admin?
     end
   end
 
@@ -36,6 +39,6 @@ class PostPolicy < ApplicationPolicy
   end
 
   def user_is_owner_of_record?
-    @user.id == @record.created_by_id || @user.admin?
+    @user == @record.created_by || @user.admin?
   end
 end

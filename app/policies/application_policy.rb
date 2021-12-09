@@ -1,3 +1,4 @@
+# class ApplicationPolicy::Scope
 # frozen_string_literal: true
 
 class ApplicationPolicy

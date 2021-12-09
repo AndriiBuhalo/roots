@@ -1,11 +1,22 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe AlbumPolicy, type: :policy do
-  let(:user) { User.new }
-
+  include Devise::Test::IntegrationHelpers
   subject { described_class }
 
-  permissions ".scope" do
+  let(:user) { create(:user) }
+
+  before do
+    login_as(user)
+  end
+
+  after do
+    logout(user)
+  end
+
+  permissions '.scope' do
     pending "add some examples to (or delete) #{__FILE__}"
   end
 
