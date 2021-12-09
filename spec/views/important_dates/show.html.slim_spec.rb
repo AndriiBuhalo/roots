@@ -12,8 +12,8 @@ RSpec.describe 'important_dates/show', type: :view do
 
   it 'renders show form' do
     render
-    expect(rendered).to include t('important_dates.show.event')
-    expect(rendered).to include important_date.event
+    expect(rendered).to include t('important_dates.show.event_name')
+    expect(rendered).to include important_date.event_name
     expect(rendered).to include t('important_dates.show.event_date')
     # expect(rendered).to include important_date.event_date
     expect(rendered).to include t('important_dates.show.description')

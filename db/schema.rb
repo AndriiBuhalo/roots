@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2021_12_02_170244) do
   enable_extension "plpgsql"
 
   create_table "important_dates", force: :cascade do |t|
-    t.text "event"
+    t.string "event_name"
     t.date "event_date"
-    t.string "description"
+    t.text "description"
     t.bigint "created_by_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

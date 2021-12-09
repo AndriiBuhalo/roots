@@ -1,4 +1,4 @@
-- title t('important_dates.edit.page_title', event: @important_date.event)
+- title t('.page_title', event_name: @important_date.event_name)
 h1 = t('.title')
 = render 'form'
 = link_to t('.show'), @important_date, class:"btn btn-xs btn-success mt-3"

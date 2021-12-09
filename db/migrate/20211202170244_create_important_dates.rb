@@ -3,9 +3,9 @@
 class CreateImportantDates < ActiveRecord::Migration[6.1]
   def change
     create_table :important_dates do |t|
-      t.text :event
+      t.string :event_name
       t.date :event_date
-      t.string :description
+      t.text :description
       t.references :created_by, null: false
 
       t.timestamps

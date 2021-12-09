@@ -1,7 +1,7 @@
-- title t('important_dates.show.page_title', event: @important_date.event)
+- title t('.page_title', event_name: @important_date.event_name)
 p
-  strong = t('.event')
-  = @important_date.event
+  strong = t('.event_name')
+  = @important_date.event_name
 p
   strong = t('.event_date')
   = @important_date.event_date

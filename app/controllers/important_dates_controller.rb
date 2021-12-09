@@ -47,6 +47,6 @@ class ImportantDatesController < DashboardController
   end
 
   def important_date_params
-    params.require(:important_date).permit(:event, :event_date, :description)
+    params.require(:important_date).permit(:event_name, :event_date, :description)
   end
 end

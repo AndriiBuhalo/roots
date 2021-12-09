@@ -1,21 +1,21 @@
 uk:
   important_dates:
     edit:
-      page_title: "Редагувати %{event}"
+      page_title: "Редагувати %{event_name}"
       title: "Редагування важливої дати"
       show: "Детальніше"
       back: "Назад"
     show:
-      page_title: "Переглянути %{event}"
+      page_title: "Переглянути %{event_name}"
       edit: "Редагувати"
       back: "Назад"
-      event: "Подія:"
+      event_name: "Назва події:"
       event_date: "Дата події:"
       description: "Опис:"
     index:
       page_title: "Важливі дати"
       main_title: "Список важливих дат"
-      event: "Подія"
+      event_name: "Назва події"
       event_date: "Дата події"
       description: "Опис"
       actions: "Дії"

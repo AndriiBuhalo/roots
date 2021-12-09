@@ -1,21 +1,21 @@
 en:
   important_dates:
     edit:
-      page_title: "Edit %{event}"
+      page_title: "Edit %{event_name}"
       title: "Editing important date"
       show: "Show"
       back: "Back"
     show:
-      page_title: "Show %{event}"
+      page_title: "Show %{event_name}"
       edit: "Edit"
       back: "Back"
-      event: "Event:"
+      event_name: "Event name:"
       event_date: "Event date:"
       description: "Description:"
     index:
       page_title: "Important dates"
       main_title: "Listing important dates"
-      event: "Event"
+      event_name: "Event name"
       event_date: "Event date"
       description: "Description"
       actions: "Actions"

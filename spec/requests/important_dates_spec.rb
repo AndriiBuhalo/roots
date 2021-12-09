@@ -7,13 +7,7 @@ RSpec.describe '/important_dates', type: :request do
 
   let(:user) { create(:user) }
 
-  before(:each) do
-    login_as(user)
-  end
-
-  after(:each) do
-    logout(user)
-  end
+  before(:each) { login_as(user) }
 
   describe 'GET /index' do
     it 'renders a successful response' do
@@ -51,7 +45,7 @@ RSpec.describe '/important_dates', type: :request do
     context 'with valid parameters' do
       let(:valid_important_date) do
         {
-          event: Faker::Lorem.characters(number: 20),
+          event_name: Faker::Lorem.characters(number: 20),
           event_date: Faker::Date.in_date_period,
           description: Faker::Lorem.characters(number: 100)
         }
@@ -87,7 +81,7 @@ RSpec.describe '/important_dates', type: :request do
       let!(:valid_important_date) { create(:important_date, created_by: user) }
       let(:edited_important_date) do
         {
-          event: Faker::Lorem.characters(number: 20),
+          event_name: Faker::Lorem.characters(number: 20),
           event_date: Faker::Date.in_date_period,
           description: Faker::Lorem.characters(number: 100)
         }
@@ -108,7 +102,7 @@ RSpec.describe '/important_dates', type: :request do
       let!(:valid_important_date) { create(:important_date, created_by: user) }
       let(:edited_important_date) do
         {
-          event: Faker::Lorem.characters(number: 1),
+          event_name: Faker::Lorem.characters(number: 1),
           event_date: Faker::Date.in_date_period,
           description: Faker::Lorem.characters(number: 1)
         }

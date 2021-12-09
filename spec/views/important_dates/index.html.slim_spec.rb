@@ -13,10 +13,10 @@ RSpec.describe 'important_dates/index', type: :view do
   it 'renders a list of important_dates' do
     render
     expect(rendered).to include t('important_dates.index.main_title')
-    expect(rendered).to include t('important_dates.index.event')
+    expect(rendered).to include t('important_dates.index.event_name')
     expect(rendered).to include t('important_dates.index.event_date')
     expect(rendered).to include t('important_dates.index.description')
-    expect(rendered).to include important_date.event
+    expect(rendered).to include important_date.event_name
     # expect(rendered).to include important_date.event_date
     expect(rendered).to include important_date.description
     expect(rendered).to have_link t('important_dates.index.show'), href: important_date_path(important_date)
