@@ -1,8 +1,9 @@
 .modal-header
   h5.modal-title Add #{@attachment.original_filename} to album
   button.close aria-label="Close" data-dismiss="modal" type="button"
-    span aria-hidden="true"  ×
+    span aria-hidden="true" ×
 .modal-body
-  = simple_form_for '/add_attachment_to_album' do |f|
-    = f.input :album, collection: Album.by_user(current_user).map { |name| name }
-    button.btn.btn-primary type="submit" data-dismiss="modal"  Save changes
+  = simple_form_for :attachmentRelation, { url: add_attachment_to_album_path }  do |f|
+    = f.hidden_field :attachmentId, :value => @attachment.id
+    = f.input :album, collection: @albums.map { |name| name }
+    button.btn.btn-primary type="submit" Save changes

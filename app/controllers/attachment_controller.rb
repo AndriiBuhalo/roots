@@ -8,6 +8,10 @@ class AttachmentController < ApplicationController
     @attachments = @attachments.where("keywords LIKE '%#{params[:tag]}%'") if params[:tag]
   end
 
+  def show
+    @albums = Album.by_user(current_user)
+  end
+
   def new
     @attachment = Attachment.new
   end
@@ -37,7 +41,16 @@ class AttachmentController < ApplicationController
   end
 
   def add_attachment_to_album
-    render plain: params[:album].inspect
+    @albums = Album.by_user(current_user)
+    @attachments = Attachment.by_user(current_user)
+    album_id = params[:attachmentRelation][:album]
+    attachment_id = params[:attachmentRelation][:attachmentId]
+    if AttachmentRelation.where(attachment_id: attachment_id, attachable_id: album_id).blank?
+      Album.find(album_id).attachments << Attachment.find(attachment_id)
+      redirect_to attachment_index_path, success: t('attachment.controller.create')
+    else
+      redirect_to attachment_index_path, notice: t('attachment.controller.create_error')
+    end
   end
 
   private
