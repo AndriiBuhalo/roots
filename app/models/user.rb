@@ -7,7 +7,7 @@ class User < ApplicationRecord
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
   has_many :posts, foreign_key: 'created_by_id', dependent: :destroy
-  has_many :invitees, class_name: 'User', foreign_key: :invited_by_id, dependent: :destroy
+  has_many :invitees, class_name: 'User', foreign_key: :invited_by_id
 
   validates :email, length: { maximum: 45 }
   validates :username, presence: false
