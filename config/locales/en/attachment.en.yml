@@ -7,6 +7,8 @@ en:
     place: 'Place'
     create_file: 'Create file'
     title: '%{title}'
+    attachment_to_album: 'This file has been added to the album'
+    add_to_album: 'Add to album'
     new:
       create_file: 'Create file'
       add_file: 'Add file'

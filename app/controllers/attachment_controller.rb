@@ -41,10 +41,10 @@ class AttachmentController < ApplicationController
   end
 
   def add_attachment_to_album
-    @albums = Album.by_user(current_user)
     album_id = params[:attachmentRelation][:album]
     attachment_id = params[:attachmentRelation][:attachmentId]
-    AttachmentRelation.find_or_create_by(attachment_id: attachment_id, attachable_id: album_id)
+    AttachmentRelation.find_or_create_by(attachment_id: attachment_id, attachable_id: album_id,
+                                         attachable_type: 'Album')
   end
 
   private
