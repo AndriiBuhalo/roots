@@ -131,7 +131,7 @@ Rails.application.configure do
     port: ENV['SMTP_PORT'],
     user_name: ENV['SMTP_LOGIN'],
     password: ENV['SMTP_PASSWORD'],
-    api_key: ENV['API_KEY']
+    api_key: ENV['SMTP_API_KEY']
     smtp_domain: ENV['SMTP_DOMAIN'],
     domain: 'heroku.com',
     authentication: 'plain',
