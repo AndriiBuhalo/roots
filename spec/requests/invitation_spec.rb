@@ -3,22 +3,15 @@
 require 'rails_helper'
 
 RSpec.describe 'Invitations', type: :request do
-  include Devise::Test::IntegrationHelpers
-
   let(:user) { FactoryBot.create(:user) }
 
   before do
     login_as(user)
   end
 
-  after do
-    logout(user)
-  end
-
   describe 'GET /invitations' do
     it 'returns http success' do
-      # sign_in user
-      get invitations_url
+      get invitations_path
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:index, layout: :application)
     end
@@ -26,7 +19,7 @@ RSpec.describe 'Invitations', type: :request do
 
   describe 'GET /new' do
     it 'returns http success' do
-      get invitations_new_url
+      get invitations_new_path
       expect(response).to have_http_status(:moved_permanently)
       expect(response).to redirect_to(new_user_invitation_url)
     end

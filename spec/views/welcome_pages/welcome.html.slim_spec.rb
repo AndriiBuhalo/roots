@@ -6,7 +6,7 @@ RSpec.describe 'welcome_pages/welcome.html.slim', type: :view do
   include Devise::Test::ControllerHelpers
 
   context 'when user is not logged in' do
-    it 'has _welcomee partial' do
+    it 'has _welcome partial' do
       render
       expect(rendered).to include t('welcome_pages.welcome.title')
       expect(rendered).to include t('welcome_pages.welcome.subtitle')

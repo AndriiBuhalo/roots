@@ -44,8 +44,8 @@ RSpec.describe 'layouts/public.html.slim', type: :view do
 
   it 'has footer navbar' do
     expect(rendered).to include t('global.footer.string')
-    expect(rendered).to have_link t('global.footer.about'), href: welcome_pages_about_path
-    expect(rendered).to have_link t('global.footer.contacts'), href: welcome_pages_contacts_path
+    expect(rendered).to have_link t('global.footer.about'), href: about_path
+    expect(rendered).to have_link t('global.footer.contacts'), href: contacts_path
     expect(rendered).to have_link t('global.footer.softserve'), href: 'https://www.softserveinc.com/uk-ua'
   end
 end

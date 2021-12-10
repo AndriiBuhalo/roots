@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :feature do
   before do
-    visit('welcome_pages/welcome')
+    visit welcome_path
   end
 
   it 'switches the locale for public' do
@@ -12,9 +12,9 @@ RSpec.describe 'Users', type: :feature do
     click_link I18n.t('global.header.uk_switch')
     expect(I18n.locale).to eq :uk
     expect(page).to have_content(I18n.t('global.translate'))
-    visit('about')
+    visit about_path
     expect(I18n.locale).to eq :uk
-    visit('contacts')
+    visit contacts_path
     expect(I18n.locale).to eq :uk
   end
 

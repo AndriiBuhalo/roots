@@ -7,7 +7,7 @@ RSpec.describe 'Invitations', type: :feature do
 
   before do
     sign_in(user)
-    visit('/invitations')
+    visit invitations_path
     click_link 'Invite new User!'
   end
 

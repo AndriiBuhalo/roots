@@ -25,10 +25,6 @@ RSpec.describe 'layouts/application.html.slim', type: :view do
       render
     end
 
-    after do
-      sign_out user
-    end
-
     it 'has header menu for user' do
       expect(rendered).to have_title t('global.page_title')
       expect(rendered).to have_link t('global.header.posts'), href: posts_path
@@ -40,8 +36,8 @@ RSpec.describe 'layouts/application.html.slim', type: :view do
 
   it 'has footer navbar' do
     expect(rendered).to include t('global.footer.string')
-    expect(rendered).to have_link t('global.footer.about'), href: welcome_pages_about_path
-    expect(rendered).to have_link t('global.footer.contacts'), href: welcome_pages_contacts_path
+    expect(rendered).to have_link t('global.footer.about'), href: about_path
+    expect(rendered).to have_link t('global.footer.contacts'), href: contacts_path
     expect(rendered).to have_link t('global.footer.softserve'), href: 'https://www.softserveinc.com/uk-ua'
   end
 end
