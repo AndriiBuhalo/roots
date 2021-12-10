@@ -14,7 +14,7 @@ header.navbar.navbar-dark.bg-dark.fixed-top.navbar-expand-md
           ul.navbar-nav.align-items-center
             - if user_signed_in?
               .dropdown.show
-                a#dropdownMenuLink.btn.dropdown-toggle.nav-link.font-weight-bold[ href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ]
+                a#dropdownMenuLink.btn.dropdown-toggle.nav-link[ href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ]
                   img.gravatar.rounded-circle.mr-2 src="#{current_user.gravatar}" width="32" height="32"
                 ul.dropdown-menu.text-black[aria-labelledby="dropdownMenuLink"]
                   li.small.m-2 Signed in as
