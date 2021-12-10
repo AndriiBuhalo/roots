@@ -15,7 +15,7 @@ RSpec.describe 'important_dates/show', type: :view do
     expect(rendered).to include t('important_dates.show.event_name')
     expect(rendered).to include important_date.event_name
     expect(rendered).to include t('important_dates.show.event_date')
-    # expect(rendered).to include important_date.event_date
+    expect(rendered).to include important_date.event_date.to_s
     expect(rendered).to include t('important_dates.show.description')
     expect(rendered).to include important_date.description
     expect(rendered).to have_link t('important_dates.show.edit'), href: edit_important_date_path(important_date)
