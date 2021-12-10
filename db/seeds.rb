@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
+require 'factory_bot_rails'
 # Create an initial sample user.
-User.create!(username: 'Initial',
-             email: 'initial.user@sample.com',
-             password: 'initial1',
-             password_confirmation: 'initial1',
-             created_at: Time.zone.now)
 
-Rails.logger.debug 'Created an initial sample user'
+FactoryBot.create(:user)
+
+Rails.logger.info 'Created an initial sample user'
