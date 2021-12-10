@@ -42,15 +42,9 @@ class AttachmentController < ApplicationController
 
   def add_attachment_to_album
     @albums = Album.by_user(current_user)
-    @attachments = Attachment.by_user(current_user)
     album_id = params[:attachmentRelation][:album]
     attachment_id = params[:attachmentRelation][:attachmentId]
-    if AttachmentRelation.where(attachment_id: attachment_id, attachable_id: album_id).blank?
-      Album.find(album_id).attachments << Attachment.find(attachment_id)
-      redirect_to attachment_index_path, success: t('attachment.controller.create')
-    else
-      redirect_to attachment_index_path, notice: t('attachment.controller.create_error')
-    end
+    AttachmentRelation.find_or_create_by(attachment_id: attachment_id, attachable_id: album_id)
   end
 
   private
