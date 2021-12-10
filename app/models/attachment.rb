@@ -8,7 +8,6 @@ class Attachment < ApplicationRecord
                     source_type: 'Album', dependent: :destroy
 
   mount_uploader :file, FileUploader
-
   validates :file, presence: true
 
   before_create :set_original_file_name

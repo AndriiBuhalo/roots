@@ -9,6 +9,8 @@ en:
     title: '%{title}'
     attachment_to_album: 'This file has been added to the album'
     add_to_album: 'Add to album'
+    index:
+      create_file: 'Create file'
     new:
       create_file: 'Create file'
       add_file: 'Add file'
