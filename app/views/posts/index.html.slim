@@ -1,6 +1,8 @@
 - title t('posts.index.page_title')
 h1 = t('.main_title')
 
+= will_paginate @posts, list_classes: %w(pagination justify-content-center)
+
 table.table.table-bordered.table-hover
   thead
     tr
