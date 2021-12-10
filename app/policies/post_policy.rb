@@ -7,7 +7,7 @@ class PostPolicy < ApplicationPolicy
       if @user.admin?
         scope.all
       else
-        scope.where(created_by: @user.try(:id))
+        scope.by_user(@user)
       end
     end
   end
@@ -18,9 +18,7 @@ class PostPolicy < ApplicationPolicy
     end
   end
 
-  def new?
-    user_is_owner_of_record?
-  end
+  def new?; end
 
   def create?
     user_is_owner_of_record?
