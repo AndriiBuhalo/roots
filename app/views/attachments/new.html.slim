@@ -7,7 +7,7 @@
   = f.input :date, as: :date, html5: true
   .input-group.mb-3
     .custom-file
-      = f.input :file, class: "custom-file-input"
+      = f.file_field :file, class: "custom-file-input"
       label.custom-file-label = t('.add_file')
     .input-group-append
       .input-group-text

@@ -9,14 +9,14 @@ en:
       empty: 'Nothing found!'
     new:
       create_album: 'Create album'
-      add_file: 'Add file'
       add_picture: 'Add picture'
     edit:
       edit_album: 'Edit album'
-      add_file: 'Add file'
     attachment_fields:
       add_file: 'Add file'
       remove_file: 'Remove file'
+    form:
+      add_file: 'Add file'
     controller:
       create: 'Album successfully added!'
       create_error: 'Please try again!'
