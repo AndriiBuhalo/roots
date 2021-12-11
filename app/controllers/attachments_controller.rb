@@ -26,6 +26,8 @@ class AttachmentsController < DashboardController
     end
   end
 
+  def edit; end
+
   def update
     if @attachment.update(file_params)
       redirect_to @attachment, success: t('attachments.controller.update')
