@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe 'posts/index', type: :view do
-
   let(:user) { create(:user) }
   let(:post) { create(:post, created_by: user) }
 

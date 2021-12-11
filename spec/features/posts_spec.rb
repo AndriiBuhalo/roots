@@ -3,9 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :feature do
-
   let(:user) { create(:user) }
-  let(:post) { create(:post, created_by: user) }
+  let(:post) { create(:post, title: 'some title', content: 'some content', created_by: user) }
 
   before(:each) do
     sign_in(user)
@@ -52,16 +51,8 @@ RSpec.describe 'Posts', type: :feature do
 
 
     it 'show post' do
-      post = create(:post, title: 'title', content: 'some content', created_by: user)
-      visit posts_url(post)
-      expect(page).to have_content('title')
-      expect(page).to have_content('some content')
-    end
-
-    it 'showing index page' do
-      post = create(:post, title: 'title', content: 'some content', created_by: user)
-      visit('/posts')
-      expect(page).to have_content('title')
+      visit posts_path(post)
+      expect(page).to have_content('some title')
       expect(page).to have_content('some content')
     end
 end
