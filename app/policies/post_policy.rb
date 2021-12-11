@@ -12,18 +12,6 @@ class PostPolicy < ApplicationPolicy
     end
   end
 
-  def index?
-    @record.each do |record|
-      @user == record.created_by || @user.admin?
-    end
-  end
-
-  def new?; end
-
-  def create?
-    user_is_owner_of_record_or_admin?
-  end
-
   def show?
     user_is_owner_of_record_or_admin?
   end
