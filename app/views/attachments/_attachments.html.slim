@@ -2,9 +2,9 @@
 table.table.table-bordered
   thead
     tr.text-center
-      th scope="col" = t('attachment.file_name')
-      th scope="col" = t('attachment.file')
-      th scope="col" = t('attachment.notes')
+      th scope="col" = t('attachments.file_name')
+      th scope="col" = t('attachments.file')
+      th scope="col" = t('attachments.notes')
       th colspan="4" scope="col" = t('common.actions')
   tbody
     - @attachments.each do |image|
@@ -15,7 +15,7 @@ table.table.table-bordered
           td = link_to t('common.show'), attachment_path(image), class: 'btn btn-info'
           td = link_to t('common.edit'), edit_attachment_path(image), class: 'btn btn-primary'
           td = link_to t('common.delete'), attachment_path(image), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
-          td = link_to t('attachment.add_to_album'), attachment_path(image),  :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary'
+          td = link_to t('attachments.add_to_album'), attachment_path(image),  :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary'
 #modal-window.modal tabindex="-1"
   .modal-dialog
     .modal-content

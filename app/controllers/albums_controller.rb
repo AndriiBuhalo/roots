@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AlbumController < ApplicationController
+class AlbumsController < DashboardController
   before_action :set_album, only: %i[show edit update destroy]
 
   def index
@@ -12,16 +12,16 @@ class AlbumController < ApplicationController
   end
 
   def new
-    @album = Album.new
+    @album = Album.by_user(current_user).new
     @album.attachments.build
   end
 
   def create
     @album = Album.by_user(current_user).new(album_params)
     if @album.save
-      redirect_to @album, success: t('album.controller.create')
+      redirect_to @album, success: t('albums.controller.create')
     else
-      flash[:danger] = t('album.controller.create_error')
+      flash[:danger] = t('albums.controller.create_error')
       render :new
     end
   end
@@ -32,16 +32,16 @@ class AlbumController < ApplicationController
 
   def update
     if @album.update(album_params)
-      redirect_to @album, success: t('album.controller.update')
+      redirect_to @album, success: t('albums.controller.update')
     else
-      flash[:danger] = t('album.controller.update_error')
+      flash[:danger] = t('albums.controller.update_error')
       render :edit
     end
   end
 
   def destroy
     @album.destroy
-    redirect_to album_index_path, success: t('album.controller.destroy')
+    redirect_to albums_path, success: t('albums.controller.destroy')
   end
 
   private

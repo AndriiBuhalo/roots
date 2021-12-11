@@ -4,7 +4,6 @@ require 'rails_helper'
 
 RSpec.describe '/attachments', type: :request do
   include Devise::Test::IntegrationHelpers
-
   let(:user) { create(:user) }
 
   before do
@@ -17,7 +16,7 @@ RSpec.describe '/attachments', type: :request do
 
   describe 'GET /index' do
     it 'renders a successful response' do
-      get attachment_index_path
+      get attachments_path
       expect(response).to be_successful
     end
   end
@@ -51,12 +50,12 @@ RSpec.describe '/attachments', type: :request do
     context 'with valid parameters' do
       let(:valid_attachment) do
         {
-          file: Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, '/spec/fixtures/attachment/test.jpg')))
+          file: fixture_file_upload('test.jpg')
         }
       end
 
       it 'creates a new Attachment' do
-        post attachment_index_path, params: { attachment: valid_attachment }
+        post attachments_path, params: { attachment: valid_attachment }
         expect(response).to redirect_to(assigns(:attachment))
         follow_redirect!
         expect(response).to render_template(:show)
@@ -85,7 +84,7 @@ RSpec.describe '/attachments', type: :request do
       let!(:valid_attachment) { create(:attachment, created_by: user) }
       let(:edited_attachment) do
         {
-          file: Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, '/spec/fixtures/attachment/test.jpg')))
+          file: fixture_file_upload('test.jpg')
         }
       end
 
@@ -126,7 +125,7 @@ RSpec.describe '/attachments', type: :request do
 
     it 'redirects to the attachments list' do
       delete attachment_path(valid_attachment)
-      expect(response).to redirect_to(attachment_index_path)
+      expect(response).to redirect_to(attachments_path)
     end
   end
 end

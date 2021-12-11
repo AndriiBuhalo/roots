@@ -7,8 +7,8 @@ header.navbar.navbar-dark.bg-dark.fixed-top.navbar-expand-md
       ul.navbar-nav
         - if user_signed_in?
           li.nav-item.m-2= link_to t('global.header.posts'), posts_path, class: "nav-link font-weight-bold"
-          li.nav-item.m-2= link_to t('global.header.attachments'), attachment_index_path, class: "nav-link font-weight-bold"
-          li.nav-item.m-2= link_to t('global.header.albums'), album_index_path, class: "nav-link font-weight-bold"
+          li.nav-item.m-2= link_to t('global.header.attachments'), attachments_path, class: "nav-link font-weight-bold"
+          li.nav-item.m-2= link_to t('global.header.albums'), albums_path, class: "nav-link font-weight-bold"
           li.nav-item.m-2= link_to t('global.header.persons'), '#', class: "nav-link font-weight-bold"
       .d-flex.flex-md-row.flex-column
         .d-flex.flex-row
@@ -28,4 +28,3 @@ header.navbar.navbar-dark.bg-dark.fixed-top.navbar-expand-md
           ul.dropdown-menu.border.border-dark aria-labelledby="dropdownMenuButton"
             - I18n.available_locales.each do |locale|
               li.nav-link.font-weight-bold.text-muted= link_to_unless current_locale?(locale), I18n.t("global.header.#{locale}_switch"), locale_path(locale), method: :put, class: "text-dark text-decoration-none"
-

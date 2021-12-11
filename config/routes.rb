@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   get 'welcome_pages/contacts'
 
   concern :attachable do
-    resources :attachment, only: :create
+    resources :attachments, only: :create
   end
-  resources :attachment
-  post 'add_attachment_to_album' => 'attachment#add_attachment_to_album'
-  resources :album, concerns: [:attachable]
+  resources :attachments
+  post 'add_attachment_to_album' => 'attachments#add_attachment_to_album'
+  resources :albums, concerns: [:attachable]
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_scope :user do

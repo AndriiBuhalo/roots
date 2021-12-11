@@ -17,7 +17,7 @@ RSpec.describe '/albums', type: :request do
 
   describe 'GET /index' do
     it 'renders a successful response' do
-      get album_index_path
+      get albums_path
       expect(response).to be_successful
     end
   end
@@ -57,7 +57,7 @@ RSpec.describe '/albums', type: :request do
       end
 
       it 'creates a new Album' do
-        post album_index_path, params: { album: valid_album }
+        post albums_path, params: { album: valid_album }
         expect(response).to redirect_to(assigns(:album))
         follow_redirect!
         expect(response).to render_template(:show)
@@ -129,7 +129,7 @@ RSpec.describe '/albums', type: :request do
 
     it 'redirects to the albums list' do
       delete album_path(valid_album)
-      expect(response).to redirect_to(album_index_path)
+      expect(response).to redirect_to(albums_path)
     end
   end
 end

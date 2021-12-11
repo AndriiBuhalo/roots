@@ -1,9 +1,9 @@
-- title t('album.title', title: "Albums")
+- title t('albums.title', title: "Albums")
 table.table.table-bordered
   thead
     tr.text-center
-      th scope="col" = t('album.name')
-      th scope="col" = t('album.description')
+      th scope="col" = t('albums.name')
+      th scope="col" = t('albums.description')
       th colspan="3" scope="col" = t('common.actions')
   tbody
     - @albums.each do |album|

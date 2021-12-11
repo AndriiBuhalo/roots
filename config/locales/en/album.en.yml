@@ -1,5 +1,5 @@
 en:
-  album:
+  albums:
     title: '%{title}'
     name: 'Album name'
     description: 'Album description'

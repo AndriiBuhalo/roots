@@ -1,13 +1,13 @@
-- title t('attachment.title', title: "Show #{@attachment.original_filename}")
+- title t('attachments.title', title: "Show #{@attachment.original_filename}")
 - if @attachment.file?
   h3 = @attachment.original_filename
   = image_tag @attachment.file.url(:large), class: 'mb-3', alt: "#{@attachment.original_filename}"
   h3.text-uppercase = t('.information')
   p
-    strong => t('.keyword')
+    strong => t('.keywords')
     - if @attachment.keywords?
       - @attachment.keywords.split(',').each do |keyword|
-        = link_to keyword, attachment_index_path(tag: keyword), class: 'badge badge-pill badge-info mr-2'
+        = link_to keyword, attachments_path(tag: keyword), class: 'badge badge-pill badge-info mr-2'
   p
     strong => t('.notes')
     = @attachment.notes
@@ -16,7 +16,7 @@
     = @attachment.place
   p
     strong => t('.date')
-    = @attachment.date.strftime("%Y-%m-%d") if @attachment.date.blank?
+    = @attachment.date.strftime("%Y-%m-%d") if @attachment.date?
   p
     strong = t('.albums')
     - @attachment.albums.each do |album|
@@ -42,7 +42,7 @@
     strong => t('.downloaded')
     = @attachment.created_by.email
   p
-    a.btn.btn-info href="#{@attachment.file.url}" download="#{@attachment.original_filename}" = t('.donwload')
+    = link_to t('.donwload'), @attachment.file.url, download: @attachment.original_filename, class: 'btn btn-info'
   = link_to t('common.edit'), edit_attachment_path(@attachment), class: "btn btn-primary"
   = link_to t('common.delete'), attachment_path(@attachment), class: 'btn btn-danger ml-3', method: :delete, data: { confirm: t('common.confirmation') }
   = link_to t('common.back'), :back, class: 'btn btn-secondary ml-3'
