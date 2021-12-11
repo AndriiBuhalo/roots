@@ -4,8 +4,8 @@ class AttachmentsController < DashboardController
   before_action :set_attachment, only: %i[show edit update destroy]
 
   def index
-    @attachments = Attachment.by_user(current_user)
-    @attachments = @attachments.where('keywords LIKE ?', "%#{params[:tag]}%") if params[:tag]
+    @attachments = params[:tag] ? Attachment.by_user(current_user).where('keywords LIKE ?', "%#{params[:tag]}%")
+                                : Attachment.by_user(current_user)
   end
 
   def show
@@ -13,7 +13,7 @@ class AttachmentsController < DashboardController
   end
 
   def new
-    @attachment = Attachment.new
+    @attachment = Attachment.by_user(current_user).new
   end
 
   def create

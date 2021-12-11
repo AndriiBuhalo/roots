@@ -8,7 +8,7 @@ RSpec.describe '/albums', type: :request do
   let(:user) { create(:user) }
 
   before do
-    login_as(user)
+    sign_in(user)
   end
 
   after do

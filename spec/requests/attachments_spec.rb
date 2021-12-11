@@ -4,10 +4,11 @@ require 'rails_helper'
 
 RSpec.describe '/attachments', type: :request do
   include Devise::Test::IntegrationHelpers
+
   let(:user) { create(:user) }
 
   before do
-    login_as(user)
+    sign_in(user)
   end
 
   after do
@@ -49,9 +50,7 @@ RSpec.describe '/attachments', type: :request do
   describe 'POST /create' do
     context 'with valid parameters' do
       let(:valid_attachment) do
-        {
-          file: fixture_file_upload('test.jpg')
-        }
+        { file: fixture_file_upload('test.jpg') }
       end
 
       it 'creates a new Attachment' do
@@ -83,9 +82,7 @@ RSpec.describe '/attachments', type: :request do
     context 'with valid parameters' do
       let!(:valid_attachment) { create(:attachment, created_by: user) }
       let(:edited_attachment) do
-        {
-          file: fixture_file_upload('test.jpg')
-        }
+        { file: fixture_file_upload('test.jpg') }
       end
 
       it 'updates the requested post' do
@@ -102,9 +99,7 @@ RSpec.describe '/attachments', type: :request do
     context 'with invalid parameters' do
       let!(:valid_attachment) { create(:attachment, created_by: user) }
       let(:edited_invalid_attachment) do
-        {
-          file: ' '
-        }
+        { file: ' ' }
       end
 
       it "renders a successful response (i.e. to display the 'edit' template)" do
