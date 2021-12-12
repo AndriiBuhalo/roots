@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe PostPolicy, type: :policy do
-  subject { PostPolicy }
+  subject(:post_policy) { described_class }
 
   let(:user) { create(:user) }
   let(:post) { create(:post, created_by: user) }
@@ -20,7 +20,7 @@ RSpec.describe PostPolicy, type: :policy do
   permissions :show?, :update?, :destroy? do
     describe 'current user of post' do
       it 'grants access if user is current user of post' do
-        expect(subject).to permit(user, post)
+        expect(post_policy).to permit(user, post)
       end
     end
 
@@ -29,7 +29,7 @@ RSpec.describe PostPolicy, type: :policy do
       let(:post) { create(:post, created_by: admin) }
 
       it 'grants access if user is an admin' do
-        expect(subject).to permit(admin, post)
+        expect(post_policy).to permit(admin, post)
       end
     end
 
@@ -37,7 +37,7 @@ RSpec.describe PostPolicy, type: :policy do
       let(:not_current_user) { create(:user) }
 
       it 'denies access if user is not current user of post' do
-        expect(subject).not_to permit(not_current_user, post)
+        expect(post_policy).not_to permit(not_current_user, post)
       end
     end
   end
