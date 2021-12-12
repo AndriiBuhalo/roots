@@ -6,21 +6,19 @@ RSpec.describe PostPolicy, type: :policy do
   subject { PostPolicy }
 
   let(:user) { create(:user) }
-
-  def resolve_for(user)
-    subject::Scope.new(user, Post).resolve
-  end
+  let(:post) { create(:post, created_by: user) }
+  let(:policy_scope) { PostPolicy::Scope.new(user, Post).resolve }
 
   permissions '.scope' do
+    let(:user_posts) { user.posts << post }
+
     it 'allows the user to see his posts' do
-      expect(resolve_for(user).count).to eq(1)
+      expect(policy_scope).to eq user_posts
     end
   end
 
   permissions :show?, :update?, :destroy? do
     describe 'current user of post' do
-      let(:post) { create(:post, created_by: user) }
-
       it 'grants access if user is current user of post' do
         expect(subject).to permit(user, post)
       end
@@ -37,7 +35,6 @@ RSpec.describe PostPolicy, type: :policy do
 
     describe 'not current_user of post' do
       let(:not_current_user) { create(:user) }
-      let(:post) { create(:post, created_by: user) }
 
       it 'denies access if user is not current user of post' do
         expect(subject).not_to permit(not_current_user, post)

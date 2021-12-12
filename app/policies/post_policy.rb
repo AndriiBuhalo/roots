@@ -7,7 +7,7 @@ class PostPolicy < ApplicationPolicy
       if @user.admin?
         scope.all
       else
-        scope.by_user(@user)
+        scope.where(created_by: @user)
       end
     end
   end
