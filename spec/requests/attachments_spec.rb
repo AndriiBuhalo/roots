@@ -11,10 +11,6 @@ RSpec.describe '/attachments', type: :request do
     sign_in(user)
   end
 
-  after do
-    logout(user)
-  end
-
   describe 'GET /index' do
     it 'renders a successful response' do
       get attachments_path
@@ -73,7 +69,6 @@ RSpec.describe '/attachments', type: :request do
         get new_attachment_url
         expect(response).to render_template(:new)
         expect(invalid_attachment).not_to be_valid
-        expect(response).to render_template(:new)
       end
     end
   end

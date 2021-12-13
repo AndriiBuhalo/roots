@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :attachments, only: :create
   end
   resources :attachments
-  post 'add_attachment_to_album' => 'attachments#add_attachment_to_album'
+  post 'add_attachment_to_album', to: 'attachments#add_attachment_to_album'
   resources :albums, concerns: [:attachable]
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }

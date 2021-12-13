@@ -4,8 +4,8 @@ class AttachmentsController < DashboardController
   before_action :set_attachment, only: %i[show edit update destroy]
 
   def index
-    @attachments = params[:tag] ? Attachment.by_user(current_user).where('keywords LIKE ?', "%#{params[:tag]}%")
-                                : Attachment.by_user(current_user)
+    @attachments = Attachment.by_user(current_user)
+    @attachments = @attachments.where("keywords LIKE '%#{params[:tag]}%'") if params[:tag]
   end
 
   def show
@@ -43,10 +43,9 @@ class AttachmentsController < DashboardController
   end
 
   def add_attachment_to_album
-    album_id = params[:attachment_relation][:album]
-    attachment_id = params[:attachment_relation][:attachment_id]
-    AttachmentRelation.find_or_create_by(attachment_id: attachment_id, attachable_id: album_id,
-                                         attachable_type: 'Album')
+    album = Album.by_user(current_user).find(params[:attachment_relation][:album])
+    attachment = Attachment.by_user(current_user).find(params[:attachment_relation][:attachment_id])
+    AttachmentRelation.find_or_create_by(attachment: attachment, attachable: album)
   end
 
   private

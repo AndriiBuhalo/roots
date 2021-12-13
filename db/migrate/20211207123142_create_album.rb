@@ -5,7 +5,7 @@ class CreateAlbum < ActiveRecord::Migration[6.1]
     create_table :albums do |t|
       t.string :name
       t.text :description
-      t.belongs_to :created_by
+      t.references :created_by
       t.timestamps
     end
   end
