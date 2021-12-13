@@ -30,7 +30,7 @@ RSpec.describe 'Posts', type: :feature do
   end
 
   context 'Update post' do
-    scenario 'updates' do
+    it 'updates' do
       visit edit_post_path(post)
       fill_in 'Title', with: 'Test title'
       fill_in 'Content', with: 'Test content'
@@ -38,7 +38,7 @@ RSpec.describe 'Posts', type: :feature do
       expect(page).to have_content('Post was successfully updated')
     end
 
-    scenario 'does not update' do
+    it 'does not update' do
       visit edit_post_path(post)
       fill_in 'Title', with: 'Test title'
       fill_in 'Content', with: ''
