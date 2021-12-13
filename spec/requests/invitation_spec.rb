@@ -3,10 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Invitations', type: :request do
-  let(:user) { FactoryBot.create(:user) }
+  let(:user) { create(:user) }
 
   before do
-    login_as(user)
+    sign_in(user)
   end
 
   describe 'GET /invitations' do
@@ -20,7 +20,7 @@ RSpec.describe 'Invitations', type: :request do
   describe 'GET /new' do
     it 'returns http success' do
       get invitations_new_path
-      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to have_http_status(:found)
       expect(response).to redirect_to(new_user_invitation_url)
     end
   end

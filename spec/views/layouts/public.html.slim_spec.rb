@@ -3,8 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe 'layouts/public.html.slim', type: :view do
-  include Devise::Test::ControllerHelpers
-
   before do
     render
   end
@@ -18,7 +16,7 @@ RSpec.describe 'layouts/public.html.slim', type: :view do
   end
 
   context 'when user is logged in' do
-    let(:user) { FactoryBot.create(:user) }
+    let(:user) { create(:user) }
 
     before do
       sign_in user

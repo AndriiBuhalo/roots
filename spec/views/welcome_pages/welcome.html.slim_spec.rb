@@ -3,8 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe 'welcome_pages/welcome.html.slim', type: :view do
-  include Devise::Test::ControllerHelpers
-
   context 'when user is not logged in' do
     it 'has _welcome partial' do
       render
@@ -15,7 +13,7 @@ RSpec.describe 'welcome_pages/welcome.html.slim', type: :view do
   end
 
   context 'when user is logged in' do
-    let(:user) { FactoryBot.create(:user) }
+    let(:user) { create(:user) }
 
     before do
       sign_in user

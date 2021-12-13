@@ -5,5 +5,7 @@ class InvitationsController < ApplicationController
     @invitees = current_user.invitees
   end
 
-  def new; end
+  def new
+    redirect_to new_user_invitation_path
+  end
 end
