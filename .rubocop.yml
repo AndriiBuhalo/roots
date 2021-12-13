@@ -2,11 +2,11 @@ require:
   - rubocop-performance
   - rubocop-rails
   - rubocop-rspec
- 
+
 
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 2.7.4
+  TargetRubyVersion: 2.7
 
 Style/Documentation:
   Enabled: false
