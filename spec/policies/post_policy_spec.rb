@@ -17,7 +17,7 @@ RSpec.describe PostPolicy, type: :policy do
     end
   end
 
-  permissions :show?, :update?, :destroy? do
+  permissions :show?, :create?, :new?, :update?, :edit?, :destroy? do
     describe 'current user of post' do
       it 'grants access if user is current user of post' do
         expect(post_policy).to permit(user, post)
@@ -25,7 +25,7 @@ RSpec.describe PostPolicy, type: :policy do
     end
 
     describe 'Admin' do
-      let(:admin) { create(:user, role: 1) }
+      let(:admin) { create(:user, :admin) }
       let(:post) { create(:post, created_by: admin) }
 
       it 'grants access if user is an admin' do
