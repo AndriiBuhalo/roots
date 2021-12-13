@@ -8,7 +8,7 @@ RSpec.describe 'ImportantDates', type: :feature do
 
   before(:each) do
     sign_in(user)
-    visit('/important_dates')
+    visit(important_dates_path)
   end
 
   context 'Create Important date' do
