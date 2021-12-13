@@ -5,7 +5,7 @@ FactoryBot.define do
     title { Faker::Lorem.characters(number: 20) }
     content { Faker::Lorem.characters(number: 100) }
 
-    trait :with_user do 
+    trait :with_user do
       created_by { create :user }
     end
 
@@ -13,6 +13,5 @@ FactoryBot.define do
       title { Faker::Lorem.characters(number: 1) }
       content { Faker::Lorem.characters(number: 1) }
     end
-
   end
 end

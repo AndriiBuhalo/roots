@@ -4,7 +4,7 @@ class PostsController < DashboardController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = Post.by_user(current_user).paginate(page: params[:page], per_page: PER_PAGE)
+    @posts = Post.by_user(current_user).paginate(page: params[:page])
   end
 
   def show; end

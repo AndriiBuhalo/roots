@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Posts', type: :feature do
   let(:user) { create(:user) }
-  let(:post) { create(:post, title: 'some title', content: 'some content', created_by: user) }
+  let(:post) { create(:post, created_by: user) }
 
   before(:each) do
     sign_in(user)
@@ -49,10 +49,9 @@ RSpec.describe 'Posts', type: :feature do
       expect(page).to have_content("Content can't be blank and Content is too short (minimum is 5 characters)")
     end
 
-
     it 'show post' do
       visit posts_path(post)
-      expect(page).to have_content('some title')
-      expect(page).to have_content('some content')
+      expect(page).to have_content(post.title)
+      expect(page).to have_content(post.content)
     end
 end
