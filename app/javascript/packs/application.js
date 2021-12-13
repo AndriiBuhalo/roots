@@ -10,7 +10,7 @@ import "channels"
 import "bootstrap"
 global.$ = require("jquery")
 import "@nathanvda/cocoon"
-require("packs/script_for_files")
+import("packs/script_for_files")
 
 Rails.start()
 Turbolinks.start()
