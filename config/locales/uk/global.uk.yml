@@ -17,7 +17,7 @@ uk:
       log_out: "Вийти"
       posts: "Дописи"
       albums: "Альбоми"
-      persons: "Люди"
+      person: "Люди"
       en_switch: "Англійська"
       uk_switch: "Українська"
     footer:
