@@ -5,11 +5,11 @@ require 'rails_helper'
 RSpec.describe '/posts', type: :request do
   let(:user) { create(:user) }
 
-  before(:each) do
+  before do
     login_as(user)
   end
 
-  after(:each) do
+  after do
     logout(user)
   end
 
