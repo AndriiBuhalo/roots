@@ -127,10 +127,12 @@ Rails.application.configure do
   # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: ENV['MAIL_PROVIDER_ADDERSS'],
-    port: ENV['MAIL_PROVIDER_PORT'],
-    user_name: ENV['MAIL_PROVIDER_USERNAME'],
-    password: ENV['MAIL_PROVIDER_PASSWORD'],
+    address: ENV['SMTP_SERVER'],
+    port: ENV['SMTP_PORT'],
+    user_name: ENV['SMTP_LOGIN'],
+    password: ENV['SMTP_PASSWORD'],
+    api_key: ENV['SMTP_API_KEY'],
+    smtp_domain: ENV['SMTP_DOMAIN'],
     domain: 'heroku.com',
     authentication: 'plain',
     enable_starttls_auto: true
