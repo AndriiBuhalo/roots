@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   put 'locales/:locale', to: 'locales#update', as: :locale,
                          constraints: { locale: /#{I18n.available_locales.join('|')}/ }
   resources :posts
-  get 'welcome', to: 'welcome_pages#welcome'
-  get 'about', to: 'welcome_pages#about'
-  get 'contacts', to: 'welcome_pages#contacts'
-  get 'invitations', to: 'invitations#index'
+  get 'welcome', to: 'welcome_pages#welcome', as: :welcome
+  get 'about', to: 'welcome_pages#about', as: :about
+  get 'contacts', to: 'welcome_pages#contacts', as: :contacts
+  get 'invitations', to: 'invitations#index', as: :invitations
   get 'invitations/new', to: redirect('/users/invitation/new')
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_scope :user do
