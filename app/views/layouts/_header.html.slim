@@ -7,9 +7,9 @@ header.navbar.navbar-dark.bg-dark.fixed-top.navbar-expand-md
     .d-flex.flex-md-row.flex-column
       ul.navbar-nav
         - if user_signed_in?
-          li.nav-item.m-2 = link_to t('global.header.Posts'), posts_path, class: "nav-link font-weight-bolt"
-          li.nav-item.m-2 = link_to t('global.header.Albums'), '#', class: "nav-link font-weight-bolt"
-          li.nav-item.m-2 = link_to t('global.header.Person'), '#', class: "nav-link font-weight-bolt"
+          li.nav-item.m-2 = link_to t('global.header.Posts'), posts_path, class: "nav-link"
+          li.nav-item.m-2 = link_to t('global.header.Albums'), '#', class: "nav-link"
+          li.nav-item.m-2 = link_to t('global.header.Person'), '#', class: "nav-link"
     .d-flex.flex-md-row.flex-column
         .d-flex.flex-row
           ul.navbar-nav.align-items-center
