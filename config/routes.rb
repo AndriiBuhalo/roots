@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # Resource routes
   resources :posts
 
-  #Invitations routes
+  # Invitations routes
   get 'invitations', to: 'invitations#index', as: :invitations
   get 'invitations/new', to: redirect('/users/invitation/new')
 
