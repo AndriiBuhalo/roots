@@ -23,10 +23,6 @@ RSpec.describe 'layouts/public.html.slim', type: :view do
       render
     end
 
-    after do
-      sign_out user
-    end
-
     it 'has header menu for user' do
       expect(rendered).to have_title t('global.page_title')
       expect(rendered).to have_link t('global.header.posts'), href: posts_path

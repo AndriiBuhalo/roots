@@ -20,10 +20,6 @@ RSpec.describe 'welcome_pages/welcome.html.slim', type: :view do
       render
     end
 
-    after do
-      sign_out user
-    end
-
     it 'has not a Sign Up link for user' do
       expect(rendered).not_to have_link t('welcome_pages.welcome.sign_up_link'), href: new_user_registration_path
     end
