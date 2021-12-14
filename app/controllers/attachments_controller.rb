@@ -44,7 +44,7 @@ class AttachmentsController < DashboardController
 
   def add_attachment_to_album
     album = Album.by_user(current_user).find(params[:attachment_relation][:album])
-    attachment = Attachment.by_user(current_user).find(params[:attachment_relation][:attachment_id])
+    attachment = Attachment.by_user(current_user).find(params[:id])
     AttachmentRelation.find_or_create_by(attachment: attachment, attachable: album)
     flash.now[:notice] = t('attachments.attachment_to_album')
   end

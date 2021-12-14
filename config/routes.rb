@@ -13,8 +13,11 @@ Rails.application.routes.draw do
   concern :attachable do
     resources :attachments, only: :create
   end
-  resources :attachments
-  post 'add_attachment_to_album', to: 'attachments#add_attachment_to_album'
+  resources :attachments do
+    member do
+      post 'add_attachment_to_album'
+    end
+  end
   resources :albums, concerns: [:attachable]
 
   # Resource routes

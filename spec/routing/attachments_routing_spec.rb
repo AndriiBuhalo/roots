@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe AttachmentsController, type: :routing do
   describe 'routing' do
     it 'routes to #index' do
@@ -33,3 +34,4 @@ RSpec.describe AttachmentsController, type: :routing do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

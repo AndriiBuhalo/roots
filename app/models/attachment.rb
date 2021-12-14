@@ -3,7 +3,7 @@
 class Attachment < ApplicationRecord
   include CreatableBy
 
-  has_many :attachment_relations
+  has_many :attachment_relations, dependent: :destroy
   has_many :albums, through: :attachment_relations, source: :attachable,
                     source_type: 'Album'
 
