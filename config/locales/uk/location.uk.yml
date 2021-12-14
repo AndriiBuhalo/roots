@@ -1,0 +1,44 @@
+uk:
+  locations:
+    edit:
+      page_title: "Редагувати %{name}"
+      title: "Редагування"
+      show: "Детальніше"
+      back: "Назад"
+    show:
+      page_title: "Переглянути %{name}"
+      edit: "Редагувати"
+      back: "Назад"
+      name: "Назва:"
+      address: "Адреса:"
+      latitude: "Широта:"
+      longitude: "Довгота:"
+    index:
+      page_title: "Розташування"
+      main_title: "Розташування"
+      name: "Назва"
+      address: "Адреса"
+      latitude: "Широта"
+      longitude: "Довгота"
+      actions: "Дії"
+      show: "Переглянути"
+      edit: "Редагувати"
+      destroy: "Видалити"
+      confirmation: "Ви впевнені?"
+      new_location: "Нове Розташування"
+    new:
+      page_title: "Нове Розташування"
+      title: "Нове Розташування"
+      back: "Назад"
+    controller:
+      create: "Розташування успішно створено"
+      update: "Розташування успішно збережено"
+      destroy: "Розташування успішно видалено"
+    form:
+      name_placeholder: "Назва"
+      address_placeholder: "Адреса"
+      latitude_placeholder: "Широта"
+      longitude_placeholder: "Довгота"
+  global:
+    forms:
+      submit: "Зберегти"

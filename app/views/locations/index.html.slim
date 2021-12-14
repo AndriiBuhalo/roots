@@ -1,0 +1,23 @@
+- title t('locations.index.page_title')
+h1 = t('.main_title')
+
+table.table.table-bordered.table-hover
+  thead
+    tr
+      th scope="col" = t('.name')
+      th scope="col" = t('.address')
+      th scope="col" = t('.latitude')
+      th scope="col" = t('.longitude')
+      th colspan="3" scope="col" = t('.actions')
+  tbody
+    - @locations.each do |location|
+      tr
+        td = location.name
+        td = location.address
+        td = location.latitude
+        td = location.longitude
+        td =< link_to t('.show'), location, class:"btn btn-xs btn-info"
+        td =< link_to t('.edit'), edit_location_path(location), class:"btn btn-xs btn-success"
+        td =< link_to t('.destroy'), location, data: { confirm: t('locations.index.confirmation') }, class:"btn btn-xs btn-danger", method: :delete
+br
+= link_to t('.new_location'), new_location_path, class:"btn btn-success"

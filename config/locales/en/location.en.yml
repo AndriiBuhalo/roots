@@ -1,0 +1,44 @@
+en:
+  locations:
+    edit:
+      page_title: "Edit %{name}"
+      title: "Editing Location"
+      show: "Show"
+      back: "Back"
+    show:
+      page_title: "Show %{name}"
+      edit: "Edit"
+      back: "Back"
+      name: "Name:"
+      address: "Address:"
+      latitude: "Latitude:"
+      longitude: "Longitude:"
+    index:
+      page_title: "Locations"
+      main_title: "Listing Locations"
+      name: "Name"
+      address: "Address"
+      latitude: "Latitude"
+      longitude: "Longitude"
+      actions: "Actions"
+      show: "Show"
+      edit: "Edit"
+      destroy: "Destroy"
+      confirmation: "Are you sure?"
+      new_location: "New Location"
+    new:
+      page_title: "New Location"
+      title: "New Location"
+      back: "Back"
+    controller:
+      create: "Location was successfully created"
+      update: "Location was successfully updated"
+      destroy: "Location was successfully deleted"
+    form:
+      name_placeholder: "Write location's name"
+      address_placeholder: "Write location's address"
+      latitude_placeholder: "Write location's latitude"
+      longitude_placeholder: "Write location's longitude"
+  global:
+    forms:
+      submit: "Submit"
