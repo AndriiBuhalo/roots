@@ -24,7 +24,6 @@ gem 'turbolinks', '~> 5'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 # Reduces boot times through caching; required in config/boot.rb
-
 gem 'any_login', '~> 1.4'
 gem 'awesome_print'
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -40,6 +39,8 @@ gem 'omniauth-rails_csrf_protection'
 gem 'rails-i18n', '~> 6.0.0'
 gem 'simple_form'
 gem 'slim-rails'
+gem 'will_paginate', '~> 3.3.0'
+gem 'will_paginate-bootstrap4'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
