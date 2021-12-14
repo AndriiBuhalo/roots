@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class InvitationsController < ApplicationController
+class InvitationsController < DashboardController
   def index
     @invitees = current_user.invitees
   end
