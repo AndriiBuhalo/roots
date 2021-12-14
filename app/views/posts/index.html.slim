@@ -1,6 +1,8 @@
 - title t('posts.index.page_title')
 h1 = t('.main_title')
 
+= will_paginate @posts, list_classes: %w(pagination justify-content-center)
+
 table.table.table-bordered.table-hover
   thead
     tr
@@ -12,8 +14,14 @@ table.table.table-bordered.table-hover
       tr
         td = post.title
         td = post.content
-        td =< link_to t('.show'), post, class:"btn btn-xs btn-info"
-        td =< link_to t('.edit'), edit_post_path(post), class:"btn btn-xs btn-success"
-        td =< link_to t('.destroy'), post, data: { confirm: t('posts.index.confirmation') }, class:"btn btn-xs btn-danger", method: :delete
+        td.col-sm-3
+          =< link_to post, class:"btn btn-xs btn-info", title: t('.show') do
+            i.far.fa-eye
+          =< link_to edit_post_path(post), class:"btn btn-xs btn-success ml-5", title: t('.edit') do
+            i.far.fa-edit
+          =< link_to post, data: { confirm: t('posts.index.confirmation') }, class:"btn btn-xs btn-danger ml-5", title: t('.destroy'), method: :delete do
+            i.fas.fa-trash-alt
 br
 = link_to t('.new_post'), new_post_path, class:"btn btn-success"
+
+= will_paginate @posts, list_classes: %w(pagination justify-content-center)
