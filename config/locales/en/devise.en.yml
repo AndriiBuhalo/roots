@@ -144,5 +144,4 @@ en:
         other: "%{count} errors prohibited this %{resource} from being saved:"
   time:
     formats:
-      invitation_date_format: "%B %d, %Y %I:%M %p"
-      
+      invitation_date_format: "%B %d, %Y %I:%M %p"      

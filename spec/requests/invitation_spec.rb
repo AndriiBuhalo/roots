@@ -20,7 +20,6 @@ RSpec.describe 'Invitations', type: :request do
   describe 'GET /new' do
     it 'returns http success' do
       get invitations_new_path
-      expect(response).to have_http_status(:found)
       expect(response).to redirect_to(new_user_invitation_url)
     end
   end
