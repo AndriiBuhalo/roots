@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe '/attachments', type: :request do
   include Devise::Test::IntegrationHelpers
 
@@ -119,3 +120,4 @@ RSpec.describe '/attachments', type: :request do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

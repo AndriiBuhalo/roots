@@ -8,7 +8,9 @@ Rails.application.reloader.to_prepare do
     end
 
     # make sure our uploader is auto-loaded
+    # rubocop:disable Lint/Void
     FileUploader
+    # rubocop:enable Lint/Void
     # use different dirs when testing
     CarrierWave::Uploader::Base.descendants.each do |klass|
       next if klass.anonymous?

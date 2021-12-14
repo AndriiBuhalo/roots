@@ -11,7 +11,7 @@ AllCops:
 Style/Documentation:
   Enabled: false
 
-Lint/Void:
+Style/FrozenStringLiteralComment:
   Enabled: false
 
 Metrics/LineLength:
@@ -21,7 +21,7 @@ Metrics/MethodLength:
   Max: 30
 
 Metrics/BlockLength:
-  Enabled: 50
+  Max: 50
 
 Metrics/AbcSize:
   Max: 50

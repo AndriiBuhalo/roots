@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe '/albums', type: :request do
   include Devise::Test::IntegrationHelpers
 
@@ -128,3 +129,4 @@ RSpec.describe '/albums', type: :request do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
