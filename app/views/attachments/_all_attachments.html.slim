@@ -18,3 +18,4 @@ table.table.table-bordered
           td = link_to attachment_path(image), class: 'btn btn-danger', title: t('common.delete'), method: :delete, data: { confirm: t('common.confirmation') } do
             i.fas.fa-trash-alt
           td = link_to t('attachments.add_to_album'), attachment_path(image), remote: true, class: 'btn btn-primary'
+= will_paginate @attachments, list_classes: %w(pagination justify-content-center)

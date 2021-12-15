@@ -4,8 +4,8 @@ class AttachmentsController < DashboardController
   before_action :set_attachment, only: %i[show edit update destroy add_attachment_to_album]
 
   def index
-    @attachments = Attachment.by_user(current_user)
-    @attachments = @attachments.where("keywords LIKE '%#{params[:tag]}%'") if params[:tag]
+    @attachments = Attachment.by_user(current_user).paginate(page: params[:page])
+    @attachments = @attachments.where("keywords LIKE '%#{params[:tag]}%'").paginate(page: params[:page]) if params[:tag]
   end
 
   def show

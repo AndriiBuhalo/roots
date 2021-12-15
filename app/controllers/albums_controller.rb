@@ -4,7 +4,7 @@ class AlbumsController < DashboardController
   before_action :set_album, only: %i[show edit update destroy]
 
   def index
-    @albums = Album.by_user(current_user)
+    @albums = Album.by_user(current_user).paginate(page: params[:page])
   end
 
   def show
