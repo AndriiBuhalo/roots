@@ -11,7 +11,10 @@ table.table.table-bordered
           td = image.original_filename
           td = image_tag image.file.url(:small), alt: "#{image.original_filename}" if image.file?
           td = image.notes
-          td = link_to t('common.show'), attachment_path(image), class: 'btn btn-info'
-          td = link_to t('common.edit'), edit_attachment_path(image), class: 'btn btn-primary'
-          td = link_to t('common.delete'), attachment_path(image), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
+          td = link_to attachment_path(image), class: 'btn btn-info', title: t('common.show') do
+            i.far.fa-eye
+          td = link_to edit_attachment_path(image), class: 'btn btn-primary', title: t('common.edit') do
+            i.far.fa-edit
+          td = link_to attachment_path(image), class: 'btn btn-danger', title: t('common.delete'), method: :delete, data: { confirm: t('common.confirmation') } do
+            i.fas.fa-trash-alt
           td = link_to t('attachments.add_to_album'), attachment_path(image), remote: true, class: 'btn btn-primary'

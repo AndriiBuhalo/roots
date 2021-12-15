@@ -11,7 +11,7 @@ import "bootstrap"
 global.$ = require ("jquery")
 import "@nathanvda/cocoon"
 import "packs/script_for_files"
-import "@fortawesome/fontawesome-free/css/all"
+import "@fortawesome/fontawesome-free/js/all"
 
 Rails.start()
 Turbolinks.start()

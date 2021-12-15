@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AttachmentsController < DashboardController
-  before_action :set_attachment, only: %i[show edit update destroy]
+  before_action :set_attachment, only: %i[show edit update destroy add_attachment_to_album]
 
   def index
     @attachments = Attachment.by_user(current_user)
@@ -44,8 +44,7 @@ class AttachmentsController < DashboardController
 
   def add_attachment_to_album
     album = Album.by_user(current_user).find(params[:attachment_relation][:album])
-    attachment = Attachment.by_user(current_user).find(params[:id])
-    AttachmentRelation.find_or_create_by(attachment: attachment, attachable: album)
+    album.attachments << @attachment
     flash.now[:notice] = t('attachments.attachment_to_album')
   end
 

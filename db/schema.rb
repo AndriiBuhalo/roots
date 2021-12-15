@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_11_164647) do
+ActiveRecord::Schema.define(version: 2021_12_15_102655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,10 +28,9 @@ ActiveRecord::Schema.define(version: 2021_12_11_164647) do
     t.bigint "attachment_id"
     t.string "attachable_type"
     t.bigint "attachable_id"
-    t.bigint "created_by_id"
     t.index ["attachable_type", "attachable_id"], name: "index_attachment_relations_on_attachable"
+    t.index ["attachment_id", "attachable_id"], name: "index_attachment_relations_on_attachment_id_and_attachable_id", unique: true
     t.index ["attachment_id"], name: "index_attachment_relations_on_attachment_id"
-    t.index ["created_by_id"], name: "index_attachment_relations_on_created_by_id"
   end
 
   create_table "attachments", force: :cascade do |t|
