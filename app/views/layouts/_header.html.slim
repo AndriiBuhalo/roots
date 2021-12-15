@@ -7,29 +7,28 @@ header.navbar.navbar-dark.bg-dark.fixed-top.navbar-expand-md
     .d-flex.flex-md-row.flex-column
       ul.navbar-nav
         - if user_signed_in?
-          li.nav-item.m-2 = link_to t('global.header.posts'), posts_path, class: "nav-link"
-          li.nav-item.m-2 = link_to t('global.header.albums'), '#', class: "nav-link"
-          li.nav-item.m-2 = link_to t('global.header.person'), '#', class: "nav-link"
+          li.nav-item = link_to t('global.header.posts'), posts_path, class: "nav-link"
+          li.nav-item = link_to t('global.header.albums'), '#', class: "nav-link"
+          li.nav-item = link_to t('global.header.person'), '#', class: "nav-link"
     .d-flex.flex-md-row.flex-column
-        .d-flex.flex-row
-          ul.navbar-nav.align-items-center
-            - if user_signed_in?
-              .dropdown.show
-                #dropdown_menu_link.btn.dropdown-toggle[ role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ]
-                  = image_tag current_user.gravatar, class: "rounded-circle gravatar"
-                ul.dropdown-menu.text-black[aria-labelledby="dropdown_menu"]
-                  li.small.m-2 = t('global.header.signed_in_as')
-                  li.nav-link.dropdown-item.nav-item.text-dark.disabled = current_user.email
-                  .dropdown-divider
-                  li.nav-link.dropdown-item.nav-item = link_to t('global.header.Edit Profile'), edit_user_registration_path, class: "text-dark"
-                  .dropdown-divider
-                  li.nav-link.dropdown-item.nav-item = link_to t('global.header.log_out'), destroy_user_session_path, method: :delete, class: "text-dark"
-            - else
-              li.nav-item.m-2= link_to t('global.header.sign_up'), new_user_registration_path, class: "nav-link"
-              li.nav-item.m-2= link_to t('global.header.log_in'), new_user_session_path, class: "nav-link"
-        .dropdown.d-flex.align-items-center
-          #dropdown_menu_button.btn.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
-            = image_tag "language.png"
-          ul.dropdown-menu.border.border-dark aria-labelledby="dropdown_menu_button"
-            - I18n.available_locales.each do |locale|
-              li.nav-link.text-muted= link_to_unless current_locale?(locale), I18n.t("global.header.#{locale}_switch"), locale_path(locale), method: :put, class: "text-dark text-decoration-none"
+      ul.navbar-nav.align-items-center
+        - if user_signed_in?
+          .dropdown.show
+            #dropdown_menu_link.btn.dropdown-toggle[ role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ]
+              = image_tag current_user.gravatar, class: "rounded-circle gravatar"
+            ul.dropdown-menu.text-black[aria-labelledby="dropdown_menu"]
+              li.small.m-2 = t('global.header.signed_in_as')
+              li.nav-link.dropdown-item.nav-item.text-dark.disabled = current_user.email
+              .dropdown-divider
+              li.nav-link.dropdown-item.nav-item = link_to t('global.header.Edit Profile'), edit_user_registration_path, class: "text-dark"
+              .dropdown-divider
+              li.nav-link.dropdown-item.nav-item = link_to t('global.header.log_out'), destroy_user_session_path, method: :delete, class: "text-dark"
+        - else
+          li.nav-item.m-2= link_to t('global.header.sign_up'), new_user_registration_path, class: "nav-link"
+          li.nav-item.m-2= link_to t('global.header.log_in'), new_user_session_path, class: "nav-link"
+    .dropdown.d-flex.align-items-center
+      #dropdown_menu_button.btn.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
+        = image_tag "language.png"
+      ul.dropdown-menu.border.border-dark aria-labelledby="dropdown_menu_button"
+        - I18n.available_locales.each do |locale|
+          li.nav-link.text-muted= link_to_unless current_locale?(locale), I18n.t("global.header.#{locale}_switch"), locale_path(locale), method: :put, class: "text-dark text-decoration-none"
