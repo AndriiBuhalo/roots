@@ -7,7 +7,7 @@ RSpec.describe '/important_dates', type: :request do
 
   let(:user) { create(:user) }
 
-  before(:each) { login_as(user) }
+  before(:each) { sign_in(user) }
 
   describe 'GET /index' do
     it 'renders a successful response' do
