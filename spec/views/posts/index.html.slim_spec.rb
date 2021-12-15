@@ -11,6 +11,7 @@ RSpec.describe 'posts/index', type: :view do
   end
 
   it 'renders a list of posts' do
+    allow(view).to receive_messages(will_paginate: nil)
     render
     expect(rendered).to include t('posts.index.main_title')
     expect(rendered).to include t('posts.index.title')
