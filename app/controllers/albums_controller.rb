@@ -8,7 +8,7 @@ class AlbumsController < DashboardController
   end
 
   def show
-    @attachments = @album.attachments
+    @attachments = @album.attachments.paginate(page: params[:page])
   end
 
   def new
