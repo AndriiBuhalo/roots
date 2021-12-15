@@ -4,7 +4,7 @@ class PostsController < DashboardController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = Post.by_user(current_user)
+    @posts = Post.by_user(current_user).paginate(page: params[:page])
     authorize @posts
   end
 
