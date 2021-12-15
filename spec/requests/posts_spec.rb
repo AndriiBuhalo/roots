@@ -6,7 +6,7 @@ RSpec.describe '/posts', type: :request do
   let(:user) { create(:user) }
 
   before do
-    login_as(user)
+    sign_in(user)
   end
 
   after do
@@ -122,9 +122,7 @@ RSpec.describe '/posts', type: :request do
     let!(:valid_post) { create(:post, created_by: user) }
 
     it 'destroys the requested post' do
-      expect do
-        delete post_url(valid_post)
-      end.to change(Post, :count).by(-1)
+      expect { delete post_url(valid_post) }.to change(Post, :count).by(-1)
     end
 
     it 'redirects to the posts list' do
