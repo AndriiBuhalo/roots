@@ -11,7 +11,7 @@ RSpec.describe 'ImportantDates', type: :feature do
     visit(important_dates_path)
   end
 
-  context 'When create Important date' do
+  context 'when creating an Important date' do
     it 'creates' do
       click_link 'New Important date'
       fill_in 'Event name', with: 'Test Event'
@@ -21,7 +21,7 @@ RSpec.describe 'ImportantDates', type: :feature do
       expect(page).to have_content('Important date was successfully created')
     end
 
-    it "does not create" do
+    it 'does not create' do
       click_link 'New Important date'
       fill_in 'Event name', with: 'Test Event'
       fill_in 'Event date', with: '12/8/2000'
@@ -31,7 +31,7 @@ RSpec.describe 'ImportantDates', type: :feature do
     end
   end
 
-  context 'When update Important date' do
+  context 'when updating an Important date' do
     it 'updates' do
       visit edit_important_date_path(important_date)
       fill_in 'Event name', with: 'Test Event'
@@ -41,7 +41,7 @@ RSpec.describe 'ImportantDates', type: :feature do
       expect(page).to have_content('Important date was successfully updated')
     end
 
-    it "does not update" do
+    it 'does not update' do
       visit edit_important_date_path(important_date)
       fill_in 'Event name', with: 'Test Event'
       fill_in 'Event date', with: '12/8/2000'
@@ -51,7 +51,7 @@ RSpec.describe 'ImportantDates', type: :feature do
     end
   end
 
-  context 'When show Important date' do
+  context 'when an Important date is shown' do
     it 'List and Show Date' do
       visit important_dates_path(important_date)
       expect(page).to have_content('Listing important dates')
