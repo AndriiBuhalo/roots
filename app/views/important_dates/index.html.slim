@@ -14,8 +14,12 @@ table.table.table-bordered.table-hover
         td = important_date.event_name
         td = important_date.event_date
         td = important_date.description
-        td = link_to t('.show'), important_date, class:"btn btn-xs btn-info"
-        td = link_to t('.edit'), edit_important_date_path(important_date), class:"btn btn-xs btn-success"
-        td = link_to t('.destroy'), important_date, data: { confirm: 'Are you sure?' }, class:"btn btn-xs btn-danger", method: :delete
+        td.col-sm-3
+          =< link_to important_date, class:"btn btn-xs btn-info", title: t('.show') do
+            i.far.fa-eye
+          =< link_to edit_important_date_path(important_date), class:"btn btn-xs btn-success ml-5", title: t('.edit') do
+            i.far.fa-edit
+          =< link_to important_date, data: { confirm: t('.confirmation') }, class:"btn btn-xs btn-danger ml-5", title: t('.destroy'), method: :delete do
+            i.far.fa-trash-alt
 br
 = link_to t('.new_important_date'), new_important_date_path, class:"btn btn-success"

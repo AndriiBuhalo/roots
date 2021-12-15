@@ -3,10 +3,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_many :posts, foreign_key: 'created_by_id', dependent: :destroy
-  has_many :important_dates, inverse_of: :created_by, foreign_key: 'created_by_id', dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
+
+  has_many :posts, foreign_key: 'created_by_id', dependent: :destroy
+  has_many :important_dates, inverse_of: :created_by, foreign_key: 'created_by_id', dependent: :destroy
 
   validates :email, length: { maximum: 45 }
   validates :username, presence: false

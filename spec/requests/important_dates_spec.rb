@@ -69,7 +69,6 @@ RSpec.describe '/important_dates', type: :request do
 
       it "renders a successful response (i.e. to display the 'new' template)" do
         get new_important_date_url
-        expect(response).to render_template(:new)
         expect(invalid_important_date).not_to be_valid
         expect(response).to render_template(:new)
       end
@@ -88,8 +87,6 @@ RSpec.describe '/important_dates', type: :request do
       end
 
       it 'updates the requested important_date' do
-        get edit_important_date_url(attributes_for_important_date)
-        expect(response).to render_template(:edit)
         patch important_date_url(attributes_for_important_date), params: { important_date: edited_important_date }
         expect(response).to redirect_to(important_date_url(attributes_for_important_date))
         follow_redirect!
@@ -109,8 +106,6 @@ RSpec.describe '/important_dates', type: :request do
       end
 
       it "renders a successful response (i.e. to display the 'edit' template)" do
-        get edit_important_date_url(attributes_for_important_date)
-        expect(response).to render_template(:edit)
         patch important_date_url(attributes_for_important_date), params: { important_date: edited_important_date }
         expect(response).to render_template(:edit)
       end
