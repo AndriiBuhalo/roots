@@ -16,11 +16,4 @@ RSpec.describe 'Invitations', type: :request do
       expect(response).to render_template(:index, layout: :application)
     end
   end
-
-  describe 'GET /new' do
-    it 'returns http success' do
-      get invitations_new_path
-      expect(response).to redirect_to(new_user_invitation_url)
-    end
-  end
 end

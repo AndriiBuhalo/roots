@@ -13,4 +13,4 @@ table.table.table-bordered.table-hover
             td = invitee.email
             td = invitation_status(invitee)
             td = l invitee.invitation_sent_at, format: :invitation_date_format
-= link_to t('invitations.index.invite_user'), invitations_new_path, class:"btn btn-success"
+= link_to t('invitations.index.invite_user'), new_user_invitation_path, class:"btn btn-success"

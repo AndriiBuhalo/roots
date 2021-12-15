@@ -15,7 +15,6 @@ Rails.application.routes.draw do
 
   # Invitations routes
   get 'invitations', to: 'invitations#index', as: :invitations
-  get 'invitations/new', to: 'invitations#new', as: :invitations_new
 
   # Devise
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
