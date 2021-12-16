@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Invitations', type: :feature do
   let(:user) { create(:user) }
 
-  before do
+  before(:each) do
     sign_in(user)
     visit invitations_path
     click_link 'Invite new User!'
