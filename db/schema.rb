@@ -15,6 +15,16 @@ ActiveRecord::Schema.define(version: 2021_12_14_173855) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "important_dates", force: :cascade do |t|
+    t.string "event_name"
+    t.date "event_date"
+    t.text "description"
+    t.bigint "created_by_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["created_by_id"], name: "index_important_dates_on_created_by_id"
+  end
+
   create_table "locations", force: :cascade do |t|
     t.string "name"
     t.string "address"

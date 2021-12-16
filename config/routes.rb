@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   # Resource routes
   resources :posts
   resources :locations
+  resources :important_dates
 
   # Devise
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
