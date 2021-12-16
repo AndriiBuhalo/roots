@@ -16,10 +16,10 @@ table.table.table-bordered.table-hover
         td = post.content
         td.col-sm-3
           =< link_to post, class:"btn btn-xs btn-info", title: t('.show') do
-            i.far.fa-eye
-          =< link_to edit_post_path(post), class:"btn btn-xs btn-success ml-5", title: t('.edit') do
-            i.far.fa-edit
-          =< link_to post, data: { confirm: t('posts.index.confirmation') }, class:"btn btn-xs btn-danger ml-5", title: t('.destroy'), method: :delete do
+            i.fas.fa-eye
+          =< link_to edit_post_path(post), class:"btn btn-xs btn-success", title: t('.edit') do
+            i.fas.fa-edit
+          =< link_to post, data: { confirm: t('posts.index.confirmation') }, class:"btn btn-xs btn-danger", title: t('.destroy'), method: :delete do
             i.fas.fa-trash-alt
 br
 = link_to t('.new_post'), new_post_path, class:"btn btn-success"

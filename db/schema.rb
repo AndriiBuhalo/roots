@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(version: 2021_12_15_182703) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["created_by_id"], name: "index_attachments_on_created_by_id"
+
+  create_table "important_dates", force: :cascade do |t|
+    t.string "event_name"
+    t.date "event_date"
+    t.text "description"
+    t.bigint "created_by_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["created_by_id"], name: "index_important_dates_on_created_by_id"
+
   end
 
   create_table "posts", force: :cascade do |t|
