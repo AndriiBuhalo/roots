@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :feature do
-  before do
+  before(:each) do
     visit welcome_path
   end
 
