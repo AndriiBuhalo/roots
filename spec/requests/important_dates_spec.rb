@@ -43,13 +43,7 @@ RSpec.describe '/important_dates', type: :request do
 
   describe 'POST /create' do
     context 'with valid parameters' do
-      let(:attributes_for_important_date) do
-        {
-          event_name: Faker::Lorem.characters(number: 20),
-          event_date: Faker::Date.in_date_period,
-          description: Faker::Lorem.characters(number: 100)
-        }
-      end
+      let(:attributes_for_important_date) { attributes_for(:important_date) }
 
       it 'creates a new ImportantDate' do
         post important_dates_url, params: { important_date: attributes_for_important_date }
