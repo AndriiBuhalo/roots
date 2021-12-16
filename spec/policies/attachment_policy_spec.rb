@@ -3,33 +3,31 @@
 require 'rails_helper'
 
 RSpec.describe AttachmentPolicy, type: :policy do
-  subject(:post_policy) { described_class }
+  subject(:attachment_policy) { described_class }
 
   let(:user) { create(:user) }
-  let(:post) { create(:post, created_by: user) }
-  let(:policy_scope) { PostPolicy::Scope.new(user, Attachment).resolve }
+  let(:attachment) { create(:attachment, created_by: user) }
+  let(:policy_scope) { AttachmentPolicy::Scope.new(user, Attachment).resolve }
 
   permissions '.scope' do
-    let(:user_posts) { user.posts << post }
-
     it 'allows the user to see his posts' do
-      expect(policy_scope).to eq user_posts
+      expect(policy_scope).to eq [attachment]
     end
   end
 
   permissions :show?, :create?, :new?, :update?, :edit?, :destroy? do
     describe 'current user of post' do
       it 'grants access if user is current user of post' do
-        expect(post_policy).to permit(user, post)
+        expect(attachment_policy).to permit(user, attachment)
       end
     end
 
     describe 'Admin' do
       let(:admin) { create(:user, :admin) }
-      let(:post) { create(:post, created_by: admin) }
+      let(:attachment) { create(:attachment, created_by: admin) }
 
       it 'grants access if user is an admin' do
-        expect(post_policy).to permit(admin, post)
+        expect(attachment_policy).to permit(admin, attachment)
       end
     end
 
@@ -37,7 +35,7 @@ RSpec.describe AttachmentPolicy, type: :policy do
       let(:not_current_user) { create(:user) }
 
       it 'denies access if user is not current user of post' do
-        expect(post_policy).not_to permit(not_current_user, post)
+        expect(attachment_policy).not_to permit(not_current_user, attachment)
       end
     end
   end

@@ -4,21 +4,21 @@ class PostsController < DashboardController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = Post.by_user(current_user).paginate(page: params[:page])
+    @posts = policy_scope(Post).paginate(page: params[:page])
     authorize @posts
   end
 
   def show; end
 
   def new
-    @post = Post.by_user(current_user).new
+    @post = policy_scope(Post).new
     authorize @post
   end
 
   def edit; end
 
   def create
-    @post = Post.by_user(current_user).new(post_params)
+    @post = policy_scope(Post).new(post_params)
     authorize @post
     if @post.save
       flash[:notice] = t('.controller.create')
@@ -46,7 +46,7 @@ class PostsController < DashboardController
   private
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = policy_scope(Post).find(params[:id])
     authorize @post
   end
 

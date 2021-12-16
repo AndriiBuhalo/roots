@@ -10,10 +10,8 @@ RSpec.describe PostPolicy, type: :policy do
   let(:policy_scope) { PostPolicy::Scope.new(user, Post).resolve }
 
   permissions '.scope' do
-    let(:user_posts) { user.posts << post }
-
     it 'allows the user to see his posts' do
-      expect(policy_scope).to eq user_posts
+      expect(policy_scope).to eq [post]
     end
   end
 
