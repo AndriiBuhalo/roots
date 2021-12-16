@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   # Resource routes
   resources :posts
+  resources :important_dates
 
   # Invitations routes
   get 'invitations', to: 'invitations#index', as: :invitations
