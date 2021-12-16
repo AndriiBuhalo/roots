@@ -1,6 +1,8 @@
 - title t('locations.index.page_title')
 h1 = t('.main_title')
 
+= will_paginate @locations, list_classes: %w(pagination justify-content-center)
+
 table.table.table-bordered.table-hover
   thead
     tr
@@ -16,8 +18,13 @@ table.table.table-bordered.table-hover
         td = location.address
         td = location.latitude
         td = location.longitude
-        td =< link_to t('.show'), location, class:"btn btn-xs btn-info"
-        td =< link_to t('.edit'), edit_location_path(location), class:"btn btn-xs btn-success"
-        td =< link_to t('.destroy'), location, data: { confirm: t('locations.index.confirmation') }, class:"btn btn-xs btn-danger", method: :delete
+        td.col-sm-3
+          =< link_to location, class:"btn btn-xs btn-info", title: t('.show') do
+            i.far.fa-eye
+          =< link_to edit_location_path(location), class:"btn btn-xs btn-success ml-5", title: t('.edit') do
+            i.far.fa-edit
+          =< link_to location, data: { confirm: t('locations.index.confirmation') }, class:"btn btn-xs btn-danger ml-5", title: t('.destroy'), method: :delete do
+            i.fas.fa-trash-alt
 br
 = link_to t('.new_location'), new_location_path, class:"btn btn-success"
+= will_paginate @locations, list_classes: %w(pagination justify-content-center)
