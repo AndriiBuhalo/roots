@@ -2,8 +2,8 @@ FactoryBot.define do
   factory :location do
     name { Faker::Address.city }
     address { Faker::Address.full_address }
-    latitude { Faker::Address.latitude }
-    longitude { Faker::Address.longitude }
+    latitude { Faker::Number.decimal(l_digits: 1, r_digits: 6) }
+    longitude { Faker::Number.decimal(l_digits: 1, r_digits: 6) }
 
     trait :with_user do
       created_by { create :user }
@@ -12,8 +12,8 @@ FactoryBot.define do
     trait :invalid_location do
       name { Faker::Lorem.characters(number: 1) }
       address { Faker::Lorem.characters(number: 3) }
-      latitude { Faker::Lorem.characters(number: 5) }
-      longitude { Faker::Lorem.characters(number: 5) }
+      latitude { Faker::Number.decimal(l_digits: 4, r_digits: 7) }
+      longitude { Faker::Number.decimal(l_digits: 4, r_digits: 7) }
     end
   end
 end

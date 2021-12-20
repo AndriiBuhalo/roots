@@ -10,7 +10,7 @@ table.table.table-bordered.table-hover
       th scope="col" = t('.address')
       th scope="col" = t('.latitude')
       th scope="col" = t('.longitude')
-      th colspan="3" scope="col" = t('.actions')
+      th scope="col" = t('.actions')
   tbody
     - @locations.each do |location|
       tr
@@ -20,11 +20,10 @@ table.table.table-bordered.table-hover
         td = location.longitude
         td.col-sm-3
           =< link_to location, class:"btn btn-xs btn-info", title: t('.show') do
-            i.far.fa-eye
+            i.fas.fa-eye
           =< link_to edit_location_path(location), class:"btn btn-xs btn-success ml-5", title: t('.edit') do
-            i.far.fa-edit
+            i.fas.fa-edit
           =< link_to location, data: { confirm: t('locations.index.confirmation') }, class:"btn btn-xs btn-danger ml-5", title: t('.destroy'), method: :delete do
             i.fas.fa-trash-alt
-br
 = link_to t('.new_location'), new_location_path, class:"btn btn-success"
 = will_paginate @locations, list_classes: %w(pagination justify-content-center)
