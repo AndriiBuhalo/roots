@@ -6,7 +6,7 @@ class PostsController < DashboardController
 
   def index
     add_breadcrumb(t('posts.index.breadcrumb'))
-    @posts = Post.by_user(current_user)
+    @posts = Post.by_user(current_user).paginate(page: params[:page])
   end
 
   def show

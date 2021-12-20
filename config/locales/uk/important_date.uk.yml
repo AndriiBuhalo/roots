@@ -1,0 +1,40 @@
+uk:
+  important_dates:
+    edit:
+      page_title: "Редагувати %{event_name}"
+      title: "Редагування важливої дати"
+      show: "Детальніше"
+      back: "Назад"
+    show:
+      page_title: "Переглянути %{event_name}"
+      edit: "Редагувати"
+      back: "Назад"
+      event_name: "Назва події:"
+      event_date: "Дата події:"
+      description: "Опис:"
+    index:
+      page_title: "Важливі дати"
+      main_title: "Список важливих дат"
+      event_name: "Назва події"
+      event_date: "Дата події"
+      description: "Опис"
+      actions: "Дії"
+      show: "Переглянути"
+      edit: "Редагувати"
+      destroy: "Видалити"
+      confirmation: "Ви впевнені?"
+      new_important_date: "Нова Важлива дата"
+    new:
+      page_title: "Нова Важлива Дата"
+      title: "Нова важлива дата"
+      back: "Назад"
+    controller:
+      create: "Важливу дату успішно створено."
+      update: "Важливу дату успішно оновлено."
+      destroy: "Важливу дату успішно видалено."
+    form:
+      event_placeholder: "Назва події"
+      description_placeholder: "Опис події"
+  global:
+    forms:
+      submit: "Зберегти"
