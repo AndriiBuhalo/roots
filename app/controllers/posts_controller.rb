@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class PostsController < DashboardController
+  include Breadcrumbs
   before_action :set_post, only: %i[show edit update destroy]
-  before_action :set_index_breadcrumb, only: %i[show new edit]
 
   def index
     add_breadcrumb(t('posts.index.breadcrumb'))
@@ -56,9 +56,5 @@ class PostsController < DashboardController
 
   def post_params
     params.require(:post).permit(:title, :content)
-  end
-
-  def set_index_breadcrumb
-    add_breadcrumb(t('posts.index.breadcrumb'), posts_path)
   end
 end
