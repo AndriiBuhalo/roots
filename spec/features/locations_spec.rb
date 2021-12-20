@@ -60,18 +60,4 @@ RSpec.describe 'Locations', type: :feature do
       expect(page).to have_content('Longitude is invalid')
     end
   end
-
-  context 'when showing a location' do
-    it 'lists collection of locations' do
-      expect(page).to have_content('Listing Locations')
-    end
-
-    it 'shows a single location' do
-      visit location_path(location)
-      expect(page).to have_content(location.name)
-      expect(page).to have_content(location.address)
-      expect(page).to have_content(location.latitude)
-      expect(page).to have_content(location.longitude)
-    end
-  end
 end
