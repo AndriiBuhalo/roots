@@ -1,11 +1,13 @@
 uk:
   important_dates:
     edit:
+      breadcrumb: "Редагувати %{event_name}"
       page_title: "Редагувати %{event_name}"
       title: "Редагування важливої дати"
       show: "Детальніше"
       back: "Назад"
     show:
+      breadcrumb: "Переглянути %{event_name}"
       page_title: "Переглянути %{event_name}"
       edit: "Редагувати"
       back: "Назад"
@@ -13,6 +15,7 @@ uk:
       event_date: "Дата події:"
       description: "Опис:"
     index:
+      breadcrumb: "Важливі дати"
       page_title: "Важливі дати"
       main_title: "Список важливих дат"
       event_name: "Назва події"
@@ -25,6 +28,7 @@ uk:
       confirmation: "Ви впевнені?"
       new_important_date: "Нова Важлива дата"
     new:
+      breadcrumb: "Нова Важлива Дата"
       page_title: "Нова Важлива Дата"
       title: "Нова важлива дата"
       back: "Назад"
