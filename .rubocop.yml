@@ -31,6 +31,3 @@ RSpec/MultipleExpectations:
 
 RSpec/ExampleLength:
   Max: 20
-
-RSpec/HookArgument:
-  Enabled: false
