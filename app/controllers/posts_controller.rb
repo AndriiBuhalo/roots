@@ -5,7 +5,8 @@ class PostsController < DashboardController
 
   def index
     add_breadcrumb(t('posts.index.breadcrumb'))
-    @posts = Post.by_user(current_user).paginate(page: params[:page])
+    @posts = policy_scope(Post).paginate(page: params[:page])
+    authorize @posts
   end
 
   def show
@@ -14,7 +15,8 @@ class PostsController < DashboardController
 
   def new
     add_breadcrumb(t('posts.new.breadcrumb'))
-    @post = Post.by_user(current_user).new
+    @post = policy_scope(Post).new
+    authorize @post
   end
 
   def edit
@@ -23,7 +25,8 @@ class PostsController < DashboardController
   end
 
   def create
-    @post = Post.by_user(current_user).new(post_params)
+    @post = policy_scope(Post).new(post_params)
+    authorize @post
     if @post.save
       flash[:notice] = t('.controller.create')
       redirect_to @post
@@ -50,7 +53,8 @@ class PostsController < DashboardController
   private
 
   def set_post
-    @post = Post.by_user(current_user).find(params[:id])
+    @post = policy_scope(Post).find(params[:id])
+    authorize @post
   end
 
   def post_params
