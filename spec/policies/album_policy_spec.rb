@@ -10,13 +10,13 @@ RSpec.describe AlbumPolicy, type: :policy do
   let(:policy_scope) { AlbumPolicy::Scope.new(user, Album).resolve }
 
   permissions '.scope' do
-    it 'allows the user to see his posts' do
+    it 'allows the user to see his albums' do
       expect(policy_scope).to eq [album]
     end
   end
 
   permissions :show?, :create?, :new?, :update?, :edit?, :destroy?, :add_attachment_to_album? do
-    describe 'current user of post' do
+    describe 'current user of album' do
       it 'grants access if user is current user of post' do
         expect(album_policy).to permit(user, album)
       end
@@ -31,10 +31,10 @@ RSpec.describe AlbumPolicy, type: :policy do
       end
     end
 
-    describe 'not current_user of post' do
+    describe 'not current_user of album' do
       let(:not_current_user) { create(:user) }
 
-      it 'denies access if user is not current user of post' do
+      it 'denies access if user is not current user of album' do
         expect(album_policy).not_to permit(not_current_user, album)
       end
     end

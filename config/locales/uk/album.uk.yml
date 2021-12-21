@@ -1,7 +1,7 @@
 uk:
   albums:
     title: '%{title}'
-    name: 'Ім'я альбома'
+    name: 'Імя альбома'
     description: 'Опис альбома'
     index:
       create_album: 'Створити альбом'

@@ -10,13 +10,13 @@ RSpec.describe AttachmentPolicy, type: :policy do
   let(:policy_scope) { AttachmentPolicy::Scope.new(user, Attachment).resolve }
 
   permissions '.scope' do
-    it 'allows the user to see his posts' do
+    it 'allows the user to see his attachments' do
       expect(policy_scope).to eq [attachment]
     end
   end
 
   permissions :show?, :create?, :new?, :update?, :edit?, :destroy?, :add_attachment_to_album? do
-    describe 'current user of post' do
+    describe 'current user of attachment' do
       it 'grants access if user is current user of post' do
         expect(attachment_policy).to permit(user, attachment)
       end
@@ -31,10 +31,10 @@ RSpec.describe AttachmentPolicy, type: :policy do
       end
     end
 
-    describe 'not current_user of post' do
+    describe 'not current_user of attachment' do
       let(:not_current_user) { create(:user) }
 
-      it 'denies access if user is not current user of post' do
+      it 'denies access if user is not current user of attachment' do
         expect(attachment_policy).not_to permit(not_current_user, attachment)
       end
     end
