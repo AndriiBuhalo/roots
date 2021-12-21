@@ -42,10 +42,10 @@ RSpec.describe '/important_dates', type: :request do
 
   describe 'POST /create' do
     context 'with valid parameters' do
-      let(:valid_important_date) { attributes_for(:important_date) }
+      let(:valid_important_date_attributes) { attributes_for(:important_date) }
 
       it 'creates a new ImportantDate' do
-        post important_dates_url, params: { important_date: valid_important_date }
+        post important_dates_url, params: { important_date: valid_important_date_attributes }
         expect(response).to redirect_to(assigns(:important_date))
         follow_redirect!
         expect(response).to render_template(:show)
