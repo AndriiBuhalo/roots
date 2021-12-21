@@ -7,7 +7,7 @@ table.table.table-bordered.table-hover
       th scope="col" = t('.event_name')
       th scope="col" = t('.event_date')
       th scope="col" = t('.description')
-      th colspan="3" scope="col" = t('.actions')
+      th scope="col" = t('.actions')
   tbody
     - @important_dates.each do |important_date|
       tr
@@ -21,5 +21,4 @@ table.table.table-bordered.table-hover
             i.fas.fa-edit
           =< link_to important_date, data: { confirm: t('.confirmation') }, class:"btn btn-xs btn-danger", title: t('.destroy'), method: :delete do
             i.fas.fa-trash-alt
-br
 = link_to t('.new_important_date'), new_important_date_path, class:"btn btn-success"
