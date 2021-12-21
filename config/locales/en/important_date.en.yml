@@ -1,13 +1,12 @@
 en:
   important_dates:
     edit:
-      breadcrumb: "Edit %{event_name}"
+      breadcrumb: "Edit"
       page_title: "Edit %{event_name}"
       title: "Editing important date"
       show: "Show"
       back: "Back"
     show:
-      breadcrumb: "Show %{event_name}"
       page_title: "Show %{event_name}"
       edit: "Edit"
       back: "Back"

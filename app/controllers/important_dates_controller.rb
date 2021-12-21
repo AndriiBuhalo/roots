@@ -9,7 +9,7 @@ class ImportantDatesController < DashboardController
   end
 
   def show
-    add_breadcrumb(t('important_dates.show.breadcrumb', event_name: @important_date.event_name))
+    add_breadcrumb(@important_date.event_name)
   end
 
   def new
@@ -18,8 +18,8 @@ class ImportantDatesController < DashboardController
   end
 
   def edit
-    add_breadcrumb(t('important_dates.show.breadcrumb', event_name: @important_date.event_name), important_date_path(@important_date))
-    add_breadcrumb(t('important_dates.edit.breadcrumb', event_name: @important_date.event_name))
+    add_breadcrumb(@important_date.event_name, important_date_path(@important_date))
+    add_breadcrumb(t('important_dates.edit.breadcrumb'))
   end
 
   def create

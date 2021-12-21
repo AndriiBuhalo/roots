@@ -9,7 +9,7 @@ class PostsController < DashboardController
   end
 
   def show
-    add_breadcrumb(t('posts.show.breadcrumb', title: @post.title))
+    add_breadcrumb(@post.title)
   end
 
   def new
@@ -18,8 +18,8 @@ class PostsController < DashboardController
   end
 
   def edit
-    add_breadcrumb(t('posts.show.breadcrumb', title: @post.title), post_path(@post))
-    add_breadcrumb(t('posts.edit.breadcrumb', title: @post.title))
+    add_breadcrumb(@post.title, post_path(@post))
+    add_breadcrumb(t('posts.edit.breadcrumb'))
   end
 
   def create

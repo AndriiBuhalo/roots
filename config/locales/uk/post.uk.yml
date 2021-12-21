@@ -1,13 +1,12 @@
 uk:
   posts:
     edit:
-      breadcrumb: "Редагувати %{title}"
+      breadcrumb: "Редагувати"
       page_title: "Редагувати %{title}"
       title: "Редагування"
       show: "Детальніше"
       back: "Назад"
     show:
-      breadcrumb: "Переглянути %{title}"
       page_title: "Переглянути %{title}"
       edit: "Редагувати"
       back: "Назад"

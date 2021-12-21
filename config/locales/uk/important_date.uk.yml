@@ -1,13 +1,12 @@
 uk:
   important_dates:
     edit:
-      breadcrumb: "Редагувати %{event_name}"
+      breadcrumb: "Редагувати"
       page_title: "Редагувати %{event_name}"
       title: "Редагування важливої дати"
       show: "Детальніше"
       back: "Назад"
     show:
-      breadcrumb: "Переглянути %{event_name}"
       page_title: "Переглянути %{event_name}"
       edit: "Редагувати"
       back: "Назад"
