@@ -11,6 +11,7 @@ RSpec.describe 'important_dates/index', type: :view do
   end
 
   it 'renders a list of important_dates' do
+    allow(view).to receive_messages(will_paginate: nil)
     render
     expect(rendered).to include t('important_dates.index.main_title')
     expect(rendered).to include t('important_dates.index.event_name')
