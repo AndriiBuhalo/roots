@@ -4,20 +4,23 @@ class AttachmentsController < DashboardController
   before_action :set_attachment, only: %i[show edit update destroy add_attachment_to_album]
 
   def index
-    @attachments = Attachment.by_user(current_user).paginate(page: params[:page])
+    @attachments = policy_scope(Attachment).paginate(page: params[:page])
     @attachments = @attachments.where("keywords LIKE '%#{params[:tag]}%'").paginate(page: params[:page]) if params[:tag]
+    authorize @attachments
   end
 
   def show
-    @albums = Album.by_user(current_user)
+    @albums = policy_scope(Album)
   end
 
   def new
-    @attachment = Attachment.by_user(current_user).new
+    @attachment = policy_scope(Attachment).new
+    authorize @attachment
   end
 
   def create
-    @attachment = Attachment.by_user(current_user).new(file_params)
+    @attachment = policy_scope(Attachment).new(file_params)
+    authorize @attachment
     if @attachment.save
       redirect_to @attachment, success: t('attachments.controller.create')
     else
@@ -43,7 +46,7 @@ class AttachmentsController < DashboardController
   end
 
   def add_attachment_to_album
-    album = Album.by_user(current_user).find(params[:attachment_relation][:album])
+    album = policy_scope(Album).find(params[:attachment_relation][:album])
     album.attachments << @attachment
     flash.now[:notice] = t('attachments.attachment_to_album')
   end
@@ -51,7 +54,8 @@ class AttachmentsController < DashboardController
   private
 
   def set_attachment
-    @attachment = Attachment.by_user(current_user).find(params[:id])
+    @attachment = Attachment.find(params[:id])
+    authorize @attachment
   end
 
   def file_params
