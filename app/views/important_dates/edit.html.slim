@@ -1,0 +1,5 @@
+- title t('.page_title', event_name: @important_date.event_name)
+h1 = t('.title')
+= render 'important_dates/form', important_date: @important_date
+= link_to t('.show'), @important_date, class:"btn btn-xs btn-success mt-3"
+= link_to t('.back'), important_dates_path, class:"btn btn-xs btn-info mt-3 ml-3"

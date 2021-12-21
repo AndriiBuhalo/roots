@@ -1,0 +1,12 @@
+- title t('.page_title', event_name: @important_date.event_name)
+p
+  strong = t('.event_name')
+  = @important_date.event_name
+p
+  strong = t('.event_date')
+  = @important_date.event_date
+p
+  strong = t('.description')
+  = @important_date.description
+= link_to t('.edit'), edit_important_date_path(@important_date), class:"btn btn-xs btn-success"
+= link_to t('.back'), important_dates_path, class:"btn btn-xs btn-info ml-3"

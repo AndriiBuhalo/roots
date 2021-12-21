@@ -1,0 +1,24 @@
+- title t('.page_title')
+h1 = t('.main_title')
+
+table.table.table-bordered.table-hover
+  thead
+    tr
+      th scope="col" = t('.event_name')
+      th scope="col" = t('.event_date')
+      th scope="col" = t('.description')
+      th scope="col" = t('.actions')
+  tbody
+    - @important_dates.each do |important_date|
+      tr
+        td = important_date.event_name
+        td = important_date.event_date
+        td = important_date.description
+        td.col-sm-3
+          =< link_to important_date, class:"btn btn-xs btn-info", title: t('.show') do
+            i.fas.fa-eye
+          =< link_to edit_important_date_path(important_date), class:"btn btn-xs btn-success", title: t('.edit') do
+            i.fas.fa-edit
+          =< link_to important_date, data: { confirm: t('.confirmation') }, class:"btn btn-xs btn-danger", title: t('.destroy'), method: :delete do
+            i.fas.fa-trash-alt
+= link_to t('.new_important_date'), new_important_date_path, class:"btn btn-success"

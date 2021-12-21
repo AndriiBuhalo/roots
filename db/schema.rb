@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_22_124718) do
+ActiveRecord::Schema.define(version: 2021_12_08_101550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.string "ancestry"
+    t.string "commentable_type"
+    t.bigint "commentable_id"
+    t.bigint "created_by_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ancestry"], name: "index_comments_on_ancestry"
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
+    t.index ["created_by_id"], name: "index_comments_on_created_by_id"
+  end
+
+  create_table "important_dates", force: :cascade do |t|
+    t.string "event_name"
+    t.date "event_date"
+    t.text "description"
+    t.bigint "created_by_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["created_by_id"], name: "index_important_dates_on_created_by_id"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
@@ -33,6 +56,7 @@ ActiveRecord::Schema.define(version: 2021_11_22_124718) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "username"
+    t.integer "role", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

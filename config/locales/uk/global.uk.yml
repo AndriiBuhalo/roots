@@ -15,6 +15,7 @@ uk:
       log_in: "Увійти"
       sign_out: "Вийти"
       log_out: "Вийти"
+      important_dates: "Дати"
       posts: "Дописи"
       albums: "Альбоми"
       person: "Особа"
@@ -28,3 +29,4 @@ uk:
       softserve: "SoftServe"
     public:
       alt: "Коріння"
+    access: "Ви не маєте доступу до цієї сторінки"

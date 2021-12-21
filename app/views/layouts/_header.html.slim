@@ -10,6 +10,7 @@ header.navbar.navbar-dark.bg-dark.fixed-top.navbar-expand-md
           li.nav-item = link_to t('global.header.posts'), posts_path, class: "nav-link"
           li.nav-item = link_to t('global.header.albums'), '#', class: "nav-link"
           li.nav-item = link_to t('global.header.person'), '#', class: "nav-link"
+          li.nav-item = link_to t('global.header.important_dates'), important_dates_path, class: "nav-link"
     .d-flex.flex-md-row.flex-column
       ul.navbar-nav.align-items-center
         - if user_signed_in?
