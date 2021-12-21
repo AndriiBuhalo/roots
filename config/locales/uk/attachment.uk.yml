@@ -1,0 +1,39 @@
+uk:
+  attachments:
+    file_name: 'Ім'я файла'
+    file: 'Файл'
+    notes: 'Примітка'
+    keywords: 'Ключові слова'
+    place: 'Місце'
+    create_file: 'Створити файл'
+    title: '%{title}'
+    attachment_to_album: 'Цей файл додано до альбому'
+    add_to_album: 'Додати до альбому'
+    index:
+      create_file: 'Створити файл'
+    new:
+      create_file: 'Створити файл'
+      add_file: 'Додати файл'
+      upload: 'Загрузити'
+    show:
+      information: 'Інформація'
+      keywords: 'Ключові слова:'
+      notes: 'Примітка:'
+      place: 'Місце:'
+      date: 'Дата:'
+      albums: 'Альбоми:'
+      type: 'Тип:'
+      width: 'Ширина:'
+      height: 'Висота:'
+      size: 'Розмір:'
+      downloaded: 'Загрузив:'
+      px: 'px'
+      donwload: 'Завантажити'
+    edit:
+      edit_file: 'Редагувати файл'
+    controller:
+      create: 'Файл успішно додано!'
+      create_error: 'Файл не додано!'
+      update: 'Інформація успішно змінена!'
+      update_error: 'Під час зміни інформації сталася помилка'
+      destroy: 'Файл успішно видалено!'

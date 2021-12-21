@@ -1,0 +1,25 @@
+uk:
+  albums:
+    title: '%{title}'
+    name: 'Ім'я альбома'
+    description: 'Опис альбома'
+    index:
+      create_album: 'Створити альбом'
+    show:
+      empty: 'Нічого не знайдено!'
+    new:
+      create_album: 'Створити альбом'
+    edit:
+      edit_album: 'Редагувати альбом'
+    attachment_fields:
+      add_file: 'Додати файл'
+      remove_file: 'Видалити файл'
+      add_picture: 'Додати картинку'
+    form:
+      add_file: 'Додати файл'
+    controller:
+      create: 'Альбом успішно додано!'
+      create_error: 'Будь ласка спробуйте ще раз!'
+      update: 'Альбом успішно змінено!'
+      update_error: 'Альбом не змінився'
+      destroy: 'Альбом успішно видалено!'
