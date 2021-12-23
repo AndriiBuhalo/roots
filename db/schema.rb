@@ -25,17 +25,6 @@ ActiveRecord::Schema.define(version: 2021_12_18_125942) do
     t.index ["created_by_id"], name: "index_important_dates_on_created_by_id"
   end
 
-  create_table "locations", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.decimal "latitude", precision: 10, scale: 6
-    t.decimal "longitude", precision: 10, scale: 6
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "created_by_id"
-    t.index ["created_by_id"], name: "index_locations_on_created_by_id"
-  end
-
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
