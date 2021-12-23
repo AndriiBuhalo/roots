@@ -1,4 +1,4 @@
-- title t('attachments.show.page_title', title: @attachment.title)
+- title t('attachments.show.page_title', title: @attachment.original_filename)
 - if @attachment.file?
   h3 = @attachment.original_filename
   = image_tag @attachment.file.url(:large), class: 'mb-3', alt: @attachment.original_filename
