@@ -40,3 +40,6 @@ en:
       update: 'Information changed successfully!'
       update_error: 'An error occurred while changing the information'
       destroy: 'File successfully deleted!'
+  time:
+    formats:
+      date: "%B %d, %Y"

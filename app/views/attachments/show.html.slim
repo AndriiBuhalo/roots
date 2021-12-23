@@ -16,7 +16,7 @@
     = @attachment.place
   p
     strong => t('.date')
-    = @attachment.date.strftime("%Y-%m-%d") if @attachment.date?
+    = l(@attachment.date, format: :date) if @attachment.date?
   p
     strong = t('.albums')
     - @attachment.albums.each do |album|
