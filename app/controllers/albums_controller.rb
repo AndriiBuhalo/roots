@@ -4,23 +4,18 @@ class AlbumsController < DashboardController
   before_action :set_album, only: %i[show edit update destroy]
 
   def index
-    @albums = policy_scope(Album).paginate(page: params[:page])
-    authorize @albums
+    @albums = authorize policy_scope(Album).paginate(page: params[:page])
   end
 
-  def show
-    @attachments = @album.attachments.paginate(page: params[:page])
-  end
+  def show; end
 
   def new
     @album = policy_scope(Album).new
-    authorize @album
     @album.attachments.build
   end
 
   def create
-    @album = policy_scope(Album).new(album_params)
-    authorize @album
+    @album = authorize policy_scope(Album).new(album_params)
     if @album.save
       redirect_to @album, success: t('albums.controller.create')
     else
@@ -50,8 +45,7 @@ class AlbumsController < DashboardController
   private
 
   def set_album
-    @album = Album.find(params[:id])
-    authorize @album
+    @album = authorize policy_scope(Album).find(params[:id])
   end
 
   def album_params

@@ -1,4 +1,4 @@
-- title t('albums.title', title: "Show #{@album.name}")
+- title t('albums.show.page_title', title: @album.title)
 h3.m-3
   = @album.name
   span
@@ -11,4 +11,4 @@ p.m-3 = @album.description
 - if @album.attachments.empty?
   .d-flex.justify-content-center = t('.empty')
 - else
-  = render 'attachments/all_attachments'
+  = render 'attachments/all_attachments', attachments: @album.attachments.paginate(page: params[:page])

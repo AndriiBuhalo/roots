@@ -1,4 +1,5 @@
-- title t('albums.title', title: "Albums")
+- title t('albums.index.page_title')
+= will_paginate @albums, list_classes: %w(pagination justify-content-center)
 table.table.table-bordered
   thead
     tr.text-center
@@ -10,11 +11,12 @@ table.table.table-bordered
         tr.text-center
           td = album.name
           td = album.description
-          td = link_to album_path(album), class: 'btn btn-info', title: t('common.show') do
-            i.far.fa-eye
-          td = link_to edit_album_path(album), class: 'btn btn-primary', title: t('common.edit') do
-            i.far.fa-edit
-          td = link_to album_path(album), class: 'btn btn-danger', title: t('common.delete'), method: :delete, data: { confirm: t('common.confirmation') } do
-            i.fas.fa-trash-alt
+          td.col-sm-3
+            =< link_to album_path(album), class: 'btn btn-info mr-3', title: t('common.show') do
+              i.fas.fa-eye
+            =< link_to edit_album_path(album), class: 'btn btn-primary mr-3', title: t('common.edit') do
+              i.fas.fa-edit
+            =< link_to album_path(album), class: 'btn btn-danger mr-3', title: t('common.delete'), method: :delete, data: { confirm: t('common.confirmation') } do
+              i.fas.fa-trash-alt
 = link_to t('.create_album'), new_album_path, class:"btn btn-success"
 = will_paginate @albums, list_classes: %w(pagination justify-content-center)

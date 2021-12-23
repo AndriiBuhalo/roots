@@ -4,9 +4,9 @@ class AttachmentsController < DashboardController
   before_action :set_attachment, only: %i[show edit update destroy add_attachment_to_album]
 
   def index
-    @attachments = policy_scope(Attachment).paginate(page: params[:page])
-    @attachments = @attachments.where("keywords LIKE '%#{params[:tag]}%'").paginate(page: params[:page]) if params[:tag]
-    authorize @attachments
+    @attachments = policy_scope(Attachment)
+    @attachments = @attachments.where('keywords LIKE ?', "%#{params[:tag]}%") if params[:tag].present?
+    @attachments = authorize @attachments.paginate(page: params[:page])
   end
 
   def show
@@ -15,12 +15,10 @@ class AttachmentsController < DashboardController
 
   def new
     @attachment = policy_scope(Attachment).new
-    authorize @attachment
   end
 
   def create
-    @attachment = policy_scope(Attachment).new(file_params)
-    authorize @attachment
+    @attachment = authorize policy_scope(Attachment).new(file_params)
     if @attachment.save
       redirect_to @attachment, success: t('attachments.controller.create')
     else
@@ -54,8 +52,7 @@ class AttachmentsController < DashboardController
   private
 
   def set_attachment
-    @attachment = Attachment.find(params[:id])
-    authorize @attachment
+    @attachment = authorize policy_scope(Attachment).find(params[:id])
   end
 
   def file_params

@@ -46,7 +46,7 @@ class PostsController < DashboardController
   private
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = policy_scope(Post).find(params[:id])
     authorize @post
   end
 

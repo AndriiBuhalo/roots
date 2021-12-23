@@ -1,4 +1,4 @@
-- title t('attachments.title', title: "Edit file")
+- title t('attachments.edit.page_title', title: @attachment.title)
 = simple_form_for @attachment do |f|
   h3 = t('.edit_file')
   = f.input :original_filename, placeholder: t('attachments.file_name')

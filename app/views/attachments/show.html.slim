@@ -1,7 +1,7 @@
-- title t('attachments.title', title: "Show #{@attachment.original_filename}")
+- title t('attachments.show.page_title', title: @attachment.title)
 - if @attachment.file?
   h3 = @attachment.original_filename
-  = image_tag @attachment.file.url(:large), class: 'mb-3', alt: "#{@attachment.original_filename}"
+  = image_tag @attachment.file.url(:large), class: 'mb-3', alt: @attachment.original_filename
   h3.text-uppercase = t('.information')
   p
     strong => t('.keywords')

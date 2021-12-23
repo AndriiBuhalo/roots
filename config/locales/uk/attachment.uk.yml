@@ -6,16 +6,18 @@ uk:
     keywords: 'Ключові слова'
     place: 'Місце'
     create_file: 'Створити файл'
-    title: '%{title}'
     attachment_to_album: 'Цей файл додано до альбому'
     add_to_album: 'Додати до альбому'
     index:
+      page_title: "Файли"
       create_file: 'Створити файл'
     new:
+      page_title: "Новий Файл"
       create_file: 'Створити файл'
       add_file: 'Додати файл'
       upload: 'Загрузити'
     show:
+      page_title: "Переглянути %{title}"
       information: 'Інформація'
       keywords: 'Ключові слова:'
       notes: 'Примітка:'
@@ -30,6 +32,7 @@ uk:
       px: 'px'
       donwload: 'Завантажити'
     edit:
+      page_title: "Редагувати %{title}"
       edit_file: 'Редагувати файл'
     controller:
       create: 'Файл успішно додано!'

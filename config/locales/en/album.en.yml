@@ -1,15 +1,18 @@
 en:
   albums:
-    title: '%{title}'
     name: 'Album name'
     description: 'Album description'
     index:
+      page_title: "Albums"
       create_album: 'Create album'
     show:
+      page_title: "Show %{title}"
       empty: 'Nothing found!'
     new:
+      page_title: "New Album"
       create_album: 'Create album'
     edit:
+      page_title: "Edit %{title}"
       edit_album: 'Edit album'
     attachment_fields:
       add_file: 'Add file'
