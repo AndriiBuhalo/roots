@@ -1,17 +1,7 @@
-# class PostPolicy::Scope
+# class ImportantDatePolicy::Scope
 # frozen_string_literal: true
 
 class ImportantDatePolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      if @user.admin?
-        scope.all
-      else
-        scope.by_user(@user)
-      end
-    end
-  end
-
   def index?
     true
   end

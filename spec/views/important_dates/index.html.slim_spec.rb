@@ -8,10 +8,10 @@ RSpec.describe 'important_dates/index', type: :view do
 
   before(:each) do
     assign(:important_dates, [important_date])
+    allow(view).to receive(:will_paginate).and_return(nil)
   end
 
   it 'renders a list of important_dates' do
-    allow(view).to receive(:will_paginate).and_return(nil)
     render
     expect(rendered).to include t('important_dates.index.main_title')
     expect(rendered).to include t('important_dates.index.event_name')
