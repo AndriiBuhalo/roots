@@ -1,0 +1,14 @@
+- title t('albums.show.page_title', title: @album.name)
+h3.m-3
+  = @album.name
+  span
+    | (#{@album.attachments.length})
+p.m-3 = @album.description
+.ml-3.mb-3
+  = link_to t('common.edit'), edit_album_path(@album), class: "btn btn-primary"
+  = link_to t('common.delete'), album_path(@album), class: 'btn btn-danger', method: :delete, data: { confirm: t('common.confirmation') }
+  = link_to t('common.back'), :back, class: 'btn btn-secondary'
+- if @attachments.empty?
+  .d-flex.justify-content-center = t('.empty')
+- else
+  = render 'attachments/all_attachments'
