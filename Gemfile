@@ -29,6 +29,7 @@ gem 'awesome_print'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 gem 'devise-i18n'
+gem 'devise_invitable'
 gem 'jbuilder', '~> 2.7'
 gem 'meta-tags'
 gem 'omniauth-google-oauth2'
@@ -43,6 +44,7 @@ gem 'will_paginate-bootstrap4'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails', '~> 2.7'
+  gem 'email_spec'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry-rails'
