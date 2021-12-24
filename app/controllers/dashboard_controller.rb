@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class DashboardController < ApplicationController
+  include Breadcrumbs
   include Pundit
   before_action :authenticate_user!
 
