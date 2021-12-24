@@ -58,4 +58,5 @@ ActiveRecord::Schema.define(version: 2021_12_08_101550) do
     t.index ["invited_by_type", "invited_by_id"], name: "index_users_on_invited_by"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
 end
