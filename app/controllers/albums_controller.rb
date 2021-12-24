@@ -7,7 +7,9 @@ class AlbumsController < DashboardController
     @albums = authorize policy_scope(Album).paginate(page: params[:page])
   end
 
-  def show; end
+  def show
+    @attachments = @album.attachments.paginate(page: params[:page])
+  end
 
   def new
     @album = policy_scope(Album).new

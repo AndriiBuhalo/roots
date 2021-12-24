@@ -4,8 +4,6 @@ require 'rails_helper'
 
 # rubocop:disable Metrics/BlockLength
 RSpec.describe '/albums', type: :request do
-  include Devise::Test::IntegrationHelpers
-
   let(:user) { create(:user) }
 
   before do

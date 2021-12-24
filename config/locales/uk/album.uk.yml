@@ -3,16 +3,16 @@ uk:
     name: 'Імя альбома'
     description: 'Опис альбома'
     index:
-      page_title: "Альбоми"
+      page_title: 'Альбоми'
       create_album: 'Створити альбом'
     show:
-      page_title: "Переглянути %{title}"
+      page_title: 'Переглянути %{title}'
       empty: 'Нічого не знайдено!'
     new:
       page_title: "Новий Альбом"
       create_album: 'Створити альбом'
     edit:
-      page_title: "Редагувати %{title}"
+      page_title: 'Редагувати %{title}'
       edit_album: 'Редагувати альбом'
     attachment_fields:
       add_file: 'Додати файл'

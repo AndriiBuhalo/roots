@@ -9,15 +9,15 @@ uk:
     attachment_to_album: 'Цей файл додано до альбому'
     add_to_album: 'Додати до альбому'
     index:
-      page_title: "Файли"
+      page_title: 'Файли'
       create_file: 'Створити файл'
     new:
-      page_title: "Новий Файл"
+      page_title: 'Новий Файл'
       create_file: 'Створити файл'
       add_file: 'Додати файл'
       upload: 'Загрузити'
     show:
-      page_title: "Переглянути %{title}"
+      page_title: 'Переглянути %{title}'
       information: 'Інформація'
       keywords: 'Ключові слова:'
       notes: 'Примітка:'
@@ -32,7 +32,7 @@ uk:
       px: 'px'
       donwload: 'Завантажити'
     edit:
-      page_title: "Редагувати %{title}"
+      page_title: 'Редагувати %{title}'
       edit_file: 'Редагувати файл'
     controller:
       create: 'Файл успішно додано!'
@@ -42,4 +42,4 @@ uk:
       destroy: 'Файл успішно видалено!'
   time:
     formats:
-      date: "%d %b %Y"
+      date: '%d %b %Y'
