@@ -3,17 +3,17 @@
 require 'rails_helper'
 
 RSpec.describe 'WelcomePages', type: :request do
-  describe 'GET /home' do
+  describe 'GET /welcome' do
     it 'returns http success' do
-      get '/welcome_pages/home'
+      get welcome_path
       expect(response).to have_http_status(:success)
-      expect(response).to render_template(:home, layout: :public)
+      expect(response).to render_template(:welcome, layout: :public)
     end
   end
 
   describe 'GET /about' do
     it 'returns http success' do
-      get '/welcome_pages/about'
+      get about_path
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:about, layout: :public)
     end
@@ -21,7 +21,7 @@ RSpec.describe 'WelcomePages', type: :request do
 
   describe 'GET /contacts' do
     it 'returns http success' do
-      get '/welcome_pages/contacts'
+      get contacts_path
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:contacts, layout: :public)
     end

@@ -1,0 +1,20 @@
+uk:
+  invitations:
+    index:
+      breadcrumb: "Запрошення"
+      page_title: "Запрошення"
+      main_title: "Список Запрошених"
+      invitation_count:
+        one: "Ви вже запросили %{count} користувача."
+        few: "Ви вже запросили %{count} користувачі."
+        many: "Ви вже запросили %{count} користувачів."
+        other: "Ви вже запросили %{count} користувачів."
+      invitee_email: "Електронна Адреса"
+      invitation_status: "Стан Запрошення"
+      invitation_date: "Дата Запрошення"
+      invite_user: "Запросити Користувача!"
+      status:
+        accepted: "Прийнято"
+        non-accepted: "Не Прийнято"
+    new:
+      back: "Назад"

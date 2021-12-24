@@ -6,13 +6,16 @@ Rails.application.routes.draw do
                          constraints: { locale: /#{I18n.available_locales.join('|')}/ }
 
   # Regular routes
-  get 'welcome_pages/home'
-  get 'welcome_pages/about'
-  get 'welcome_pages/contacts'
+  get 'welcome', to: 'welcome_pages#welcome', as: :welcome
+  get 'about', to: 'welcome_pages#about', as: :about
+  get 'contacts', to: 'welcome_pages#contacts', as: :contacts
 
   # Resource routes
   resources :posts
   resources :important_dates
+
+  # Invitations routes
+  get 'invitations', to: 'invitations#index', as: :invitations
 
   # Devise
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -22,7 +25,7 @@ Rails.application.routes.draw do
     end
 
     unauthenticated do
-      root 'welcome_pages#home', as: :unauthenticated_root
+      root 'welcome_pages#welcome', as: :unauthenticated_root
     end
     get '/users/sign_out' => 'devise/sessions#destroy'
   end

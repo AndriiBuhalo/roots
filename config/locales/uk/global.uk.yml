@@ -9,8 +9,8 @@ uk:
     page_title: "The Roots"
     header:
       logo: "The Roots"
-      home: "Головна"
-      profile: "Сторінка"
+      welcome: "Ласкаво просимо"
+      home: "Домашня Сторінка"
       sign_up: "Зареєструватись"
       log_in: "Увійти"
       sign_out: "Вийти"
@@ -18,6 +18,8 @@ uk:
       important_dates: "Дати"
       posts: "Дописи"
       albums: "Альбоми"
+      important_dates: "Важливі Події"
+      invite: "Запросити"
       en_switch: "Англійська"
       uk_switch: "Українська"
     footer:

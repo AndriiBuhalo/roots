@@ -9,8 +9,8 @@ en:
     page_title: "The Roots"
     header:
       logo: "The Roots"
+      welcome: "Welcome"
       home: "Home"
-      profile: "Profile"
       sign_up: "Sign Up"
       log_in: "Log In"
       sign_out: "Sign Out"
@@ -18,9 +18,10 @@ en:
       important_dates: "Dates"
       posts: "Posts"
       albums: "Albums"
+      important_dates: "Important Dates"
+      invite: "Invite User"
       en_switch: "English"
       uk_switch: "Ukrainian"
-      profile: "Profile"
     footer:
       string: "IF-133 Ruby Developers Team"
       about: "About"
