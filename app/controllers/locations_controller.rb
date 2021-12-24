@@ -4,22 +4,19 @@ class LocationsController < DashboardController
   before_action :set_location, only: %i[show edit update destroy]
 
   def index
-    @locations = policy_scope(Location).paginate(page: params[:page])
-    authorize @locations
+    @locations = authorize policy_scope(Location).paginate(page: params[:page])
   end
 
   def show; end
 
   def new
     @location = policy_scope(Location).new
-    authorize @location
   end
 
   def edit; end
 
   def create
-    @location = policy_scope(Location).new(location_params)
-    authorize @location
+    @location = authorize policy_scope(Location).new(location_params)
     if @location.save
       flash[:notice] = t('.controller.create')
       redirect_to @location
@@ -46,8 +43,7 @@ class LocationsController < DashboardController
   private
 
   def set_location
-    @location = policy_scope(Location).find(params[:id])
-    authorize @location
+    @location = authorize policy_scope(Location).find(params[:id])
   end
 
   def location_params
