@@ -39,6 +39,3 @@ uk:
       address_placeholder: "Адреса"
       latitude_placeholder: "Широта"
       longitude_placeholder: "Довгота"
-  global:
-    forms:
-      submit: "Зберегти"

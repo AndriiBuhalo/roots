@@ -39,6 +39,3 @@ en:
       address_placeholder: "Write location's address"
       latitude_placeholder: "Write location's latitude"
       longitude_placeholder: "Write location's longitude"
-  global:
-    forms:
-      submit: "Submit"
