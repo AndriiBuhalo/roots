@@ -1,15 +1,15 @@
 en:
   common:
-    back: 'Back'
-    create: 'Create'
-    add: 'Add'
-    edit: 'Edit'
-    save: 'Save'
-    delete: 'Delete'
-    destroy: 'Destroy'
-    show: 'Show'
-    actions: 'Actions'
-    confirmation: 'Are you sure'
+    back: "Back"
+    create: "Create"
+    add: "Add"
+    edit: "Edit"
+    save: "Save"
+    delete: "Delete"
+    destroy: "Destroy"
+    show: "Show"
+    actions: "Actions"
+    confirmation: "Are you sure"
   global:
     translate: "The Roots is now in English!"
     devise:

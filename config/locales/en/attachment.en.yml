@@ -1,45 +1,45 @@
 en:
   attachments:
-    file_name: 'File name'
-    file: 'File'
-    notes: 'Notes'
-    keywords: 'Keywords'
-    place: 'Place'
-    create_file: 'Create file'
-    attachment_to_album: 'This file has been added to the album'
-    add_to_album: 'Add to album'
+    file_name: "File name"
+    file: "File"
+    notes: "Notes"
+    keywords: "Keywords"
+    place: "Place"
+    create_file: "Create file"
+    attachment_to_album: "This file has been added to the album"
+    add_to_album: "Add to album"
     index:
-      page_title: 'Attachments'
-      create_file: 'Create file'
+      page_title: "Attachments"
+      create_file: "Create file"
     new:
-      page_title: 'New Attachment'
-      create_file: 'Create file'
-      add_file: 'Add file'
-      upload: 'Upload'
+      page_title: "New Attachment"
+      create_file: "Create file"
+      add_file: "Add file"
+      upload: "Upload"
     show:
-      page_title: 'Show %{title}'
-      information: 'Information'
-      keywords: 'Keywords:'
-      notes: 'Notes:'
-      place: 'Place:'
-      date: 'Date:'
-      albums: 'Albums:'
-      type: 'Type:'
-      width: 'Width:'
-      height: 'Height:'
-      size: 'Size:'
-      downloaded: 'Downloaded:'
-      px: 'px'
-      donwload: 'Donwload'
+      page_title: "Show %{title}"
+      information: "Information"
+      keywords: "Keywords:"
+      notes: "Notes:"
+      place: "Place:"
+      date: "Date:"
+      albums: "Albums:"
+      type: "Type:"
+      width: "Width:"
+      height: "Height:"
+      size: "Size:"
+      downloaded: "Downloaded:"
+      px: "px"
+      donwload: "Donwload"
     edit:
-      page_title: 'Edit %{title}'
-      edit_file: 'Edit file'
+      page_title: "Edit %{title}"
+      edit_file: "Edit file"
     controller:
-      create: 'File successfully added!'
-      create_error: 'No file added'
-      update: 'Information changed successfully!'
-      update_error: 'An error occurred while changing the information'
-      destroy: 'File successfully deleted!'
+      create: "File successfully added!"
+      create_error: "No file added"
+      update: "Information changed successfully!"
+      update_error: "An error occurred while changing the information"
+      destroy: "File successfully deleted!"
   time:
     formats:
-      date: '%B %d, %Y'
+      date: "%B %d, %Y"
