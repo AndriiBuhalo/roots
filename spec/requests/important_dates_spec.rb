@@ -3,10 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe '/important_dates', type: :request do
-
   let(:user) { create(:user) }
 
-  before(:each) { sign_in(user) }
+  before { sign_in(user) }
 
   describe 'GET /index' do
     it 'renders a successful response' do

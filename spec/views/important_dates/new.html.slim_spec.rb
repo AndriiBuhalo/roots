@@ -6,7 +6,7 @@ RSpec.describe 'important_dates/new', type: :view do
   let(:user) { create(:user) }
   let(:important_date) { create(:important_date, created_by: user) }
 
-  before(:each) do
+  before do
     assign(:important_date, important_date)
   end
 

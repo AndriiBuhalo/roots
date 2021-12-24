@@ -6,7 +6,7 @@ RSpec.describe 'ImportantDates', type: :feature do
   let(:user) { create(:user) }
   let(:important_date) { create(:important_date, created_by: user) }
 
-  before(:each) do
+  before do
     sign_in(user)
   end
 
