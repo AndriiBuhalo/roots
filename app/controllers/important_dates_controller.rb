@@ -4,16 +4,23 @@ class ImportantDatesController < DashboardController
   before_action :set_important_date, only: %i[show edit update destroy]
 
   def index
+    add_breadcrumb(t('important_dates.index.breadcrumb'))
     @important_dates = authorize collection.paginate(page: params[:page])
   end
 
-  def show; end
+  def show
+    add_breadcrumb(@important_date.event_name)
+  end
 
   def new
+    add_breadcrumb(t('important_dates.new.breadcrumb'))
     @important_date = collection.new
   end
 
-  def edit; end
+  def edit
+    add_breadcrumb(@important_date.event_name, important_date_path(@important_date))
+    add_breadcrumb(t('important_dates.edit.breadcrumb'))
+  end
 
   def create
     @important_date = authorize collection.new(important_date_params)
