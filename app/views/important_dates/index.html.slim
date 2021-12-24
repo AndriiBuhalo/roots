@@ -1,6 +1,8 @@
 - title t('.page_title')
 h1 = t('.main_title')
 
+= will_paginate @important_dates, list_classes: %w(pagination justify-content-center)
+
 table.table.table-bordered.table-hover
   thead
     tr
@@ -22,3 +24,5 @@ table.table.table-bordered.table-hover
           =< link_to important_date, data: { confirm: t('.confirmation') }, class:"btn btn-xs btn-danger", title: t('.destroy'), method: :delete do
             i.fas.fa-trash-alt
 = link_to t('.new_important_date'), new_important_date_path, class:"btn btn-success"
+
+= will_paginate @important_dates, list_classes: %w(pagination justify-content-center)

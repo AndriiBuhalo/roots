@@ -1,4 +1,15 @@
 en:
+  common:
+    back: "Back"
+    create: "Create"
+    add: "Add"
+    edit: "Edit"
+    save: "Save"
+    delete: "Delete"
+    destroy: "Destroy"
+    show: "Show"
+    actions: "Actions"
+    confirmation: "Are you sure"
   global:
     translate: "The Roots is now in English!"
     devise:
@@ -17,6 +28,7 @@ en:
       log_out: "Log Out"
       important_dates: "Dates"
       posts: "Posts"
+      attachments: "Attachments"
       albums: "Albums"
       persons: "Persons"
       important_dates: "Important Dates"

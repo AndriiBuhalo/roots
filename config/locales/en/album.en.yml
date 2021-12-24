@@ -1,0 +1,28 @@
+en:
+  albums:
+    name: "Album name"
+    description: "Album description"
+    index:
+      page_title: "Albums"
+      create_album: "Create album"
+    show:
+      page_title: "Show %{title}"
+      empty: "Nothing found!"
+    new:
+      page_title: "New Album"
+      create_album: "Create album"
+    edit:
+      page_title: "Edit %{title}"
+      edit_album: "Edit album"
+    attachment_fields:
+      add_file: "Add file"
+      remove_file: "Remove file"
+      add_picture: "Add picture"
+    form:
+      add_file: "Add file"
+    controller:
+      create: "Album successfully added!"
+      create_error: "Please try again!"
+      update: "Album successfully modified!"
+      update_error: "The album has not changed"
+      destroy: "Album deleted successfully!"
