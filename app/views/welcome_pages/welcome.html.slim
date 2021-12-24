@@ -1,0 +1,5 @@
+- title t('welcome_pages.welcome.page_title')
+h1.display-2 = t('welcome_pages.welcome.title')
+h2.lead.mb-5.h2 = t('welcome_pages.welcome.subtitle')
+- unless user_signed_in?
+  = link_to t('welcome_pages.welcome.sign_up_link'), new_user_registration_path, class: "btn btn-lg btn-outline-dark"

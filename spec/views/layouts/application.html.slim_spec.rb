@@ -3,9 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'layouts/application.html.slim', type: :view do
-  include Devise::Test::ControllerHelpers
-
-  before do
+  before(:each) do
     render
   end
 
@@ -18,15 +16,11 @@ RSpec.describe 'layouts/application.html.slim', type: :view do
   end
 
   context 'when user is logged in' do
-    let(:user) { FactoryBot.create(:user) }
+    let(:user) { create(:user) }
 
-    before do
+    before(:each) do
       sign_in user
       render
-    end
-
-    after do
-      sign_out user
     end
 
     it 'has header menu for user' do
@@ -34,14 +28,15 @@ RSpec.describe 'layouts/application.html.slim', type: :view do
       expect(rendered).to have_link t('global.header.posts'), href: posts_path
       expect(rendered).to have_link t('global.header.albums')
       expect(rendered).to have_link t('global.header.person')
+      expect(rendered).to have_link t('global.header.invite'), href: invitations_path
       expect(rendered).to have_css('.gravatar')
     end
   end
 
   it 'has footer navbar' do
     expect(rendered).to include t('global.footer.string')
-    expect(rendered).to have_link t('global.footer.about'), href: welcome_pages_about_path
-    expect(rendered).to have_link t('global.footer.contacts'), href: welcome_pages_contacts_path
+    expect(rendered).to have_link t('global.footer.about'), href: about_path
+    expect(rendered).to have_link t('global.footer.contacts'), href: contacts_path
     expect(rendered).to have_link t('global.footer.softserve'), href: 'https://www.softserveinc.com/uk-ua'
   end
 end
