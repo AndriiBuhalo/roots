@@ -1,0 +1,16 @@
+- title t('attachments.new.page_title')
+= simple_form_for @attachment do |f|
+  h1 = t('.create_file')
+  = f.input :keywords, placeholder: t('attachments.keywords')
+  = f.input :notes, placeholder: t('attachments.notes')
+  = f.input :place, placeholder: t('attachments.place')
+  = f.input :date, as: :date, html5: true
+  .input-group.mb-3
+    .custom-file
+      = f.file_field :file, class: "custom-file-input"
+      label.custom-file-label = t('.add_file')
+    .input-group-append
+      .input-group-text
+        = t('.upload')
+  = f.submit t('global.forms.submit'), class: 'btn btn-primary mt-3'
+  = link_to t('common.back'), :back, class: 'btn btn-secondary mt-3 ml-3'

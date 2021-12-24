@@ -8,6 +8,7 @@ RSpec.describe 'important_dates/index', type: :view do
 
   before(:each) do
     assign(:important_dates, [important_date])
+    allow(view).to receive(:will_paginate).and_return(nil)
   end
 
   it 'renders a list of important_dates' do
