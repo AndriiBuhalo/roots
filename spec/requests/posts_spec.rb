@@ -3,8 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe '/posts', type: :request do
-  include Devise::Test::IntegrationHelpers
-
   let(:user) { create(:user) }
 
   before do
