@@ -6,7 +6,7 @@ require 'rails_helper'
 RSpec.describe '/attachments', type: :request do
   let(:user) { create(:user) }
 
-  before do
+  before(:each) do
     sign_in(user)
   end
 
