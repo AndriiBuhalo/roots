@@ -1,6 +1,7 @@
 uk:
   posts:
     edit:
+      breadcrumb: "Редагувати"
       page_title: "Редагувати %{title}"
       title: "Редагування"
       show: "Детальніше"
@@ -12,6 +13,7 @@ uk:
       title: "Тема:"
       content: "Зміст:"
     index:
+      breadcrumb: "Дописи"
       page_title: "Дописи"
       main_title: "Список Дописів"
       title: "Тема"
@@ -23,6 +25,7 @@ uk:
       confirmation: "Ви впевнені?"
       new_post: "Новий Допис"
     new:
+      breadcrumb: "Новий Допис"
       page_title: "Новий Допис"
       title: "Новий Допис"
       back: "Назад"
