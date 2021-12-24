@@ -170,12 +170,9 @@ GEM
     multipart-post (2.1.1)
     nio4r (2.5.8)
     nokogiri (1.12.5)
-<<<<<<< HEAD
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     nokogiri (1.12.5-x64-mingw32)
-=======
->>>>>>> 1a246c27698a11901aeaf4cc636bf276be0b8186
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     nokogiri (1.12.5-x86_64-darwin)
