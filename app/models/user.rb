@@ -4,9 +4,10 @@ class User < ApplicationRecord
   enum role: { member: 0, admin: 1 }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
+  has_many :invitees, inverse_of: :invited_by, class_name: 'User', foreign_key: :invited_by_id, dependent: :nullify
   has_many :posts, inverse_of: :created_by, foreign_key: 'created_by_id', dependent: :destroy
   has_many :locations, inverse_of: :created_by, foreign_key: 'created_by_id', dependent: :destroy
   has_many :important_dates, inverse_of: :created_by, foreign_key: 'created_by_id', dependent: :destroy

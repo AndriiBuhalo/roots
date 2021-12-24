@@ -1,15 +1,16 @@
 header.navbar.navbar-dark.bg-dark.fixed-top.navbar-expand-md
   .container.pl-2
-    = link_to t('global.header.logo'), welcome_pages_home_path, id: "logo", class: "navbar-brand font-weight-bold d-block m-2 position-relative"
-    button.navbar-toggler aria-controls="navbarSupportedContentHeader" aria-expanded="true" aria-label=("Toggle navigation") data-target="#navbarSupportedContentHeader" data-toggle="collapse" type="button"
+    = link_to t('global.header.logo'), welcome_path, id: "logo", class: "navbar-brand font-weight-bold d-block m-2 position-relative"
+    button.navbar-toggler aria-controls="navbar_supported_content_header" aria-expanded="true" aria-label=("toggle_navigation") data-target="#navbar_supported_content_header" data-toggle="collapse" type="button"
       span.navbar-toggler-icon
-    #navbarSupportedContentHeader.collapse.navbar-collapse.justify-content-between
+    #navbar_supported_content_header.collapse.navbar-collapse.justify-content-between
       ul.navbar-nav
         - if user_signed_in?
           li.nav-item.m-2= link_to t('global.header.posts'), posts_path, class: "nav-link font-weight-bold"
           li.nav-item.m-2= link_to t('global.header.locations'), locations_path, class: "nav-link font-weight-bold"
           li.nav-item.m-2= link_to t('global.header.albums'), '#', class: "nav-link font-weight-bold"
           li.nav-item.m-2= link_to t('global.header.persons'), '#', class: "nav-link font-weight-bold"
+          li.nav-item.m-2= link_to t('global.header.invite'), invitations_path, class: "nav-link font-weight-bold"
           li.nav-item.m-2= link_to t('global.header.important_dates'), important_dates_path, class: "nav-link font-weight-bold"
       .d-flex.flex-md-row.flex-column
         .d-flex.flex-row
@@ -24,9 +25,8 @@ header.navbar.navbar-dark.bg-dark.fixed-top.navbar-expand-md
               li.nav-item.m-2= link_to t('global.header.sign_up'),   new_user_registration_path, class: "nav-link font-weight-bold"
               li.nav-item.m-2= link_to t('global.header.log_in'), new_user_session_path, class: "nav-link font-weight-bold"
         .dropdown.d-flex.align-items-center
-          #dropdownMenuButton.btn.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
+          #dropdown_menu_button.btn.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
             = image_tag "language.png"
-          ul.dropdown-menu.border.border-dark aria-labelledby="dropdownMenuButton"
+          ul.dropdown-menu.border.border-dark aria-labelledby="dropdown_menu_button"
             - I18n.available_locales.each do |locale|
               li.nav-link.font-weight-bold.text-muted= link_to_unless current_locale?(locale), I18n.t("global.header.#{locale}_switch"), locale_path(locale), method: :put, class: "text-dark text-decoration-none"
-
