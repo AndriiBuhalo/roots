@@ -1,4 +1,16 @@
 uk:
+  common:
+    send: 'Відправити'
+    back: 'Назад'
+    create: 'Створити'
+    add: 'Додати'
+    edit: 'Редагувати'
+    save: 'Зберегти'
+    delete: 'Видалити'
+    destroy: 'Видалити'
+    show: 'Перейти'
+    actions: 'Дії'
+    confirmation: 'Ви впевнені?'
   global:
     translate: "The Roots тепер українською!"
     devise:
