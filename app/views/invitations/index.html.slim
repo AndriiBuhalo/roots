@@ -1,0 +1,21 @@
+- title t('invitations.index.page_title')
+h1 = t('invitations.index.main_title')
+
+= will_paginate @invitees, list_classes: %w(pagination justify-content-center)
+
+p.lead.text-muted.font-weight-bold = t('invitations.index.invitation_count', count: current_user.invitees.count)
+table.table.table-bordered.table-hover
+    thead
+        tr
+            th scope="col" = t('invitations.index.invitee_email')
+            th scope="col" = t('invitations.index.invitation_status')
+            th scope="col" = t('invitations.index.invitation_date')
+    tbody
+    - @invitees.each do |invitee|
+        tr
+            td = invitee.email
+            td = invitation_status(invitee)
+            td = l invitee.invitation_sent_at, format: :invitation_date_format
+= link_to t('invitations.index.invite_user'), new_user_invitation_path, class:"btn btn-success"
+
+= will_paginate @invitees, list_classes: %w(pagination justify-content-center)
