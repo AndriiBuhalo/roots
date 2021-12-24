@@ -37,6 +37,10 @@ class ApplicationPolicy
     false
   end
 
+  def user_is_owner_of_record_or_admin?
+    @user == @record.created_by || @user.admin?
+  end
+
   class Scope
     def initialize(user, scope)
       @user = user

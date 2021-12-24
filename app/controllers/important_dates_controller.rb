@@ -4,22 +4,19 @@ class ImportantDatesController < DashboardController
   before_action :set_important_date, only: %i[show edit update destroy]
 
   def index
-    @important_dates = collection.paginate(page: params[:page])
-    authorize @important_dates
+    @important_dates = authorize collection.paginate(page: params[:page])
   end
 
   def show; end
 
   def new
     @important_date = collection.new
-    authorize @important_date
   end
 
   def edit; end
 
   def create
-    @important_date = collection.new(important_date_params)
-    authorize @important_date
+    @important_date = authorize collection.new(important_date_params)
     if @important_date.save
       flash[:notice] = t('.controller.create')
       redirect_to @important_date
@@ -50,8 +47,7 @@ class ImportantDatesController < DashboardController
   end
 
   def set_important_date
-    @important_date = collection.find(params[:id])
-    authorize @important_date
+    @important_date = authorize collection.find(params[:id])
   end
 
   def important_date_params
