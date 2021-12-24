@@ -1,0 +1,23 @@
+= will_paginate @attachments, list_classes: %w(pagination justify-content-center)
+table.table.table-bordered
+  thead
+    tr.text-center
+      th scope="col" = t('attachments.file_name')
+      th scope="col" = t('attachments.file')
+      th scope="col" = t('attachments.notes')
+      th scope="col" = t('common.actions')
+  tbody
+    - @attachments.each do |image|
+        tr.text-center
+          td = image.original_filename
+          td = image_tag image.file.url(:small), alt: "#{image.original_filename}" if image.file?
+          td = image.notes
+          td
+            =< link_to attachment_path(image), class: 'btn btn-info', title: t('common.show') do
+              i.fas.fa-eye
+            =< link_to edit_attachment_path(image), class: 'btn btn-primary', title: t('common.edit') do
+              i.fas.fa-edit
+            =< link_to attachment_path(image), class: 'btn btn-danger', title: t('common.delete'), method: :delete, data: { confirm: t('common.confirmation') } do
+              i.fas.fa-trash-alt
+            =< link_to t('attachments.add_to_album'), attachment_path(image), remote: true, class: 'btn btn-primary'
+= will_paginate @attachments, list_classes: %w(pagination justify-content-center)

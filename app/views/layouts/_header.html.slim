@@ -8,6 +8,7 @@ header.navbar.navbar-dark.bg-dark.fixed-top.navbar-expand-md
       ul.navbar-nav
         - if user_signed_in?
           li.nav-item = link_to t('global.header.posts'), posts_path, class: "nav-link"
+          li.nav-item = link_to t('global.header.attachments'), attachments_path, class: "nav-link"
           li.nav-item = link_to t('global.header.albums'), '#', class: "nav-link"
           li.nav-item = link_to t('global.header.person'), '#', class: "nav-link"
           li.nav-item = link_to t('global.header.invite'), invitations_path, class: "nav-link"

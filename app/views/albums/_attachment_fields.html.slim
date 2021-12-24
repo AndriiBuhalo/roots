@@ -1,0 +1,9 @@
+.nested-fields
+  .input-group.mb-3
+    .custom-file
+      = f.file_field :file, class: "custom-file-input", disabled: f.object.file?
+      label.custom-file-label.overflow-hidden = f.object.original_filename || t('.add_picture')
+    .input-group-append
+      .btn.btn-outline-secondary
+        = link_to_remove_association t(".remove_file"), f
+= f.hidden_field :created_by_id, value: current_user.id
