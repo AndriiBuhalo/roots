@@ -1,7 +1,7 @@
 header.navbar.navbar-dark.bg-dark.fixed-top.navbar-expand-md
   .container.pl-2
     = link_to t('global.header.logo'), welcome_path, id: "logo", class: "navbar-brand font-weight-bold d-block m-2 position-relative"
-    button.navbar-toggler aria-controls="navbar_supported_content_header" aria-expanded="true" aria-label=("Toggle navigation") data-target="#navbar_supported_content_header" data-toggle="collapse" type="button"
+    button.navbar-toggler aria-controls="navbar_supported_content_header" aria-expanded="true" aria-label="toggle navigation" data-target="#navbar_supported_content_header" data-toggle="collapse" type="button"
       span.navbar-toggler-icon
     #navbar_supported_content_header.collapse.navbar-collapse.justify-content-between
     .d-flex.flex-md-row.flex-column
@@ -22,7 +22,7 @@ header.navbar.navbar-dark.bg-dark.fixed-top.navbar-expand-md
               li.small.m-2 = t('global.header.signed_in_as')
               li.nav-link.dropdown-item.nav-item.text-dark.disabled = current_user.email
               .dropdown-divider
-              li.nav-link.dropdown-item.nav-item = link_to t('global.header.Edit Profile'), edit_user_registration_path, class: "text-dark"
+              li.nav-link.dropdown-item.nav-item = link_to t('global.header.edit_profile'), edit_user_registration_path, class: "text-dark"
               .dropdown-divider
               li.nav-link.dropdown-item.nav-item = link_to t('global.header.log_out'), destroy_user_session_path, method: :delete, class: "text-dark"
         - else

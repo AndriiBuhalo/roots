@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'layouts/application.html.slim', type: :view do
-  before do
+  before(:each) do
     render
   end
 
@@ -18,7 +18,7 @@ RSpec.describe 'layouts/application.html.slim', type: :view do
   context 'when user is logged in' do
     let(:user) { create(:user) }
 
-    before do
+    before(:each) do
       sign_in user
       render
     end

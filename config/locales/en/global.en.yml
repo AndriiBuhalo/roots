@@ -25,7 +25,7 @@ en:
       uk_switch: "Ukrainian"
       profile: "Profile"
       signed_in_as: "Signed in as"
-
+      edit_profile: "Edit Profile"
     footer:
       string: "IF-133 Ruby Developers Team"
       about: "About"
