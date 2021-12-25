@@ -28,6 +28,7 @@ class ImportantDatesController < DashboardController
       flash[:notice] = t('.controller.create')
       redirect_to @important_date
     else
+      add_breadcrumb(t('important_dates.new.breadcrumb'))
       render 'new'
     end
   end
@@ -37,6 +38,12 @@ class ImportantDatesController < DashboardController
       flash[:notice] = t('.controller.update')
       redirect_to @important_date
     else
+      if @important_date.event_name == ''
+        add_breadcrumb('-', important_date_path(@important_date))
+      else
+        add_breadcrumb(@important_date.event_name, important_date_path(@important_date))
+      end
+      add_breadcrumb(t('important_dates.edit.breadcrumb'))
       render 'edit'
     end
   end

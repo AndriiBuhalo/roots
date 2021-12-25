@@ -5,6 +5,6 @@ class Location < ApplicationRecord
 
   validates :name, presence: true, length: { minimum: 3, maximum: 255 }
   validates :address, presence: true, length: { minimum: 5, maximum: 255 }
-  validates :latitude, numericality: true, format: { with: /\A-?([0-8]?[0-9](\.\d{1,6})?|90(.0+)?)\z/ }
-  validates :longitude, numericality: true, format: { with: /\A-?(1?[0-7]?[0-9](\.\d{1,6})?|180(.0+)?)\z/ }
+  validates :latitude, numericality: { greater_than_or_equal_to: -90, less_than_or_equal_to: 90 }
+  validates :longitude, numericality: { greater_than_or_equal_to: -180, less_than_or_equal_to: 180 }
 end

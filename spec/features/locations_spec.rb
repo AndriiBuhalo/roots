@@ -31,8 +31,8 @@ RSpec.describe 'Locations', type: :feature do
       click_button 'Submit'
       expect(page).to have_content('Name is too short (minimum is 3 characters)')
       expect(page).to have_content("Address can't be blank and Address is too short (minimum is 5 characters)")
-      expect(page).to have_content('Latitude is invalid')
-      expect(page).to have_content('Longitude is invalid')
+      expect(page).to have_content('Latitude must be less than or equal to 90')
+      expect(page).to have_content('Longitude must be greater than or equal to -180')
     end
   end
 
@@ -56,8 +56,8 @@ RSpec.describe 'Locations', type: :feature do
       click_button 'Submit'
       expect(page).to have_content('Name is too short (minimum is 3 characters)')
       expect(page).to have_content("Address can't be blank and Address is too short (minimum is 5 characters)")
-      expect(page).to have_content('Latitude is invalid')
-      expect(page).to have_content('Longitude is invalid')
+      expect(page).to have_content('Latitude must be less than or equal to 90')
+      expect(page).to have_content('Longitude must be greater than or equal to -180')
     end
   end
 end

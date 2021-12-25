@@ -31,6 +31,7 @@ class PostsController < DashboardController
       flash[:notice] = t('.controller.create')
       redirect_to @post
     else
+      add_breadcrumb(t('posts.new.breadcrumb'))
       render 'new'
     end
   end
@@ -40,6 +41,12 @@ class PostsController < DashboardController
       flash[:notice] = t('.controller.update')
       redirect_to @post
     else
+      if @post.title == ''
+        add_breadcrumb('-', post_path(@post))
+      else
+        add_breadcrumb(@post.title, post_path(@post))
+      end
+      add_breadcrumb(t('posts.edit.breadcrumb'))
       render 'edit'
     end
   end

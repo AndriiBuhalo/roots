@@ -28,6 +28,7 @@ class LocationsController < DashboardController
       flash[:notice] = t('.controller.create')
       redirect_to @location
     else
+      add_breadcrumb(t('locations.new.breadcrumb'))
       render 'new'
     end
   end
@@ -37,6 +38,12 @@ class LocationsController < DashboardController
       flash[:notice] = t('.controller.update')
       redirect_to @location
     else
+      if @location.name == ''
+        add_breadcrumb('-', location_path(@location))
+      else
+        add_breadcrumb(@location.name, location_path(@location))
+      end
+      add_breadcrumb(t('locations.edit.breadcrumb'))
       render 'edit'
     end
   end

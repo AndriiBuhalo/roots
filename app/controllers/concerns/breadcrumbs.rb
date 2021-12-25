@@ -3,7 +3,7 @@ module Breadcrumbs
 
   included do
     before_action :set_breadcrumbs
-    before_action :set_index_breadcrumb, only: %i[show new edit]
+    before_action :set_index_breadcrumb, only: %i[show new edit create update]
   end
 
   def add_breadcrumb(label, path = nil)

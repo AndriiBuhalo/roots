@@ -51,15 +51,14 @@ RSpec.describe 'Locations', type: :request do
     end
 
     context 'when parameters are not valid' do
-      let(:invalid_location) { build(:location, :invalid_location) }
+      let(:invalid_location) { attributes_for(:location, :invalid_location) }
 
       it 'does not create a new location' do
-        expect(invalid_location).not_to be_valid
+        expect { post locations_url, params: { location: invalid_location } }.to change(Location, :count).by(0)
       end
 
-      it "renders a successful response (i.e. to display the 'new' template)" do
-        get new_location_url
-        expect(invalid_location).not_to be_valid
+      it 'renders a new template' do
+        post locations_url, params: { location: invalid_location }
         expect(response).to render_template(:new)
       end
     end
@@ -97,7 +96,7 @@ RSpec.describe 'Locations', type: :request do
         }
       end
 
-      it "renders a successful response (i.e. to display the 'edit' template)" do
+      it 'renders an edit template' do
         patch location_url(location_by_user), params: { location: edited_location }
         expect(response).to render_template(:edit)
       end
