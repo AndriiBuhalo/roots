@@ -1,6 +1,7 @@
 uk:
   locations:
     edit:
+      breadcrumb: "Редагувати"
       page_title: "Редагувати %{name}"
       title: "Редагування"
       show: "Детальніше"
@@ -14,6 +15,7 @@ uk:
       latitude: "Широта:"
       longitude: "Довгота:"
     index:
+      breadcrumb: "Розташування"
       page_title: "Розташування"
       main_title: "Розташування"
       name: "Назва"
@@ -27,6 +29,7 @@ uk:
       confirmation: "Ви впевнені?"
       new_location: "Нове Розташування"
     new:
+      breadcrumb: "Нове Розташування"
       page_title: "Нове Розташування"
       title: "Нове Розташування"
       back: "Назад"

@@ -4,16 +4,23 @@ class LocationsController < DashboardController
   before_action :set_location, only: %i[show edit update destroy]
 
   def index
+    add_breadcrumb(t('locations.index.breadcrumb'))
     @locations = authorize policy_scope(Location).paginate(page: params[:page])
   end
 
-  def show; end
+  def show
+    add_breadcrumb(@location.name)
+  end
 
   def new
+    add_breadcrumb(t('locations.new.breadcrumb'))
     @location = policy_scope(Location).new
   end
 
-  def edit; end
+  def edit
+    add_breadcrumb(@location.name, location_path(@location))
+    add_breadcrumb(t('locations.edit.breadcrumb'))
+  end
 
   def create
     @location = authorize policy_scope(Location).new(location_params)

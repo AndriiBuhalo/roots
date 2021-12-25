@@ -1,6 +1,7 @@
 en:
   locations:
     edit:
+      breadcrumb: "Edit"
       page_title: "Edit %{name}"
       title: "Editing Location"
       show: "Show"
@@ -14,6 +15,7 @@ en:
       latitude: "Latitude:"
       longitude: "Longitude:"
     index:
+      breadcrumb: "Locations"
       page_title: "Locations"
       main_title: "Listing Locations"
       name: "Name"
@@ -27,6 +29,7 @@ en:
       confirmation: "Are you sure?"
       new_location: "New Location"
     new:
+      breadcrumb: "New Location"
       page_title: "New Location"
       title: "New Location"
       back: "Back"
