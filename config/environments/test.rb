@@ -10,6 +10,15 @@ require 'active_support/core_ext/integer/time'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # make our tests fast by avoiding asset compilation
+  # but do not raise when assets are not compiled either
+  Rails.application.config.assets.compile = false
+  Sprockets::Rails::Helper.prepend(Module.new do
+    def resolve_asset_path(path, *)
+      super || path
+    end
+  end)
+
   config.cache_classes = false
   config.action_view.cache_template_loading = true
 

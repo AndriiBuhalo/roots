@@ -1,0 +1,10 @@
+- if @breadcrumbs
+  nav.main-breadcrumb aria-label="breadcrumb" 
+    ol.breadcrumb
+      - @breadcrumbs.each do |breadcrumb|
+        - if breadcrumb[:path].nil?
+          li.font-weight-bold.breadcrumb-item.text-muted  aria-current="page"
+            = breadcrumb[:label]
+        - else
+          li.breadcrumb-item 
+            = link_to breadcrumb[:label], breadcrumb[:path], class: "text-dark font-weight-bold text-decoration-none"

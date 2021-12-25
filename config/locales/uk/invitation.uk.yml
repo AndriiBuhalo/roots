@@ -1,6 +1,7 @@
 uk:
   invitations:
     index:
+      breadcrumb: "Запрошення"
       page_title: "Запрошення"
       main_title: "Список Запрошених"
       invitation_count:

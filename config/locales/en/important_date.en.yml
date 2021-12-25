@@ -1,6 +1,7 @@
 en:
   important_dates:
     edit:
+      breadcrumb: "Edit"
       page_title: "Edit %{event_name}"
       title: "Editing important date"
       show: "Show"
@@ -13,7 +14,8 @@ en:
       event_date: "Event date:"
       description: "Description:"
     index:
-      page_title: "Important dates"
+      breadcrumb: "Important Dates"
+      page_title: "Important Dates"
       main_title: "Listing important dates"
       event_name: "Event name"
       event_date: "Event date"
@@ -25,6 +27,7 @@ en:
       confirmation: "Are you sure?"
       new_important_date: "New Important date"
     new:
+      breadcrumb: "New Important Date"
       page_title: "New Important Date"
       title: "New important date"
       back: "Back"

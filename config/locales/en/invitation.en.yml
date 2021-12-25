@@ -1,6 +1,7 @@
 en:
   invitations:
     index:
+      breadcrumb: "Invitations"
       page_title: "Invitations"
       main_title: "Listing Invitations"
       invitation_count:

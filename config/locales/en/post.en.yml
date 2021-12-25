@@ -1,6 +1,7 @@
 en:
   posts:
     edit:
+      breadcrumb: "Edit"
       page_title: "Edit %{title}"
       title: "Editing post"
       show: "Show"
@@ -12,6 +13,7 @@ en:
       title: "Title:"
       content: "Content:"
     index:
+      breadcrumb: "Posts"
       page_title: "Posts"
       main_title: "Listing posts"
       title: "Title"
@@ -23,6 +25,7 @@ en:
       confirmation: "Are you sure?"
       new_post: "New Post"
     new:
+      breadcrumb: "New Post"
       page_title: "New Post"
       title: "New post"
       back: "Back"
