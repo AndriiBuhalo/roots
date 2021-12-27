@@ -34,6 +34,8 @@ uk:
       persons: "Люди"
       important_dates: "Важливі Події"
       invite: "Запросити"
+      signed_in_as: "Увійшли як"
+      edit_profile: "Редагувати профіль"
       en_switch: "Англійська"
       uk_switch: "Українська"
     footer:

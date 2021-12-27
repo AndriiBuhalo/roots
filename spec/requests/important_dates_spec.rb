@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe '/important_dates', type: :request do
-
   let(:user) { create(:user) }
 
   before(:each) { sign_in(user) }
