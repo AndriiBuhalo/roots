@@ -10,9 +10,11 @@ en:
     add_to_album: "Add to album"
     index:
       page_title: "Attachments"
+      breadcrumb: "Attachments"
       create_file: "Create file"
     new:
       page_title: "New Attachment"
+      breadcrumb: "New Attachment"
       create_file: "Create file"
       add_file: "Add file"
       upload: "Upload"
@@ -33,6 +35,7 @@ en:
       donwload: "Donwload"
     edit:
       page_title: "Edit %{title}"
+      breadcrumb: "Edit"
       edit_file: "Edit file"
     controller:
       create: "File successfully added!"

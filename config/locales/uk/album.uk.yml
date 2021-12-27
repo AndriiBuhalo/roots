@@ -4,15 +4,19 @@ uk:
     description: 'Опис альбома'
     index:
       page_title: 'Альбоми'
+      breadcrumb: "Альбоми"
       create_album: 'Створити альбом'
     show:
       page_title: 'Переглянути %{title}'
+      breadcrumb: "Альбоми"
       empty: 'Нічого не знайдено!'
     new:
       page_title: "Новий Альбом"
+      breadcrumb: "Новий Альбом"
       create_album: 'Створити альбом'
     edit:
       page_title: 'Редагувати %{title}'
+      breadcrumb: "Редагувати"
       edit_album: 'Редагувати альбом'
     attachment_fields:
       add_file: 'Додати файл'

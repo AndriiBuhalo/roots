@@ -4,15 +4,18 @@ en:
     description: "Album description"
     index:
       page_title: "Albums"
+      breadcrumb: "Albums"
       create_album: "Create album"
     show:
       page_title: "Show %{title}"
       empty: "Nothing found!"
     new:
       page_title: "New Album"
+      breadcrumb: "New Album"
       create_album: "Create album"
     edit:
       page_title: "Edit %{title}"
+      breadcrumb: "Edit"
       edit_album: "Edit album"
     attachment_fields:
       add_file: "Add file"
