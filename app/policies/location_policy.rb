@@ -1,4 +1,3 @@
-# class LocationPolicy::Scope
 # frozen_string_literal: true
 
 class LocationPolicy < ApplicationPolicy
