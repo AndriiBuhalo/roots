@@ -1,16 +1,6 @@
 # frozen_string_literal: true
 
 class LocationPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      if @user.admin?
-        scope.all
-      else
-        scope.by_user(@user)
-      end
-    end
-  end
-
   def index?
     true
   end
