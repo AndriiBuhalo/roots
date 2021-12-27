@@ -2,6 +2,7 @@
 
 class ImportantDatesController < DashboardController
   before_action :set_important_date, only: %i[show edit update destroy]
+  before_action :set_update_breadcrumb, only: %i[update]
 
   def index
     add_breadcrumb(t('important_dates.index.breadcrumb'))
@@ -38,12 +39,6 @@ class ImportantDatesController < DashboardController
       flash[:notice] = t('.controller.update')
       redirect_to @important_date
     else
-      if @important_date.event_name == ''
-        add_breadcrumb('-', important_date_path(@important_date))
-      else
-        add_breadcrumb(@important_date.event_name, important_date_path(@important_date))
-      end
-      add_breadcrumb(t('important_dates.edit.breadcrumb'))
       render 'edit'
     end
   end
@@ -66,5 +61,10 @@ class ImportantDatesController < DashboardController
 
   def important_date_params
     params.require(:important_date).permit(:event_name, :event_date, :description)
+  end
+
+  def set_update_breadcrumb
+    add_breadcrumb(@important_date.event_name, important_date_path(@important_date))
+    add_breadcrumb(t('important_dates.edit.breadcrumb'))
   end
 end

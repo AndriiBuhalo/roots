@@ -61,9 +61,9 @@ ActiveRecord::Schema.define(version: 2021_12_15_182703) do
     t.string "address"
     t.decimal "latitude", precision: 10, scale: 6
     t.decimal "longitude", precision: 10, scale: 6
+    t.bigint "created_by_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "created_by_id"
     t.index ["created_by_id"], name: "index_locations_on_created_by_id"
   end
 
