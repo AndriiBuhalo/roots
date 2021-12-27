@@ -8,7 +8,6 @@ uk:
       create_album: 'Створити альбом'
     show:
       page_title: 'Переглянути %{title}'
-      breadcrumb: "Альбоми"
       empty: 'Нічого не знайдено!'
     new:
       page_title: "Новий Альбом"
