@@ -2,7 +2,6 @@
 
 class LocationsController < DashboardController
   before_action :set_location, only: %i[show edit update destroy]
-  before_action :set_update_breadcrumb, only: %i[update]
 
   def index
     add_breadcrumb(t('locations.index.breadcrumb'))
@@ -35,6 +34,8 @@ class LocationsController < DashboardController
   end
 
   def update
+    add_breadcrumb(@location.name, location_path(@location))
+    add_breadcrumb(t('locations.edit.breadcrumb'))
     if @location.update(location_params)
       flash[:notice] = t('.controller.update')
       redirect_to @location
@@ -57,10 +58,5 @@ class LocationsController < DashboardController
 
   def location_params
     params.require(:location).permit(:name, :address, :latitude, :longitude)
-  end
-
-  def set_update_breadcrumb
-    add_breadcrumb(@location.name, location_path(@location))
-    add_breadcrumb(t('locations.edit.breadcrumb'))
   end
 end

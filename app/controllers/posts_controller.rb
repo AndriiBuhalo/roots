@@ -2,7 +2,6 @@
 
 class PostsController < DashboardController
   before_action :set_post, only: %i[show edit update destroy]
-  before_action :set_update_breadcrumb, only: %i[update]
 
   def index
     add_breadcrumb(t('posts.index.breadcrumb'))
@@ -38,6 +37,8 @@ class PostsController < DashboardController
   end
 
   def update
+    add_breadcrumb(@post.title, post_path(@post))
+    add_breadcrumb(t('posts.edit.breadcrumb'))
     if @post.update(post_params)
       flash[:notice] = t('.controller.update')
       redirect_to @post
@@ -61,10 +62,5 @@ class PostsController < DashboardController
 
   def post_params
     params.require(:post).permit(:title, :content)
-  end
-
-  def set_update_breadcrumb
-    add_breadcrumb(@post.title, post_path(@post))
-    add_breadcrumb(t('posts.edit.breadcrumb'))
   end
 end
