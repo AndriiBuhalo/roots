@@ -4,19 +4,23 @@ class AlbumsController < DashboardController
   before_action :set_album, only: %i[show edit update destroy]
 
   def index
+    add_breadcrumb(t('.breadcrumb'))
     @albums = authorize policy_scope(Album).paginate(page: params[:page])
   end
 
   def show
+    add_breadcrumb(@album.name)
     @attachments = @album.attachments.paginate(page: params[:page])
   end
 
   def new
+    add_breadcrumb(t('.breadcrumb'))
     @album = policy_scope(Album).new
     @album.attachments.build
   end
 
   def create
+    add_breadcrumb(t('.breadcrumb'))
     @album = authorize policy_scope(Album).new(album_params)
     if @album.save
       redirect_to @album, success: t('albums.controller.create')
@@ -27,6 +31,7 @@ class AlbumsController < DashboardController
   end
 
   def edit
+    add_breadcrumb(@album.name, album_path(@album))
     @album.attachments.build
   end
 

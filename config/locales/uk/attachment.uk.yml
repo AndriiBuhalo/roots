@@ -10,9 +10,11 @@ uk:
     add_to_album: 'Додати до альбому'
     index:
       page_title: 'Файли'
+      breadcrumb: "Файли"
       create_file: 'Створити файл'
     new:
       page_title: 'Новий Файл'
+      breadcrumb: "Новий Файл"
       create_file: 'Створити файл'
       add_file: 'Додати файл'
       upload: 'Загрузити'
@@ -33,6 +35,7 @@ uk:
       donwload: 'Завантажити'
     edit:
       page_title: 'Редагувати %{title}'
+      breadcrumb: "Редагувати"
       edit_file: 'Редагувати файл'
     controller:
       create: 'Файл успішно додано!'

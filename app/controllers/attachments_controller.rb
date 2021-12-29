@@ -4,20 +4,24 @@ class AttachmentsController < DashboardController
   before_action :set_attachment, only: %i[show edit update destroy add_attachment_to_album]
 
   def index
+    add_breadcrumb(t('.breadcrumb'))
     @attachments = policy_scope(Attachment)
     @attachments = @attachments.where('keywords LIKE ?', "%#{params[:tag]}%") if params[:tag].present?
     @attachments = authorize @attachments.paginate(page: params[:page])
   end
 
   def show
+    add_breadcrumb(@attachment.original_filename)
     @albums = policy_scope(Album)
   end
 
   def new
+    add_breadcrumb(t('.breadcrumb'))
     @attachment = policy_scope(Attachment).new
   end
 
   def create
+    add_breadcrumb(t('.breadcrumb'))
     @attachment = authorize policy_scope(Attachment).new(file_params)
     if @attachment.save
       redirect_to @attachment, success: t('attachments.controller.create')
@@ -27,7 +31,9 @@ class AttachmentsController < DashboardController
     end
   end
 
-  def edit; end
+  def edit
+    add_breadcrumb(@attachment.original_filename, attachment_path(@attachment))
+  end
 
   def update
     if @attachment.update(file_params)
