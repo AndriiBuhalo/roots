@@ -23,12 +23,12 @@ class LocationsController < DashboardController
   end
 
   def create
+    add_breadcrumb(t('locations.new.breadcrumb'))
     @location = authorize policy_scope(Location).new(location_params)
     if @location.save
       flash[:notice] = t('.controller.create')
       redirect_to @location
     else
-      add_breadcrumb(t('locations.new.breadcrumb'))
       render 'new'
     end
   end

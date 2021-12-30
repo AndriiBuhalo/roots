@@ -23,12 +23,12 @@ class ImportantDatesController < DashboardController
   end
 
   def create
+    add_breadcrumb(t('important_dates.new.breadcrumb'))
     @important_date = authorize collection.new(important_date_params)
     if @important_date.save
       flash[:notice] = t('.controller.create')
       redirect_to @important_date
     else
-      add_breadcrumb(t('important_dates.new.breadcrumb'))
       render 'new'
     end
   end

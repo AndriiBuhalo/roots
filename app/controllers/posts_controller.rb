@@ -25,13 +25,13 @@ class PostsController < DashboardController
   end
 
   def create
+    add_breadcrumb(t('posts.new.breadcrumb'))
     @post = policy_scope(Post).new(post_params)
     authorize @post
     if @post.save
       flash[:notice] = t('.controller.create')
       redirect_to @post
     else
-      add_breadcrumb(t('posts.new.breadcrumb'))
       render 'new'
     end
   end
