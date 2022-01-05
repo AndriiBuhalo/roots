@@ -1,7 +1,7 @@
 - title t('locations.edit.page_title', name: @location.name)
 .row
-    .col-6
-        h1 = t('.title')
-        = render 'locations/form'
-        = link_to t('.show'), @location, class:"btn btn-xs btn-success mt-3"
-        = link_to t('.back'), locations_path, class:"btn btn-xs btn-info mt-3 ml-3"
+  .col-6
+    h1 = t('.title')
+    = render 'locations/form'
+    = link_to t('.show'), @location, class:"btn btn-xs btn-success mt-3"
+    = link_to t('.back'), locations_path, class:"btn btn-xs btn-info mt-3 ml-3"
