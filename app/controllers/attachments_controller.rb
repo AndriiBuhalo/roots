@@ -33,9 +33,12 @@ class AttachmentsController < DashboardController
 
   def edit
     add_breadcrumb(@attachment.original_filename, attachment_path(@attachment))
+    add_breadcrumb(t('.breadcrumb'))
   end
 
   def update
+    add_breadcrumb(@attachment.original_filename, attachment_path(@attachment))
+    add_breadcrumb(t('.breadcrumb'))
     if @attachment.update(file_params)
       redirect_to @attachment, success: t('attachments.controller.update')
     else

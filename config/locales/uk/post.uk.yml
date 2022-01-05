@@ -36,6 +36,3 @@ uk:
     form:
       title_placeholder: "Тема допису"
       content_placeholder: "Зміст допису"
-  global:
-    forms:
-      submit: "Зберегти"

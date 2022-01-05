@@ -38,6 +38,3 @@ uk:
     form:
       event_placeholder: "Назва події"
       description_placeholder: "Опис події"
-  global:
-    forms:
-      submit: "Зберегти"

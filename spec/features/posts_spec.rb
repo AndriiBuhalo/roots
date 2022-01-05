@@ -11,7 +11,7 @@ RSpec.describe 'Posts', type: :feature do
     visit('/posts')
   end
 
-  context 'Create post' do
+  context 'when creating a post' do
     it 'creates' do
       click_link 'New Post'
       fill_in 'Title', with: 'Test title'
@@ -29,7 +29,7 @@ RSpec.describe 'Posts', type: :feature do
     end
   end
 
-  context 'Update post' do
+  context 'when updating a post' do
     it 'updates' do
       visit edit_post_path(post)
       fill_in 'Title', with: 'Test title'

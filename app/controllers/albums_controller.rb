@@ -32,10 +32,13 @@ class AlbumsController < DashboardController
 
   def edit
     add_breadcrumb(@album.name, album_path(@album))
+    add_breadcrumb(t('.breadcrumb'))
     @album.attachments.build
   end
 
   def update
+    add_breadcrumb(@album.name, album_path(@album))
+    add_breadcrumb(t('.breadcrumb'))
     if @album.update(album_params)
       redirect_to @album, success: t('albums.controller.update')
     else

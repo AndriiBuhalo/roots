@@ -11,7 +11,7 @@ RSpec.describe 'Users', type: :feature do
     expect(I18n.locale).to eq :en
     click_link I18n.t('global.header.uk_switch')
     expect(I18n.locale).to eq :uk
-    expect(page).to have_content(I18n.t('global.translate'))
+    expect(page).to have_content(I18n.t('global.translation_notification'))
     visit about_path
     expect(I18n.locale).to eq :uk
     visit contacts_path
@@ -28,7 +28,7 @@ RSpec.describe 'Users', type: :feature do
     expect(I18n.locale).to eq :en
     click_link I18n.t('global.header.uk_switch')
     expect(I18n.locale).to eq :uk
-    expect(page).to have_content(I18n.t('global.translate'))
+    expect(page).to have_content(I18n.t('global.translation_notification'))
     click_on I18n.t('global.header.log_out')
     expect(I18n.locale).to eq :uk
   end

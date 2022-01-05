@@ -34,7 +34,7 @@ RSpec.describe 'Users', type: :feature do
     expect(page).to have_link('Sign Up')
   end
 
-  context "Password doesn't confirmation" do
+  context 'when password is not confirmed' do
     before do
       visit new_user_registration_path
     end

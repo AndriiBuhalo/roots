@@ -1,0 +1,7 @@
+= simple_form_for(@location) do |f|
+  = f.input :name, placeholder: t('locations.form.name_placeholder')
+  = f.input :address, placeholder: t('locations.form.address_placeholder')
+  .d-flex.justify-content-between
+     = f.input :latitude, placeholder: t('locations.form.latitude_placeholder')
+     = f.input :longitude, placeholder: t('locations.form.longitude_placeholder')
+  = f.submit t('global.forms.submit'), class:"btn btn-primary"
