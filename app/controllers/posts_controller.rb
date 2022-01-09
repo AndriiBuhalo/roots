@@ -25,6 +25,7 @@ class PostsController < DashboardController
   end
 
   def create
+    add_breadcrumb(t('posts.new.breadcrumb'))
     @post = policy_scope(Post).new(post_params)
     authorize @post
     if @post.save
@@ -36,6 +37,8 @@ class PostsController < DashboardController
   end
 
   def update
+    add_breadcrumb(@post.title, post_path(@post))
+    add_breadcrumb(t('posts.edit.breadcrumb'))
     if @post.update(post_params)
       flash[:notice] = t('.controller.update')
       redirect_to @post

@@ -11,7 +11,7 @@ en:
     actions: "Actions"
     confirmation: "Are you sure"
   global:
-    translate: "The Roots is now in English!"
+    translation_notification: "The Roots is now in English!"
     devise:
       titles:
         sign_up: "Sign Up"
@@ -30,6 +30,7 @@ en:
       posts: "Posts"
       attachments: "Attachments"
       albums: "Albums"
+      locations: "Locations"
       person: "Person"
       important_dates: "Important Dates"
       invite: "Invite User"
@@ -46,3 +47,5 @@ en:
     public:
       alt: "The Roots"
     access: "You do not have access to this page"
+    forms:
+      submit: "Submit"

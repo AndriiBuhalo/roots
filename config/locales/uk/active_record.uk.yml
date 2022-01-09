@@ -4,3 +4,8 @@ uk:
       post:
         title: "Тема"
         content: "Зміст"
+      location:
+        name: "Назва"
+        address: "Адреса"
+        latitude: "Широта"
+        longitude: "Довгота"

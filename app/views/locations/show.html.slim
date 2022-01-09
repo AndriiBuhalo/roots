@@ -1,0 +1,17 @@
+- title t('locations.show.page_title', name: @location.name)
+.row
+  .col-6
+    p
+      strong = t('.name')
+      =< @location.name
+    p
+      strong = t('.address')
+      =< @location.address
+    p
+      strong = t('.latitude')
+      =< @location.latitude
+    p
+      strong = t('.longitude')
+      =< @location.longitude
+    = link_to t('.edit'), edit_location_path(@location), class:"btn btn-xs btn-success"
+    = link_to t('.back'), locations_path, class:"btn btn-xs btn-info ml-3"

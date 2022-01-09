@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_many :invitees, inverse_of: :invited_by, class_name: 'User', foreign_key: :invited_by_id, dependent: :nullify
   has_many :posts, inverse_of: :created_by, foreign_key: 'created_by_id', dependent: :destroy
+  has_many :locations, inverse_of: :created_by, foreign_key: 'created_by_id', dependent: :destroy
   has_many :important_dates, inverse_of: :created_by, foreign_key: 'created_by_id', dependent: :destroy
 
   validates :email, length: { maximum: 45 }

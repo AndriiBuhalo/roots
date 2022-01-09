@@ -36,6 +36,3 @@ en:
     form:
       title_placeholder: "Write your title"
       content_placeholder: "Write your content"
-  global:
-    forms:
-      submit: "Submit"

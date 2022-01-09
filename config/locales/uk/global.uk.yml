@@ -12,7 +12,7 @@ uk:
     actions: 'Дії'
     confirmation: 'Ви впевнені?'
   global:
-    translate: "The Roots тепер українською!"
+    translation_notification: "The Roots тепер українською!"
     devise:
       titles:
         sign_up: "Зареєструватись"
@@ -30,6 +30,7 @@ uk:
       important_dates: "Дати"
       posts: "Дописи"
       albums: "Альбоми"
+      locations: "Розташування"
       attachments: 'Файли'
       persons: "Люди"
       important_dates: "Важливі Події"
@@ -46,3 +47,5 @@ uk:
     public:
       alt: "Коріння"
     access: "Ви не маєте доступу до цієї сторінки"
+    forms:
+      submit: "Зберегти"

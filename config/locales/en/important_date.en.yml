@@ -38,6 +38,3 @@ en:
     form:
       event_placeholder: "Write your event"
       description_placeholder: "Write your description"
-  global:
-    forms:
-      submit: "Submit"
